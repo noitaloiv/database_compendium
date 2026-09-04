@@ -1,0 +1,2 @@
+"keywords": {{ include.page.keywords | default: empty | join: " " | jsonify }}
+

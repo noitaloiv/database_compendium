@@ -1,0 +1,200 @@
+// Innehållsorienterade tillägg till Just the Docs.
+
+.main-content {
+  line-height: 1.68;
+}
+
+.site-logo {
+  background-position: left center;
+  background-size: contain;
+}
+
+.theme-control {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.theme-label {
+  align-items: center;
+  display: inline-flex;
+  font-size: 0.85rem;
+  gap: 0.3rem;
+}
+
+.theme-select {
+  appearance: auto;
+  background: $body-background-color;
+  border: 1px solid $border-color;
+  border-radius: 0.45rem;
+  color: $body-text-color;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  min-height: 2.2rem;
+  padding: 0.25rem 0.45rem;
+}
+
+.theme-select:focus-visible {
+  outline: 3px solid $link-color;
+  outline-offset: 2px;
+}
+
+.course-hero {
+  background: linear-gradient(135deg, #173f5f 0%, #116466 100%);
+  border-radius: 1rem;
+  color: #ffffff;
+  margin: 0 0 2rem;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  position: relative;
+}
+
+.course-hero::after {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  content: "";
+  height: 15rem;
+  position: absolute;
+  right: -5rem;
+  top: -7rem;
+  width: 15rem;
+}
+
+.course-hero h1,
+.course-hero p {
+  color: #ffffff;
+  max-width: 48rem;
+  position: relative;
+  z-index: 1;
+}
+
+.course-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  letter-spacing: -0.03em;
+  margin-top: 0;
+}
+
+.course-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.feature-grid,
+.part-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  margin: 1.5rem 0 2rem;
+}
+
+.feature-card,
+.part-card {
+  background: $sidebar-color;
+  border: 1px solid $border-color;
+  border-radius: 0.8rem;
+  padding: 1.1rem 1.2rem;
+}
+
+.feature-card h3,
+.part-card h3 {
+  margin-top: 0;
+}
+
+.part-card a {
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 0.35rem;
+}
+
+.status-badge {
+  background: #d8eee8;
+  border-radius: 999px;
+  color: #0c4a46;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0.65rem;
+  text-transform: uppercase;
+}
+
+.figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+.figure figcaption {
+  margin-top: 0.65rem;
+  color: $body-text-color;
+  font-size: 0.9rem;
+  opacity: 0.82;
+  text-align: left;
+}
+
+.learning-objectives {
+  border-left: 0.25rem solid $blue-200;
+  padding-left: 1rem;
+}
+
+.table-wrapper table {
+  min-width: 100%;
+}
+
+.answer {
+  border-left: 0.25rem solid $border-color;
+  margin: 1rem 0;
+  padding: 0.2rem 1rem;
+}
+
+.answer summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.4rem 0;
+}
+
+kbd {
+  background: $sidebar-color;
+  border: 1px solid $border-color;
+  border-bottom-width: 2px;
+  border-radius: 0.25rem;
+  font-size: 0.8em;
+  padding: 0.1rem 0.35rem;
+}
+
+@media (max-width: 50rem) {
+  .theme-label span:last-child {
+    display: none;
+  }
+
+  .theme-select {
+    max-width: 8rem;
+  }
+}
+
+@media print {
+  .theme-control,
+  #search-button {
+    display: none !important;
+  }
+
+  .course-hero {
+    background: none;
+    border: 2px solid #173f5f;
+    color: #000000;
+  }
+
+  .course-hero h1,
+  .course-hero p {
+    color: #000000;
+  }
+}

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1050" role="img" aria-labelledby="title desc">
+  <title id="title">Konceptuell modell för Nordic Brews orderområde</title>
+  <desc id="desc">Kund gör beställning, beställning innehåller orderrad och orderrad avser produkt. Multipliciteter anges i båda ändar. Attribut och konceptuella identifierare visas utan främmande nycklar.</desc>
+  <defs><style>.t{font-family:Inter,Arial,sans-serif;fill:#173f5f}.h{font-size:30px;font-weight:700}.sh{font-size:22px;font-weight:700}.b{font-size:16px}.sm{font-size:14px}.entity{fill:#fff;stroke:#173f5f;stroke-width:2.5;rx:14}.head{fill:#116466}.assoc{stroke:#173f5f;stroke-width:3.5;fill:none}.badge{fill:#fff4cf;stroke:#e0a800;stroke-width:1.5;rx:10}</style></defs>
+  <rect width="1500" height="1050" fill="#f7f9fb"/>
+  <text class="t h" x="750" y="58" text-anchor="middle">Konceptuell ordermodell – Nordic Brew</text>
+  <text class="t sm" x="750" y="88" text-anchor="middle">ID betyder verksamhetsidentifierare, inte implementerad primärnyckel.</text>
+
+  <g transform="translate(90,170)">
+    <rect class="entity" width="390" height="270"/>
+    <path class="head" d="M14 0 H376 Q390 0 390 14 V58 H0 V14 Q0 0 14 0"/>
+    <text x="24" y="39" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="700" fill="#fff">KUND</text>
+    <rect class="badge" x="22" y="82" width="40" height="28"/><text class="t sm" x="42" y="102" text-anchor="middle" font-weight="700">ID</text>
+    <text class="t b" x="78" y="102">Kundnummer</text>
+    <text class="t b" x="78" y="143">Namn</text><text class="t b" x="78" y="184">Epost</text>
+    <text class="t sm" x="24" y="236">Person eller organisation</text>
+  </g>
+
+  <g transform="translate(1020,170)">
+    <rect class="entity" width="390" height="270"/>
+    <path class="head" d="M14 0 H376 Q390 0 390 14 V58 H0 V14 Q0 0 14 0"/>
+    <text x="24" y="39" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="700" fill="#fff">BESTÄLLNING</text>
+    <rect class="badge" x="22" y="82" width="40" height="28"/><text class="t sm" x="42" y="102" text-anchor="middle" font-weight="700">ID</text>
+    <text class="t b" x="78" y="102">Ordernummer</text>
+    <text class="t b" x="78" y="143">Orderdatum</text><text class="t b" x="78" y="184">Status</text>
+    <text class="t sm" x="24" y="236">Kundens åtagande att köpa</text>
+  </g>
+
+  <line class="assoc" x1="480" y1="305" x2="1020" y2="305"/>
+  <rect x="670" y="274" width="160" height="62" rx="31" fill="#f7e7df" stroke="#173f5f" stroke-width="2"/>
+  <text class="t b" x="750" y="312" text-anchor="middle" font-weight="700">gör</text>
+  <text class="t sh" x="520" y="279">1..1</text>
+  <text class="t sh" x="905" y="279">0..*</text>
+
+  <g transform="translate(1020,650)">
+    <rect class="entity" width="390" height="270"/>
+    <path class="head" d="M14 0 H376 Q390 0 390 14 V58 H0 V14 Q0 0 14 0"/>
+    <text x="24" y="39" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="700" fill="#fff">ORDERRAD</text>
+    <rect class="badge" x="22" y="82" width="40" height="28"/><text class="t sm" x="42" y="102" text-anchor="middle" font-weight="700">ID</text>
+    <text class="t b" x="78" y="102">Beställning + Produkt</text>
+    <text class="t b" x="78" y="143">Antal</text><text class="t b" x="78" y="184">AvtalatStyckpris</text>
+    <text class="t sm" x="24" y="236">Ett affärsfaktum i en order</text>
+  </g>
+
+  <line class="assoc" x1="1215" y1="440" x2="1215" y2="650"/>
+  <rect x="1137" y="512" width="156" height="62" rx="31" fill="#f7e7df" stroke="#173f5f" stroke-width="2"/>
+  <text class="t b" x="1215" y="550" text-anchor="middle" font-weight="700">innehåller</text>
+  <text class="t sh" x="1235" y="480">1..1</text>
+  <text class="t sh" x="1235" y="635">1..*</text>
+
+  <g transform="translate(90,650)">
+    <rect class="entity" width="390" height="270"/>
+    <path class="head" d="M14 0 H376 Q390 0 390 14 V58 H0 V14 Q0 0 14 0"/>
+    <text x="24" y="39" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="700" fill="#fff">PRODUKT</text>
+    <rect class="badge" x="22" y="82" width="40" height="28"/><text class="t sm" x="42" y="102" text-anchor="middle" font-weight="700">ID</text>
+    <text class="t b" x="78" y="102">Produktnummer</text>
+    <text class="t b" x="78" y="143">Produktnamn</text><text class="t b" x="78" y="184">Aktuellt listpris</text>
+    <text class="t sm" x="24" y="236">Säljbar artikeltyp</text>
+  </g>
+
+  <line class="assoc" x1="480" y1="785" x2="1020" y2="785"/>
+  <rect x="670" y="754" width="160" height="62" rx="31" fill="#f7e7df" stroke="#173f5f" stroke-width="2"/>
+  <text class="t b" x="750" y="792" text-anchor="middle" font-weight="700">avser</text>
+  <text class="t sh" x="520" y="759">1..1</text>
+  <text class="t sh" x="905" y="759">0..*</text>
+
+  <rect x="545" y="410" width="410" height="190" rx="18" fill="#e8f3f1" stroke="#116466" stroke-width="2"/>
+  <text class="t sh" x="750" y="451" text-anchor="middle">Tre prövbara meningar</text>
+  <text class="t sm" x="575" y="490">• Varje beställning görs av exakt en kund.</text>
+  <text class="t sm" x="575" y="524">• En beställning innehåller minst en orderrad.</text>
+  <text class="t sm" x="575" y="558">• En produkt kan finnas utan att ha beställts.</text>
+  <text class="t sm" x="750" y="995" text-anchor="middle">Inga FK-attribut visas: översättningen till relationsschema sker i nästa kapitel.</text>
+</svg>
+

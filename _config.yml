@@ -1,0 +1,62 @@
+title: Databaser
+description: "Ett kurskompendium för Informationssystem A: Databaser (2IS007)"
+theme: just-the-docs
+lang: sv-SE
+permalink: pretty
+
+logo: "/assets/images/databaser-logo.svg"
+
+url: ""
+baseurl: ""
+
+search_enabled: true
+search:
+  heading_level: 3
+  previews: 4
+  preview_words_before: 8
+  preview_words_after: 12
+  tokenizer_separator: /[\s\-/]+/
+  rel_url: true
+  button: true
+  focus_shortcut_key: "k"
+
+heading_anchors: true
+color_scheme: databaser
+enable_copy_code_button: true
+nav_sort: case_insensitive
+back_to_top: true
+back_to_top_text: Till sidans början
+callouts_level: quiet
+
+nav_external_links:
+  - title: Kursplan 2IS007
+    url: https://www.uu.se/utbildning/kursplan?query=d21c4f3c-a296-11f0-af30-479161e74134
+    opens_in_new_tab: true
+
+callouts:
+  note:
+    title: Observera
+    color: blue
+  important:
+    title: Viktigt
+    color: yellow
+  mistake:
+    title: Vanlig missuppfattning
+    color: red
+  exercise:
+    title: Övning
+    color: green
+
+exclude:
+  - README.md
+  - STYLEGUIDE.md
+  - docs/planering
+  - Gemfile
+  - Gemfile.lock
+  - scripts
+  - vendor
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false

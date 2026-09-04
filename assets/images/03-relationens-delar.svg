@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Relationens delar</title>
+  <desc id="desc">Relationen Kund visas som en tabell. KundID, Namn och Epost är attribut. En markerad rad är en tupel. Under tabellen visas attributens olika domäner.</desc>
+  <defs>
+    <marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#173f5f"/></marker>
+    <style>.t{font-family:Inter,Arial,sans-serif;fill:#173f5f}.h{font-size:30px;font-weight:700}.sh{font-size:21px;font-weight:700}.b{font-size:17px}.sm{font-size:15px}.line{stroke:#173f5f;stroke-width:2.5;fill:none;marker-end:url(#arrow3)}</style>
+  </defs>
+  <rect width="1200" height="680" fill="#f7f9fb"/>
+  <text class="t h" x="120" y="70">Relation: KUND</text>
+  <text class="t sm" x="120" y="100">Relationsschema: KUND(KundID, Namn, Epost)</text>
+
+  <rect x="230" y="160" width="720" height="250" rx="10" fill="#ffffff" stroke="#173f5f" stroke-width="2.5"/>
+  <rect x="230" y="160" width="720" height="58" rx="10" fill="#116466"/>
+  <rect x="230" y="208" width="720" height="10" fill="#116466"/>
+  <rect x="230" y="278" width="720" height="62" fill="#e8f3f1"/>
+  <line x1="400" y1="160" x2="400" y2="410" stroke="#87939f"/>
+  <line x1="650" y1="160" x2="650" y2="410" stroke="#87939f"/>
+  <line x1="230" y1="218" x2="950" y2="218" stroke="#173f5f" stroke-width="2"/>
+  <line x1="230" y1="278" x2="950" y2="278" stroke="#a4b0ba"/>
+  <line x1="230" y1="340" x2="950" y2="340" stroke="#a4b0ba"/>
+  <g font-family="Inter,Arial,sans-serif" font-size="18">
+    <text x="315" y="196" text-anchor="middle" fill="#ffffff" font-weight="700">KundID</text>
+    <text x="525" y="196" text-anchor="middle" fill="#ffffff" font-weight="700">Namn</text>
+    <text x="800" y="196" text-anchor="middle" fill="#ffffff" font-weight="700">Epost</text>
+  </g>
+  <g class="t b">
+    <text x="315" y="255" text-anchor="middle">17</text><text x="525" y="255" text-anchor="middle">Mira Ek</text><text x="800" y="255" text-anchor="middle">mira@example.test</text>
+    <text x="315" y="317" text-anchor="middle">24</text><text x="525" y="317" text-anchor="middle">Samir Noor</text><text x="800" y="317" text-anchor="middle">samir@example.test</text>
+    <text x="315" y="379" text-anchor="middle">31</text><text x="525" y="379" text-anchor="middle">Lo Chen</text><text x="800" y="379" text-anchor="middle">lo@example.test</text>
+  </g>
+
+  <text class="t sh" x="80" y="200">Attribut</text>
+  <path class="line" d="M160 205 C190 205 190 185 220 185"/>
+  <text class="t sh" x="1020" y="315">Tupel</text>
+  <path class="line" d="M1010 309 H962"/>
+
+  <text class="t sh" x="120" y="500">Domäner</text>
+  <rect x="230" y="455" width="205" height="112" rx="14" fill="#dceaf4" stroke="#173f5f" stroke-width="2"/>
+  <text class="t b" x="332" y="490" text-anchor="middle" font-weight="700">KundID</text>
+  <text class="t sm" x="332" y="522" text-anchor="middle">positivt heltal</text>
+  <text class="t sm" x="332" y="548" text-anchor="middle">unikt och obligatoriskt</text>
+  <rect x="488" y="455" width="205" height="112" rx="14" fill="#f7e7df" stroke="#173f5f" stroke-width="2"/>
+  <text class="t b" x="590" y="490" text-anchor="middle" font-weight="700">Namn</text>
+  <text class="t sm" x="590" y="522" text-anchor="middle">text enligt namnregler</text>
+  <text class="t sm" x="590" y="548" text-anchor="middle">obligatoriskt</text>
+  <rect x="746" y="455" width="205" height="112" rx="14" fill="#fff4cf" stroke="#173f5f" stroke-width="2"/>
+  <text class="t b" x="848" y="490" text-anchor="middle" font-weight="700">Epost</text>
+  <text class="t sm" x="848" y="522" text-anchor="middle">normaliserad text</text>
+  <text class="t sm" x="848" y="548" text-anchor="middle">unik i detta schema</text>
+  <text class="t sm" x="600" y="630" text-anchor="middle">Tabellen är en presentation; relationen är den logiska strukturen.</text>
+</svg>
+
