@@ -1,0 +1,992 @@
+{"0": {
+    "doc": "1. Data och information",
+    "title": "1. Data och information",
+    "content": "Föreställ dig att du hittar följande anteckning: . 1042, 2027-01-15, 34900 . Anteckningen innehåller data, men det är svårt att veta vad den säger. 1042 kan vara ett ordernummer, ett postnummer eller antalet deltagare i en studie. 34900 kan betyda 34 900 kronor, 349 kronor uttryckt i öre eller något helt annat. Det första kapitlet börjar därför inte med programkod. Det börjar med den mer grundläggande frågan: vad krävs för att lagrade värden ska gå att förstå? . ",
+    "url": "/docs/del-1-grunder/data-och-information/",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/"
+  },"1": {
+    "doc": "1. Data och information",
+    "title": "Efter kapitlet kan du",
+    "content": ". | förklara skillnaden mellan lagrade data och tolkad information; | visa varför ett värde behöver ett sammanhang; | identifiera vilka förklaringar som saknas i en enkel registrering. | . ",
+    "url": "/docs/del-1-grunder/data-och-information/#efter-kapitlet-kan-du",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#efter-kapitlet-kan-du"
+  },"2": {
+    "doc": "1. Data och information",
+    "title": "1.1 Ett värde berättar sällan hela historien",
+    "content": "Om vi lägger till rubriker blir anteckningen lättare att läsa: . | OrderID | OrderDate | TotalAmountOre | . | 1042 | 2027-01-15 | 34900 | . Nu kan vi tolka raden som: beställning 1042 registrerades den 15 januari 2027 och uppgår till 349 kronor. Rubrikerna och förklaringen av enheten gör inte värdena större eller mer exakta. De gör dem begripliga i ett sammanhang. Figur 1.1. Samma värden blir användbara först när vi vet vad de representerar. Vi använder följande enkla arbetsdefinitioner: . | data är representationer som kan registreras, lagras och bearbetas; | information är data som någon kan tolka och använda i ett visst sammanhang. | . Gränsen är inte absolut. Ett klockslag är information för resenären som undrar när bussen går, men kan vara ett råvärde i ett system som beräknar förseningar. Det viktiga är att alltid fråga: information för vem och för vilken fråga? . ",
+    "url": "/docs/del-1-grunder/data-och-information/#11-ett-v%C3%A4rde-ber%C3%A4ttar-s%C3%A4llan-hela-historien",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#11-ett-värde-berättar-sällan-hela-historien"
+  },"3": {
+    "doc": "1. Data och information",
+    "title": "1.2 Samma text kan betyda olika saker",
+    "content": "Betrakta värdet A12 i tre verksamheter: . | Verksamhet | Möjlig betydelse | . | Bibliotek | Hylla A12 | . | Universitet | Sal A12 | . | Lager | Plats A12 | . Tecknen är identiska, men betydelsen bestäms av verksamheten. Detta får två konsekvenser: . | ett datasystem behöver tydliga namn och regler; | den som utformar systemet måste förstå vad verksamheten försöker hålla reda på. | . Figur 1.2. Formatet avslöjar inte ensamt vad ett värde betyder. Datorn kan lagra A12 utan att förstå om värdet betecknar en hylla, en sal eller en lagerplats. Betydelsen kommer från överenskommelser, regler och användning. ",
+    "url": "/docs/del-1-grunder/data-och-information/#12-samma-text-kan-betyda-olika-saker",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#12-samma-text-kan-betyda-olika-saker"
+  },"4": {
+    "doc": "1. Data och information",
+    "title": "1.3 Vad kan registreras?",
+    "content": "Data kan beskriva många slags företeelser: . | en person som är medlem i en förening; | en bok som kan lånas; | en betalning som genomförts; | temperaturen vid en viss tidpunkt; | en plats som ett paket ska levereras till. | . Det kan också finnas data om samma företeelse. För en bok kan vi registrera exempelvis titel, författare och utgivningsår. För ett lån kan vi registrera vilken bok som lånades, av vem och när den ska lämnas tillbaka. Vilka uppgifter som är relevanta beror på syftet. Ett bibliotek behöver vanligen bokens titel men inte färgen på omslaget. En bokhandel kan däremot behöva skilja mellan olika utgåvor och omslag. Det finns därför ingen universell lista över vilka data som är ”rätt”. ",
+    "url": "/docs/del-1-grunder/data-och-information/#13-vad-kan-registreras",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#13-vad-kan-registreras"
+  },"5": {
+    "doc": "1. Data och information",
+    "title": "Exempel: Nordic Brew",
+    "content": "Nordic Brew är ett fiktivt kafferosteri som återkommer genom kompendiet. För en beställning kan företaget behöva registrera: . | Fråga | Exempel på registrerat värde | . | Vilken beställning? | 1042 | . | När gjordes den? | 2027-01-15 | . | Vilken kund? | C-017 | . | Vilken produkt? | COF-250 | . | Hur många? | 2 | . Listan är fortfarande inte färdig. Betyder 2 två påsar, två kilogram eller två kartonger? Ett värde behöver både ett namn och en överenskommen betydelse. ",
+    "url": "/docs/del-1-grunder/data-och-information/#exempel-nordic-brew",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#exempel-nordic-brew"
+  },"6": {
+    "doc": "1. Data och information",
+    "title": "1.4 Från observation till registrering",
+    "content": "När något registreras görs alltid ett urval. En barista kan se en kund, höra en beställning och känna igen en återkommande besökare. Systemet lagrar endast de delar som någon har valt att representera. Figur 1.3. Registrerade data är resultatet av ett urval, inte en fullständig kopia av en händelse. Processen är inte alltid linjär. Om användarna inte kan besvara sina frågor behöver registreringen eller dess betydelse omprövas. Data är inte en neutral kopia av verkligheten. Att registrera något innebär att välja vad som ska tas med, hur det ska betecknas och vad som lämnas utanför. ",
+    "url": "/docs/del-1-grunder/data-och-information/#14-fr%C3%A5n-observation-till-registrering",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#14-från-observation-till-registrering"
+  },"7": {
+    "doc": "1. Data och information",
+    "title": "1.5 Stanna upp och pröva",
+    "content": "En träningsapp visar värdet 72. Skriv ned minst tre möjliga betydelser. För varje betydelse, ange vilken ytterligare förklaring som behövs. Jämför med ett möjligt resonemang 72 kan exempelvis vara puls i slag per minut, kroppsvikt i kilogram eller antalet träningspass. Vi behöver veta vad som har mätts, enheten, vem eller vad mätningen gäller och ofta även tidpunkten. ",
+    "url": "/docs/del-1-grunder/data-och-information/#15-stanna-upp-och-pr%C3%B6va",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#15-stanna-upp-och-pröva"
+  },"8": {
+    "doc": "1. Data och information",
+    "title": "1.6 Överföringsövning: en studentregistrering",
+    "content": "Du får följande rad: . 20261234, 2IS007, 2026-09-04, G . | Föreslå en rimlig rubrik för varje värde. | Lista minst fyra frågor som måste besvaras innan raden kan tolkas säkert. | Ge ett exempel på ett missförstånd som kan uppstå om förklaringen saknas. | . ",
+    "url": "/docs/del-1-grunder/data-och-information/#16-%C3%B6verf%C3%B6rings%C3%B6vning-en-studentregistrering",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#16-överföringsövning-en-studentregistrering"
+  },"9": {
+    "doc": "1. Data och information",
+    "title": "Kontrollfrågor",
+    "content": ". | Varför är 34900 inte tillräckligt för att förstå ett belopp? | Hur kan samma värde vara data i ett sammanhang och information i ett annat? | Varför måste den som utformar en registrering förstå dess användningsområde? | . Korta svar . | Vi saknar bland annat enhet, valuta och vad beloppet avser. | Skillnaden beror på vilken fråga som ställs och vem som tolkar värdet. | Syftet avgör vilka uppgifter och förklaringar som behövs. | . ",
+    "url": "/docs/del-1-grunder/data-och-information/#kontrollfr%C3%A5gor",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#kontrollfrågor"
+  },"10": {
+    "doc": "1. Data och information",
+    "title": "Sammanfattning",
+    "content": ". | Data kan lagras, men behöver ett sammanhang för att bli begriplig information. | Rubriker, enheter och verksamhetsregler hjälper oss att tolka värden. | Registrering är ett urval: allt i verkligheten blir inte data i systemet. | Nästa kapitel visar varför sammanhörande data ofta behöver hanteras i en databas. | . ",
+    "url": "/docs/del-1-grunder/data-och-information/#sammanfattning",
+    "keywords": "data information värde sammanhang registrera"
+
+
+    "relUrl": "/docs/del-1-grunder/data-och-information/#sammanfattning"
+  },"11": {
+    "doc": "2. Relationsmodellen",
+    "title": "2. Relationsmodellen",
+    "content": "I föregående kapitel såg vi att Nordic Brew behöver hålla reda på kunder, beställningar och produkter. Det är frestande att omedelbart öppna ett verktyg och skapa tabeller. Men en tabell i ett gränssnitt är bara en visuell form. För att kunna bedöma om strukturen är korrekt behöver vi en modell som talar om vad rader, kolumner, nycklar och samband betyder. Relationsmodellen ger ett sådant språk. Den beskriver data som relationer och definierar hur giltighet och härledning kan uttryckas oberoende av hur värdena råkar ligga på disk. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/"
+  },"12": {
+    "doc": "2. Relationsmodellen",
+    "title": "Efter kapitlet kan du",
+    "content": ". | förklara relation, attribut, tupel, domän, relationsschema och relationsinstans; | skilja relationsmodellens begrepp från SQL:s praktiska tabeller; | identifiera supernycklar, kandidatnycklar, primärnyckel och alternativnycklar; | förklara främmande nycklar och referentiell integritet; | resonera om NULL utan att behandla det som noll eller tom text; | granska en liten relationsstruktur och avgöra vilka rader som är giltiga; | beskriva relevanta skillnader mellan den logiska modellen och SQLite. | . ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#efter-kapitlet-kan-du",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#efter-kapitlet-kan-du"
+  },"13": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.1 Relationer, tupler och attribut",
+    "content": "En relation kan informellt förstås som en tabell, men den formella idén är mer precis. Relationen har: . | ett namn; | en uppsättning namngivna attribut; | en domän för varje attribut, alltså vilka slags värden attributet kan anta; | en mängd tupler, där varje tupel har ett värde för varje attribut. | . I ett DBMS visas attribut normalt som kolumner och tupler som rader. | KundID | Namn | Epost | . | 17 | Mira Ek | mira@example.test | . | 24 | Samir Noor | samir@example.test | . | 31 | Lo Chen | lo@example.test | . Tabellen ovan kan beskriva en relation med namnet KUND. Attributen är KundID, Namn och Epost; varje rad representerar en tupel. Ett relationsschema anger relationens namn och attribut samt tillhörande regler. Vi använder följande tydliga textnotation: . KUND(KundID, Namn, Epost) PK: KundID AK: Epost . PK markerar vald primärnyckel och AK en alternativ kandidatnyckel. Den aktuella mängden tupler kallas relationens instans. Figur 2.1. En praktisk tabellrepresentation av relationen KUND. Domänerna begränsar vilka värden som har avsedd betydelse. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#21-relationer-tupler-och-attribut",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#21-relationer-tupler-och-attribut"
+  },"14": {
+    "doc": "2. Relationsmodellen",
+    "title": "Ordningen bär inte betydelsen",
+    "content": "I den formella relationsmodellen är en relation en mängd. Därför gäller: . | tuplerna har ingen inneboende första eller sista position; | attribut identifieras med namn, inte med visuell kolumnposition; | samma tupel förekommer inte flera gånger i samma relation. | . SQL är inspirerat av men inte identiskt med den formella modellen. Ett SQL-resultat kan innehålla dubletter om DISTINCT inte används, och ett praktiskt DBMS visar ofta rader i en tillfällig fysisk ordning. Om ordningen i ett SQL-resultat spelar roll måste den anges med ORDER BY. ”Raden ovanför” är inte ett stabilt relationsbegrepp. En order ska hänvisa till sin kund med ett identifierande värde, inte genom att ligga nära kunden i en fil eller på skärmen. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#ordningen-b%C3%A4r-inte-betydelsen",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#ordningen-bär-inte-betydelsen"
+  },"15": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.2 Domäner: mer än en lagringstyp",
+    "content": "En domän är den mängd tillåtna värden som har samma avsedda slag och kan behandlas på ett meningsfullt sätt. KundID och Antal kan båda lagras som heltal, men de tillhör inte därför samma begreppsliga domän. Det är meningsfullt att jämföra två kundidentifierare för likhet, men inte att addera ett kund-ID till en orderkvantitet. Domänen för Antal kan exempelvis beskrivas som: . heltal där Antal &gt; 0 . En SQL-datatyp uttrycker en del av domänen, men sällan hela betydelsen. För Antal behövs både typ och ett villkor. För Epost kan korrekt syntax kontrolleras delvis, medan frågan om adressen faktiskt tillhör kunden kräver en annan process. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#22-dom%C3%A4ner-mer-%C3%A4n-en-lagringstyp",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#22-domäner-mer-än-en-lagringstyp"
+  },"16": {
+    "doc": "2. Relationsmodellen",
+    "title": "Atomära värden",
+    "content": "Varje attributvärde ska vara ett värde ur sin domän, inte en dold lista med värden som databasen förväntas dela upp i efterhand. Följande kolumn gör det svårt att kontrollera och söka telefonnummer: . | KundID | Telefoner | . | 17 | 070-1111111; 018-222222 | . Om verksamheten behöver behandla numren var för sig bör de modelleras var för sig. ”Atomär” är dock beroende av användningen. En postadress kan vara ett enda textvärde om ingen del någonsin hanteras separat, men bör delas eller modelleras som ett eget objekt om postnummer, land och adresshistorik har egna regler. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#atom%C3%A4ra-v%C3%A4rden",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#atomära-värden"
+  },"17": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.3 Nycklar och identifiering",
+    "content": "En supernyckel är en uppsättning attribut vars kombinerade värden unikt identifierar varje tupel i en relation. Om KundID är unikt är både {KundID} och {KundID, Namn} supernycklar. En kandidatnyckel är en minimal supernyckel. Minimal betyder att inget attribut kan tas bort och ändå bevara unikheten. {KundID, Namn} är därför inte en kandidatnyckel om {KundID} redan är unikt. En kandidatnyckel väljs till primärnyckel. Övriga kandidatnycklar kallas alternativnycklar. Valet av primärnyckel gör inte de andra kandidaterna mindre unika; de behöver fortfarande ett unikhetsvillkor om regeln ska upprätthållas. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#23-nycklar-och-identifiering",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#23-nycklar-och-identifiering"
+  },"18": {
+    "doc": "2. Relationsmodellen",
+    "title": "Naturlig eller artificiell nyckel",
+    "content": "En naturlig nyckel har betydelse i verksamheten, exempelvis ett etablerat produktnummer. En artificiell nyckel (surrogatnyckel) införs främst för identifiering i systemet, exempelvis ett genererat heltal. Ett artificiellt ID löser inte alla identifieringsfrågor. Om två kundrader inte får ha samma e-postadress måste Epost fortfarande vara unikt, även om KundID är primärnyckel. Samtidigt är e-post ofta en dålig primärnyckel: den kan ändras, innehåller personuppgifter och kan vara svår att hantera i alla sammanhang. Bedöm en nyckelkandidat utifrån: . | unikhet i hela den relevanta populationen; | minimalitet; | stabilitet över tid; | om ett värde alltid finns när objektet skapas; | lämplighet att sprida till andra relationer och system. | . ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#naturlig-eller-artificiell-nyckel",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#naturlig-eller-artificiell-nyckel"
+  },"19": {
+    "doc": "2. Relationsmodellen",
+    "title": "Sammansatta nycklar",
+    "content": "I en order får samma produkt normalt förekomma högst en gång. Då kan paret {OrderID, ProduktID} identifiera en orderrad: . ORDERRAD(OrderID, ProduktID, Antal, AvtalatStyckprisOre) PK: (OrderID, ProduktID) . Varken OrderID eller ProduktID räcker ensamt, men kombinationen gör det. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#sammansatta-nycklar",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#sammansatta-nycklar"
+  },"20": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.4 Främmande nycklar och samband",
+    "content": "En främmande nyckel är ett eller flera attribut i en relation vars värde ska motsvara en kandidatnyckel i en refererad relation – eller vara NULL om sambandet är valfritt och kolumnen tillåter det. Anta schemana: . KUND(KundID, Namn, Epost) PK: KundID BESTALLNING(OrderID, Orderdatum, KundID) PK: OrderID FK: KundID → KUND.KundID . Värdet BESTALLNING.KundID = 17 representerar att beställningen hör till den kund vars KundID är 17. Det är lika värden och ett deklarerat villkor som skapar den logiska kopplingen. Figur 2.2. En liten relationsstruktur. Pilarna visar referenser från främmande nyckel till refererad nyckel, inte fysisk lagring. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#24-fr%C3%A4mmande-nycklar-och-samband",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#24-främmande-nycklar-och-samband"
+  },"21": {
+    "doc": "2. Relationsmodellen",
+    "title": "Referentiell integritet",
+    "content": "Referentiell integritet innebär här att varje icke-tomt kund-ID i BESTALLNING måste finnas i KUND. Följande rad är därför ogiltig om kund 99 saknas: . | OrderID | Orderdatum | KundID | . | 1048 | 2027-01-17 | 99 | . När en refererad rad tas bort måste databasen följa en uttalad policy, till exempel: . | vägra borttagningen (RESTRICT/NO ACTION); | ta bort beroende rader (CASCADE); | sätta referensen till NULL om det är tillåtet (SET NULL). | . Ingen policy är generellt bäst. Att kaskadradera från en kund till historiska beställningar kan vara katastrofalt, medan kaskad från en testorder till dess orderrader kan vara rimlig. Policyn ska följa betydelse och ansvar. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#referentiell-integritet",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#referentiell-integritet"
+  },"22": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.5 Fyra grupper av integritetsvillkor",
+    "content": "Ett integritetsvillkor avgränsar tillåtna databastillstånd. En användbar indelning är: . | Grupp | Fråga | Exempel | . | Domänintegritet | Är värdet av rätt slag och inom tillåtet område? | Antal &gt; 0 | . | Nyckel-/entitetsintegritet | Kan varje rad identifieras entydigt? | unik och icke-tom primärnyckel | . | Referentiell integritet | Hänvisar värdet till en tillåten rad? | varje ProduktID i orderrad finns i produkt | . | Verksamhetsregel | Är tillståndet giltigt för just verksamheten? | leveransdatum får inte ligga före orderdatum | . Alla regler kan inte eller bör inte uttryckas med ett enkelt kolumnvillkor. En regel som spänner över många rader, tid eller externa händelser kan behöva applikationslogik, transaktioner eller andra mekanismer. Målet är inte att trycka in varje regel i en CHECK, utan att göra ansvaret explicit. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#25-fyra-grupper-av-integritetsvillkor",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#25-fyra-grupper-av-integritetsvillkor"
+  },"23": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.6 NULL: frånvaro av ett känt värde",
+    "content": "NULL är SQL:s markör för att ett vanligt värde saknas. Det kan bero på att värdet är okänt, ännu inte registrerat eller inte tillämpligt. Dessa orsaker är inte alltid likvärdiga, vilket är ett skäl att använda NULL med eftertanke. NULL är inte: . | talet noll; | en tom text ''; | ordet 'NULL'; | ett värde som är lika med ett annat NULL. | . Jämförelsen Leveransdatum = NULL ger därför inte TRUE. I SQL används: . WHERE Leveransdatum IS NULL . ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#26-null-fr%C3%A5nvaro-av-ett-k%C3%A4nt-v%C3%A4rde",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#26-null-frånvaro-av-ett-känt-värde"
+  },"24": {
+    "doc": "2. Relationsmodellen",
+    "title": "Trevärd logik",
+    "content": "När ett jämförelseled saknas kan resultatet bli UNKNOWN utöver TRUE och FALSE. En WHERE-sats behåller bara rader där villkoret blir TRUE. Om RabattProcent är NULL blir uttrycket RabattProcent &gt; 0 alltså UNKNOWN, och raden väljs inte. Samma rad väljs inte heller av NOT (RabattProcent &gt; 0), eftersom NOT UNKNOWN fortfarande är UNKNOWN. Formuleringen ”NULL betyder okänd” är en förenkling. I en viss kolumn kan det betyda ”inte tillämpligt” eller ”ännu inte registrerat”. Om skillnaden är viktig behöver modellen uttrycka den, exempelvis med en status eller en annan struktur. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#trev%C3%A4rd-logik",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#trevärd-logik"
+  },"25": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.7 Relationsmodell och SQL är inte samma sak",
+    "content": "Relationsmodellen är en abstrakt modell. SQL är en språkfamilj som realiserar många av dess idéer men också innehåller praktiska utvidgningar. | Relationsmodell | SQL/DBMS i praktiken | . | Relation är en mängd utan dubletter | Frågeresultat kan vara en ”bag” med dubletter | . | Ingen inneboende radordning | Visningsordning kan variera; ORDER BY krävs | . | Attributvärden kommer ur domäner | SQL-typer och villkor approximerar domäner | . | Klassisk modell använder vanliga domänvärden | SQL använder NULL och trevärd logik | . | Logisk struktur är oberoende av lagring | DBMS väljer filer, sidor, index och planer | . Skillnaderna gör inte SQL ”fel”. De gör det viktigt att säga om ett resonemang gäller den formella modellen, SQL-standarden eller en viss produkt. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#27-relationsmodell-och-sql-%C3%A4r-inte-samma-sak",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#27-relationsmodell-och-sql-är-inte-samma-sak"
+  },"26": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.8 SQLite: kursverktyg med egna regler",
+    "content": "SQLite är litet, distribuerbart och mycket användbart i undervisning, men det ska inte presenteras som om allt beteende gäller varje relations-DBMS. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#28-sqlite-kursverktyg-med-egna-regler",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#28-sqlite-kursverktyg-med-egna-regler"
+  },"27": {
+    "doc": "2. Relationsmodellen",
+    "title": "Dynamisk typning och STRICT",
+    "content": "I vanlig SQLite är typen i hög grad knuten till det lagrade värdet. Kolumnens deklaration ger en type affinity – en rekommenderad konvertering – snarare än samma rigida kontroll som i många andra DBMS. Från SQLite 3.37 kan en tabell deklareras STRICT, vilket ger striktare typkontroll. Kursens exempelschema använder STRICT när det är möjligt: . CREATE TABLE Kund ( KundID INTEGER PRIMARY KEY, Namn TEXT NOT NULL, Epost TEXT NOT NULL UNIQUE ) STRICT; . Detta gör fel synligare för nybörjaren utan att låtsas att TEXT ensam uttrycker hela domänen. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#dynamisk-typning-och-strict",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#dynamisk-typning-och-strict"
+  },"28": {
+    "doc": "2. Relationsmodellen",
+    "title": "Främmande nycklar måste aktiveras",
+    "content": "I SQLite ska främmande nyckelkontroll aktiveras för varje anslutning: . PRAGMA foreign_keys = ON; . Kontrollera inställningen med: . PRAGMA foreign_keys; . Om resultatet är 1 är kontrollen aktiv för anslutningen. Ett schema som deklarerar främmande nycklar men körs med kontrollen avstängd ger ett farligt intryck av säkerhet. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#fr%C3%A4mmande-nycklar-m%C3%A5ste-aktiveras",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#främmande-nycklar-måste-aktiveras"
+  },"29": {
+    "doc": "2. Relationsmodellen",
+    "title": "Datum är en representation",
+    "content": "SQLite har ingen separat inbyggd lagringsklass för datum. I materialet lagras datum som ISO-formaterad text, exempelvis 2027-01-17, tillsammans med kontroller och en dokumenterad tolkning. Andra DBMS har egna DATE-typer. Se det fullständiga, körbara skriptet nordicbrew-minimal.sql. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#datum-%C3%A4r-en-representation",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#datum-är-en-representation"
+  },"30": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.9 Genomarbetat exempel: fyra relationer",
+    "content": "Vi använder följande scheman: . KUND(KundID, Namn, Epost) PK: KundID AK: Epost PRODUKT(ProduktID, Produktnamn, ListprisOre, Aktiv) PK: ProduktID AK: Produktnamn BESTALLNING(OrderID, Orderdatum, KundID, Status) PK: OrderID FK: KundID → KUND.KundID ORDERRAD(OrderID, ProduktID, Antal, AvtalatStyckprisOre) PK: (OrderID, ProduktID) FK: OrderID → BESTALLNING.OrderID FK: ProduktID → PRODUKT.ProduktID . Observera att orderraden lagrar avtalat pris. Produktens aktuella listpris kan ändras utan att historiska ordervärden ska ändras. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#29-genomarbetat-exempel-fyra-relationer",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#29-genomarbetat-exempel-fyra-relationer"
+  },"31": {
+    "doc": "2. Relationsmodellen",
+    "title": "Bedöm fem föreslagna rader",
+    "content": "Anta att kund 17, order 1042 och produkt 501 finns. ORDERRAD innehåller redan (1042, 501, 2, 12900). | Förslag | Giltigt? | Skäl | . | (1042, 502, 1, 8900) | Ja, om produkt 502 finns | Ny sammansatt nyckel och giltiga referenser | . | (1042, 501, 3, 12900) | Nej som ny rad | Primärnyckeln (1042, 501) finns redan | . | (1042, 999, 1, 5000) | Nej, om produkt 999 saknas | Bryter referentiell integritet | . | (1042, 502, 0, 8900) | Nej | Bryter domänvillkoret Antal &gt; 0 | . | (1042, 502, 1, NULL) | Nej | Avtalat pris är obligatoriskt | . Notera formuleringen ”om produkt 502 finns”. Giltighet avgörs inte av raden isolerad; vissa villkor beror på databasens övriga instans. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#bed%C3%B6m-fem-f%C3%B6reslagna-rader",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#bedöm-fem-föreslagna-rader"
+  },"32": {
+    "doc": "2. Relationsmodellen",
+    "title": "Från samband till fråga",
+    "content": "För att hitta kundens namn för order 1042 behöver DBMS:et kombinera de rader där BESTALLNING.KundID och KUND.KundID har samma värde. I SQL: . SELECT b.OrderID, k.Namn FROM Bestallning AS b JOIN Kund AS k ON k.KundID = b.KundID WHERE b.OrderID = 1042; . Detta är en förhandsblick. Kapitel 6–7 förklarar operatorerna och hur resultat kan härledas. Här är huvudpoängen att en främmande nyckel både upprätthåller ett samband och ger de matchande värden som en join kan använda. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#fr%C3%A5n-samband-till-fr%C3%A5ga",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#från-samband-till-fråga"
+  },"33": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.10 Vanliga missuppfattningar",
+    "content": " ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#210-vanliga-missuppfattningar",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#210-vanliga-missuppfattningar"
+  },"34": {
+    "doc": "2. Relationsmodellen",
+    "title": "”Varje tabell har bara en möjlig nyckel”",
+    "content": "Nej. En relation kan ha flera kandidatnycklar. En väljs till primärnyckel; de andra behöver fortfarande skyddas om deras unikhet är en verksamhetsregel. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#varje-tabell-har-bara-en-m%C3%B6jlig-nyckel",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#varje-tabell-har-bara-en-möjlig-nyckel"
+  },"35": {
+    "doc": "2. Relationsmodellen",
+    "title": "”Ett artificiellt ID gör dubletter omöjliga”",
+    "content": "Nej. Två rader kan ha olika KundID men beskriva samma kund. Artificiella ID:n gör rader tekniskt identifierbara; de avgör inte automatiskt när två verksamhetsobjekt är samma. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#ett-artificiellt-id-g%C3%B6r-dubletter-om%C3%B6jliga",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#ett-artificiellt-id-gör-dubletter-omöjliga"
+  },"36": {
+    "doc": "2. Relationsmodellen",
+    "title": "”En främmande nyckel ligger alltid på många-sidan”",
+    "content": "Det är en användbar regel vid översättning av enkla 1:N-associationer, men inte definitionen av främmande nyckel. 1:1, sammansatta nycklar, associationstabeller och rekursiva samband kräver ett mer noggrant resonemang, vilket kommer i kapitel 4. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#en-fr%C3%A4mmande-nyckel-ligger-alltid-p%C3%A5-m%C3%A5nga-sidan",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#en-främmande-nyckel-ligger-alltid-på-många-sidan"
+  },"37": {
+    "doc": "2. Relationsmodellen",
+    "title": "”NULL kan ersättas med noll”",
+    "content": "Noll är ett känt numeriskt värde. Ett okänt lagersaldo är inte samma sak som att lagret är tomt. Ersättningen kan skapa falsk information. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#null-kan-ers%C3%A4ttas-med-noll",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#null-kan-ersättas-med-noll"
+  },"38": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.11 Övning: granska ett bokningsschema",
+    "content": "En verkstad använder följande relationer: . MEDLEM(MedlemsID, Epost, Namn) MASKIN(MaskinID, Beteckning, Aktiv) BOKNING(MedlemsID, MaskinID, Starttid, Sluttid, Andamal) . Verksamhetsregler: . | varje medlem har ett unikt medlems-ID och en unik e-postadress; | varje maskin har ett unikt maskin-ID; | en medlem kan boka samma maskin flera gånger, men inte med samma starttid; | starttid ska ligga före sluttid; | en bokning måste hänvisa till en befintlig medlem och maskin. | . | Ange kandidatnycklar för MEDLEM. | Välj och motivera primärnyckel för BOKNING. | Ange alla främmande nycklar. | Klassificera varje regel som nyckel-, referens-, domän- eller annan verksamhetsregel. | Förklarar de givna reglerna om överlappande bokningar är tillåtna? Om inte, formulera den saknade regeln. | Får Andamal vara NULL? Beskriv två olika verksamhetsbetydelser och hur de påverkar beslutet. | . Lösningsprinciper `MedlemsID` och `Epost` är kandidatnycklar om båda alltid finns och är unika; `MedlemsID` är ett rimligt primärnyckelval. En sammansatt nyckel `(MedlemsID, MaskinID, Starttid)` uppfyller den uttalade regeln för `BOKNING`, men en artificiell `BokningID` plus ett separat unikhetsvillkor är också ett möjligt designval. `MedlemsID` och `MaskinID` i `BOKNING` är främmande nycklar. Regeln `Starttid &lt; Sluttid` är ett radbaserat domän-/verksamhetsvillkor. De givna reglerna förbjuder inte att två olika medlemmar bokar samma maskin under överlappande tider; om det inte är tillåtet måste detta uttryckas särskilt. Om ändamål är frivillig kommentar kan `NULL` vara rimligt. Om ett ändamål krävs för säkerhetsbedömning bör det vara obligatoriskt eller modelleras med en kontrollerad kategori. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#211-%C3%B6vning-granska-ett-bokningsschema",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#211-övning-granska-ett-bokningsschema"
+  },"39": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.12 Kontrollfrågor",
+    "content": ". | Varför är {KundID, Namn} en supernyckel men inte nödvändigtvis en kandidatnyckel? | Kan en relation ha två kandidatnycklar? Ge ett exempel. | Vad garanterar en främmande nyckel – och vad garanterar den inte? | Varför krävs ORDER BY när resultatordningen betyder något? | Vad händer i en WHERE-sats när ett villkor blir UNKNOWN? | Varför är SQL-typen INTEGER inte en fullständig domändefinition för Antal? | Vilka två SQLite-inställningar/egenskaper behöver kursens nybörjare särskilt känna till? | . Korta svar 1. Kombinationen är unik om `KundID` är unik, men `Namn` kan tas bort utan att unikheten försvinner; nyckeln är inte minimal. 2. Ja, exempelvis `KundID` och `Epost` om båda är unika, obligatoriska och stabila nog för relationens identifiering. 3. Den garanterar att en icke-tom referens motsvarar en tillåten refererad nyckel. Den garanterar inte att verksamhetssambandet är sant i verkligheten eller att alla andra regler är uppfyllda. 4. Relationer har ingen inneboende radordning och DBMS får välja åtkomstplan. 5. Raden behålls inte; endast `TRUE` passerar filtret. 6. Den säger inget om exempelvis positivitet, enhet eller högsta tillåtna antal. 7. Bland annat dynamisk typning/type affinity och att främmande nyckelkontroll måste aktiveras per anslutning; `STRICT` och datumrepresentation är också viktiga. ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#212-kontrollfr%C3%A5gor",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#212-kontrollfrågor"
+  },"40": {
+    "doc": "2. Relationsmodellen",
+    "title": "2.13 Sammanfattning",
+    "content": ". | En relation har namngivna attribut, domäner och en mängd tupler. | Ett relationsschema beskriver struktur och regler; en instans är aktuella tupler. | Rad- och kolumnordning bär inte logisk betydelse. | Kandidatnycklar är minimala unika attributuppsättningar; en väljs till primärnyckel. | Främmande nycklar och referentiell integritet gör samband explicita och kontrollerbara. | NULL är en markör för saknat vanligt värde och ger trevärd logik. | Relationsmodellen, SQL och SQLite måste hållas isär när deras regler skiljer sig. | SQLite är ett bra kursverktyg, men PRAGMA foreign_keys = ON, typaffinitet, STRICT och datumrepresentation ska behandlas uttryckligen. | . ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#213-sammanfattning",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#213-sammanfattning"
+  },"41": {
+    "doc": "2. Relationsmodellen",
+    "title": "Vidare läsning",
+    "content": ". | SQLite, Datatypes in SQLite. | SQLite, STRICT Tables. | SQLite, Foreign Key Support. | Codd, E. F. (1970), ”A Relational Model of Data for Large Shared Data Banks” (historisk fördjupning; inte kurskrav). | . ",
+    "url": "/docs/del-1-grunder/relationsmodellen/#vidare-l%C3%A4sning",
+    "keywords": "relationsmodell relational model relation tabell tupel tuple rad attribut kolumn domän primärnyckel primary key främmande nyckel foreign key PK FK "
+
+
+    "relUrl": "/docs/del-1-grunder/relationsmodellen/#vidare-läsning"
+  },"42": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3. Konceptuell modellering",
+    "content": "Var hör en leveransadress hemma? I kapitel 1 såg vi att Nordic Brew kan behöva bevara den adress som användes när en beställning gjordes, även om kunden senare flyttar. Frågan kan inte lösas genom att leta efter rätt SQL-datatyp. Först måste vi förstå vad verksamheten menar med kund, beställning, adress och historik. Konceptuell modellering gör ett avgränsat informationsbehov explicit utan att först bestämma tabeller, främmande nycklar eller lagringsformat. Resultatet är både en modell och en samling prövbara verksamhetsregler. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/"
+  },"43": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Efter kapitlet kan du",
+    "content": ". | avgränsa ett informationsområde och formulera relevanta verksamhetsregler; | skilja entitetstyp, entitet, attribut, identifierare och association; | ange och läsa minsta respektive största deltagande med min..max; | modellera en M:N-association med en associativ entitetstyp när sambandet har egna attribut; | skilja konceptuella identifierare från primär- och främmande nycklar; | validera en modell med konkreta scenarier och kritisera rimliga alternativ. | . ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#efter-kapitlet-kan-du",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#efter-kapitlet-kan-du"
+  },"44": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.1 Modellering är ett påstående om en verksamhet",
+    "content": "En modell är en avsiktlig förenkling. Den tar med sådant som behövs för ett bestämt syfte och lämnar annat utanför. Samma verklighet kan därför beskrivas med flera modeller utan att alla modeller är lika lämpliga för samma uppgift. Ett kafferosteri kan se en fysisk påse kaffe som: . | en produkt som kan beställas; | ett lagersaldo av utbytbara enheter; | ett individuellt spårbart parti med rostningsdatum; | ett bokföringsvärde; | ett objekt med ursprung och hållbarhetsinformation. | . Vilka perspektiv som behöver modelleras beror på verksamhetsfrågan. En modell för webbshoppen behöver inte automatiskt stödja spårning av varje fysisk påse. Om en ny regel kräver återkallelse per produktionsparti måste modellen däremot kunna skilja partier åt. En ER-modell blir inte korrekt bara för att notationens symboler är rätt. Varje ruta och linje måste kunna försvaras med en definition eller en verksamhetsregel. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#31-modellering-%C3%A4r-ett-p%C3%A5st%C3%A5ende-om-en-verksamhet",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#31-modellering-är-ett-påstående-om-en-verksamhet"
+  },"45": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.2 Börja med syfte och avgränsning",
+    "content": "Innan entitetstyper identifieras bör modellgruppen skriva två korta stycken: . | Syfte: vilka beslut eller arbetsprocesser ska modellen stödja? | Avgränsning: vad ligger uttryckligen utanför modellen? | . För Nordic Brews första modell: . Modellen ska stödja registrering av kunder och beställningar samt visa vilka produkter, kvantiteter och avtalade priser som ingår i varje beställning. Lager, leveranser, betalningar, kampanjer och produktionspartier ligger tills vidare utanför. Avgränsningen hindrar modellen från att växa genom fria associationer. Den kan revideras senare, men varje tillägg ska ha ett informationsbehov. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#32-b%C3%B6rja-med-syfte-och-avgr%C3%A4nsning",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#32-börja-med-syfte-och-avgränsning"
+  },"46": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Frågor modellen ska kunna besvara",
+    "content": "Komplettera syftet med exempel: . | Vem gjorde en viss beställning? | Vilka produkter ingår i den? | Hur många enheter beställdes? | Vilket pris avtalades för varje produkt när ordern skapades? | Vilka kunder har ännu inte gjort någon beställning? | . Den sista frågan är viktig. Den visar att en kund får finnas utan en beställning, vilket påverkar lägsta deltagande. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#fr%C3%A5gor-modellen-ska-kunna-besvara",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#frågor-modellen-ska-kunna-besvara"
+  },"47": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.3 Verksamhetsspråk och begreppslista",
+    "content": "Ord är inte automatiskt begrepp. Samma ord kan betyda olika saker, och olika ord kan betyda samma sak. En begreppslista gör betydelsen förhandlingsbar. | Term | Arbetsdefinition | Avgränsning/fråga | . | Kund | Person eller organisation som kan göra en beställning | Är prospekt utan order kunder? Ja. | . | Beställning | Kundens åtagande att köpa minst en produkt vid en viss tidpunkt | Skiljs från betalning och leverans. | . | Produkt | Säljbar artikeltyp i sortimentet | En fysisk påse är inte en egen produktentitet. | . | Orderrad | En viss produkts kvantitet och avtalade pris i en viss beställning | Samma produkt får högst en orderrad per beställning. | . Begreppslistan och diagrammet måste säga samma sak. Om listan säger att en beställning innehåller minst en produkt men diagrammet tillåter noll orderrader har modellen en intern motsägelse. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#33-verksamhetsspr%C3%A5k-och-begreppslista",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#33-verksamhetsspråk-och-begreppslista"
+  },"48": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.4 Entitetstyp och entitet",
+    "content": "En entitet är ett individuellt fenomen som modellen behöver kunna skilja från andra, exempelvis den beställning som Nordic Brew betecknar 1042. En entitetstyp beskriver en mängd likartade entiteter med gemensam betydelse och regler, exempelvis BESTÄLLNING. Namnge entitetstyper i singular: KUND, inte KUNDER. Det behöver inte vara ett fysiskt ting. Ett avtal, en bokning eller ett kurstillfälle kan vara en entitet om verksamheten behöver identifiera och hålla reda på individuella förekomster. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#34-entitetstyp-och-entitet",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#34-entitetstyp-och-entitet"
+  },"49": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Kandidat eller attribut?",
+    "content": "Ett substantiv i en kravtext är inte automatiskt en entitetstyp. Fråga: . | Behöver individuella förekomster kunna identifieras? | Har fenomenet egna egenskaper? | Deltar det i associationer? | Har det en egen livscykel eller egna regler? | Behöver flera andra objekt hänvisa till samma förekomst? | . ”Färg” kan vara ett enkelt produktattribut i en modell och en egen entitetstyp med kod, namn och tillåtna kombinationer i en annan. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#kandidat-eller-attribut",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#kandidat-eller-attribut"
+  },"50": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.5 Attribut och identifierare",
+    "content": "Ett attribut beskriver en egenskap hos en entitetstyp eller, i vissa notationer, hos en association. För BESTÄLLNING kan Orderdatum och Status vara attribut. En identifierare är ett eller flera attribut som verksamheten använder för att skilja entiteter av samma typ. I den konceptuella modellen talar vi om identifierare, inte primärnycklar. Primärnyckel är ett beslut i relationsmodellen och implementationen. Exempel: . BESTÄLLNING Identifierare: Ordernummer Attribut: Orderdatum, Status . En identifierare behöver valideras mot verksamheten. ”Namn” räcker sällan för personer eller produkter. Telefonnummer och e-postadresser kan ändras och är inte alltid tillgängliga när entiteten först skapas. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#35-attribut-och-identifierare",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#35-attribut-och-identifierare"
+  },"51": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Enkla, sammansatta och härledda attribut",
+    "content": ". | Ett enkelt attribut behandlas som ett värde i modellen, exempelvis Orderdatum. | Ett sammansatt attribut har relevanta delar, exempelvis en adress med gata, postnummer och land. | Ett härlett attribut kan beräknas från andra uppgifter, exempelvis en ordertotal från orderradernas kvantitet och pris. | . Härledda värden ska normalt inte lagras dubbelt utan skäl. Ibland behövs en historisk ögonblicksbild eller prestandaoptimering, men då måste regeln för att hålla kopiorna samstämmiga vara tydlig. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#enkla-sammansatta-och-h%C3%A4rledda-attribut",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#enkla-sammansatta-och-härledda-attribut"
+  },"52": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Flervärda egenskaper",
+    "content": "Om en kund kan ha flera telefonnummer är en avgränsad textsträng sällan ett bra konceptuellt attribut när numren ska sökas eller märkas som exempelvis mobil och arbete. Modellera då TELEFONKONTAKT som en egen entitetstyp eller använd en flervärdesnotation som senare översätts till en egen relation. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#flerv%C3%A4rda-egenskaper",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#flervärda-egenskaper"
+  },"53": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.6 Associationer",
+    "content": "En association uttrycker att entiteter har ett verksamhetsmässigt samband. Namnge den gärna med ett verb som kan läsas i en mening: . KUND gör BESTÄLLNING BESTÄLLNING innehåller ORDERRAD ORDERRAD avser PRODUKT . Att två entitetstyper råkar dela ett ord eller senare får matchande värden är inte tillräckligt. Associationen ska motsvara en definierad regel. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#36-associationer",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#36-associationer"
+  },"54": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Association eller händelse?",
+    "content": "Vissa samband har egna egenskaper och en egen livscykel. En kursdeltagare registreras på ett kurstillfälle, och registreringen kan ha datum, status och betyg. Då är REGISTRERING ofta bättre som en associativ entitetstyp än en namnlös linje. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#association-eller-h%C3%A4ndelse",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#association-eller-händelse"
+  },"55": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.7 Multiplicitet: minsta och största deltagande",
+    "content": "För varje associationsände behöver vi fråga två saker: . | Min: måste en entitet delta, eller får den stå utan samband? | Max: får den ha samband med en eller flera entiteter av den andra typen? | . I kompendiet skrivs svaret min..max: . | 0..1: ingen eller en; | 1..1: exakt en; | 0..*: ingen, en eller flera; | 1..*: minst en, möjligen flera. | . Orden kardinalitet och deltagande används olika i olika böcker. Här används multiplicitet för hela intervallet. När enbart förhållandet 1:1, 1:N eller M:N anges beskriver det endast maximum och är därför ofullständigt. Figur 3.1. Läs en ände i taget. Talet nära KUND besvarar hur många kunder en beställning hör till; talet nära BESTÄLLNING besvarar hur många beställningar en kund kan göra. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#37-multiplicitet-minsta-och-st%C3%B6rsta-deltagande",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#37-multiplicitet-minsta-och-största-deltagande"
+  },"56": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Läsmetod",
+    "content": "För associationen i figur 3.1: . | välj en beställning och läs mot kundänden: beställningen görs av 1..1 kund; | välj en kund och läs mot beställningsänden: kunden gör 0..* beställningar. | . Skriv båda meningarna. Det förebygger den vanligaste typen av spegelvänt kardinalitetsfel. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#l%C3%A4smetod",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#läsmetod"
+  },"57": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Frågor som avslöjar minimum",
+    "content": ". | Kan kunden registreras innan första beställningen? Då är beställningsänden sannolikt 0..* för en kund. | Kan en beställning sparas som tomt utkast? Om ja kan orderradens minimum vara 0 i ett visst tillstånd; om nej är det 1. | Får en produkt finnas i sortimentet utan att någonsin ha beställts? Då är deltagandet i orderrader valfritt för produkten. | . Minimum kan bero på tid och status. Om utkast får vara tomma men bekräftade beställningar måste ha rader behöver modellen eller kompletterande regler uttrycka båda tillstånden. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#fr%C3%A5gor-som-avsl%C3%B6jar-minimum",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#frågor-som-avslöjar-minimum"
+  },"58": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.8 Tre vanliga associationsformer",
+    "content": " ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#38-tre-vanliga-associationsformer",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#38-tre-vanliga-associationsformer"
+  },"59": {
+    "doc": "3. Konceptuell modellering",
+    "title": "1:1",
+    "content": "Varje entitet av typen A hör till högst en B och varje B till högst en A. Exempel kan vara person och ett visst slags aktivt medlemskort. En 1:1-modell ska ifrågasättas: är begreppen egentligen två aspekter av samma entitet, eller behöver de skiljas på grund av olika livscykel, sekretess eller frivillighet? . Ett framtida relationsschema ska normalt inte få två ömsesidiga främmande nycklar. Kapitel 4 visar hur en riktning väljs och skyddas med unikhet. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#11",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#11"
+  },"60": {
+    "doc": "3. Konceptuell modellering",
+    "title": "1:N",
+    "content": "En kund kan göra flera beställningar, medan varje beställning görs av en kund. Detta är en 1:N-association när vi endast betraktar maximum. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#1n",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#1n"
+  },"61": {
+    "doc": "3. Konceptuell modellering",
+    "title": "M:N",
+    "content": "En beställning kan innehålla flera produkter och en produkt kan förekomma i flera beställningar. Sambandet har dessutom egna egenskaper: kvantitet och avtalat pris. Det modelleras därför som den associativa entitetstypen ORDERRAD. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#mn",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#mn"
+  },"62": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.9 Den associativa entitetstypen ORDERRAD",
+    "content": "En orderrad existerar genom kombinationen av en beställning och en produkt, men är mer än en teknisk koppling. Den uttrycker ett affärsfaktum: . I beställning 1042 avtalades två enheter av produkt 501 till 12 900 öre per styck. Antal och AvtalatStyckpris hör varken till produkten ensam eller beställningen ensam. De beror på kombinationen. Om samma produkt får förekomma högst en gång per order kan kombinationen Beställning + Produkt fungera som konceptuell identifierare för ORDERRAD. Om flera rader för samma produkt ska tillåtas, exempelvis med olika rabatt eller leveransdatum, behövs en annan identifieringsregel. Lägg inte Produkt1, Produkt2, Produkt3 som attribut i BESTÄLLNING. Det sätter ett godtyckligt tak, upprepar samma betydelse och gör frågor samt integritetskontroll svårare. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#39-den-associativa-entitetstypen-orderrad",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#39-den-associativa-entitetstypen-orderrad"
+  },"63": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.10 Genomarbetat exempel: Nordic Brews ordermodell",
+    "content": " ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#310-genomarbetat-exempel-nordic-brews-ordermodell",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#310-genomarbetat-exempel-nordic-brews-ordermodell"
+  },"64": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg 1: källtext",
+    "content": "Nordic Brew registrerar kunder även innan de har handlat. Varje kund får ett kundnummer och anger ett namn samt en unik e-postadress. En kund kan göra flera beställningar, men varje beställning görs av exakt en kund. En beställning identifieras med ordernummer och har orderdatum samt status. En registrerad beställning innehåller minst en orderrad. Varje orderrad avser exakt en produkt och anger positiv kvantitet samt det pris som avtalades. En produkt kan finnas i sortimentet utan att ännu ha beställts. Samma produkt får förekomma högst en gång per beställning. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-1-k%C3%A4lltext",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-1-källtext"
+  },"65": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg 2: påståenden och öppna frågor",
+    "content": "| Påstående | Modellkonsekvens | Öppen fråga | . | Kund registreras före köp | KUND deltar 0..* i beställningar | Får e-post saknas tillfälligt? | . | Varje beställning har exakt en kund | BESTÄLLNING deltar obligatoriskt mot KUND | Kan en kund raderas med historik kvar? | . | Registrerad order har minst en rad | BESTÄLLNING deltar 1..* mot ORDERRAD | Behöver tomma arbetsutkast lagras utanför modellen? | . | Produkt kan vara obeställd | PRODUKT deltar 0..* i orderrader | Hur markeras utgången produkt? | . | Pris avtalas per rad | AvtalatStyckpris hör till ORDERRAD | Inklusive eller exklusive moms? | . En modellgrupp bör inte fylla de öppna frågorna med egna antaganden och sedan glömma dem. Antaganden märks, verifieras med verksamhetsrepresentant och förs in i begreppslistan. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-2-p%C3%A5st%C3%A5enden-och-%C3%B6ppna-fr%C3%A5gor",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-2-påståenden-och-öppna-frågor"
+  },"66": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg 3: modellen",
+    "content": "Figur 3.2. Konceptuell modell för orderområdet. Attribut märkta ID är verksamhetsidentifierare. Modellen innehåller inga främmande nycklar. Modellen uttrycker: . | KUND identifieras av Kundnummer; | BESTÄLLNING identifieras av Ordernummer; | PRODUKT identifieras av Produktnummer; | ORDERRAD identifieras av kombinationen beställning och produkt; | en kund gör 0..* beställningar; varje beställning görs av 1..1 kund; | en beställning innehåller 1..* orderrader; varje orderrad hör till 1..1 beställning; | en produkt förekommer i 0..* orderrader; varje orderrad avser 1..1 produkt. | . ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-3-modellen",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-3-modellen"
+  },"67": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg 4: scenariotest",
+    "content": "Pröva modellen med konkreta händelser: . | Ny kund utan order: tillåts av 0..* vid BESTÄLLNING. | Ny produkt utan försäljning: tillåts av 0..* vid ORDERRAD. | Order utan kund: förbjuds av 1..1 vid KUND. | Registrerad order utan rader: förbjuds av 1..*. Om verksamheten senare kräver sparade tomma arbetsutkast behöver modellen utvidgas med en tydlig tillståndsregel. | Samma produkt två gånger i en order: förbjuds av identifieringsregeln för ORDERRAD. | Listpriset ändras: orderradens avtalade pris bevarar den historiska överenskommelsen. | . Scenariotestet är en form av modellverifiering. Det visar att diagrammet följer de skrivna reglerna. Det visar däremot inte att reglerna är de rätta för verksamheten; det kräver validering med berörda aktörer. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-4-scenariotest",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-4-scenariotest"
+  },"68": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.11 När det finns flera rimliga modeller",
+    "content": " ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#311-n%C3%A4r-det-finns-flera-rimliga-modeller",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#311-när-det-finns-flera-rimliga-modeller"
+  },"69": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Leveransadress som attribut eller entitet",
+    "content": "Tre möjliga lösningar: . | Leveransadress är ett sammansatt attribut på BESTÄLLNING. | ADRESS är en egen entitetstyp och beställningen hänvisar till en adress. | Kunden har sparade adresser, men beställningen lagrar dessutom en historisk adressögonblicksbild. | . Valet beror på krav: . | Ska samma adress återanvändas och administreras? | Ska ändringar slå igenom på gamla beställningar? | Behöver adressens giltighetstid eller typ hanteras? | Finns juridiska krav på vad som ska bevaras? | . Den enklaste modell som bevarar nödvändig betydelse är ofta bäst. ”Minst antal entitetstyper” och ”mest normaliserat diagram” är inte mål i sig. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#leveransadress-som-attribut-eller-entitet",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#leveransadress-som-attribut-eller-entitet"
+  },"70": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Person eller kund?",
+    "content": "Om bara köp är relevant kan KUND vara tillräckligt. Om samma person också är anställd, kontaktperson för ett företag eller mottagare av marknadsföring kan en mer generell PERSON med roller vara motiverad. Generalisering ska dock inte införas enbart för att den verkar framtidssäker. Abstraktion utan ett känt behov gör regler svårare att förstå. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#person-eller-kund",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#person-eller-kund"
+  },"71": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.12 Rekursiva associationer och roller",
+    "content": "En entitetstyp kan associeras med sig själv. En anställd kan exempelvis vara chef för andra anställda. Då behövs rollnamn: . ANSTÄLLD (chef) leder (medarbetare) ANSTÄLLD . Frågorna blir: . | Hur många chefer kan en medarbetare ha? | Får en anställd sakna chef? | Hur många medarbetare kan en chef leda? | Får en person indirekt bli sin egen chef genom en kedja? | . Den sista regeln kan inte avläsas ur enkla ändmultipliciteter och behöver dokumenteras separat. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#312-rekursiva-associationer-och-roller",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#312-rekursiva-associationer-och-roller"
+  },"72": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.13 En praktisk modelleringsmetod",
+    "content": "Arbeta iterativt men lämna spår efter besluten. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#313-en-praktisk-modelleringsmetod",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#313-en-praktisk-modelleringsmetod"
+  },"73": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg A: formulera syfte och gräns",
+    "content": "Skriv vilka processer och frågor modellen ska stödja. Lista uttryckligen vad som inte ingår. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-a-formulera-syfte-och-gr%C3%A4ns",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-a-formulera-syfte-och-gräns"
+  },"74": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg B: samla utsagor och exempel",
+    "content": "Intervjuer, formulär, regler, befintliga filer och observationer kan vara källor. Samla också motexempel och undantag. Ett tomt formulär visar möjliga fält, inte nödvändigtvis verkliga regler. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-b-samla-utsagor-och-exempel",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-b-samla-utsagor-och-exempel"
+  },"75": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg C: bygg en begreppslista",
+    "content": "Definiera termer med eget språk. Märk synonymer, homonymer och obesvarade frågor. Undvik cirkulära definitioner som ”en kundorder är en order från en kund” om varken kund eller order är definierad. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-c-bygg-en-begreppslista",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-c-bygg-en-begreppslista"
+  },"76": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg D: föreslå entitetstyper och identifierare",
+    "content": "Motivera varje entitetstyp med informationsbehov och varje identifierare med unikhet, stabilitet och tillgänglighet. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-d-f%C3%B6resl%C3%A5-entitetstyper-och-identifierare",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-d-föreslå-entitetstyper-och-identifierare"
+  },"77": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg E: formulera associationer som två meningar",
+    "content": "För varje association, skriv en mening åt vardera riktningen och ange min/max. Exempel: . En kund kan göra noll eller flera beställningar. Varje beställning görs av exakt en kund. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-e-formulera-associationer-som-tv%C3%A5-meningar",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-e-formulera-associationer-som-två-meningar"
+  },"78": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg F: placera attribut",
+    "content": "Fråga vilken entitet eller kombination som bestämmer värdet. Avtalat pris bestäms av orderraden, inte av produkten ensam. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-f-placera-attribut",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-f-placera-attribut"
+  },"79": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg G: validera med CRUD och tidsfall",
+    "content": "Pröva att skapa, läsa, ändra och avsluta/radera olika entiteter. Pröva också: . | före första associationen; | under pågående process; | efter statusändring; | efter ändring av ett refererat objekt; | vid historik och framtida planering. | . ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-g-validera-med-crud-och-tidsfall",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-g-validera-med-crud-och-tidsfall"
+  },"80": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Steg H: dokumentera alternativ och beslut",
+    "content": "För omstridda delar: skriv valt alternativ, minst ett avvisat alternativ, argument och vilket krav som avgjorde. Detta är mer värdefullt än att göra diagrammet visuellt perfekt utan motivering. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#steg-h-dokumentera-alternativ-och-beslut",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#steg-h-dokumentera-alternativ-och-beslut"
+  },"81": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.14 Vanliga modelleringsfel",
+    "content": " ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#314-vanliga-modelleringsfel",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#314-vanliga-modelleringsfel"
+  },"82": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Främmande nycklar i den konceptuella modellen",
+    "content": "Att skriva KundID (FK) i BESTÄLLNING har redan fattat ett logiskt och fysiskt representationsbeslut. På konceptuell nivå räcker associationen och dess regler. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#fr%C3%A4mmande-nycklar-i-den-konceptuella-modellen",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#främmande-nycklar-i-den-konceptuella-modellen"
+  },"83": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Multiplicitet från dagens exempeldata",
+    "content": "Att varje kund råkar ha en order i testfilen betyder inte 1..1. Modellen ska uttrycka tillåtna verksamhetstillstånd, inte bara det aktuella fotografiet. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#multiplicitet-fr%C3%A5n-dagens-exempeldata",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#multiplicitet-från-dagens-exempeldata"
+  },"84": {
+    "doc": "3. Konceptuell modellering",
+    "title": "M:N utan sambandets egenskaper",
+    "content": "En direkt association BESTÄLLNING–PRODUKT tappar kvantitet och avtalat pris om dessa inte får en tydlig plats. Den associativa entitetstypen gör faktumet synligt. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#mn-utan-sambandets-egenskaper",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#mn-utan-sambandets-egenskaper"
+  },"85": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Roller modelleras som separata personer",
+    "content": "KUND, ANSTÄLLD och LEVERANTÖRSKONTAKT kan vara roller för samma person, men behöver inte alltid sammanslås. Problemet ska analyseras, inte avgöras av ordformen. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#roller-modelleras-som-separata-personer",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#roller-modelleras-som-separata-personer"
+  },"86": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Historik blandas med nuläge",
+    "content": "Produkt.Listpris svarar på aktuellt pris. Orderrad.AvtalatStyckpris svarar på historiskt avtalat pris. Att bara lagra det första förändrar betydelsen av gamla ordervärden. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#historik-blandas-med-nul%C3%A4ge",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#historik-blandas-med-nuläge"
+  },"87": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Onödigt 1:1",
+    "content": "Två entitetstyper med exakt samma livscykel och obligatorisk 1:1-association kan vara en enda entitetstyp. De kan ändå behöva skiljas åt vid olika behörighet, valfri del, annan livscykel eller oberoende identitet. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#on%C3%B6digt-11",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#onödigt-11"
+  },"88": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.15 Övning A: evenemangsbokning",
+    "content": "Ett kulturhus beskriver sitt behov: . Kulturhuset arrangerar evenemang i salar. Ett evenemang kan ha flera föreställningstillfällen och varje tillfälle äger rum i exakt en sal. En sal kan naturligtvis användas för många tillfällen, men två tillfällen får inte överlappa i samma sal. Besökare kan boka en eller flera platser till ett tillfälle. En bokning görs av en besökare och kan omfatta flera biljetter med olika priskategorier. Vissa gratisevenemang kräver ingen bokning. | Skriv syfte och avgränsning i två–fyra meningar. | Skapa en begreppslista med minst sex termer och två öppna frågor. | Föreslå entitetstyper och konceptuella identifierare. | Skriv varje association som två riktningsmeningar med min..max. | Placera biljettens priskategori och faktiskt betalda pris. Motivera. | Förklara varför regeln om överlappande tillfällen inte uttrycks fullständigt av en enkel 1:N-association mellan SAL och TILLFÄLLE. | . Kontrollpunkter för egen granskning En rimlig kärna innehåller `EVENEMANG`, `TILLFÄLLE`, `SAL`, `BESÖKARE`, `BOKNING` och `BILJETT` eller en associativ bokningsrad. Skilj evenemanget som programobjekt från det tidsatta tillfället. Faktiskt betalt pris behöver normalt bevaras på biljetten/bokningsraden, medan priskategorins aktuella standardpris kan ligga på en kategori. Texten klargör inte om numrerade sittplatser finns, om en bokning får avse flera tillfällen eller hur avbokning fungerar; sådana frågor ska synliggöras. Multipliciteten SAL–TILLFÄLLE säger hur många samband som får finnas, men inte att tidsintervall för två olika tillfällen i samma sal måste vara disjunkta. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#315-%C3%B6vning-a-evenemangsbokning",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#315-övning-a-evenemangsbokning"
+  },"89": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.16 Övning B: kritisera en modell",
+    "content": "En student föreslår: . KUND(KundID PK, Namn, Produkt1, Produkt2) BESTÄLLNING(OrderID PK, KundID FK, ProduktID FK, Antal) PRODUKT(ProduktID PK, Namn, OrderID FK) . Identifiera minst sex problem, varav minst två ska vara problem på konceptuell nivå och minst två ska gälla att nivåer har blandats. Skriv sedan fyra verksamhetsfrågor som måste besvaras innan en ny modell kan fastställas. Exempel på kritik - Förslaget är relationsscheman, inte en konceptuell modell. - `PK` och `FK` hör inte hemma i ett konceptuellt diagram. - `Produkt1` och `Produkt2` upprepar samma betydelse och begränsar antalet. - Det är oklart om en beställning får innehålla flera produkter. - `ProduktID` direkt i BESTÄLLNING räcker inte för flera orderrader. - `OrderID` i PRODUKT antyder felaktigt att en produkt hör till en order och skapar eventuellt ömsesidiga referenser. - Avtalat pris saknas och produktens namn verkar inte skyddat från oavsiktliga dubletter. - `KUND` blandar kundegenskaper med beställningsinnehåll. Frågor bör bland annat gälla min/max i båda riktningar, om samma produkt får förekomma flera gånger per order, vilket pris som ska bevaras och om kunder samt produkter får finnas utan order. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#316-%C3%B6vning-b-kritisera-en-modell",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#316-övning-b-kritisera-en-modell"
+  },"90": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.17 Kontrollfrågor",
+    "content": ". | Varför är ett substantiv i en kravtext inte automatiskt en entitetstyp? | Vad är skillnaden mellan en konceptuell identifierare och en primärnyckel? | Hur läser du 1..1 vid KUND-änden och 0..* vid BESTÄLLNING-änden? | Vad går förlorat om en M:N-association mellan order och produkt saknar en plats för kvantitet och avtalat pris? | Ge ett exempel där en 1:1-association bör ifrågasättas men ändå kan vara motiverad. | Vad är skillnaden mellan att verifiera modellen mot skrivna regler och att validera reglerna mot verksamheten? | Varför måste en modell prövas över tid och inte bara mot nulägets data? | . Korta svar 1. Ordet kan vara synonym, roll, attribut eller irrelevant; entitetstypen kräver identitet, betydelse och informationsbehov. 2. Identifieraren uttrycker verksamhetsmässig igenkänning på konceptuell nivå; primärnyckeln väljs i relationsdesign/implementation och kan vara artificiell. 3. Varje beställning hör till exakt en kund; varje kund kan göra noll eller flera beställningar. 4. Sambandets egna fakta saknar korrekt hemvist och historiskt pris riskerar att blandas med produktens aktuella pris. 5. Exempelvis separat profil för en person när profilen är valfri, har annan behörighet eller annan livscykel. 6. Verifiering frågar om modellen följer specifikationen; validering frågar om specifikationen/modellen motsvarar det verkliga behovet. 7. Identifierare, deltagande, status och historik kan förändras; dagens data visar inte alla tillåtna framtida tillstånd. ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#317-kontrollfr%C3%A5gor",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#317-kontrollfrågor"
+  },"91": {
+    "doc": "3. Konceptuell modellering",
+    "title": "3.18 Sammanfattning",
+    "content": ". | Konceptuell modellering uttrycker ett avgränsat informationsbehov utan att först bestämma tabeller eller SQL. | En modell är ett prövbart påstående om begrepp och verksamhetsregler. | Entitetstyper beskriver slag av identifierbara fenomen; attribut beskriver egenskaper; associationer beskriver samband. | Konceptuella identifierare ska inte blandas ihop med primär- och främmande nycklar. | Multiplicitet måste läsas i båda riktningarna med både minimum och maximum. | M:N-samband med egna egenskaper modelleras tydligt med en associativ entitetstyp. | Begreppslista, öppna frågor, scenarioanalys och beslutslogg är lika viktiga som själva diagrammet. | Flera modeller kan vara möjliga; kvalitet avgörs av syfte, betydelse, konsekvenser och evidens. | . ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#318-sammanfattning",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#318-sammanfattning"
+  },"92": {
+    "doc": "3. Konceptuell modellering",
+    "title": "Vidare läsning",
+    "content": ". | Object Management Group, UML 2.5.1 specification (formell fördjupning; kompendiet använder endast en liten del av notationstänkandet). | ISO/IEC/IEEE 42010:2022, Architecture description (för perspektiv på intressenter och modeller; inte kurskrav). | Elmasri, R. &amp; Navathe, S., Fundamentals of Database Systems, avsnitt om konceptuell datamodellering. | . ",
+    "url": "/docs/del-1-grunder/konceptuell-modellering/#vidare-l%C3%A4sning",
+    "keywords": "konceptuell modellering informationsmodellering ER ERD entitet entity association relationship kardinalitet cardinality multiplicitet modalitet crow's foot kråkfot"
+
+
+    "relUrl": "/docs/del-1-grunder/konceptuell-modellering/#vidare-läsning"
+  },"93": {
+    "doc": "Start",
+    "title": "Databaser",
+    "content": "Lär dig att gå från verksamhetens informationsbehov till en fungerande, begriplig och tillförlitlig relationsdatabas. Materialet kombinerar begrepp, modeller, körbar SQL och övningar där du får förutsäga, pröva samt revidera. ",
+    "url": "/#databaser",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/#databaser"
+  },"94": {
+    "doc": "Start",
+    "title": "Modellera",
+    "content": "Avgränsa informationsbehov, formulera verksamhetsregler och skapa konceptuella modeller. ",
+    "url": "/",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/"
+  },"95": {
+    "doc": "Start",
+    "title": "Fråga",
+    "content": "Härled och skriv SQL-frågor som ger rätt resultat – även i svåra randfall. ",
+    "url": "/",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/"
+  },"96": {
+    "doc": "Start",
+    "title": "Kvalitetssäkra",
+    "content": "Använd nycklar, villkor, transaktioner och säkerhetsprinciper för att skydda betydelsen. ",
+    "url": "/",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/"
+  },"97": {
+    "doc": "Start",
+    "title": "Börja här",
+    "content": "Tillgänglig ",
+    "url": "/#b%C3%B6rja-h%C3%A4r",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/#börja-här"
+  },"98": {
+    "doc": "Start",
+    "title": "Del I – Modeller och relationer",
+    "content": "Från grundläggande databasbegrepp till en prövbar konceptuell modell. Öppna del I → Planerad ",
+    "url": "/",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/"
+  },"99": {
+    "doc": "Start",
+    "title": "Del II – Frågor och förändring",
+    "content": "Relationsalgebra, SQL-frågor samt skapande och förändring av data. Planerad ",
+    "url": "/",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/"
+  },"100": {
+    "doc": "Start",
+    "title": "Del III – Korrekthet",
+    "content": "Transaktioner, samtidighet, fysisk åtkomst och säker databasanvändning. Planerad ",
+    "url": "/",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/"
+  },"101": {
+    "doc": "Start",
+    "title": "Del IV – Perspektiv",
+    "content": "Alternativa datamodeller och databasen i ett större informationssystem. ",
+    "url": "/",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/"
+  },"102": {
+    "doc": "Start",
+    "title": "En rekommenderad arbetscykel",
+    "content": ". | Läs kapitlets mål och försök formulera vad du redan vet. | Stanna vid förutsägelsefrågorna innan du läser vidare. | Kör exemplen mot den angivna databasversionen. | Genomför överföringsövningen i en annan domän och jämför med lösningsprinciperna. | . Att känna igen en lösning är inte samma sak som att kunna skapa och motivera den själv. Kompendiet är därför en kunskapskälla och arbetsyta, inte en ersättning för praktiskt arbete. ",
+    "url": "/#en-rekommenderad-arbetscykel",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/#en-rekommenderad-arbetscykel"
+  },"103": {
+    "doc": "Start",
+    "title": "Hitta rätt innehåll",
+    "content": "Sökningen indexerar rubriker, text och ämnesord. Tryck Ctrl + K eller ⌘ + K för att gå direkt till sökfältet. Sök både på svenska och etablerade engelska termer, exempelvis främmande nyckel, foreign key, DBMS eller kardinalitet. Färgtema kan väljas i sidhuvudet. Läget Automatiskt följer operativsystemets inställning. Om kompendiet och dess principer . ",
+    "url": "/#hitta-r%C3%A4tt-inneh%C3%A5ll",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/#hitta-rätt-innehåll"
+  },"104": {
+    "doc": "Start",
+    "title": "Start",
+    "content": "Informationssystem A · 2IS007 . ",
+    "url": "/",
+    "keywords": "databas databaser SQL ER-modell informationsmodellering 2IS007"
+
+
+    "relUrl": "/"
+  },"105": {
+    "doc": "Del I – Modeller och relationer",
+    "title": "Del I – Modeller och relationer",
+    "content": "Den första delen går från frågan varför databaser behövs till ett precist språk för att beskriva vilka slags objekt en verksamhet behöver hålla reda på och hur de hänger samman. När delen är avslutad ska du kunna skilja mellan en databas, ett databashanteringssystem och ett informationssystem; beskriva relationsmodellens grundidéer; samt skapa och kritiskt granska en enkel konceptuell modell. ",
+    "url": "/docs/del-1-grunder/",
+    "keywords": "datamodellering relationsmodell konceptuell modellering databasbegrepp"
+
+
+    "relUrl": "/docs/del-1-grunder/"
+  },"106": {
+    "doc": "Om kompendiet",
+    "title": "Om kompendiet",
+    "content": "Kompendiet är kursens sammanhållna kunskapskälla för grundläggande databasteknik. Det ersätter inte praktiskt arbete eller återkoppling, utan gör det istället möjligt att förbereda, genomföra och repetera kursens moment i din egen takt. ",
+    "url": "/docs/om/om-kompendiet/",
+    "keywords": "om kompendiet studieteknik notation version"
+
+
+    "relUrl": "/docs/om/om-kompendiet/"
+  },"107": {
+    "doc": "Om kompendiet",
+    "title": "Pedagogisk princip",
+    "content": "Nordic Brew används som ett återkommande fall genom kompendiet vilket gör det möjligt att följa samma informationsbehov från konceptuell modell till relationsschema, SQL, transaktioner och fysisk åtkomst. Varje kärnkapitel innehåller dock samtidigt minst en uppgift inom en annan domän såsom exempelvis vård, kultur, föreningsliv, offentlig förvaltning, logistik och utbildning vilka alla kan ha andra regler, risker och identifieringsproblem. Tanken med det återkommande fallet är att det ska stödja progression medan variationsfallen istället ska pröva om kunskapen går att överföra mellan domäner. ",
+    "url": "/docs/om/om-kompendiet/#pedagogisk-princip",
+    "keywords": "om kompendiet studieteknik notation version"
+
+
+    "relUrl": "/docs/om/om-kompendiet/#pedagogisk-princip"
+  },"108": {
+    "doc": "Om kompendiet",
+    "title": "Konceptuell modellering före diagramsyntax",
+    "content": "ER-diagram används som notation, men kursens mål är inte att memorera en viss uppsättning symboler. Du som student förväntas istället kunna: . | avgränsa ett informationsbehov | definiera begrepp och identifierare | formulera prövbara verksamhetsregler | uttrycka associationer och deltagande | jämföra modeller och diskutera deras konsekvenser | . Kompendiets huvudnotation visar entitetstyper som rutor med ett begränsat urval attribut och konceptuella identifierare medan associationer ges verbnamn och multiplicitet uttrycks som 0..1, 1..1, 0..* eller 1..*. Crow’s foot notation introduceras även som en alternativ syntax. Primärnycklar, främmande nycklar, SQL-datatyper och index hör dock inte hemma i den konceptuella modellen och introduceras därför först i samband med att modellen översätts och implementeras. ",
+    "url": "/docs/om/om-kompendiet/#konceptuell-modellering-f%C3%B6re-diagramsyntax",
+    "keywords": "om kompendiet studieteknik notation version"
+
+
+    "relUrl": "/docs/om/om-kompendiet/#konceptuell-modellering-före-diagramsyntax"
+  },"109": {
+    "doc": "Om kompendiet",
+    "title": "Användning och hänvisning",
+    "content": "Kompendiet är avsett att vara fritt tillgängligt. Slutliga licensvillkor anges före publik lansering. Oavsett licens ska den som återger eller bearbetar materialet tydligt ange källa och upphovsperson enligt god akademisk sed. ",
+    "url": "/docs/om/om-kompendiet/#anv%C3%A4ndning-och-h%C3%A4nvisning",
+    "keywords": "om kompendiet studieteknik notation version"
+
+
+    "relUrl": "/docs/om/om-kompendiet/#användning-och-hänvisning"
+  }
+}

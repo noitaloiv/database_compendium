@@ -1,0 +1,1327 @@
+
+
+<!DOCTYPE html>
+
+<html lang="sv-SE">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    .site-nav > ul.nav-list:first-child > li > a,
+    
+    .site-nav > ul.nav-list:first-child > li > ul > li:not(:nth-child(3)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(3) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg,
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(3) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list,
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(3) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Konceptuell modellering | Databaser</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Konceptuell modellering" />
+<meta property="og:locale" content="sv_SE" />
+<meta name="description" content="Ett kurskompendium för Informationssystem A: Databaser (2IS007)" />
+<meta name="twitter:description" property="og:description" content="Ett kurskompendium för Informationssystem A: Databaser (2IS007)" />
+<link rel="canonical" href="http://localhost:4000/docs/del-1-grunder/konceptuell-modellering/" />
+<meta property="og:url" content="http://localhost:4000/docs/del-1-grunder/konceptuell-modellering/" />
+<meta property="og:site_name" content="Databaser" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Konceptuell modellering" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Ett kurskompendium för Informationssystem A: Databaser (2IS007)","headline":"Konceptuell modellering","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/docs/del-1-grunder/konceptuell-modellering/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <meta name="color-scheme" content="light dark">
+
+<link
+  id="databaser-dark-theme"
+  rel="stylesheet"
+  href="/assets/css/just-the-docs-databaser-dark.css"
+  media="(prefers-color-scheme: dark)">
+
+<script>
+  (function () {
+    var preference = "system";
+    try {
+      preference = window.localStorage.getItem("databaser-theme") || "system";
+    } catch (error) {
+      preference = "system";
+    }
+
+    if (preference !== "light" && preference !== "dark") {
+      preference = "system";
+    }
+
+    var darkTheme = document.getElementById("databaser-dark-theme");
+    if (preference === "dark") {
+      darkTheme.media = "all";
+    } else if (preference === "light") {
+      darkTheme.media = "not all";
+    }
+
+    var systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var resolved = preference === "system" ? (systemDark ? "dark" : "light") : preference;
+    document.documentElement.dataset.databaserTheme = resolved;
+    document.documentElement.style.colorScheme = resolved;
+  }());
+</script>
+
+<script src="/assets/js/theme-toggle.js" defer></script>
+
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <header class="side-bar">
+  <div class="site-header">
+    <a href="/" class="site-title lh-tight">
+  <div class="site-logo" role="img" aria-label="Databaser"></div>
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/relationsmodellen/" class="nav-list-link">2. Relationsmodellen</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">3. Konceptuell modellering</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+  <ul class="nav-list"><li class="nav-list-item external">
+          <a href="https://www.uu.se/utbildning/kursplan?query=d21c4f3c-a296-11f0-af30-479161e74134" class="nav-list-link external"
+            
+              target="_blank" rel="noopener noreferrer"
+            
+          >
+            Kursplan 2IS007
+            <svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>
+          </a>
+        </li></ul>
+</nav>
+
+
+<div class="d-md-block d-none site-footer">
+  
+  
+    <p></p>
+
+  
+  </div>
+</header>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Sök begrepp, SQL eller kapitel" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Sök begrepp, SQL eller kapitel</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  <div class="theme-control">
+  <label for="theme-preference" class="theme-label">
+    <span aria-hidden="true">◐</span>
+    <span>Theme</span>
+  </label>
+  <select id="theme-preference" class="theme-select" aria-label="Choose color theme">
+    <option value="system">Automatic</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+</div>
+
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    <li class="breadcrumb-nav-list-item"><a href="/docs/del-1-grunder/">Del I – Modeller och relationer</a></li>
+    <li class="breadcrumb-nav-list-item"><span>3. Konceptuell modellering</span></li>
+  </ol>
+</nav>
+
+
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="3-konceptuell-modellering">
+  
+  
+    <a href="#3-konceptuell-modellering" class="anchor-heading" aria-labelledby="3-konceptuell-modellering"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Konceptuell modellering
+  
+  
+</h1>
+    
+
+<p>Var hör en leveransadress hemma? I kapitel 1 såg vi att Nordic Brew kan behöva
+bevara den adress som användes när en beställning gjordes, även om kunden senare
+flyttar. Frågan kan inte lösas genom att leta efter rätt SQL-datatyp. Först
+måste vi förstå vad verksamheten menar med <em>kund</em>, <em>beställning</em>, <em>adress</em> och
+<em>historik</em>.</p>
+
+<p><strong>Konceptuell modellering</strong> gör ett avgränsat informationsbehov explicit utan
+att först bestämma tabeller, främmande nycklar eller lagringsformat. Resultatet
+är både en modell och en samling prövbara verksamhetsregler.</p>
+
+<div class="learning-objectives">
+<h2 id="efter-kapitlet-kan-du">
+  
+  
+    <a href="#efter-kapitlet-kan-du" class="anchor-heading" aria-labelledby="efter-kapitlet-kan-du"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Efter kapitlet kan du
+  
+  
+</h2>
+    
+
+  <ul>
+    <li>avgränsa ett informationsområde och formulera relevanta verksamhetsregler;</li>
+    <li>skilja entitetstyp, entitet, attribut, identifierare och association;</li>
+    <li>ange och läsa minsta respektive största deltagande med <code class="language-plaintext highlighter-rouge">min..max</code>;</li>
+    <li>modellera en M:N-association med en associativ entitetstyp när sambandet har
+egna attribut;</li>
+    <li>skilja konceptuella identifierare från primär- och främmande nycklar;</li>
+    <li>validera en modell med konkreta scenarier och kritisera rimliga alternativ.</li>
+  </ul>
+</div>
+<h2 id="31-modellering-är-ett-påstående-om-en-verksamhet">
+  
+  
+    <a href="#31-modellering-är-ett-påstående-om-en-verksamhet" class="anchor-heading" aria-labelledby="31-modellering-är-ett-påstående-om-en-verksamhet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.1 Modellering är ett påstående om en verksamhet
+  
+  
+</h2>
+    
+
+<p>En modell är en avsiktlig förenkling. Den tar med sådant som behövs för ett
+bestämt syfte och lämnar annat utanför. Samma verklighet kan därför beskrivas
+med flera modeller utan att alla modeller är lika lämpliga för samma uppgift.</p>
+
+<p>Ett kafferosteri kan se en fysisk påse kaffe som:</p>
+
+<ul>
+  <li>en produkt som kan beställas;</li>
+  <li>ett lagersaldo av utbytbara enheter;</li>
+  <li>ett individuellt spårbart parti med rostningsdatum;</li>
+  <li>ett bokföringsvärde;</li>
+  <li>ett objekt med ursprung och hållbarhetsinformation.</li>
+</ul>
+
+<p>Vilka perspektiv som behöver modelleras beror på verksamhetsfrågan. En modell
+för webbshoppen behöver inte automatiskt stödja spårning av varje fysisk påse.
+Om en ny regel kräver återkallelse per produktionsparti måste modellen däremot
+kunna skilja partier åt.</p>
+
+<blockquote class="important">
+  <p>En ER-modell blir inte korrekt bara för att notationens symboler är rätt.
+Varje ruta och linje måste kunna försvaras med en definition eller en
+verksamhetsregel.</p>
+</blockquote>
+<h2 id="32-börja-med-syfte-och-avgränsning">
+  
+  
+    <a href="#32-börja-med-syfte-och-avgränsning" class="anchor-heading" aria-labelledby="32-börja-med-syfte-och-avgränsning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.2 Börja med syfte och avgränsning
+  
+  
+</h2>
+    
+
+<p>Innan entitetstyper identifieras bör modellgruppen skriva två korta stycken:</p>
+
+<ol>
+  <li><strong>Syfte:</strong> vilka beslut eller arbetsprocesser ska modellen stödja?</li>
+  <li><strong>Avgränsning:</strong> vad ligger uttryckligen utanför modellen?</li>
+</ol>
+
+<p>För Nordic Brews första modell:</p>
+
+<blockquote>
+  <p>Modellen ska stödja registrering av kunder och beställningar samt visa vilka
+produkter, kvantiteter och avtalade priser som ingår i varje beställning.
+Lager, leveranser, betalningar, kampanjer och produktionspartier ligger tills
+vidare utanför.</p>
+</blockquote>
+
+<p>Avgränsningen hindrar modellen från att växa genom fria associationer. Den kan
+revideras senare, men varje tillägg ska ha ett informationsbehov.</p>
+<h3 id="frågor-modellen-ska-kunna-besvara">
+  
+  
+    <a href="#frågor-modellen-ska-kunna-besvara" class="anchor-heading" aria-labelledby="frågor-modellen-ska-kunna-besvara"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Frågor modellen ska kunna besvara
+  
+  
+</h3>
+    
+
+<p>Komplettera syftet med exempel:</p>
+
+<ul>
+  <li>Vem gjorde en viss beställning?</li>
+  <li>Vilka produkter ingår i den?</li>
+  <li>Hur många enheter beställdes?</li>
+  <li>Vilket pris avtalades för varje produkt när ordern skapades?</li>
+  <li>Vilka kunder har ännu inte gjort någon beställning?</li>
+</ul>
+
+<p>Den sista frågan är viktig. Den visar att en kund får finnas utan en
+beställning, vilket påverkar lägsta deltagande.</p>
+<h2 id="33-verksamhetsspråk-och-begreppslista">
+  
+  
+    <a href="#33-verksamhetsspråk-och-begreppslista" class="anchor-heading" aria-labelledby="33-verksamhetsspråk-och-begreppslista"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.3 Verksamhetsspråk och begreppslista
+  
+  
+</h2>
+    
+
+<p>Ord är inte automatiskt begrepp. Samma ord kan betyda olika saker, och olika
+ord kan betyda samma sak. En <strong>begreppslista</strong> gör betydelsen förhandlingsbar.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Arbetsdefinition</th>
+      <th>Avgränsning/fråga</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kund</td>
+      <td>Person eller organisation som kan göra en beställning</td>
+      <td>Är prospekt utan order kunder? Ja.</td>
+    </tr>
+    <tr>
+      <td>Beställning</td>
+      <td>Kundens åtagande att köpa minst en produkt vid en viss tidpunkt</td>
+      <td>Skiljs från betalning och leverans.</td>
+    </tr>
+    <tr>
+      <td>Produkt</td>
+      <td>Säljbar artikeltyp i sortimentet</td>
+      <td>En fysisk påse är inte en egen produktentitet.</td>
+    </tr>
+    <tr>
+      <td>Orderrad</td>
+      <td>En viss produkts kvantitet och avtalade pris i en viss beställning</td>
+      <td>Samma produkt får högst en orderrad per beställning.</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Begreppslistan och diagrammet måste säga samma sak. Om listan säger att en
+beställning innehåller minst en produkt men diagrammet tillåter noll orderrader
+har modellen en intern motsägelse.</p>
+<h2 id="34-entitetstyp-och-entitet">
+  
+  
+    <a href="#34-entitetstyp-och-entitet" class="anchor-heading" aria-labelledby="34-entitetstyp-och-entitet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.4 Entitetstyp och entitet
+  
+  
+</h2>
+    
+
+<p>En <strong>entitet</strong> är ett individuellt fenomen som modellen behöver kunna skilja
+från andra, exempelvis den beställning som Nordic Brew betecknar <code class="language-plaintext highlighter-rouge">1042</code>.</p>
+
+<p>En <strong>entitetstyp</strong> beskriver en mängd likartade entiteter med gemensam betydelse
+och regler, exempelvis <code class="language-plaintext highlighter-rouge">BESTÄLLNING</code>. Namnge entitetstyper i singular:
+<code class="language-plaintext highlighter-rouge">KUND</code>, inte <code class="language-plaintext highlighter-rouge">KUNDER</code>.</p>
+
+<p>Det behöver inte vara ett fysiskt ting. Ett avtal, en bokning eller ett
+kurstillfälle kan vara en entitet om verksamheten behöver identifiera och hålla
+reda på individuella förekomster.</p>
+<h3 id="kandidat-eller-attribut">
+  
+  
+    <a href="#kandidat-eller-attribut" class="anchor-heading" aria-labelledby="kandidat-eller-attribut"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Kandidat eller attribut?
+  
+  
+</h3>
+    
+
+<p>Ett substantiv i en kravtext är inte automatiskt en entitetstyp. Fråga:</p>
+
+<ul>
+  <li>Behöver individuella förekomster kunna identifieras?</li>
+  <li>Har fenomenet egna egenskaper?</li>
+  <li>Deltar det i associationer?</li>
+  <li>Har det en egen livscykel eller egna regler?</li>
+  <li>Behöver flera andra objekt hänvisa till samma förekomst?</li>
+</ul>
+
+<p>”Färg” kan vara ett enkelt produktattribut i en modell och en egen entitetstyp
+med kod, namn och tillåtna kombinationer i en annan.</p>
+<h2 id="35-attribut-och-identifierare">
+  
+  
+    <a href="#35-attribut-och-identifierare" class="anchor-heading" aria-labelledby="35-attribut-och-identifierare"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.5 Attribut och identifierare
+  
+  
+</h2>
+    
+
+<p>Ett <strong>attribut</strong> beskriver en egenskap hos en entitetstyp eller, i vissa
+notationer, hos en association. För <code class="language-plaintext highlighter-rouge">BESTÄLLNING</code> kan <code class="language-plaintext highlighter-rouge">Orderdatum</code> och <code class="language-plaintext highlighter-rouge">Status</code>
+vara attribut.</p>
+
+<p>En <strong>identifierare</strong> är ett eller flera attribut som verksamheten använder för
+att skilja entiteter av samma typ. I den konceptuella modellen talar vi om
+identifierare, inte primärnycklar. Primärnyckel är ett beslut i
+relationsmodellen och implementationen.</p>
+
+<p>Exempel:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BESTÄLLNING
+Identifierare: Ordernummer
+Attribut: Orderdatum, Status
+</code></pre></div></div>
+
+<p>En identifierare behöver valideras mot verksamheten. ”Namn” räcker sällan för
+personer eller produkter. Telefonnummer och e-postadresser kan ändras och är
+inte alltid tillgängliga när entiteten först skapas.</p>
+<h3 id="enkla-sammansatta-och-härledda-attribut">
+  
+  
+    <a href="#enkla-sammansatta-och-härledda-attribut" class="anchor-heading" aria-labelledby="enkla-sammansatta-och-härledda-attribut"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Enkla, sammansatta och härledda attribut
+  
+  
+</h3>
+    
+
+<ul>
+  <li>Ett <strong>enkelt attribut</strong> behandlas som ett värde i modellen, exempelvis
+<code class="language-plaintext highlighter-rouge">Orderdatum</code>.</li>
+  <li>Ett <strong>sammansatt attribut</strong> har relevanta delar, exempelvis en adress med
+gata, postnummer och land.</li>
+  <li>Ett <strong>härlett attribut</strong> kan beräknas från andra uppgifter, exempelvis en
+ordertotal från orderradernas kvantitet och pris.</li>
+</ul>
+
+<p>Härledda värden ska normalt inte lagras dubbelt utan skäl. Ibland behövs en
+historisk ögonblicksbild eller prestandaoptimering, men då måste regeln för att
+hålla kopiorna samstämmiga vara tydlig.</p>
+<h3 id="flervärda-egenskaper">
+  
+  
+    <a href="#flervärda-egenskaper" class="anchor-heading" aria-labelledby="flervärda-egenskaper"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Flervärda egenskaper
+  
+  
+</h3>
+    
+
+<p>Om en kund kan ha flera telefonnummer är en avgränsad textsträng sällan ett bra
+konceptuellt attribut när numren ska sökas eller märkas som exempelvis mobil och
+arbete. Modellera då <code class="language-plaintext highlighter-rouge">TELEFONKONTAKT</code> som en egen entitetstyp eller använd en
+flervärdesnotation som senare översätts till en egen relation.</p>
+<h2 id="36-associationer">
+  
+  
+    <a href="#36-associationer" class="anchor-heading" aria-labelledby="36-associationer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.6 Associationer
+  
+  
+</h2>
+    
+
+<p>En <strong>association</strong> uttrycker att entiteter har ett verksamhetsmässigt samband.
+Namnge den gärna med ett verb som kan läsas i en mening:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KUND gör BESTÄLLNING
+BESTÄLLNING innehåller ORDERRAD
+ORDERRAD avser PRODUKT
+</code></pre></div></div>
+
+<p>Att två entitetstyper råkar dela ett ord eller senare får matchande värden är
+inte tillräckligt. Associationen ska motsvara en definierad regel.</p>
+<h3 id="association-eller-händelse">
+  
+  
+    <a href="#association-eller-händelse" class="anchor-heading" aria-labelledby="association-eller-händelse"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Association eller händelse?
+  
+  
+</h3>
+    
+
+<p>Vissa samband har egna egenskaper och en egen livscykel. En kursdeltagare
+<em>registreras på</em> ett kurstillfälle, och registreringen kan ha datum, status och
+betyg. Då är <code class="language-plaintext highlighter-rouge">REGISTRERING</code> ofta bättre som en associativ entitetstyp än en
+namnlös linje.</p>
+<h2 id="37-multiplicitet-minsta-och-största-deltagande">
+  
+  
+    <a href="#37-multiplicitet-minsta-och-största-deltagande" class="anchor-heading" aria-labelledby="37-multiplicitet-minsta-och-största-deltagande"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.7 Multiplicitet: minsta och största deltagande
+  
+  
+</h2>
+    
+
+<p>För varje associationsände behöver vi fråga två saker:</p>
+
+<ol>
+  <li><strong>Min:</strong> måste en entitet delta, eller får den stå utan samband?</li>
+  <li><strong>Max:</strong> får den ha samband med en eller flera entiteter av den andra typen?</li>
+</ol>
+
+<p>I kompendiet skrivs svaret <code class="language-plaintext highlighter-rouge">min..max</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">0..1</code>: ingen eller en;</li>
+  <li><code class="language-plaintext highlighter-rouge">1..1</code>: exakt en;</li>
+  <li><code class="language-plaintext highlighter-rouge">0..*</code>: ingen, en eller flera;</li>
+  <li><code class="language-plaintext highlighter-rouge">1..*</code>: minst en, möjligen flera.</li>
+</ul>
+
+<p>Orden <em>kardinalitet</em> och <em>deltagande</em> används olika i olika böcker. Här används
+<strong>multiplicitet</strong> för hela intervallet. När enbart förhållandet 1:1, 1:N eller
+M:N anges beskriver det endast maximum och är därför ofullständigt.</p>
+
+<figure class="figure">
+  <img src="/assets/images/05-lasa-multiplicitet.svg" alt="Kund gör Beställning. Vid Kund står 1..1 och vid Beställning 0..stjärna. Pilar med frågor visar att varje beställning görs av exakt en kund och att varje kund kan göra noll eller flera beställningar." />
+  <figcaption><strong>Figur 3.1.</strong> Läs en ände i taget. Talet nära KUND besvarar hur många kunder en beställning hör till; talet nära BESTÄLLNING besvarar hur många beställningar en kund kan göra.</figcaption>
+</figure>
+<h3 id="läsmetod">
+  
+  
+    <a href="#läsmetod" class="anchor-heading" aria-labelledby="läsmetod"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Läsmetod
+  
+  
+</h3>
+    
+
+<p>För associationen i figur 3.1:</p>
+
+<ul>
+  <li>välj en beställning och läs mot kundänden: beställningen görs av <code class="language-plaintext highlighter-rouge">1..1</code> kund;</li>
+  <li>välj en kund och läs mot beställningsänden: kunden gör <code class="language-plaintext highlighter-rouge">0..*</code>
+beställningar.</li>
+</ul>
+
+<p>Skriv båda meningarna. Det förebygger den vanligaste typen av spegelvänt
+kardinalitetsfel.</p>
+<h3 id="frågor-som-avslöjar-minimum">
+  
+  
+    <a href="#frågor-som-avslöjar-minimum" class="anchor-heading" aria-labelledby="frågor-som-avslöjar-minimum"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Frågor som avslöjar minimum
+  
+  
+</h3>
+    
+
+<ul>
+  <li>Kan kunden registreras innan första beställningen? Då är beställningsänden
+sannolikt <code class="language-plaintext highlighter-rouge">0..*</code> för en kund.</li>
+  <li>Kan en beställning sparas som tomt utkast? Om ja kan orderradens minimum vara
+0 i ett visst tillstånd; om nej är det 1.</li>
+  <li>Får en produkt finnas i sortimentet utan att någonsin ha beställts? Då är
+deltagandet i orderrader valfritt för produkten.</li>
+</ul>
+
+<p>Minimum kan bero på tid och status. Om utkast får vara tomma men bekräftade
+beställningar måste ha rader behöver modellen eller kompletterande regler
+uttrycka båda tillstånden.</p>
+<h2 id="38-tre-vanliga-associationsformer">
+  
+  
+    <a href="#38-tre-vanliga-associationsformer" class="anchor-heading" aria-labelledby="38-tre-vanliga-associationsformer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.8 Tre vanliga associationsformer
+  
+  
+</h2>
+    
+<h3 id="11">
+  
+  
+    <a href="#11" class="anchor-heading" aria-labelledby="11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1:1
+  
+  
+</h3>
+    
+
+<p>Varje entitet av typen A hör till högst en B och varje B till högst en A.
+Exempel kan vara person och ett visst slags aktivt medlemskort. En 1:1-modell
+ska ifrågasättas: är begreppen egentligen två aspekter av samma entitet, eller
+behöver de skiljas på grund av olika livscykel, sekretess eller frivillighet?</p>
+
+<p>Ett framtida relationsschema ska normalt inte få två ömsesidiga främmande
+nycklar. Kapitel 4 visar hur en riktning väljs och skyddas med unikhet.</p>
+<h3 id="1n">
+  
+  
+    <a href="#1n" class="anchor-heading" aria-labelledby="1n"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1:N
+  
+  
+</h3>
+    
+
+<p>En kund kan göra flera beställningar, medan varje beställning görs av en kund.
+Detta är en 1:N-association när vi endast betraktar maximum.</p>
+<h3 id="mn">
+  
+  
+    <a href="#mn" class="anchor-heading" aria-labelledby="mn"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> M:N
+  
+  
+</h3>
+    
+
+<p>En beställning kan innehålla flera produkter och en produkt kan förekomma i
+flera beställningar. Sambandet har dessutom egna egenskaper: kvantitet och
+avtalat pris. Det modelleras därför som den associativa entitetstypen
+<code class="language-plaintext highlighter-rouge">ORDERRAD</code>.</p>
+<h2 id="39-den-associativa-entitetstypen-orderrad">
+  
+  
+    <a href="#39-den-associativa-entitetstypen-orderrad" class="anchor-heading" aria-labelledby="39-den-associativa-entitetstypen-orderrad"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.9 Den associativa entitetstypen ORDERRAD
+  
+  
+</h2>
+    
+
+<p>En orderrad existerar genom kombinationen av en beställning och en produkt, men
+är mer än en teknisk koppling. Den uttrycker ett affärsfaktum:</p>
+
+<blockquote>
+  <p>I beställning 1042 avtalades två enheter av produkt 501 till 12 900 öre per
+styck.</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">Antal</code> och <code class="language-plaintext highlighter-rouge">AvtalatStyckpris</code> hör varken till produkten ensam eller
+beställningen ensam. De beror på kombinationen.</p>
+
+<p>Om samma produkt får förekomma högst en gång per order kan kombinationen
+<code class="language-plaintext highlighter-rouge">Beställning + Produkt</code> fungera som konceptuell identifierare för
+<code class="language-plaintext highlighter-rouge">ORDERRAD</code>. Om flera rader för samma produkt ska tillåtas, exempelvis med olika
+rabatt eller leveransdatum, behövs en annan identifieringsregel.</p>
+
+<blockquote class="mistake">
+  <p>Lägg inte <code class="language-plaintext highlighter-rouge">Produkt1</code>, <code class="language-plaintext highlighter-rouge">Produkt2</code>, <code class="language-plaintext highlighter-rouge">Produkt3</code> som attribut i BESTÄLLNING. Det
+sätter ett godtyckligt tak, upprepar samma betydelse och gör frågor samt
+integritetskontroll svårare.</p>
+</blockquote>
+<h2 id="310-genomarbetat-exempel-nordic-brews-ordermodell">
+  
+  
+    <a href="#310-genomarbetat-exempel-nordic-brews-ordermodell" class="anchor-heading" aria-labelledby="310-genomarbetat-exempel-nordic-brews-ordermodell"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.10 Genomarbetat exempel: Nordic Brews ordermodell
+  
+  
+</h2>
+    
+<h3 id="steg-1-källtext">
+  
+  
+    <a href="#steg-1-källtext" class="anchor-heading" aria-labelledby="steg-1-källtext"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg 1: källtext
+  
+  
+</h3>
+    
+
+<blockquote>
+  <p>Nordic Brew registrerar kunder även innan de har handlat. Varje kund får ett
+kundnummer och anger ett namn samt en unik e-postadress. En kund kan göra
+flera beställningar, men varje beställning görs av exakt en kund. En
+beställning identifieras med ordernummer och har orderdatum samt status. En
+registrerad beställning innehåller minst en orderrad. Varje orderrad avser exakt
+en produkt och anger positiv kvantitet samt det pris som avtalades. En produkt
+kan finnas i sortimentet utan att ännu ha beställts. Samma produkt får
+förekomma högst en gång per beställning.</p>
+</blockquote>
+<h3 id="steg-2-påståenden-och-öppna-frågor">
+  
+  
+    <a href="#steg-2-påståenden-och-öppna-frågor" class="anchor-heading" aria-labelledby="steg-2-påståenden-och-öppna-frågor"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg 2: påståenden och öppna frågor
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Påstående</th>
+      <th>Modellkonsekvens</th>
+      <th>Öppen fråga</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kund registreras före köp</td>
+      <td>KUND deltar <code class="language-plaintext highlighter-rouge">0..*</code> i beställningar</td>
+      <td>Får e-post saknas tillfälligt?</td>
+    </tr>
+    <tr>
+      <td>Varje beställning har exakt en kund</td>
+      <td>BESTÄLLNING deltar obligatoriskt mot KUND</td>
+      <td>Kan en kund raderas med historik kvar?</td>
+    </tr>
+    <tr>
+      <td>Registrerad order har minst en rad</td>
+      <td>BESTÄLLNING deltar <code class="language-plaintext highlighter-rouge">1..*</code> mot ORDERRAD</td>
+      <td>Behöver tomma arbetsutkast lagras utanför modellen?</td>
+    </tr>
+    <tr>
+      <td>Produkt kan vara obeställd</td>
+      <td>PRODUKT deltar <code class="language-plaintext highlighter-rouge">0..*</code> i orderrader</td>
+      <td>Hur markeras utgången produkt?</td>
+    </tr>
+    <tr>
+      <td>Pris avtalas per rad</td>
+      <td><code class="language-plaintext highlighter-rouge">AvtalatStyckpris</code> hör till ORDERRAD</td>
+      <td>Inklusive eller exklusive moms?</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>En modellgrupp bör inte fylla de öppna frågorna med egna antaganden och sedan
+glömma dem. Antaganden märks, verifieras med verksamhetsrepresentant och förs in
+i begreppslistan.</p>
+<h3 id="steg-3-modellen">
+  
+  
+    <a href="#steg-3-modellen" class="anchor-heading" aria-labelledby="steg-3-modellen"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg 3: modellen
+  
+  
+</h3>
+    
+
+<figure class="figure">
+  <img src="/assets/images/06-konceptuell-modell-nordicbrew.svg" alt="Konceptuell ER-modell med KUND, BESTÄLLNING, ORDERRAD och PRODUKT. En kund gör noll eller flera beställningar och varje beställning har exakt en kund. En beställning innehåller en eller flera orderrader, varje orderrad tillhör exakt en beställning. En produkt kan förekomma i noll eller flera orderrader, varje orderrad avser exakt en produkt." />
+  <figcaption><strong>Figur 3.2.</strong> Konceptuell modell för orderområdet. Attribut märkta ID är verksamhetsidentifierare. Modellen innehåller inga främmande nycklar.</figcaption>
+</figure>
+
+<p>Modellen uttrycker:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">KUND</code> identifieras av <code class="language-plaintext highlighter-rouge">Kundnummer</code>;</li>
+  <li><code class="language-plaintext highlighter-rouge">BESTÄLLNING</code> identifieras av <code class="language-plaintext highlighter-rouge">Ordernummer</code>;</li>
+  <li><code class="language-plaintext highlighter-rouge">PRODUKT</code> identifieras av <code class="language-plaintext highlighter-rouge">Produktnummer</code>;</li>
+  <li><code class="language-plaintext highlighter-rouge">ORDERRAD</code> identifieras av kombinationen beställning och produkt;</li>
+  <li>en kund gör <code class="language-plaintext highlighter-rouge">0..*</code> beställningar; varje beställning görs av <code class="language-plaintext highlighter-rouge">1..1</code> kund;</li>
+  <li>en beställning innehåller <code class="language-plaintext highlighter-rouge">1..*</code> orderrader; varje orderrad hör till <code class="language-plaintext highlighter-rouge">1..1</code>
+beställning;</li>
+  <li>en produkt förekommer i <code class="language-plaintext highlighter-rouge">0..*</code> orderrader; varje orderrad avser <code class="language-plaintext highlighter-rouge">1..1</code>
+produkt.</li>
+</ul>
+<h3 id="steg-4-scenariotest">
+  
+  
+    <a href="#steg-4-scenariotest" class="anchor-heading" aria-labelledby="steg-4-scenariotest"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg 4: scenariotest
+  
+  
+</h3>
+    
+
+<p>Pröva modellen med konkreta händelser:</p>
+
+<ol>
+  <li><strong>Ny kund utan order:</strong> tillåts av <code class="language-plaintext highlighter-rouge">0..*</code> vid BESTÄLLNING.</li>
+  <li><strong>Ny produkt utan försäljning:</strong> tillåts av <code class="language-plaintext highlighter-rouge">0..*</code> vid ORDERRAD.</li>
+  <li><strong>Order utan kund:</strong> förbjuds av <code class="language-plaintext highlighter-rouge">1..1</code> vid KUND.</li>
+  <li><strong>Registrerad order utan rader:</strong> förbjuds av <code class="language-plaintext highlighter-rouge">1..*</code>. Om verksamheten senare
+kräver sparade tomma arbetsutkast behöver modellen utvidgas med en tydlig
+tillståndsregel.</li>
+  <li><strong>Samma produkt två gånger i en order:</strong> förbjuds av identifieringsregeln för
+ORDERRAD.</li>
+  <li><strong>Listpriset ändras:</strong> orderradens avtalade pris bevarar den historiska
+överenskommelsen.</li>
+</ol>
+
+<p>Scenariotestet är en form av modellverifiering. Det visar att diagrammet följer
+de skrivna reglerna. Det visar däremot inte att reglerna är de rätta för
+verksamheten; det kräver validering med berörda aktörer.</p>
+<h2 id="311-när-det-finns-flera-rimliga-modeller">
+  
+  
+    <a href="#311-när-det-finns-flera-rimliga-modeller" class="anchor-heading" aria-labelledby="311-när-det-finns-flera-rimliga-modeller"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.11 När det finns flera rimliga modeller
+  
+  
+</h2>
+    
+<h3 id="leveransadress-som-attribut-eller-entitet">
+  
+  
+    <a href="#leveransadress-som-attribut-eller-entitet" class="anchor-heading" aria-labelledby="leveransadress-som-attribut-eller-entitet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Leveransadress som attribut eller entitet
+  
+  
+</h3>
+    
+
+<p>Tre möjliga lösningar:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">Leveransadress</code> är ett sammansatt attribut på BESTÄLLNING.</li>
+  <li><code class="language-plaintext highlighter-rouge">ADRESS</code> är en egen entitetstyp och beställningen hänvisar till en adress.</li>
+  <li>Kunden har sparade adresser, men beställningen lagrar dessutom en historisk
+adressögonblicksbild.</li>
+</ol>
+
+<p>Valet beror på krav:</p>
+
+<ul>
+  <li>Ska samma adress återanvändas och administreras?</li>
+  <li>Ska ändringar slå igenom på gamla beställningar?</li>
+  <li>Behöver adressens giltighetstid eller typ hanteras?</li>
+  <li>Finns juridiska krav på vad som ska bevaras?</li>
+</ul>
+
+<p>Den enklaste modell som bevarar nödvändig betydelse är ofta bäst. ”Minst antal
+entitetstyper” och ”mest normaliserat diagram” är inte mål i sig.</p>
+<h3 id="person-eller-kund">
+  
+  
+    <a href="#person-eller-kund" class="anchor-heading" aria-labelledby="person-eller-kund"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Person eller kund?
+  
+  
+</h3>
+    
+
+<p>Om bara köp är relevant kan <code class="language-plaintext highlighter-rouge">KUND</code> vara tillräckligt. Om samma person också är
+anställd, kontaktperson för ett företag eller mottagare av marknadsföring kan en
+mer generell <code class="language-plaintext highlighter-rouge">PERSON</code> med roller vara motiverad. Generalisering ska dock inte
+införas enbart för att den verkar framtidssäker. Abstraktion utan ett känt behov
+gör regler svårare att förstå.</p>
+<h2 id="312-rekursiva-associationer-och-roller">
+  
+  
+    <a href="#312-rekursiva-associationer-och-roller" class="anchor-heading" aria-labelledby="312-rekursiva-associationer-och-roller"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.12 Rekursiva associationer och roller
+  
+  
+</h2>
+    
+
+<p>En entitetstyp kan associeras med sig själv. En anställd kan exempelvis vara
+chef för andra anställda. Då behövs rollnamn:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ANSTÄLLD (chef) leder (medarbetare) ANSTÄLLD
+</code></pre></div></div>
+
+<p>Frågorna blir:</p>
+
+<ul>
+  <li>Hur många chefer kan en medarbetare ha?</li>
+  <li>Får en anställd sakna chef?</li>
+  <li>Hur många medarbetare kan en chef leda?</li>
+  <li>Får en person indirekt bli sin egen chef genom en kedja?</li>
+</ul>
+
+<p>Den sista regeln kan inte avläsas ur enkla ändmultipliciteter och behöver
+dokumenteras separat.</p>
+<h2 id="313-en-praktisk-modelleringsmetod">
+  
+  
+    <a href="#313-en-praktisk-modelleringsmetod" class="anchor-heading" aria-labelledby="313-en-praktisk-modelleringsmetod"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.13 En praktisk modelleringsmetod
+  
+  
+</h2>
+    
+
+<p>Arbeta iterativt men lämna spår efter besluten.</p>
+<h3 id="steg-a-formulera-syfte-och-gräns">
+  
+  
+    <a href="#steg-a-formulera-syfte-och-gräns" class="anchor-heading" aria-labelledby="steg-a-formulera-syfte-och-gräns"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg A: formulera syfte och gräns
+  
+  
+</h3>
+    
+
+<p>Skriv vilka processer och frågor modellen ska stödja. Lista uttryckligen vad som
+inte ingår.</p>
+<h3 id="steg-b-samla-utsagor-och-exempel">
+  
+  
+    <a href="#steg-b-samla-utsagor-och-exempel" class="anchor-heading" aria-labelledby="steg-b-samla-utsagor-och-exempel"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg B: samla utsagor och exempel
+  
+  
+</h3>
+    
+
+<p>Intervjuer, formulär, regler, befintliga filer och observationer kan vara
+källor. Samla också motexempel och undantag. Ett tomt formulär visar möjliga
+fält, inte nödvändigtvis verkliga regler.</p>
+<h3 id="steg-c-bygg-en-begreppslista">
+  
+  
+    <a href="#steg-c-bygg-en-begreppslista" class="anchor-heading" aria-labelledby="steg-c-bygg-en-begreppslista"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg C: bygg en begreppslista
+  
+  
+</h3>
+    
+
+<p>Definiera termer med eget språk. Märk synonymer, homonymer och obesvarade
+frågor. Undvik cirkulära definitioner som ”en kundorder är en order från en
+kund” om varken kund eller order är definierad.</p>
+<h3 id="steg-d-föreslå-entitetstyper-och-identifierare">
+  
+  
+    <a href="#steg-d-föreslå-entitetstyper-och-identifierare" class="anchor-heading" aria-labelledby="steg-d-föreslå-entitetstyper-och-identifierare"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg D: föreslå entitetstyper och identifierare
+  
+  
+</h3>
+    
+
+<p>Motivera varje entitetstyp med informationsbehov och varje identifierare med
+unikhet, stabilitet och tillgänglighet.</p>
+<h3 id="steg-e-formulera-associationer-som-två-meningar">
+  
+  
+    <a href="#steg-e-formulera-associationer-som-två-meningar" class="anchor-heading" aria-labelledby="steg-e-formulera-associationer-som-två-meningar"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg E: formulera associationer som två meningar
+  
+  
+</h3>
+    
+
+<p>För varje association, skriv en mening åt vardera riktningen och ange min/max.
+Exempel:</p>
+
+<blockquote>
+  <p>En kund kan göra noll eller flera beställningar. Varje beställning görs av
+exakt en kund.</p>
+</blockquote>
+<h3 id="steg-f-placera-attribut">
+  
+  
+    <a href="#steg-f-placera-attribut" class="anchor-heading" aria-labelledby="steg-f-placera-attribut"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg F: placera attribut
+  
+  
+</h3>
+    
+
+<p>Fråga vilken entitet eller kombination som bestämmer värdet. Avtalat pris
+bestäms av orderraden, inte av produkten ensam.</p>
+<h3 id="steg-g-validera-med-crud-och-tidsfall">
+  
+  
+    <a href="#steg-g-validera-med-crud-och-tidsfall" class="anchor-heading" aria-labelledby="steg-g-validera-med-crud-och-tidsfall"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg G: validera med CRUD och tidsfall
+  
+  
+</h3>
+    
+
+<p>Pröva att skapa, läsa, ändra och avsluta/radera olika entiteter. Pröva också:</p>
+
+<ul>
+  <li>före första associationen;</li>
+  <li>under pågående process;</li>
+  <li>efter statusändring;</li>
+  <li>efter ändring av ett refererat objekt;</li>
+  <li>vid historik och framtida planering.</li>
+</ul>
+<h3 id="steg-h-dokumentera-alternativ-och-beslut">
+  
+  
+    <a href="#steg-h-dokumentera-alternativ-och-beslut" class="anchor-heading" aria-labelledby="steg-h-dokumentera-alternativ-och-beslut"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Steg H: dokumentera alternativ och beslut
+  
+  
+</h3>
+    
+
+<p>För omstridda delar: skriv valt alternativ, minst ett avvisat alternativ,
+argument och vilket krav som avgjorde. Detta är mer värdefullt än att göra
+diagrammet visuellt perfekt utan motivering.</p>
+<h2 id="314-vanliga-modelleringsfel">
+  
+  
+    <a href="#314-vanliga-modelleringsfel" class="anchor-heading" aria-labelledby="314-vanliga-modelleringsfel"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.14 Vanliga modelleringsfel
+  
+  
+</h2>
+    
+<h3 id="främmande-nycklar-i-den-konceptuella-modellen">
+  
+  
+    <a href="#främmande-nycklar-i-den-konceptuella-modellen" class="anchor-heading" aria-labelledby="främmande-nycklar-i-den-konceptuella-modellen"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Främmande nycklar i den konceptuella modellen
+  
+  
+</h3>
+    
+
+<p>Att skriva <code class="language-plaintext highlighter-rouge">KundID (FK)</code> i BESTÄLLNING har redan fattat ett logiskt och fysiskt
+representationsbeslut. På konceptuell nivå räcker associationen och dess regler.</p>
+<h3 id="multiplicitet-från-dagens-exempeldata">
+  
+  
+    <a href="#multiplicitet-från-dagens-exempeldata" class="anchor-heading" aria-labelledby="multiplicitet-från-dagens-exempeldata"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Multiplicitet från dagens exempeldata
+  
+  
+</h3>
+    
+
+<p>Att varje kund råkar ha en order i testfilen betyder inte <code class="language-plaintext highlighter-rouge">1..1</code>. Modellen ska
+uttrycka tillåtna verksamhetstillstånd, inte bara det aktuella fotografiet.</p>
+<h3 id="mn-utan-sambandets-egenskaper">
+  
+  
+    <a href="#mn-utan-sambandets-egenskaper" class="anchor-heading" aria-labelledby="mn-utan-sambandets-egenskaper"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> M:N utan sambandets egenskaper
+  
+  
+</h3>
+    
+
+<p>En direkt association BESTÄLLNING–PRODUKT tappar kvantitet och avtalat pris om
+dessa inte får en tydlig plats. Den associativa entitetstypen gör faktumet
+synligt.</p>
+<h3 id="roller-modelleras-som-separata-personer">
+  
+  
+    <a href="#roller-modelleras-som-separata-personer" class="anchor-heading" aria-labelledby="roller-modelleras-som-separata-personer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Roller modelleras som separata personer
+  
+  
+</h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">KUND</code>, <code class="language-plaintext highlighter-rouge">ANSTÄLLD</code> och <code class="language-plaintext highlighter-rouge">LEVERANTÖRSKONTAKT</code> kan vara roller för samma person,
+men behöver inte alltid sammanslås. Problemet ska analyseras, inte avgöras av
+ordformen.</p>
+<h3 id="historik-blandas-med-nuläge">
+  
+  
+    <a href="#historik-blandas-med-nuläge" class="anchor-heading" aria-labelledby="historik-blandas-med-nuläge"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Historik blandas med nuläge
+  
+  
+</h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">Produkt.Listpris</code> svarar på aktuellt pris. <code class="language-plaintext highlighter-rouge">Orderrad.AvtalatStyckpris</code> svarar
+på historiskt avtalat pris. Att bara lagra det första förändrar betydelsen av
+gamla ordervärden.</p>
+<h3 id="onödigt-11">
+  
+  
+    <a href="#onödigt-11" class="anchor-heading" aria-labelledby="onödigt-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Onödigt 1:1
+  
+  
+</h3>
+    
+
+<p>Två entitetstyper med exakt samma livscykel och obligatorisk 1:1-association kan
+vara en enda entitetstyp. De kan ändå behöva skiljas åt vid olika behörighet,
+valfri del, annan livscykel eller oberoende identitet.</p>
+<h2 id="315-övning-a-evenemangsbokning">
+  
+  
+    <a href="#315-övning-a-evenemangsbokning" class="anchor-heading" aria-labelledby="315-övning-a-evenemangsbokning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.15 Övning A: evenemangsbokning
+  
+  
+</h2>
+    
+
+<p>Ett kulturhus beskriver sitt behov:</p>
+
+<blockquote>
+  <p>Kulturhuset arrangerar evenemang i salar. Ett evenemang kan ha flera
+föreställningstillfällen och varje tillfälle äger rum i exakt en sal. En sal
+kan naturligtvis användas för många tillfällen, men två tillfällen får inte
+överlappa i samma sal. Besökare kan boka en eller flera platser till ett
+tillfälle. En bokning görs av en besökare och kan omfatta flera biljetter med
+olika priskategorier. Vissa gratisevenemang kräver ingen bokning.</p>
+</blockquote>
+
+<blockquote class="exercise">
+  <ol>
+    <li>Skriv syfte och avgränsning i två–fyra meningar.</li>
+    <li>Skapa en begreppslista med minst sex termer och två öppna frågor.</li>
+    <li>Föreslå entitetstyper och konceptuella identifierare.</li>
+    <li>Skriv varje association som två riktningsmeningar med <code class="language-plaintext highlighter-rouge">min..max</code>.</li>
+    <li>Placera biljettens priskategori och faktiskt betalda pris. Motivera.</li>
+    <li>Förklara varför regeln om överlappande tillfällen inte uttrycks fullständigt
+av en enkel 1:N-association mellan SAL och TILLFÄLLE.</li>
+  </ol>
+</blockquote>
+
+<details class="answer">
+<summary>Kontrollpunkter för egen granskning</summary>
+
+En rimlig kärna innehåller `EVENEMANG`, `TILLFÄLLE`, `SAL`, `BESÖKARE`,
+`BOKNING` och `BILJETT` eller en associativ bokningsrad. Skilj evenemanget som
+programobjekt från det tidsatta tillfället. Faktiskt betalt pris behöver normalt
+bevaras på biljetten/bokningsraden, medan priskategorins aktuella standardpris
+kan ligga på en kategori. Texten klargör inte om numrerade sittplatser finns,
+om en bokning får avse flera tillfällen eller hur avbokning fungerar; sådana
+frågor ska synliggöras.
+
+Multipliciteten SAL–TILLFÄLLE säger hur många samband som får finnas, men inte
+att tidsintervall för två olika tillfällen i samma sal måste vara disjunkta.
+</details>
+<h2 id="316-övning-b-kritisera-en-modell">
+  
+  
+    <a href="#316-övning-b-kritisera-en-modell" class="anchor-heading" aria-labelledby="316-övning-b-kritisera-en-modell"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.16 Övning B: kritisera en modell
+  
+  
+</h2>
+    
+
+<p>En student föreslår:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KUND(KundID PK, Namn, Produkt1, Produkt2)
+BESTÄLLNING(OrderID PK, KundID FK, ProduktID FK, Antal)
+PRODUKT(ProduktID PK, Namn, OrderID FK)
+</code></pre></div></div>
+
+<blockquote class="exercise">
+  <p>Identifiera minst sex problem, varav minst två ska vara problem på
+konceptuell nivå och minst två ska gälla att nivåer har blandats. Skriv sedan
+fyra verksamhetsfrågor som måste besvaras innan en ny modell kan fastställas.</p>
+</blockquote>
+
+<details class="answer">
+<summary>Exempel på kritik</summary>
+
+- Förslaget är relationsscheman, inte en konceptuell modell.
+- `PK` och `FK` hör inte hemma i ett konceptuellt diagram.
+- `Produkt1` och `Produkt2` upprepar samma betydelse och begränsar antalet.
+- Det är oklart om en beställning får innehålla flera produkter.
+- `ProduktID` direkt i BESTÄLLNING räcker inte för flera orderrader.
+- `OrderID` i PRODUKT antyder felaktigt att en produkt hör till en order och
+  skapar eventuellt ömsesidiga referenser.
+- Avtalat pris saknas och produktens namn verkar inte skyddat från oavsiktliga
+  dubletter.
+- `KUND` blandar kundegenskaper med beställningsinnehåll.
+
+Frågor bör bland annat gälla min/max i båda riktningar, om samma produkt får
+förekomma flera gånger per order, vilket pris som ska bevaras och om kunder samt
+produkter får finnas utan order.
+</details>
+<h2 id="317-kontrollfrågor">
+  
+  
+    <a href="#317-kontrollfrågor" class="anchor-heading" aria-labelledby="317-kontrollfrågor"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.17 Kontrollfrågor
+  
+  
+</h2>
+    
+
+<ol>
+  <li>Varför är ett substantiv i en kravtext inte automatiskt en entitetstyp?</li>
+  <li>Vad är skillnaden mellan en konceptuell identifierare och en primärnyckel?</li>
+  <li>Hur läser du <code class="language-plaintext highlighter-rouge">1..1</code> vid KUND-änden och <code class="language-plaintext highlighter-rouge">0..*</code> vid BESTÄLLNING-änden?</li>
+  <li>Vad går förlorat om en M:N-association mellan order och produkt saknar en
+plats för kvantitet och avtalat pris?</li>
+  <li>Ge ett exempel där en 1:1-association bör ifrågasättas men ändå kan vara
+motiverad.</li>
+  <li>Vad är skillnaden mellan att verifiera modellen mot skrivna regler och att
+validera reglerna mot verksamheten?</li>
+  <li>Varför måste en modell prövas över tid och inte bara mot nulägets data?</li>
+</ol>
+
+<details class="answer">
+<summary>Korta svar</summary>
+
+1. Ordet kan vara synonym, roll, attribut eller irrelevant; entitetstypen
+   kräver identitet, betydelse och informationsbehov.
+2. Identifieraren uttrycker verksamhetsmässig igenkänning på konceptuell nivå;
+   primärnyckeln väljs i relationsdesign/implementation och kan vara
+   artificiell.
+3. Varje beställning hör till exakt en kund; varje kund kan göra noll eller
+   flera beställningar.
+4. Sambandets egna fakta saknar korrekt hemvist och historiskt pris riskerar att
+   blandas med produktens aktuella pris.
+5. Exempelvis separat profil för en person när profilen är valfri, har annan
+   behörighet eller annan livscykel.
+6. Verifiering frågar om modellen följer specifikationen; validering frågar om
+   specifikationen/modellen motsvarar det verkliga behovet.
+7. Identifierare, deltagande, status och historik kan förändras; dagens data
+   visar inte alla tillåtna framtida tillstånd.
+</details>
+<h2 id="318-sammanfattning">
+  
+  
+    <a href="#318-sammanfattning" class="anchor-heading" aria-labelledby="318-sammanfattning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3.18 Sammanfattning
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Konceptuell modellering uttrycker ett avgränsat informationsbehov utan att
+först bestämma tabeller eller SQL.</li>
+  <li>En modell är ett prövbart påstående om begrepp och verksamhetsregler.</li>
+  <li>Entitetstyper beskriver slag av identifierbara fenomen; attribut beskriver
+egenskaper; associationer beskriver samband.</li>
+  <li>Konceptuella identifierare ska inte blandas ihop med primär- och främmande
+nycklar.</li>
+  <li>Multiplicitet måste läsas i båda riktningarna med både minimum och maximum.</li>
+  <li>M:N-samband med egna egenskaper modelleras tydligt med en associativ
+entitetstyp.</li>
+  <li>Begreppslista, öppna frågor, scenarioanalys och beslutslogg är lika viktiga
+som själva diagrammet.</li>
+  <li>Flera modeller kan vara möjliga; kvalitet avgörs av syfte, betydelse,
+konsekvenser och evidens.</li>
+</ul>
+<h2 id="vidare-läsning">
+  
+  
+    <a href="#vidare-läsning" class="anchor-heading" aria-labelledby="vidare-läsning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Vidare läsning
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Object Management Group, <a href="https://www.omg.org/spec/UML/2.5.1/">UML 2.5.1
+specification</a> (formell fördjupning;
+kompendiet använder endast en liten del av notationstänkandet).</li>
+  <li>ISO/IEC/IEEE 42010:2022, <em>Architecture description</em> (för perspektiv på
+intressenter och modeller; inte kurskrav).</li>
+  <li>Elmasri, R. &amp; Navathe, S., <em>Fundamentals of Database Systems</em>, avsnitt om
+konceptuell datamodellering.</li>
+</ul>
+
+          
+
+          
+            
+          
+        </main>
+        
+<hr>
+<footer>
+  
+    <p><a href="#top" id="back-to-top">Till sidans början</a></p>
+  
+
+  
+
+  <div class="d-md-none mt-4 fs-2">
+    
+    
+      <p></p>
+
+    
+  </div>
+</footer>
+
+      </div>
+    </div>
+    
+      
+<button id="search-button" class="search-button btn-reset" aria-label="Focus on search">
+  <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+</button>
+
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

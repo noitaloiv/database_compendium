@@ -13,10 +13,19 @@ keywords:
 
 # Del I – Modeller och relationer
 
-Den första delen går från frågan *varför databaser behövs* till ett precist
-språk för att beskriva *vilka slags objekt en verksamhet behöver hålla reda på
-och hur de hänger samman*.
+Den första delen förutsätter inga tidigare kunskaper om databaser. Den börjar
+med frågan hur lagrade värden får betydelse och går stegvis vidare till tabeller,
+identifierare och konceptuella modeller.
 
-När delen är avslutad ska du kunna skilja mellan en databas, ett
-databashanteringssystem och ett informationssystem; beskriva relationsmodellens
-grundidéer; samt skapa och kritiskt granska en enkel konceptuell modell.
+| Kapitel | Huvudfråga |
+| --- | --- |
+| [1. Data och information]({{ '/docs/del-1-grunder/data-och-information/' | relative_url }}) | Vad krävs för att ett värde ska kunna tolkas? |
+| [2. Varför databaser?]({{ '/docs/del-1-grunder/varfor-databaser/' | relative_url }}) | När behöver sammanhörande data hanteras gemensamt? |
+| [3. Tabeller, rader och kolumner]({{ '/docs/del-1-grunder/tabeller-rader-kolumner/' | relative_url }}) | Hur organiseras data i en relationsdatabas? |
+| [4. Identifierare och samband]({{ '/docs/del-1-grunder/identifierare-och-samband/' | relative_url }}) | Hur skiljer vi rader åt och kopplar ihop tabeller? |
+| [5. Konceptuell modellering]({{ '/docs/del-1-grunder/konceptuell-modellering/' | relative_url }}) | Hur beskriver vi verksamhetens informationsbehov före SQL? |
+| [6. Multiplicitet och verksamhetsregler]({{ '/docs/del-1-grunder/multiplicitet/' | relative_url }}) | Hur uttrycker vi hur många förekomster som får höra samman? |
+
+När delen är avslutad ska du kunna förklara varför databaser används, läsa en
+enkel tabellstruktur och skapa samt kritiskt granska en avgränsad konceptuell
+modell.

@@ -1,0 +1,1142 @@
+
+
+<!DOCTYPE html>
+
+<html lang="sv-SE">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    .site-nav > ul.nav-list:first-child > li > a,
+    
+    .site-nav > ul.nav-list:first-child > li > ul > li:not(:nth-child(2)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(2) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg,
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(2) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list,
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(2) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Relationsmodellen | Databaser</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Relationsmodellen" />
+<meta property="og:locale" content="sv_SE" />
+<meta name="description" content="Ett kurskompendium för Informationssystem A: Databaser (2IS007)" />
+<meta name="twitter:description" property="og:description" content="Ett kurskompendium för Informationssystem A: Databaser (2IS007)" />
+<link rel="canonical" href="http://localhost:4000/docs/del-1-grunder/relationsmodellen/" />
+<meta property="og:url" content="http://localhost:4000/docs/del-1-grunder/relationsmodellen/" />
+<meta property="og:site_name" content="Databaser" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Relationsmodellen" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Ett kurskompendium för Informationssystem A: Databaser (2IS007)","headline":"Relationsmodellen","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/docs/del-1-grunder/relationsmodellen/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <meta name="color-scheme" content="light dark">
+
+<link
+  id="databaser-dark-theme"
+  rel="stylesheet"
+  href="/assets/css/just-the-docs-databaser-dark.css"
+  media="(prefers-color-scheme: dark)">
+
+<script>
+  (function () {
+    var preference = "system";
+    try {
+      preference = window.localStorage.getItem("databaser-theme") || "system";
+    } catch (error) {
+      preference = "system";
+    }
+
+    if (preference !== "light" && preference !== "dark") {
+      preference = "system";
+    }
+
+    var darkTheme = document.getElementById("databaser-dark-theme");
+    if (preference === "dark") {
+      darkTheme.media = "all";
+    } else if (preference === "light") {
+      darkTheme.media = "not all";
+    }
+
+    var systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var resolved = preference === "system" ? (systemDark ? "dark" : "light") : preference;
+    document.documentElement.dataset.databaserTheme = resolved;
+    document.documentElement.style.colorScheme = resolved;
+  }());
+</script>
+
+<script src="/assets/js/theme-toggle.js" defer></script>
+
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <header class="side-bar">
+  <div class="site-header">
+    <a href="/" class="site-title lh-tight">
+  <div class="site-logo" role="img" aria-label="Databaser"></div>
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/relationsmodellen/" class="nav-list-link">2. Relationsmodellen</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">3. Konceptuell modellering</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+  <ul class="nav-list"><li class="nav-list-item external">
+          <a href="https://www.uu.se/utbildning/kursplan?query=d21c4f3c-a296-11f0-af30-479161e74134" class="nav-list-link external"
+            
+              target="_blank" rel="noopener noreferrer"
+            
+          >
+            Kursplan 2IS007
+            <svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>
+          </a>
+        </li></ul>
+</nav>
+
+
+<div class="d-md-block d-none site-footer">
+  
+  
+    <p></p>
+
+  
+  </div>
+</header>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Sök begrepp, SQL eller kapitel" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Sök begrepp, SQL eller kapitel</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  <div class="theme-control">
+  <label for="theme-preference" class="theme-label">
+    <span aria-hidden="true">◐</span>
+    <span>Theme</span>
+  </label>
+  <select id="theme-preference" class="theme-select" aria-label="Choose color theme">
+    <option value="system">Automatic</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+</div>
+
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    <li class="breadcrumb-nav-list-item"><a href="/docs/del-1-grunder/">Del I – Modeller och relationer</a></li>
+    <li class="breadcrumb-nav-list-item"><span>2. Relationsmodellen</span></li>
+  </ol>
+</nav>
+
+
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="2-relationsmodellen">
+  
+  
+    <a href="#2-relationsmodellen" class="anchor-heading" aria-labelledby="2-relationsmodellen"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Relationsmodellen
+  
+  
+</h1>
+    
+
+<p>I föregående kapitel såg vi att Nordic Brew behöver hålla reda på kunder,
+beställningar och produkter. Det är frestande att omedelbart öppna ett verktyg
+och skapa tabeller. Men en tabell i ett gränssnitt är bara en visuell form. För
+att kunna bedöma om strukturen är korrekt behöver vi en modell som talar om vad
+rader, kolumner, nycklar och samband betyder.</p>
+
+<p><strong>Relationsmodellen</strong> ger ett sådant språk. Den beskriver data som relationer
+och definierar hur giltighet och härledning kan uttryckas oberoende av hur
+värdena råkar ligga på disk.</p>
+
+<div class="learning-objectives">
+<h2 id="efter-kapitlet-kan-du">
+  
+  
+    <a href="#efter-kapitlet-kan-du" class="anchor-heading" aria-labelledby="efter-kapitlet-kan-du"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Efter kapitlet kan du
+  
+  
+</h2>
+    
+
+  <ul>
+    <li>förklara relation, attribut, tupel, domän, relationsschema och relationsinstans;</li>
+    <li>skilja relationsmodellens begrepp från SQL:s praktiska tabeller;</li>
+    <li>identifiera supernycklar, kandidatnycklar, primärnyckel och alternativnycklar;</li>
+    <li>förklara främmande nycklar och referentiell integritet;</li>
+    <li>resonera om <code class="language-plaintext highlighter-rouge">NULL</code> utan att behandla det som noll eller tom text;</li>
+    <li>granska en liten relationsstruktur och avgöra vilka rader som är giltiga;</li>
+    <li>beskriva relevanta skillnader mellan den logiska modellen och SQLite.</li>
+  </ul>
+</div>
+<h2 id="21-relationer-tupler-och-attribut">
+  
+  
+    <a href="#21-relationer-tupler-och-attribut" class="anchor-heading" aria-labelledby="21-relationer-tupler-och-attribut"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.1 Relationer, tupler och attribut
+  
+  
+</h2>
+    
+
+<p>En <strong>relation</strong> kan informellt förstås som en tabell, men den formella idén är
+mer precis. Relationen har:</p>
+
+<ul>
+  <li>ett namn;</li>
+  <li>en uppsättning namngivna <strong>attribut</strong>;</li>
+  <li>en <strong>domän</strong> för varje attribut, alltså vilka slags värden attributet kan anta;</li>
+  <li>en mängd <strong>tupler</strong>, där varje tupel har ett värde för varje attribut.</li>
+</ul>
+
+<p>I ett DBMS visas attribut normalt som kolumner och tupler som rader.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right">KundID</th>
+      <th>Namn</th>
+      <th>Epost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">17</td>
+      <td>Mira Ek</td>
+      <td>mira@example.test</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">24</td>
+      <td>Samir Noor</td>
+      <td>samir@example.test</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">31</td>
+      <td>Lo Chen</td>
+      <td>lo@example.test</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Tabellen ovan kan beskriva en relation med namnet <code class="language-plaintext highlighter-rouge">KUND</code>. Attributen är
+<code class="language-plaintext highlighter-rouge">KundID</code>, <code class="language-plaintext highlighter-rouge">Namn</code> och <code class="language-plaintext highlighter-rouge">Epost</code>; varje rad representerar en tupel.</p>
+
+<p>Ett <strong>relationsschema</strong> anger relationens namn och attribut samt tillhörande
+regler. Vi använder följande tydliga textnotation:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KUND(KundID, Namn, Epost)
+PK: KundID
+AK: Epost
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">PK</code> markerar vald primärnyckel och <code class="language-plaintext highlighter-rouge">AK</code> en alternativ kandidatnyckel. Den
+aktuella mängden tupler kallas relationens <strong>instans</strong>.</p>
+
+<figure class="figure">
+  <img src="/assets/images/03-relationens-delar.svg" alt="Tabellen Kund med relationens namn, attributen KundID, Namn och Epost, en markerad tupel samt domäner för varje attribut." />
+  <figcaption><strong>Figur 2.1.</strong> En praktisk tabellrepresentation av relationen KUND. Domänerna begränsar vilka värden som har avsedd betydelse.</figcaption>
+</figure>
+<h3 id="ordningen-bär-inte-betydelsen">
+  
+  
+    <a href="#ordningen-bär-inte-betydelsen" class="anchor-heading" aria-labelledby="ordningen-bär-inte-betydelsen"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Ordningen bär inte betydelsen
+  
+  
+</h3>
+    
+
+<p>I den formella relationsmodellen är en relation en mängd. Därför gäller:</p>
+
+<ul>
+  <li>tuplerna har ingen inneboende första eller sista position;</li>
+  <li>attribut identifieras med namn, inte med visuell kolumnposition;</li>
+  <li>samma tupel förekommer inte flera gånger i samma relation.</li>
+</ul>
+
+<p>SQL är inspirerat av men inte identiskt med den formella modellen. Ett
+SQL-resultat kan innehålla dubletter om <code class="language-plaintext highlighter-rouge">DISTINCT</code> inte används, och ett
+praktiskt DBMS visar ofta rader i en tillfällig fysisk ordning. Om ordningen i
+ett SQL-resultat spelar roll måste den anges med <code class="language-plaintext highlighter-rouge">ORDER BY</code>.</p>
+
+<blockquote class="mistake">
+  <p>”Raden ovanför” är inte ett stabilt relationsbegrepp. En order ska hänvisa
+till sin kund med ett identifierande värde, inte genom att ligga nära kunden
+i en fil eller på skärmen.</p>
+</blockquote>
+<h2 id="22-domäner-mer-än-en-lagringstyp">
+  
+  
+    <a href="#22-domäner-mer-än-en-lagringstyp" class="anchor-heading" aria-labelledby="22-domäner-mer-än-en-lagringstyp"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.2 Domäner: mer än en lagringstyp
+  
+  
+</h2>
+    
+
+<p>En <strong>domän</strong> är den mängd tillåtna värden som har samma avsedda slag och kan
+behandlas på ett meningsfullt sätt. <code class="language-plaintext highlighter-rouge">KundID</code> och <code class="language-plaintext highlighter-rouge">Antal</code> kan båda lagras som
+heltal, men de tillhör inte därför samma begreppsliga domän. Det är meningsfullt
+att jämföra två kundidentifierare för likhet, men inte att addera ett kund-ID
+till en orderkvantitet.</p>
+
+<p>Domänen för <code class="language-plaintext highlighter-rouge">Antal</code> kan exempelvis beskrivas som:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heltal där Antal &gt; 0
+</code></pre></div></div>
+
+<p>En SQL-datatyp uttrycker en del av domänen, men sällan hela betydelsen. För
+<code class="language-plaintext highlighter-rouge">Antal</code> behövs både typ och ett villkor. För <code class="language-plaintext highlighter-rouge">Epost</code> kan korrekt syntax
+kontrolleras delvis, medan frågan om adressen faktiskt tillhör kunden kräver en
+annan process.</p>
+<h3 id="atomära-värden">
+  
+  
+    <a href="#atomära-värden" class="anchor-heading" aria-labelledby="atomära-värden"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Atomära värden
+  
+  
+</h3>
+    
+
+<p>Varje attributvärde ska vara ett värde ur sin domän, inte en dold lista med
+värden som databasen förväntas dela upp i efterhand. Följande kolumn gör det
+svårt att kontrollera och söka telefonnummer:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right">KundID</th>
+      <th>Telefoner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">17</td>
+      <td><code class="language-plaintext highlighter-rouge">070-1111111; 018-222222</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Om verksamheten behöver behandla numren var för sig bör de modelleras var för
+sig. ”Atomär” är dock beroende av användningen. En postadress kan vara ett enda
+textvärde om ingen del någonsin hanteras separat, men bör delas eller modelleras
+som ett eget objekt om postnummer, land och adresshistorik har egna regler.</p>
+<h2 id="23-nycklar-och-identifiering">
+  
+  
+    <a href="#23-nycklar-och-identifiering" class="anchor-heading" aria-labelledby="23-nycklar-och-identifiering"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.3 Nycklar och identifiering
+  
+  
+</h2>
+    
+
+<p>En <strong>supernyckel</strong> är en uppsättning attribut vars kombinerade värden unikt
+identifierar varje tupel i en relation. Om <code class="language-plaintext highlighter-rouge">KundID</code> är unikt är både
+<code class="language-plaintext highlighter-rouge">{KundID}</code> och <code class="language-plaintext highlighter-rouge">{KundID, Namn}</code> supernycklar.</p>
+
+<p>En <strong>kandidatnyckel</strong> är en minimal supernyckel. Minimal betyder att inget
+attribut kan tas bort och ändå bevara unikheten. <code class="language-plaintext highlighter-rouge">{KundID, Namn}</code> är därför
+inte en kandidatnyckel om <code class="language-plaintext highlighter-rouge">{KundID}</code> redan är unikt.</p>
+
+<p>En kandidatnyckel väljs till <strong>primärnyckel</strong>. Övriga kandidatnycklar kallas
+<strong>alternativnycklar</strong>. Valet av primärnyckel gör inte de andra kandidaterna
+mindre unika; de behöver fortfarande ett unikhetsvillkor om regeln ska
+upprätthållas.</p>
+<h3 id="naturlig-eller-artificiell-nyckel">
+  
+  
+    <a href="#naturlig-eller-artificiell-nyckel" class="anchor-heading" aria-labelledby="naturlig-eller-artificiell-nyckel"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Naturlig eller artificiell nyckel
+  
+  
+</h3>
+    
+
+<p>En <strong>naturlig nyckel</strong> har betydelse i verksamheten, exempelvis ett etablerat
+produktnummer. En <strong>artificiell nyckel</strong> (surrogatnyckel) införs främst för
+identifiering i systemet, exempelvis ett genererat heltal.</p>
+
+<p>Ett artificiellt ID löser inte alla identifieringsfrågor. Om två kundrader inte
+får ha samma e-postadress måste <code class="language-plaintext highlighter-rouge">Epost</code> fortfarande vara unikt, även om
+<code class="language-plaintext highlighter-rouge">KundID</code> är primärnyckel. Samtidigt är e-post ofta en dålig primärnyckel: den
+kan ändras, innehåller personuppgifter och kan vara svår att hantera i alla
+sammanhang.</p>
+
+<p>Bedöm en nyckelkandidat utifrån:</p>
+
+<ul>
+  <li>unikhet i hela den relevanta populationen;</li>
+  <li>minimalitet;</li>
+  <li>stabilitet över tid;</li>
+  <li>om ett värde alltid finns när objektet skapas;</li>
+  <li>lämplighet att sprida till andra relationer och system.</li>
+</ul>
+<h3 id="sammansatta-nycklar">
+  
+  
+    <a href="#sammansatta-nycklar" class="anchor-heading" aria-labelledby="sammansatta-nycklar"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sammansatta nycklar
+  
+  
+</h3>
+    
+
+<p>I en order får samma produkt normalt förekomma högst en gång. Då kan paret
+<code class="language-plaintext highlighter-rouge">{OrderID, ProduktID}</code> identifiera en orderrad:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ORDERRAD(OrderID, ProduktID, Antal, AvtalatStyckprisOre)
+PK: (OrderID, ProduktID)
+</code></pre></div></div>
+
+<p>Varken <code class="language-plaintext highlighter-rouge">OrderID</code> eller <code class="language-plaintext highlighter-rouge">ProduktID</code> räcker ensamt, men kombinationen gör det.</p>
+<h2 id="24-främmande-nycklar-och-samband">
+  
+  
+    <a href="#24-främmande-nycklar-och-samband" class="anchor-heading" aria-labelledby="24-främmande-nycklar-och-samband"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.4 Främmande nycklar och samband
+  
+  
+</h2>
+    
+
+<p>En <strong>främmande nyckel</strong> är ett eller flera attribut i en relation vars värde ska
+motsvara en kandidatnyckel i en refererad relation – eller vara <code class="language-plaintext highlighter-rouge">NULL</code> om
+sambandet är valfritt och kolumnen tillåter det.</p>
+
+<p>Anta schemana:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KUND(KundID, Namn, Epost)
+PK: KundID
+
+BESTALLNING(OrderID, Orderdatum, KundID)
+PK: OrderID
+FK: KundID → KUND.KundID
+</code></pre></div></div>
+
+<p>Värdet <code class="language-plaintext highlighter-rouge">BESTALLNING.KundID = 17</code> representerar att beställningen hör till den
+kund vars <code class="language-plaintext highlighter-rouge">KundID</code> är 17. Det är lika värden och ett deklarerat villkor som
+skapar den logiska kopplingen.</p>
+
+<figure class="figure">
+  <img src="/assets/images/04-relationsstruktur-nordicbrew.svg" alt="Fyra tabeller: Kund, Beställning, Orderrad och Produkt. Pilar visar främmande nycklar från Beställning till Kund och från Orderrad till Beställning respektive Produkt." />
+  <figcaption><strong>Figur 2.2.</strong> En liten relationsstruktur. Pilarna visar referenser från främmande nyckel till refererad nyckel, inte fysisk lagring.</figcaption>
+</figure>
+<h3 id="referentiell-integritet">
+  
+  
+    <a href="#referentiell-integritet" class="anchor-heading" aria-labelledby="referentiell-integritet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Referentiell integritet
+  
+  
+</h3>
+    
+
+<p><strong>Referentiell integritet</strong> innebär här att varje icke-tomt kund-ID i
+<code class="language-plaintext highlighter-rouge">BESTALLNING</code> måste finnas i <code class="language-plaintext highlighter-rouge">KUND</code>. Följande rad är därför ogiltig om kund 99
+saknas:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right">OrderID</th>
+      <th>Orderdatum</th>
+      <th style="text-align: right">KundID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1048</td>
+      <td>2027-01-17</td>
+      <td style="text-align: right">99</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>När en refererad rad tas bort måste databasen följa en uttalad policy, till
+exempel:</p>
+
+<ul>
+  <li>vägra borttagningen (<code class="language-plaintext highlighter-rouge">RESTRICT</code>/<code class="language-plaintext highlighter-rouge">NO ACTION</code>);</li>
+  <li>ta bort beroende rader (<code class="language-plaintext highlighter-rouge">CASCADE</code>);</li>
+  <li>sätta referensen till <code class="language-plaintext highlighter-rouge">NULL</code> om det är tillåtet (<code class="language-plaintext highlighter-rouge">SET NULL</code>).</li>
+</ul>
+
+<p>Ingen policy är generellt bäst. Att kaskadradera från en kund till historiska
+beställningar kan vara katastrofalt, medan kaskad från en testorder till dess
+  orderrader kan vara rimlig. Policyn ska följa betydelse och ansvar.</p>
+<h2 id="25-fyra-grupper-av-integritetsvillkor">
+  
+  
+    <a href="#25-fyra-grupper-av-integritetsvillkor" class="anchor-heading" aria-labelledby="25-fyra-grupper-av-integritetsvillkor"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.5 Fyra grupper av integritetsvillkor
+  
+  
+</h2>
+    
+
+<p>Ett <strong>integritetsvillkor</strong> avgränsar tillåtna databastillstånd. En användbar
+indelning är:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Grupp</th>
+      <th>Fråga</th>
+      <th>Exempel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Domänintegritet</td>
+      <td>Är värdet av rätt slag och inom tillåtet område?</td>
+      <td><code class="language-plaintext highlighter-rouge">Antal &gt; 0</code></td>
+    </tr>
+    <tr>
+      <td>Nyckel-/entitetsintegritet</td>
+      <td>Kan varje rad identifieras entydigt?</td>
+      <td>unik och icke-tom primärnyckel</td>
+    </tr>
+    <tr>
+      <td>Referentiell integritet</td>
+      <td>Hänvisar värdet till en tillåten rad?</td>
+      <td>varje <code class="language-plaintext highlighter-rouge">ProduktID</code> i orderrad finns i produkt</td>
+    </tr>
+    <tr>
+      <td>Verksamhetsregel</td>
+      <td>Är tillståndet giltigt för just verksamheten?</td>
+      <td>leveransdatum får inte ligga före orderdatum</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Alla regler kan inte eller bör inte uttryckas med ett enkelt kolumnvillkor. En
+regel som spänner över många rader, tid eller externa händelser kan behöva
+applikationslogik, transaktioner eller andra mekanismer. Målet är inte att
+trycka in varje regel i en <code class="language-plaintext highlighter-rouge">CHECK</code>, utan att göra ansvaret explicit.</p>
+<h2 id="26-null-frånvaro-av-ett-känt-värde">
+  
+  
+    <a href="#26-null-frånvaro-av-ett-känt-värde" class="anchor-heading" aria-labelledby="26-null-frånvaro-av-ett-känt-värde"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.6 <code class="language-plaintext highlighter-rouge">NULL</code>: frånvaro av ett känt värde
+  
+  
+</h2>
+    
+
+<p><code class="language-plaintext highlighter-rouge">NULL</code> är SQL:s markör för att ett vanligt värde saknas. Det kan bero på att
+värdet är okänt, ännu inte registrerat eller inte tillämpligt. Dessa orsaker är
+inte alltid likvärdiga, vilket är ett skäl att använda <code class="language-plaintext highlighter-rouge">NULL</code> med eftertanke.</p>
+
+<p><code class="language-plaintext highlighter-rouge">NULL</code> är inte:</p>
+
+<ul>
+  <li>talet noll;</li>
+  <li>en tom text <code class="language-plaintext highlighter-rouge">''</code>;</li>
+  <li>ordet <code class="language-plaintext highlighter-rouge">'NULL'</code>;</li>
+  <li>ett värde som är lika med ett annat <code class="language-plaintext highlighter-rouge">NULL</code>.</li>
+</ul>
+
+<p>Jämförelsen <code class="language-plaintext highlighter-rouge">Leveransdatum = NULL</code> ger därför inte <code class="language-plaintext highlighter-rouge">TRUE</code>. I SQL används:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">WHERE</span> <span class="n">Leveransdatum</span> <span class="k">IS</span> <span class="k">NULL</span>
+</code></pre></div></div>
+<h3 id="trevärd-logik">
+  
+  
+    <a href="#trevärd-logik" class="anchor-heading" aria-labelledby="trevärd-logik"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Trevärd logik
+  
+  
+</h3>
+    
+
+<p>När ett jämförelseled saknas kan resultatet bli <code class="language-plaintext highlighter-rouge">UNKNOWN</code> utöver <code class="language-plaintext highlighter-rouge">TRUE</code> och
+<code class="language-plaintext highlighter-rouge">FALSE</code>. En <code class="language-plaintext highlighter-rouge">WHERE</code>-sats behåller bara rader där villkoret blir <code class="language-plaintext highlighter-rouge">TRUE</code>.</p>
+
+<p>Om <code class="language-plaintext highlighter-rouge">RabattProcent</code> är <code class="language-plaintext highlighter-rouge">NULL</code> blir uttrycket
+<code class="language-plaintext highlighter-rouge">RabattProcent &gt; 0</code> alltså <code class="language-plaintext highlighter-rouge">UNKNOWN</code>, och raden väljs inte. Samma rad väljs inte
+heller av <code class="language-plaintext highlighter-rouge">NOT (RabattProcent &gt; 0)</code>, eftersom <code class="language-plaintext highlighter-rouge">NOT UNKNOWN</code> fortfarande är
+<code class="language-plaintext highlighter-rouge">UNKNOWN</code>.</p>
+
+<blockquote class="mistake">
+  <p>Formuleringen ”<code class="language-plaintext highlighter-rouge">NULL</code> betyder okänd” är en förenkling. I en viss kolumn kan
+det betyda ”inte tillämpligt” eller ”ännu inte registrerat”. Om skillnaden är
+viktig behöver modellen uttrycka den, exempelvis med en status eller en annan
+struktur.</p>
+</blockquote>
+<h2 id="27-relationsmodell-och-sql-är-inte-samma-sak">
+  
+  
+    <a href="#27-relationsmodell-och-sql-är-inte-samma-sak" class="anchor-heading" aria-labelledby="27-relationsmodell-och-sql-är-inte-samma-sak"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.7 Relationsmodell och SQL är inte samma sak
+  
+  
+</h2>
+    
+
+<p>Relationsmodellen är en abstrakt modell. SQL är en språkfamilj som realiserar
+många av dess idéer men också innehåller praktiska utvidgningar.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Relationsmodell</th>
+      <th>SQL/DBMS i praktiken</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Relation är en mängd utan dubletter</td>
+      <td>Frågeresultat kan vara en ”bag” med dubletter</td>
+    </tr>
+    <tr>
+      <td>Ingen inneboende radordning</td>
+      <td>Visningsordning kan variera; <code class="language-plaintext highlighter-rouge">ORDER BY</code> krävs</td>
+    </tr>
+    <tr>
+      <td>Attributvärden kommer ur domäner</td>
+      <td>SQL-typer och villkor approximerar domäner</td>
+    </tr>
+    <tr>
+      <td>Klassisk modell använder vanliga domänvärden</td>
+      <td>SQL använder <code class="language-plaintext highlighter-rouge">NULL</code> och trevärd logik</td>
+    </tr>
+    <tr>
+      <td>Logisk struktur är oberoende av lagring</td>
+      <td>DBMS väljer filer, sidor, index och planer</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Skillnaderna gör inte SQL ”fel”. De gör det viktigt att säga om ett resonemang
+gäller den formella modellen, SQL-standarden eller en viss produkt.</p>
+<h2 id="28-sqlite-kursverktyg-med-egna-regler">
+  
+  
+    <a href="#28-sqlite-kursverktyg-med-egna-regler" class="anchor-heading" aria-labelledby="28-sqlite-kursverktyg-med-egna-regler"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.8 SQLite: kursverktyg med egna regler
+  
+  
+</h2>
+    
+
+<p>SQLite är litet, distribuerbart och mycket användbart i undervisning, men det
+ska inte presenteras som om allt beteende gäller varje relations-DBMS.</p>
+<h3 id="dynamisk-typning-och-strict">
+  
+  
+    <a href="#dynamisk-typning-och-strict" class="anchor-heading" aria-labelledby="dynamisk-typning-och-strict"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Dynamisk typning och <code class="language-plaintext highlighter-rouge">STRICT</code>
+  
+  
+</h3>
+    
+
+<p>I vanlig SQLite är typen i hög grad knuten till det lagrade värdet. Kolumnens
+deklaration ger en <strong>type affinity</strong> – en rekommenderad konvertering – snarare
+än samma rigida kontroll som i många andra DBMS. Från SQLite 3.37 kan en tabell
+deklareras <code class="language-plaintext highlighter-rouge">STRICT</code>, vilket ger striktare typkontroll.</p>
+
+<p>Kursens exempelschema använder <code class="language-plaintext highlighter-rouge">STRICT</code> när det är möjligt:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Kund</span> <span class="p">(</span>
+    <span class="n">KundID</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">Namn</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">Epost</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span>
+<span class="p">)</span> <span class="k">STRICT</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Detta gör fel synligare för nybörjaren utan att låtsas att <code class="language-plaintext highlighter-rouge">TEXT</code> ensam uttrycker
+hela domänen.</p>
+<h3 id="främmande-nycklar-måste-aktiveras">
+  
+  
+    <a href="#främmande-nycklar-måste-aktiveras" class="anchor-heading" aria-labelledby="främmande-nycklar-måste-aktiveras"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Främmande nycklar måste aktiveras
+  
+  
+</h3>
+    
+
+<p>I SQLite ska främmande nyckelkontroll aktiveras för varje anslutning:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PRAGMA</span> <span class="n">foreign_keys</span> <span class="o">=</span> <span class="k">ON</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Kontrollera inställningen med:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PRAGMA</span> <span class="n">foreign_keys</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Om resultatet är <code class="language-plaintext highlighter-rouge">1</code> är kontrollen aktiv för anslutningen. Ett schema som
+deklarerar främmande nycklar men körs med kontrollen avstängd ger ett farligt
+intryck av säkerhet.</p>
+<h3 id="datum-är-en-representation">
+  
+  
+    <a href="#datum-är-en-representation" class="anchor-heading" aria-labelledby="datum-är-en-representation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Datum är en representation
+  
+  
+</h3>
+    
+
+<p>SQLite har ingen separat inbyggd lagringsklass för datum. I materialet lagras
+datum som ISO-formaterad text, exempelvis <code class="language-plaintext highlighter-rouge">2027-01-17</code>, tillsammans med
+kontroller och en dokumenterad tolkning. Andra DBMS har egna <code class="language-plaintext highlighter-rouge">DATE</code>-typer.</p>
+
+<p>Se det fullständiga, körbara skriptet
+<a href="/assets/sql/nordicbrew-minimal.sql"><code class="language-plaintext highlighter-rouge">nordicbrew-minimal.sql</code></a>.</p>
+<h2 id="29-genomarbetat-exempel-fyra-relationer">
+  
+  
+    <a href="#29-genomarbetat-exempel-fyra-relationer" class="anchor-heading" aria-labelledby="29-genomarbetat-exempel-fyra-relationer"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.9 Genomarbetat exempel: fyra relationer
+  
+  
+</h2>
+    
+
+<p>Vi använder följande scheman:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KUND(KundID, Namn, Epost)
+PK: KundID
+AK: Epost
+
+PRODUKT(ProduktID, Produktnamn, ListprisOre, Aktiv)
+PK: ProduktID
+AK: Produktnamn
+
+BESTALLNING(OrderID, Orderdatum, KundID, Status)
+PK: OrderID
+FK: KundID → KUND.KundID
+
+ORDERRAD(OrderID, ProduktID, Antal, AvtalatStyckprisOre)
+PK: (OrderID, ProduktID)
+FK: OrderID → BESTALLNING.OrderID
+FK: ProduktID → PRODUKT.ProduktID
+</code></pre></div></div>
+
+<p>Observera att orderraden lagrar <strong>avtalat</strong> pris. Produktens aktuella listpris
+kan ändras utan att historiska ordervärden ska ändras.</p>
+<h3 id="bedöm-fem-föreslagna-rader">
+  
+  
+    <a href="#bedöm-fem-föreslagna-rader" class="anchor-heading" aria-labelledby="bedöm-fem-föreslagna-rader"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Bedöm fem föreslagna rader
+  
+  
+</h3>
+    
+
+<p>Anta att kund 17, order 1042 och produkt 501 finns. <code class="language-plaintext highlighter-rouge">ORDERRAD</code> innehåller redan
+<code class="language-plaintext highlighter-rouge">(1042, 501, 2, 12900)</code>.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Förslag</th>
+      <th>Giltigt?</th>
+      <th>Skäl</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">(1042, 502, 1, 8900)</code></td>
+      <td>Ja, om produkt 502 finns</td>
+      <td>Ny sammansatt nyckel och giltiga referenser</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">(1042, 501, 3, 12900)</code></td>
+      <td>Nej som ny rad</td>
+      <td>Primärnyckeln <code class="language-plaintext highlighter-rouge">(1042, 501)</code> finns redan</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">(1042, 999, 1, 5000)</code></td>
+      <td>Nej, om produkt 999 saknas</td>
+      <td>Bryter referentiell integritet</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">(1042, 502, 0, 8900)</code></td>
+      <td>Nej</td>
+      <td>Bryter domänvillkoret <code class="language-plaintext highlighter-rouge">Antal &gt; 0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">(1042, 502, 1, NULL)</code></td>
+      <td>Nej</td>
+      <td>Avtalat pris är obligatoriskt</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Notera formuleringen ”om produkt 502 finns”. Giltighet avgörs inte av raden
+isolerad; vissa villkor beror på databasens övriga instans.</p>
+<h3 id="från-samband-till-fråga">
+  
+  
+    <a href="#från-samband-till-fråga" class="anchor-heading" aria-labelledby="från-samband-till-fråga"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Från samband till fråga
+  
+  
+</h3>
+    
+
+<p>För att hitta kundens namn för order 1042 behöver DBMS:et kombinera de rader
+där <code class="language-plaintext highlighter-rouge">BESTALLNING.KundID</code> och <code class="language-plaintext highlighter-rouge">KUND.KundID</code> har samma värde. I SQL:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">b</span><span class="p">.</span><span class="n">OrderID</span><span class="p">,</span> <span class="n">k</span><span class="p">.</span><span class="n">Namn</span>
+<span class="k">FROM</span> <span class="n">Bestallning</span> <span class="k">AS</span> <span class="n">b</span>
+<span class="k">JOIN</span> <span class="n">Kund</span> <span class="k">AS</span> <span class="n">k</span> <span class="k">ON</span> <span class="n">k</span><span class="p">.</span><span class="n">KundID</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">KundID</span>
+<span class="k">WHERE</span> <span class="n">b</span><span class="p">.</span><span class="n">OrderID</span> <span class="o">=</span> <span class="mi">1042</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Detta är en förhandsblick. Kapitel 6–7 förklarar operatorerna och hur resultat
+kan härledas. Här är huvudpoängen att en främmande nyckel både upprätthåller ett
+samband och ger de matchande värden som en join kan använda.</p>
+<h2 id="210-vanliga-missuppfattningar">
+  
+  
+    <a href="#210-vanliga-missuppfattningar" class="anchor-heading" aria-labelledby="210-vanliga-missuppfattningar"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.10 Vanliga missuppfattningar
+  
+  
+</h2>
+    
+<h3 id="varje-tabell-har-bara-en-möjlig-nyckel">
+  
+  
+    <a href="#varje-tabell-har-bara-en-möjlig-nyckel" class="anchor-heading" aria-labelledby="varje-tabell-har-bara-en-möjlig-nyckel"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ”Varje tabell har bara en möjlig nyckel”
+  
+  
+</h3>
+    
+
+<p>Nej. En relation kan ha flera kandidatnycklar. En väljs till primärnyckel; de
+andra behöver fortfarande skyddas om deras unikhet är en verksamhetsregel.</p>
+<h3 id="ett-artificiellt-id-gör-dubletter-omöjliga">
+  
+  
+    <a href="#ett-artificiellt-id-gör-dubletter-omöjliga" class="anchor-heading" aria-labelledby="ett-artificiellt-id-gör-dubletter-omöjliga"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ”Ett artificiellt ID gör dubletter omöjliga”
+  
+  
+</h3>
+    
+
+<p>Nej. Två rader kan ha olika <code class="language-plaintext highlighter-rouge">KundID</code> men beskriva samma kund. Artificiella ID:n
+gör rader tekniskt identifierbara; de avgör inte automatiskt när två
+verksamhetsobjekt är samma.</p>
+<h3 id="en-främmande-nyckel-ligger-alltid-på-många-sidan">
+  
+  
+    <a href="#en-främmande-nyckel-ligger-alltid-på-många-sidan" class="anchor-heading" aria-labelledby="en-främmande-nyckel-ligger-alltid-på-många-sidan"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ”En främmande nyckel ligger alltid på många-sidan”
+  
+  
+</h3>
+    
+
+<p>Det är en användbar regel vid översättning av enkla 1:N-associationer, men inte
+definitionen av främmande nyckel. 1:1, sammansatta nycklar, associationstabeller
+och rekursiva samband kräver ett mer noggrant resonemang, vilket kommer i
+kapitel 4.</p>
+<h3 id="null-kan-ersättas-med-noll">
+  
+  
+    <a href="#null-kan-ersättas-med-noll" class="anchor-heading" aria-labelledby="null-kan-ersättas-med-noll"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ”<code class="language-plaintext highlighter-rouge">NULL</code> kan ersättas med noll”
+  
+  
+</h3>
+    
+
+<p>Noll är ett känt numeriskt värde. Ett okänt lagersaldo är inte samma sak som att
+lagret är tomt. Ersättningen kan skapa falsk information.</p>
+<h2 id="211-övning-granska-ett-bokningsschema">
+  
+  
+    <a href="#211-övning-granska-ett-bokningsschema" class="anchor-heading" aria-labelledby="211-övning-granska-ett-bokningsschema"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.11 Övning: granska ett bokningsschema
+  
+  
+</h2>
+    
+
+<p>En verkstad använder följande relationer:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MEDLEM(MedlemsID, Epost, Namn)
+MASKIN(MaskinID, Beteckning, Aktiv)
+BOKNING(MedlemsID, MaskinID, Starttid, Sluttid, Andamal)
+</code></pre></div></div>
+
+<p>Verksamhetsregler:</p>
+
+<ul>
+  <li>varje medlem har ett unikt medlems-ID och en unik e-postadress;</li>
+  <li>varje maskin har ett unikt maskin-ID;</li>
+  <li>en medlem kan boka samma maskin flera gånger, men inte med samma starttid;</li>
+  <li>starttid ska ligga före sluttid;</li>
+  <li>en bokning måste hänvisa till en befintlig medlem och maskin.</li>
+</ul>
+
+<blockquote class="exercise">
+  <ol>
+    <li>Ange kandidatnycklar för <code class="language-plaintext highlighter-rouge">MEDLEM</code>.</li>
+    <li>Välj och motivera primärnyckel för <code class="language-plaintext highlighter-rouge">BOKNING</code>.</li>
+    <li>Ange alla främmande nycklar.</li>
+    <li>Klassificera varje regel som nyckel-, referens-, domän- eller annan
+verksamhetsregel.</li>
+    <li>Förklarar de givna reglerna om överlappande bokningar är tillåtna? Om inte,
+formulera den saknade regeln.</li>
+    <li>Får <code class="language-plaintext highlighter-rouge">Andamal</code> vara <code class="language-plaintext highlighter-rouge">NULL</code>? Beskriv två olika verksamhetsbetydelser och hur
+de påverkar beslutet.</li>
+  </ol>
+</blockquote>
+
+<details class="answer">
+<summary>Lösningsprinciper</summary>
+
+`MedlemsID` och `Epost` är kandidatnycklar om båda alltid finns och är unika;
+`MedlemsID` är ett rimligt primärnyckelval. En sammansatt nyckel
+`(MedlemsID, MaskinID, Starttid)` uppfyller den uttalade regeln för `BOKNING`,
+men en artificiell `BokningID` plus ett separat unikhetsvillkor är också ett
+möjligt designval. `MedlemsID` och `MaskinID` i `BOKNING` är främmande nycklar.
+
+Regeln `Starttid &lt; Sluttid` är ett radbaserat domän-/verksamhetsvillkor. De
+givna reglerna förbjuder inte att två olika medlemmar bokar samma maskin under
+överlappande tider; om det inte är tillåtet måste detta uttryckas särskilt. Om
+ändamål är frivillig kommentar kan `NULL` vara rimligt. Om ett ändamål krävs
+för säkerhetsbedömning bör det vara obligatoriskt eller modelleras med en
+kontrollerad kategori.
+</details>
+<h2 id="212-kontrollfrågor">
+  
+  
+    <a href="#212-kontrollfrågor" class="anchor-heading" aria-labelledby="212-kontrollfrågor"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.12 Kontrollfrågor
+  
+  
+</h2>
+    
+
+<ol>
+  <li>Varför är <code class="language-plaintext highlighter-rouge">{KundID, Namn}</code> en supernyckel men inte nödvändigtvis en
+kandidatnyckel?</li>
+  <li>Kan en relation ha två kandidatnycklar? Ge ett exempel.</li>
+  <li>Vad garanterar en främmande nyckel – och vad garanterar den inte?</li>
+  <li>Varför krävs <code class="language-plaintext highlighter-rouge">ORDER BY</code> när resultatordningen betyder något?</li>
+  <li>Vad händer i en <code class="language-plaintext highlighter-rouge">WHERE</code>-sats när ett villkor blir <code class="language-plaintext highlighter-rouge">UNKNOWN</code>?</li>
+  <li>Varför är SQL-typen <code class="language-plaintext highlighter-rouge">INTEGER</code> inte en fullständig domändefinition för
+<code class="language-plaintext highlighter-rouge">Antal</code>?</li>
+  <li>Vilka två SQLite-inställningar/egenskaper behöver kursens nybörjare särskilt
+känna till?</li>
+</ol>
+
+<details class="answer">
+<summary>Korta svar</summary>
+
+1. Kombinationen är unik om `KundID` är unik, men `Namn` kan tas bort utan att
+   unikheten försvinner; nyckeln är inte minimal.
+2. Ja, exempelvis `KundID` och `Epost` om båda är unika, obligatoriska och
+   stabila nog för relationens identifiering.
+3. Den garanterar att en icke-tom referens motsvarar en tillåten refererad
+   nyckel. Den garanterar inte att verksamhetssambandet är sant i verkligheten
+   eller att alla andra regler är uppfyllda.
+4. Relationer har ingen inneboende radordning och DBMS får välja åtkomstplan.
+5. Raden behålls inte; endast `TRUE` passerar filtret.
+6. Den säger inget om exempelvis positivitet, enhet eller högsta tillåtna antal.
+7. Bland annat dynamisk typning/type affinity och att främmande nyckelkontroll
+   måste aktiveras per anslutning; `STRICT` och datumrepresentation är också
+   viktiga.
+</details>
+<h2 id="213-sammanfattning">
+  
+  
+    <a href="#213-sammanfattning" class="anchor-heading" aria-labelledby="213-sammanfattning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2.13 Sammanfattning
+  
+  
+</h2>
+    
+
+<ul>
+  <li>En relation har namngivna attribut, domäner och en mängd tupler.</li>
+  <li>Ett relationsschema beskriver struktur och regler; en instans är aktuella
+tupler.</li>
+  <li>Rad- och kolumnordning bär inte logisk betydelse.</li>
+  <li>Kandidatnycklar är minimala unika attributuppsättningar; en väljs till
+primärnyckel.</li>
+  <li>Främmande nycklar och referentiell integritet gör samband explicita och
+kontrollerbara.</li>
+  <li><code class="language-plaintext highlighter-rouge">NULL</code> är en markör för saknat vanligt värde och ger trevärd logik.</li>
+  <li>Relationsmodellen, SQL och SQLite måste hållas isär när deras regler skiljer
+sig.</li>
+  <li>SQLite är ett bra kursverktyg, men <code class="language-plaintext highlighter-rouge">PRAGMA foreign_keys = ON</code>, typaffinitet,
+<code class="language-plaintext highlighter-rouge">STRICT</code> och datumrepresentation ska behandlas uttryckligen.</li>
+</ul>
+<h2 id="vidare-läsning">
+  
+  
+    <a href="#vidare-läsning" class="anchor-heading" aria-labelledby="vidare-läsning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Vidare läsning
+  
+  
+</h2>
+    
+
+<ul>
+  <li>SQLite, <a href="https://www.sqlite.org/datatype3.html">Datatypes in SQLite</a>.</li>
+  <li>SQLite, <a href="https://www.sqlite.org/stricttables.html">STRICT Tables</a>.</li>
+  <li>SQLite, <a href="https://www.sqlite.org/foreignkeys.html">Foreign Key Support</a>.</li>
+  <li>Codd, E. F. (1970), ”A Relational Model of Data for Large Shared Data Banks”
+(historisk fördjupning; inte kurskrav).</li>
+</ul>
+
+          
+
+          
+            
+          
+        </main>
+        
+<hr>
+<footer>
+  
+    <p><a href="#top" id="back-to-top">Till sidans början</a></p>
+  
+
+  
+
+  <div class="d-md-none mt-4 fs-2">
+    
+    
+      <p></p>
+
+    
+  </div>
+</footer>
+
+      </div>
+    </div>
+    
+      
+<button id="search-button" class="search-button btn-reset" aria-label="Focus on search">
+  <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+</button>
+
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Skillnaden mellan schema, instans och metadata</title>
+  <desc id="desc">Schemat anger tillåtna tabeller, attribut och villkor. Instansen är aktuella rader. Metadata beskriver schema, betydelse och förvaltning. Pilar visar att instansen måste följa schemat och att metadata beskriver båda.</desc>
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#173f5f"/></marker>
+    <style>.t{font-family:Inter,Arial,sans-serif;fill:#173f5f}.h{font-size:30px;font-weight:700}.sh{font-size:22px;font-weight:700}.b{font-size:17px}.sm{font-size:15px}.card{stroke:#173f5f;stroke-width:2.5;rx:18}.line{stroke:#173f5f;stroke-width:3;fill:none;marker-end:url(#arrow2)}</style>
+  </defs>
+  <rect width="1200" height="700" fill="#f7f9fb"/>
+  <text class="t h" x="600" y="56" text-anchor="middle">Struktur, innehåll och beskrivning</text>
+
+  <rect class="card" x="70" y="120" width="320" height="390" fill="#dceaf4"/>
+  <text class="t sh" x="100" y="165">Schema</text>
+  <text class="t b" x="100" y="204">KUND(</text>
+  <text class="t b" x="130" y="235">KundID INTEGER,</text>
+  <text class="t b" x="130" y="266">Namn TEXT,</text>
+  <text class="t b" x="130" y="297">Epost TEXT)</text>
+  <line x1="100" y1="320" x2="360" y2="320" stroke="#7a8794"/>
+  <text class="t b" x="100" y="355">Regler</text>
+  <text class="t sm" x="115" y="387">• KundID identifierar</text>
+  <text class="t sm" x="115" y="415">• Namn är obligatoriskt</text>
+  <text class="t sm" x="115" y="443">• Epost är unik</text>
+  <text class="t sm" x="100" y="482">Relativt stabilt</text>
+
+  <rect class="card" x="440" y="120" width="320" height="390" fill="#e8f3f1"/>
+  <text class="t sh" x="470" y="165">Instans vid tidpunkt t</text>
+  <rect x="470" y="200" width="260" height="42" fill="#116466"/>
+  <text x="487" y="227" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#ffffff">ID</text>
+  <text x="550" y="227" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#ffffff">Namn</text>
+  <text x="650" y="227" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#ffffff">Epost</text>
+  <g class="t sm">
+    <text x="487" y="275">17</text><text x="550" y="275">Mira Ek</text><text x="650" y="275">mira@…</text>
+    <text x="487" y="320">24</text><text x="550" y="320">Samir</text><text x="650" y="320">samir@…</text>
+    <text x="487" y="365">31</text><text x="550" y="365">Lo Chen</text><text x="650" y="365">lo@…</text>
+  </g>
+  <line x1="470" y1="287" x2="730" y2="287" stroke="#a4b0ba"/><line x1="470" y1="332" x2="730" y2="332" stroke="#a4b0ba"/>
+  <text class="t sm" x="470" y="482">Förändras när data ändras</text>
+
+  <rect class="card" x="810" y="120" width="320" height="390" fill="#fff4cf"/>
+  <text class="t sh" x="840" y="165">Metadata</text>
+  <text class="t b" x="840" y="210">Beskriver exempelvis</text>
+  <text class="t sm" x="855" y="249">• kolumnnamn och typer</text>
+  <text class="t sm" x="855" y="281">• begreppsdefinitioner</text>
+  <text class="t sm" x="855" y="313">• villkor och ursprung</text>
+  <text class="t sm" x="855" y="345">• ägare och ändringsdatum</text>
+  <text class="t sm" x="855" y="377">• kvalitets- och åtkomstregler</text>
+  <text class="t sm" x="840" y="482">Gör data tolkningsbar och förvaltad</text>
+
+  <path class="line" d="M390 315 H430"/>
+  <text class="t sm" x="410" y="296" text-anchor="middle">styr</text>
+  <path class="line" d="M970 520 C970 625 235 625 235 520"/>
+  <text class="t sm" x="600" y="655" text-anchor="middle">metadata beskriver struktur, betydelse och ansvar</text>
+  <path class="line" d="M970 520 C970 575 600 575 600 520"/>
+</svg>
+
