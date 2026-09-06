@@ -28,11 +28,6 @@ back_to_top: true
 back_to_top_text: Till sidans början
 callouts_level: quiet
 
-nav_external_links:
-  - title: Kursplan 2IS007
-    url: https://www.uu.se/utbildning/kursplan?query=d21c4f3c-a296-11f0-af30-479161e74134
-    opens_in_new_tab: true
-
 callouts:
   note:
     title: Observera

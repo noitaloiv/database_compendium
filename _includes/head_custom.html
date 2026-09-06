@@ -8,26 +8,31 @@
 
 <script>
   (function () {
-    var preference = "system";
+    var preference = null;
     try {
-      preference = window.localStorage.getItem("databaser-theme") || "system";
+      preference = window.localStorage.getItem("databaser-theme");
     } catch (error) {
-      preference = "system";
+      preference = null;
     }
 
     if (preference !== "light" && preference !== "dark") {
-      preference = "system";
+      preference = null;
     }
 
+    var systemDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var resolved = preference || (systemDark ? "dark" : "light");
+    var lightTheme = document.getElementById("databaser-light-theme");
     var darkTheme = document.getElementById("databaser-dark-theme");
+
     if (preference === "dark") {
+      lightTheme.media = "not all";
       darkTheme.media = "all";
     } else if (preference === "light") {
+      lightTheme.media = "all";
       darkTheme.media = "not all";
     }
 
-    var systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var resolved = preference === "system" ? (systemDark ? "dark" : "light") : preference;
     document.documentElement.dataset.databaserTheme = resolved;
     document.documentElement.style.colorScheme = resolved;
   }());

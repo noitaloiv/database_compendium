@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 510" role="img" aria-labelledby="title desc">
+  <title id="title">Läs multiplicitet i två riktningar</title>
+  <desc id="desc">CUSTOMER places SALES_ORDER. Från en order läses exakt en customer. Från en customer läses noll eller flera sales orders.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.head{fill:#173f5f}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.note{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:4}.mult{font:700 18px Arial,sans-serif;fill:#116466}.verb{font:italic 16px Arial,sans-serif;fill:#116466}</style>
+  <rect width="1040" height="510" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Läs associationen från en förekomst i taget</text>
+  <rect x="80" y="115" width="260" height="100" rx="15" class="box"/><rect x="80" y="115" width="260" height="48" rx="15" class="head"/><rect x="80" y="148" width="260" height="15" class="head"/><text x="210" y="146" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">CUSTOMER</text>
+  <rect x="700" y="115" width="260" height="100" rx="15" class="box"/><rect x="700" y="115" width="260" height="48" rx="15" class="head"/><rect x="700" y="148" width="260" height="15" class="head"/><text x="830" y="146" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">SALES_ORDER</text>
+  <line x1="340" y1="165" x2="700" y2="165" class="line"/><text x="520" y="148" class="verb" text-anchor="middle">places</text><text x="378" y="196" class="mult">1..1</text><text x="645" y="196" class="mult">0..*</text>
+  <rect x="55" y="282" width="430" height="160" rx="16" class="note"/><text x="80" y="319" class="s">UTGÅ FRÅN EN SALES_ORDER</text><text x="80" y="356" class="t">Hur många CUSTOMER får den ha?</text><text x="80" y="398" class="mult">Exakt en · 1..1</text>
+  <rect x="555" y="282" width="430" height="160" rx="16" class="note"/><text x="580" y="319" class="s">UTGÅ FRÅN EN CUSTOMER</text><text x="580" y="356" class="t">Hur många SALES_ORDER får kunden ha?</text><text x="580" y="398" class="mult">Noll eller flera · 0..*</text>
+</svg>

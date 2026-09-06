@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 390" role="img" aria-labelledby="title desc">
+  <title id="title">Samma värde med olika betydelser</title>
+  <desc id="desc">Värdet A12 i mitten kopplas till en bibliotekshylla, en universitetssal och en lagerplats.</desc>
+  <style>.h{font:700 25px Arial,sans-serif;fill:#173f5f}.t{font:18px Arial,sans-serif;fill:#243447}.s{font:15px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.center{fill:#116466;stroke:#0c4a46;stroke-width:2}.line{stroke:#7b93a8;stroke-width:3}</style>
+  <rect width="960" height="390" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="55" class="h">Formatet bestämmer inte betydelsen</text>
+  <line x1="480" y1="205" x2="198" y2="152" class="line"/><line x1="480" y1="205" x2="480" y2="316" class="line"/><line x1="480" y1="205" x2="762" y2="152" class="line"/>
+  <rect x="380" y="130" width="200" height="150" rx="75" class="center"/>
+  <text x="480" y="220" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#fff" text-anchor="middle">A12</text>
+  <rect x="55" y="95" width="285" height="112" rx="15" class="box"/><text x="198" y="135" class="s" text-anchor="middle">BIBLIOTEK</text><text x="198" y="174" class="t" text-anchor="middle">Hylla A12</text>
+  <rect x="620" y="95" width="285" height="112" rx="15" class="box"/><text x="762" y="135" class="s" text-anchor="middle">UNIVERSITET</text><text x="762" y="174" class="t" text-anchor="middle">Sal A12</text>
+  <rect x="338" y="300" width="284" height="68" rx="15" class="box"/><text x="480" y="329" class="s" text-anchor="middle">LAGER</text><text x="480" y="354" class="t" text-anchor="middle">Plats A12</text>
+</svg>

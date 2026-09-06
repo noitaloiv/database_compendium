@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" role="img" aria-labelledby="title desc">
+  <title id="title">Tabellen Customer med rader och kolumner</title>
+  <desc id="desc">En kundtabell visar tabellnamnet, tre kolumner och tre rader. Email-kolumnen och raden för CustomerID 24 är markerade.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.head{fill:#173f5f}.cell{fill:#fff;stroke:#cbd5df}.col{fill:#e7f5f3;stroke:#9ccfc7}.row{fill:#fff7d6;stroke:#e2b93b}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <rect width="1040" height="500" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Tabell: Customer</text>
+  <rect x="160" y="112" width="720" height="58" rx="10" class="head"/>
+  <text x="275" y="148" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">CustomerID</text>
+  <text x="500" y="148" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">CustomerName</text>
+  <text x="740" y="148" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">Email</text>
+  <rect x="160" y="170" width="230" height="64" class="cell"/><rect x="390" y="170" width="220" height="64" class="cell"/><rect x="610" y="170" width="270" height="64" class="col"/>
+  <rect x="160" y="234" width="230" height="64" class="row"/><rect x="390" y="234" width="220" height="64" class="row"/><rect x="610" y="234" width="270" height="64" class="row"/>
+  <rect x="160" y="298" width="230" height="64" class="cell"/><rect x="390" y="298" width="220" height="64" class="cell"/><rect x="610" y="298" width="270" height="64" class="col"/>
+  <g class="t" text-anchor="middle"><text x="275" y="210">17</text><text x="500" y="210">Mira Ek</text><text x="745" y="210">mira@example.test</text><text x="275" y="274">24</text><text x="500" y="274">Samir Noor</text><text x="745" y="274">samir@example.test</text><text x="275" y="338">31</text><text x="500" y="338">Lo Chen</text><text x="745" y="338">lo@example.test</text></g>
+  <path d="M745 100V78h150" class="line"/><text x="900" y="83" class="s">kolumn</text>
+  <path d="M150 266H88" class="line"/><text x="48" y="272" class="s">rad</text>
+  <text x="520" y="425" class="s" text-anchor="middle">Varje rad beskriver en kund · varje kolumn har samma betydelse i alla rader</text>
+</svg>

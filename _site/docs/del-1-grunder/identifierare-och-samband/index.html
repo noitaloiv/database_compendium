@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+
+<html lang="sv-SE">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link
+    id="databaser-light-theme"
+    rel="stylesheet"
+    href="/assets/css/just-the-docs-default.css"
+    media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+  <style id="jtd-nav-activation">
+    
+
+    .site-nav > ul.nav-list:first-child > li > a,
+    
+    .site-nav > ul.nav-list:first-child > li > ul > li:not(:nth-child(4)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(4) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg,
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(4) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list,
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(4) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/assets/js/vendor/lunr.min.js" defer></script>
+  
+  <script src="/assets/js/just-the-docs.js" defer></script>
+
+  
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Identifierare och samband | Databaser</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Identifierare och samband" />
+<meta property="og:locale" content="sv_SE" />
+<meta name="description" content="Hur nycklar skiljer rader åt och kopplar samman tabeller." />
+<meta name="twitter:description" property="og:description" content="Hur nycklar skiljer rader åt och kopplar samman tabeller." />
+<link rel="canonical" href="http://localhost:4000/docs/del-1-grunder/identifierare-och-samband/" />
+<meta property="og:url" content="http://localhost:4000/docs/del-1-grunder/identifierare-och-samband/" />
+<meta property="og:site_name" content="Databaser" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Identifierare och samband" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Hur nycklar skiljer rader åt och kopplar samman tabeller.","headline":"Identifierare och samband","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/docs/del-1-grunder/identifierare-och-samband/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="color-scheme" content="light dark">
+
+<link
+  id="databaser-dark-theme"
+  rel="stylesheet"
+  href="/assets/css/just-the-docs-databaser-dark.css"
+  media="(prefers-color-scheme: dark)">
+
+<script>
+  (function () {
+    var preference = null;
+    try {
+      preference = window.localStorage.getItem("databaser-theme");
+    } catch (error) {
+      preference = null;
+    }
+
+    if (preference !== "light" && preference !== "dark") {
+      preference = null;
+    }
+
+    var systemDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var resolved = preference || (systemDark ? "dark" : "light");
+    var lightTheme = document.getElementById("databaser-light-theme");
+    var darkTheme = document.getElementById("databaser-dark-theme");
+
+    if (preference === "dark") {
+      lightTheme.media = "not all";
+      darkTheme.media = "all";
+    } else if (preference === "light") {
+      lightTheme.media = "all";
+      darkTheme.media = "not all";
+    }
+
+    document.documentElement.dataset.databaserTheme = resolved;
+    document.documentElement.style.colorScheme = resolved;
+  }());
+</script>
+
+<script src="/assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <header class="side-bar">
+  <div class="site-header">
+    <a href="/" class="site-title lh-tight">
+  <div class="site-logo" role="img" aria-label="Databaser"></div>
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+  
+</nav>
+
+
+<div class="d-md-block d-none site-footer">
+  
+  
+    <p>
+  Copyright © 2026. Samtliga rättigheter förbehållna.<br>
+  <a href="/anvandningsvillkor/">Användningsvillkor</a>
+</p>
+  
+  </div>
+</header>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Sök begrepp, SQL eller kapitel" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Sök begrepp, SQL eller kapitel</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  <button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="Byt färgtema"
+  title="Byt färgtema">
+  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+  </svg>
+  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"></path>
+  </svg>
+</button>
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    <li class="breadcrumb-nav-list-item"><a href="/docs/del-1-grunder/">Del I – Modeller och relationer</a></li>
+    <li class="breadcrumb-nav-list-item"><span>4. Identifierare och samband</span></li>
+  </ol>
+</nav>
+
+
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="4-identifierare-och-samband">
+  
+  
+    <a href="#4-identifierare-och-samband" class="anchor-heading" aria-labelledby="4-identifierare-och-samband"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Identifierare och samband
+  
+  
+</h1>
+    
+
+<p>Två kunder kan heta Samir Noor. En kund kan byta e-postadress. Ett produktnamn
+kan ändras när marknadsföringen görs om. Hur kan databasen ändå veta vilken
+kund, produkt eller beställning en rad beskriver?</p>
+
+<p>Vi behöver <strong>identifierare</strong>: värden som skiljer en förekomst från alla andra
+av samma slag.</p>
+
+<div class="learning-objectives">
+<h2 id="efter-kapitlet-kan-du">
+  
+  
+    <a href="#efter-kapitlet-kan-du" class="anchor-heading" aria-labelledby="efter-kapitlet-kan-du"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Efter kapitlet kan du
+  
+  
+</h2>
+    
+
+  <ul>
+    <li>bedöma om ett värde fungerar som stabil identifierare;</li>
+    <li>förklara primärnyckel och främmande nyckel;</li>
+    <li>visa hur nyckelvärden skapar samband mellan tabeller.</li>
+  </ul>
+</div>
+<h2 id="41-namn-är-sällan-tillräckliga">
+  
+  
+    <a href="#41-namn-är-sällan-tillräckliga" class="anchor-heading" aria-labelledby="41-namn-är-sällan-tillräckliga"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4.1 Namn är sällan tillräckliga
+  
+  
+</h2>
+    
+
+<p>Anta att tabellen innehåller följande kunder:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right">CustomerID</th>
+      <th>CustomerName</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">17</td>
+      <td>Samir Noor</td>
+      <td>samir.noor@example.test</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">24</td>
+      <td>Samir Noor</td>
+      <td>samir.n@example.test</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Namnet är inte unikt. E-postadressen är unik i just detta exempel, men kan
+ändras. <code class="language-plaintext highlighter-rouge">CustomerID</code> har däremot skapats för att identifiera kunden i
+databasen.</p>
+
+<p>En användbar identifierare ska vara:</p>
+
+<ul>
+  <li><strong>unik</strong> – två kunder får inte ha samma värde;</li>
+  <li><strong>obligatorisk</strong> – varje kund måste ha ett värde;</li>
+  <li><strong>stabil</strong> – värdet bör inte behöva ändras när andra egenskaper ändras.</li>
+</ul>
+
+<figure class="figure">
+  <img src="/assets/images/07-vad-identifierar-kunden.svg" alt="Tre möjliga sätt att känna igen en kund jämförs: namn är inte unikt, e-post kan ändras och CustomerID är unikt och stabilt." width="1040" height="480" loading="eager" decoding="async" />
+  <figcaption><strong>Figur 4.1.</strong> Ett värde kan vara beskrivande utan att vara en lämplig identifierare.</figcaption>
+</figure>
+
+<blockquote class="mistake">
+  <p>”Unik i våra exempelrader” är inte samma sak som ”ska alltid vara unik”.
+Identifiering grundas i en verksamhetsregel, inte i en tillfällig datamängd.</p>
+</blockquote>
+<h2 id="42-primärnyckeln">
+  
+  
+    <a href="#42-primärnyckeln" class="anchor-heading" aria-labelledby="42-primärnyckeln"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4.2 Primärnyckeln
+  
+  
+</h2>
+    
+
+<p>I en tabell väljs en identifierare till <strong>primärnyckel</strong>, förkortat <code class="language-plaintext highlighter-rouge">PK</code>.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Customer(CustomerID, CustomerName, Email)
+PK: CustomerID
+</code></pre></div></div>
+
+<p>Primärnyckeln gör det möjligt att hänvisa till en bestämd rad även om namn,
+adress eller andra egenskaper förändras.</p>
+
+<p>Vissa identifierare finns redan i verksamheten, exempelvis ett ISBN för en
+bokutgåva. Andra skapas av systemet, exempelvis <code class="language-plaintext highlighter-rouge">CustomerID</code>. Ett systemskapat
+nummer är praktiskt, men det löser inte alla problem. Om verksamheten kräver
+att varje e-postadress bara får tillhöra en kund måste även den regeln
+kontrolleras.</p>
+<h2 id="43-ett-samband-mellan-två-tabeller">
+  
+  
+    <a href="#43-ett-samband-mellan-två-tabeller" class="anchor-heading" aria-labelledby="43-ett-samband-mellan-två-tabeller"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4.3 Ett samband mellan två tabeller
+  
+  
+</h2>
+    
+
+<p>Nordic Brew lagrar kunder och beställningar i skilda tabeller:</p>
+
+<p><strong>Customer</strong></p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right">CustomerID</th>
+      <th>CustomerName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">17</td>
+      <td>Mira Ek</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">24</td>
+      <td>Samir Noor</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>SalesOrder</strong></p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right">OrderID</th>
+      <th style="text-align: right">CustomerID</th>
+      <th>OrderDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1042</td>
+      <td style="text-align: right">17</td>
+      <td>2027-01-15</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1043</td>
+      <td style="text-align: right">17</td>
+      <td>2027-01-16</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1044</td>
+      <td style="text-align: right">24</td>
+      <td>2027-01-16</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><code class="language-plaintext highlighter-rouge">CustomerID</code> i <code class="language-plaintext highlighter-rouge">SalesOrder</code> talar om vilken kund som gjorde beställningen.
+Kolumnen är en <strong>främmande nyckel</strong>, förkortat <code class="language-plaintext highlighter-rouge">FK</code>, eftersom värdet hänvisar
+till primärnyckeln i en annan tabell.</p>
+
+<figure class="figure">
+  <img src="/assets/images/08-frammande-nyckel.svg" alt="Tabellerna Customer och SalesOrder där värdet 17 i SalesOrder.CustomerID kopplas till kunden med Customer.CustomerID 17." width="1040" height="520" loading="lazy" decoding="async" />
+  <figcaption><strong>Figur 4.2.</strong> Sambandet skapas av matchande nyckelvärden, inte av tabellernas placering på skärmen.</figcaption>
+</figure>
+
+<p>Schemat kan skrivas:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Customer(CustomerID, CustomerName, Email)
+PK: CustomerID
+
+SalesOrder(OrderID, CustomerID, OrderDate)
+PK: OrderID
+FK: CustomerID -&gt; Customer.CustomerID
+</code></pre></div></div>
+
+<p>Pilen betyder en logisk hänvisning. Den är inte en fysisk pil i databasfilen.</p>
+<h2 id="44-vad-händer-om-kunden-saknas">
+  
+  
+    <a href="#44-vad-händer-om-kunden-saknas" class="anchor-heading" aria-labelledby="44-vad-händer-om-kunden-saknas"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4.4 Vad händer om kunden saknas?
+  
+  
+</h2>
+    
+
+<p>Anta att någon försöker registrera följande order:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right">OrderID</th>
+      <th style="text-align: right">CustomerID</th>
+      <th>OrderDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1045</td>
+      <td style="text-align: right">99</td>
+      <td>2027-01-17</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Det finns ingen kund med <code class="language-plaintext highlighter-rouge">CustomerID = 99</code>. Om främmande nyckeln kontrolleras
+ska raden avvisas. Regeln kallas <strong>referentiell integritet</strong>: en hänvisning ska
+leda till en befintlig rad, om inte frånvaro uttryckligen är tillåten.</p>
+
+<p>Regeln skyddar inte mot alla fel. Om order 1045 av misstag kopplas till kund 24
+i stället för kund 17 finns båda nyckelvärdena och den tekniska kontrollen är
+nöjd. Databasen kan upprätthålla uttryckta regler, men den kan inte gissa
+användarens avsikt.</p>
+<h2 id="45-när-en-identifierare-består-av-flera-värden">
+  
+  
+    <a href="#45-när-en-identifierare-består-av-flera-värden" class="anchor-heading" aria-labelledby="45-när-en-identifierare-består-av-flera-värden"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4.5 När en identifierare består av flera värden
+  
+  
+</h2>
+    
+
+<p>En beställning kan innehålla flera produkter. Tabellen <code class="language-plaintext highlighter-rouge">OrderLine</code> kan använda
+kombinationen av order och produkt som identifierare:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right">OrderID</th>
+      <th>ProductID</th>
+      <th style="text-align: right">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1042</td>
+      <td>501</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1042</td>
+      <td>502</td>
+      <td style="text-align: right">1</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OrderLine(OrderID, ProductID, Quantity)
+PK: OrderID + ProductID
+</code></pre></div></div>
+
+<p>Detta är en <strong>sammansatt nyckel</strong>. Kombinationen måste vara unik, även om varje
+värde kan upprepas var för sig. Konstruktionen uttrycker samtidigt regeln att
+samma produkt förekommer högst en gång i en viss beställning.</p>
+
+<p>Ett annat system kan ge varje orderrad ett separat <code class="language-plaintext highlighter-rouge">OrderLineID</code>. Det är också
+möjligt, men då behövs fortfarande en separat regel om kombinationen
+<code class="language-plaintext highlighter-rouge">OrderID + ProductID</code> ska vara unik.</p>
+<h2 id="46-stanna-upp-och-förutsäg">
+  
+  
+    <a href="#46-stanna-upp-och-förutsäg" class="anchor-heading" aria-labelledby="46-stanna-upp-och-förutsäg"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4.6 Stanna upp och förutsäg
+  
+  
+</h2>
+    
+
+<p>Tabellen <code class="language-plaintext highlighter-rouge">SalesOrder</code> innehåller tre rader för <code class="language-plaintext highlighter-rouge">CustomerID = 17</code>.</p>
+
+<ol>
+  <li>Bryter detta mot att <code class="language-plaintext highlighter-rouge">CustomerID</code> ska vara unikt i <code class="language-plaintext highlighter-rouge">Customer</code>?</li>
+  <li>Vilken kolumn måste vara unik i <code class="language-plaintext highlighter-rouge">SalesOrder</code>?</li>
+</ol>
+
+<details class="answer">
+  <summary>Visa resonemang</summary>
+  <p>Nej. <code>Customer.CustomerID</code> är unik i tabellen Customer, men
+  samma värde får förekomma i flera orderrader eftersom en kund kan göra flera
+  beställningar. <code>SalesOrder.OrderID</code> är primärnyckel och måste vara
+  unik i SalesOrder.</p>
+</details>
+<h2 id="47-överföringsövning-kursregistrering">
+  
+  
+    <a href="#47-överföringsövning-kursregistrering" class="anchor-heading" aria-labelledby="47-överföringsövning-kursregistrering"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4.7 Överföringsövning: kursregistrering
+  
+  
+</h2>
+    
+
+<p>Ett universitet vill lagra studenter, kurstillfällen och registreringar.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Student(StudentID, StudentName)
+CourseOffering(OfferingID, CourseCode, Semester)
+Enrollment(StudentID, OfferingID, RegisteredAt)
+</code></pre></div></div>
+
+<ol>
+  <li>Föreslå primärnyckel för varje tabell.</li>
+  <li>Vilka främmande nycklar behövs i <code class="language-plaintext highlighter-rouge">Enrollment</code>?</li>
+  <li>Vad bör identifiera en registrering?</li>
+  <li>Vilken felaktig rad ska referentiell integritet kunna stoppa?</li>
+</ol>
+<h2 id="kontrollfrågor">
+  
+  
+    <a href="#kontrollfrågor" class="anchor-heading" aria-labelledby="kontrollfrågor"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Kontrollfrågor
+  
+  
+</h2>
+    
+
+<ol>
+  <li>Varför är ett personnamn oftast en dålig primärnyckel?</li>
+  <li>Vad är skillnaden mellan primärnyckel och främmande nyckel?</li>
+  <li>Vad innebär referentiell integritet?</li>
+  <li>När kan en sammansatt nyckel vara rimlig?</li>
+</ol>
+<h2 id="prova-senare-i-sqlite">
+  
+  
+    <a href="#prova-senare-i-sqlite" class="anchor-heading" aria-labelledby="prova-senare-i-sqlite"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Prova senare i SQLite
+  
+  
+</h2>
+    
+
+<p>När SQL har introducerats kan hela Nordic Brew-strukturen skapas med det
+körbara underlaget <a href="/assets/sql/nordicbrew-minimal.sql">nordicbrew-minimal.sql</a>.
+Du behöver inte förstå skriptets alla rader ännu; länken finns här för att
+kapitlets tabeller och den senare implementationen ska gå att jämföra.</p>
+<h2 id="sammanfattning">
+  
+  
+    <a href="#sammanfattning" class="anchor-heading" aria-labelledby="sammanfattning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sammanfattning
+  
+  
+</h2>
+    
+
+<ul>
+  <li>En identifierare ska vara unik, obligatorisk och helst stabil.</li>
+  <li>Primärnyckeln identifierar en rad i den egna tabellen.</li>
+  <li>En främmande nyckel hänvisar till en identifierad rad i en annan tabell.</li>
+  <li>Referentiell integritet förhindrar hänvisningar till rader som saknas.</li>
+  <li>En nyckel kan bestå av flera kolumner.</li>
+</ul>
+
+          
+
+          
+            
+          
+        </main>
+        
+<hr>
+<footer>
+  
+    <p><a href="#top" id="back-to-top">Till sidans början</a></p>
+  
+
+  
+
+  <div class="d-md-none mt-4 fs-2">
+    
+    
+      <p>
+  Copyright © 2026. Samtliga rättigheter förbehållna.<br>
+  <a href="/anvandningsvillkor/">Användningsvillkor</a>
+</p>
+    
+  </div>
+</footer>
+
+      </div>
+    </div>
+    
+      
+<button id="search-button" class="search-button btn-reset" aria-label="Focus on search">
+  <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+</button>
+
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

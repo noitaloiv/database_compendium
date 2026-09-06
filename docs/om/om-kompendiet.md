@@ -42,7 +42,9 @@ Primärnycklar, främmande nycklar, SQL-datatyper och index hör dock inte hemma
 
 ## Användning och hänvisning
 
-Kompendiet är avsett att vara fritt tillgängligt. Slutliga licensvillkor anges
-före publik lansering. Oavsett licens ska den som återger eller bearbetar
-materialet tydligt ange källa och upphovsperson enligt god akademisk sed.
+Kompendiet är kostnadsfritt att läsa och använda för personliga studier. Det är
+däremot inte fritt licensierat: återpublicering, distribution, översättning och
+bearbetning kräver skriftligt tillstånd. Begränsade citat får användas i den
+omfattning lagen medger, med tydlig källhänvisning.
 
+[Läs de fullständiga användningsvillkoren]({{ '/anvandningsvillkor/' | relative_url }}).

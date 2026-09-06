@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">Konceptuell biblioteksmodell</title>
+  <desc id="desc">BOOK_EDITION beskriver COPY. MEMBER makes LOAN och LOAN concerns COPY. Entitetstyperna visar konceptuella identifierare och några attribut men ingen multiplicitet.</desc>
+  <style>.h{font:700 23px Arial,sans-serif;fill:#173f5f}.t{font:16px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.head{fill:#173f5f}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}.verb{font:italic 15px Arial,sans-serif;fill:#116466}</style>
+  <rect width="1120" height="620" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="52" class="h">Bibliotek: begrepp före tabeller</text>
+  <g transform="translate(55 105)"><rect width="235" height="190" rx="14" class="box"/><rect width="235" height="52" rx="14" class="head"/><rect y="38" width="235" height="14" class="head"/><text x="18" y="33" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">BOOK_EDITION</text><text x="18" y="86" class="s">ID · ISBN</text><text x="18" y="120" class="t">Title</text><text x="18" y="151" class="t">PublicationYear</text></g>
+  <g transform="translate(440 105)"><rect width="235" height="190" rx="14" class="box"/><rect width="235" height="52" rx="14" class="head"/><rect y="38" width="235" height="14" class="head"/><text x="18" y="33" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">COPY</text><text x="18" y="86" class="s">ID · Barcode</text><text x="18" y="120" class="t">AcquiredAt</text><text x="18" y="151" class="t">Condition</text></g>
+  <g transform="translate(55 385)"><rect width="235" height="170" rx="14" class="box"/><rect width="235" height="52" rx="14" class="head"/><rect y="38" width="235" height="14" class="head"/><text x="18" y="33" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">MEMBER</text><text x="18" y="86" class="s">ID · MemberNumber</text><text x="18" y="120" class="t">MemberName</text></g>
+  <g transform="translate(825 385)"><rect width="235" height="170" rx="14" class="box"/><rect width="235" height="52" rx="14" class="head"/><rect y="38" width="235" height="14" class="head"/><text x="18" y="33" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">LOAN</text><text x="18" y="86" class="s">ID · LoanNumber</text><text x="18" y="120" class="t">BorrowedAt · DueAt</text></g>
+  <path d="M290 200h150" class="line"/><text x="365" y="184" class="verb" text-anchor="middle">describes</text>
+  <path d="M290 470H825" class="line"/><text x="555" y="454" class="verb" text-anchor="middle">makes</text>
+  <path d="M942 385C942 290 675 290 558 295" class="line"/><text x="785" y="318" class="verb" text-anchor="middle">concerns</text>
+  <text x="560" y="592" class="s" text-anchor="middle">Associationerna har verbnamn. Multiplicitet läggs till när verksamhetsreglerna är utredda.</text>
+</svg>

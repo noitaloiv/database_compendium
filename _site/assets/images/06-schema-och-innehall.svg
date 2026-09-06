@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" role="img" aria-labelledby="title desc">
+  <title id="title">Schema och innehåll vid två tidpunkter</title>
+  <desc id="desc">Samma Customer-schema gäller vid två tidpunkter. En fjärde kund läggs till, så innehållet förändras medan schemat förblir detsamma.</desc>
+  <style>.h{font:700 23px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.schema{fill:#e7f5f3;stroke:#116466;stroke-width:2}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.new{fill:#fff7d6;stroke:#e2b93b;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <rect width="1040" height="470" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Samma struktur – förändrat innehåll</text>
+  <rect x="60" y="96" width="920" height="86" rx="14" class="schema"/><text x="100" y="129" class="s">SCHEMA</text><text x="100" y="161" class="t">Customer(CustomerID, CustomerName, Email)</text>
+  <path d="M520 182v52" class="line"/><path d="M520 210H265v24M520 210h255v24" class="line"/>
+  <rect x="60" y="238" width="410" height="174" rx="14" class="box"/><text x="88" y="272" class="s">MÅNDAG · 3 RADER</text><text x="88" y="313" class="t">17 · Mira Ek</text><text x="88" y="346" class="t">24 · Samir Noor</text><text x="88" y="379" class="t">31 · Lo Chen</text>
+  <rect x="570" y="238" width="410" height="174" rx="14" class="box"/><text x="598" y="272" class="s">TISDAG · 4 RADER</text><text x="598" y="313" class="t">17 · Mira Ek</text><text x="598" y="346" class="t">24 · Samir Noor</text><text x="598" y="379" class="t">31 · Lo Chen</text><rect x="800" y="289" width="145" height="102" rx="10" class="new"/><text x="873" y="330" class="s" text-anchor="middle">NY RAD</text><text x="873" y="363" class="t" text-anchor="middle">42 · Ada Lind</text>
+</svg>

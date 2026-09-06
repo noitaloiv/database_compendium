@@ -1,2 +1,1 @@
-"keywords": {{ include.page.keywords | default: empty | join: " " | jsonify }}
-
+"keywords": {{ include.page.keywords | default: empty | join: " " | jsonify }},

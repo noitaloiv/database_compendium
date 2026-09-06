@@ -2,6 +2,7 @@
 
 .main-content {
   line-height: 1.68;
+  min-width: 0;
 }
 
 .site-logo {
@@ -9,37 +10,51 @@
   background-size: contain;
 }
 
-.theme-control {
+.theme-toggle {
   align-items: center;
-  display: flex;
-  gap: 0.5rem;
-  margin-left: auto;
-  white-space: nowrap;
-}
-
-.theme-label {
-  align-items: center;
-  display: inline-flex;
-  font-size: 0.85rem;
-  gap: 0.3rem;
-}
-
-.theme-select {
-  appearance: auto;
-  background: $body-background-color;
+  background: transparent;
   border: 1px solid $border-color;
-  border-radius: 0.45rem;
+  border-radius: 999px;
   color: $body-text-color;
   cursor: pointer;
-  font: inherit;
-  font-size: 0.85rem;
-  min-height: 2.2rem;
-  padding: 0.25rem 0.45rem;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0;
+  transition: background-color 120ms ease, border-color 120ms ease;
+  width: 2.5rem;
 }
 
-.theme-select:focus-visible {
+.theme-toggle:hover {
+  background: $sidebar-color;
+}
+
+.theme-toggle:focus-visible {
   outline: 3px solid $link-color;
   outline-offset: 2px;
+}
+
+.theme-icon {
+  fill: none;
+  height: 1.25rem;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 1.25rem;
+}
+
+.theme-icon--moon {
+  display: none;
+}
+
+[data-databaser-theme="dark"] .theme-icon--sun {
+  display: none;
+}
+
+[data-databaser-theme="dark"] .theme-icon--moon {
+  display: block;
 }
 
 .course-hero {
@@ -125,12 +140,17 @@
 
 .figure {
   margin: 2rem 0;
+  max-width: 100%;
   text-align: center;
 }
 
 .figure img {
-  max-width: 100%;
+  background: #f5f8fb;
+  border-radius: 0.75rem;
+  display: block;
   height: auto;
+  max-width: 100%;
+  width: 100%;
 }
 
 .figure figcaption {
@@ -148,6 +168,17 @@
 
 .table-wrapper table {
   min-width: 100%;
+}
+
+div.highlighter-rouge,
+figure.highlight,
+pre {
+  max-width: 100%;
+}
+
+div.highlighter-rouge,
+figure.highlight {
+  overflow-x: auto;
 }
 
 .answer {
@@ -171,18 +202,14 @@ kbd {
   padding: 0.1rem 0.35rem;
 }
 
-@media (max-width: 50rem) {
-  .theme-label span:last-child {
-    display: none;
-  }
-
-  .theme-select {
-    max-width: 8rem;
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle {
+    transition: none;
   }
 }
 
 @media print {
-  .theme-control,
+  .theme-toggle,
   #search-button {
     display: none !important;
   }

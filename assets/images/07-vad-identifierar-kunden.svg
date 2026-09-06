@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 480" role="img" aria-labelledby="title desc">
+  <title id="title">Jämförelse av möjliga kundidentifierare</title>
+  <desc id="desc">Namn, e-postadress och CustomerID jämförs. Namn kan delas av flera, e-post kan ändras och CustomerID är avsett att vara unikt och stabilt.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:18px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.bad{fill:#fff3f3;stroke:#c53030;stroke-width:2}.mid{fill:#fff7d6;stroke:#e2b93b;stroke-width:2}.good{fill:#e7f5f3;stroke:#116466;stroke-width:3}.x{font:700 26px Arial,sans-serif;fill:#c53030}.ok{font:700 26px Arial,sans-serif;fill:#116466}</style>
+  <rect width="1040" height="480" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="55" class="h">Vilket värde kan identifiera kunden över tid?</text>
+  <rect x="48" y="105" width="288" height="275" rx="18" class="bad"/><text x="192" y="150" class="s" text-anchor="middle">CustomerName</text><text x="192" y="205" class="t" text-anchor="middle">Samir Noor</text><text x="192" y="244" class="t" text-anchor="middle">Samir Noor</text><text x="192" y="301" class="x" text-anchor="middle">×</text><text x="192" y="339" class="s" text-anchor="middle">inte alltid unikt</text>
+  <rect x="376" y="105" width="288" height="275" rx="18" class="mid"/><text x="520" y="150" class="s" text-anchor="middle">Email</text><text x="520" y="205" class="t" text-anchor="middle">samir@example.test</text><path d="M445 235h150" stroke="#e2b93b" stroke-width="3"/><text x="520" y="270" class="t" text-anchor="middle">s.noor@example.test</text><text x="520" y="312" class="x" text-anchor="middle">!</text><text x="520" y="345" class="s" text-anchor="middle">kan ändras</text>
+  <rect x="704" y="105" width="288" height="275" rx="18" class="good"/><text x="848" y="150" class="s" text-anchor="middle">CustomerID</text><text x="848" y="232" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#116466" text-anchor="middle">24</text><text x="848" y="300" class="ok" text-anchor="middle">✓</text><text x="848" y="339" class="s" text-anchor="middle">unik · obligatorisk · stabil</text>
+  <text x="520" y="435" class="s" text-anchor="middle">Beskrivande värden kan ändras utan att kunden blir en annan kund.</text>
+</svg>

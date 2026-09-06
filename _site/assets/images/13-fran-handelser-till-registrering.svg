@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 420" role="img" aria-labelledby="title desc">
+  <title id="title">Från händelse till registrerade data</title>
+  <desc id="desc">Fyra steg visar en verksamhetshändelse, urval av relevanta uppgifter, registrerade värden och tolkning. En återkopplingspil går från tolkningen tillbaka till urvalet.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:16px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <rect width="1040" height="420" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Registrering innebär ett urval</text>
+  <rect x="48" y="108" width="205" height="140" rx="16" class="box"/><text x="150" y="151" class="s" text-anchor="middle">1 · HÄNDELSE</text><text x="150" y="190" class="t" text-anchor="middle">En kund gör</text><text x="150" y="218" class="t" text-anchor="middle">en beställning</text>
+  <rect x="293" y="108" width="205" height="140" rx="16" class="box"/><text x="395" y="151" class="s" text-anchor="middle">2 · URVAL</text><text x="395" y="190" class="t" text-anchor="middle">Vad behöver</text><text x="395" y="218" class="t" text-anchor="middle">registreras?</text>
+  <rect x="538" y="108" width="205" height="140" rx="16" class="box"/><text x="640" y="151" class="s" text-anchor="middle">3 · DATA</text><text x="640" y="190" class="t" text-anchor="middle">OrderID · datum</text><text x="640" y="218" class="t" text-anchor="middle">kund · produkt</text>
+  <rect x="783" y="108" width="205" height="140" rx="16" class="accent"/><text x="885" y="151" class="s" text-anchor="middle">4 · ANVÄNDNING</text><text x="885" y="190" class="t" text-anchor="middle">Tolka och</text><text x="885" y="218" class="t" text-anchor="middle">besvara frågor</text>
+  <path d="M253 178h40M498 178h40M743 178h40" class="line"/><path d="M885 248v72H395v-72" class="line"/>
+  <text x="640" y="354" class="s" text-anchor="middle">Om frågorna inte kan besvaras behöver urvalet omprövas.</text>
+</svg>

@@ -1,78 +1,79 @@
--- Nordic Brew minimal – schema- och dataversion 0.1
--- Avsett för kapitel 2 i databaskompendiet för 2IS007.
--- Kräver SQLite 3.37 eller senare på grund av STRICT-tabeller.
+-- Nordic Brew minimal – schema and data version 0.2
+-- Used by the introductory chapters in the 2IS007 database compendium.
+-- Requires SQLite 3.37 or later because the tables use STRICT mode.
 
 PRAGMA foreign_keys = ON;
 
 BEGIN;
 
-DROP TABLE IF EXISTS Orderrad;
-DROP TABLE IF EXISTS Bestallning;
-DROP TABLE IF EXISTS Produkt;
-DROP TABLE IF EXISTS Kund;
+DROP TABLE IF EXISTS OrderLine;
+DROP TABLE IF EXISTS SalesOrder;
+DROP TABLE IF EXISTS Product;
+DROP TABLE IF EXISTS Customer;
 
-CREATE TABLE Kund (
-    KundID INTEGER PRIMARY KEY,
-    Namn TEXT NOT NULL CHECK (length(trim(Namn)) > 0),
-    Epost TEXT NOT NULL UNIQUE CHECK (instr(Epost, '@') > 1)
+CREATE TABLE Customer (
+    CustomerID INTEGER PRIMARY KEY,
+    CustomerName TEXT NOT NULL CHECK (length(trim(CustomerName)) > 0),
+    Email TEXT NOT NULL UNIQUE CHECK (instr(Email, '@') > 1)
 ) STRICT;
 
-CREATE TABLE Produkt (
-    ProduktID INTEGER PRIMARY KEY,
-    Produktnamn TEXT NOT NULL UNIQUE CHECK (length(trim(Produktnamn)) > 0),
-    ListprisOre INTEGER NOT NULL CHECK (ListprisOre >= 0),
-    Aktiv INTEGER NOT NULL DEFAULT 1 CHECK (Aktiv IN (0, 1))
+CREATE TABLE Product (
+    ProductID INTEGER PRIMARY KEY,
+    ProductName TEXT NOT NULL UNIQUE CHECK (length(trim(ProductName)) > 0),
+    ListPriceOre INTEGER NOT NULL CHECK (ListPriceOre >= 0),
+    Active INTEGER NOT NULL DEFAULT 1 CHECK (Active IN (0, 1))
 ) STRICT;
 
-CREATE TABLE Bestallning (
+CREATE TABLE SalesOrder (
     OrderID INTEGER PRIMARY KEY,
-    Orderdatum TEXT NOT NULL
+    OrderDate TEXT NOT NULL
         CHECK (
-            length(Orderdatum) = 10
-            AND Orderdatum GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
-            AND date(Orderdatum) = Orderdatum
+            length(OrderDate) = 10
+            AND OrderDate GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
+            AND date(OrderDate) = OrderDate
         ),
-    KundID INTEGER NOT NULL,
-    Status TEXT NOT NULL CHECK (Status IN ('UTKAST', 'BEKRAFTAD', 'SKICKAD', 'AVBRUTEN')),
-    CONSTRAINT fk_bestallning_kund
-        FOREIGN KEY (KundID) REFERENCES Kund(KundID)
+    CustomerID INTEGER NOT NULL,
+    Status TEXT NOT NULL
+        CHECK (Status IN ('DRAFT', 'CONFIRMED', 'SHIPPED', 'CANCELLED')),
+    CONSTRAINT fk_sales_order_customer
+        FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 ) STRICT;
 
-CREATE TABLE Orderrad (
+CREATE TABLE OrderLine (
     OrderID INTEGER NOT NULL,
-    ProduktID INTEGER NOT NULL,
-    Antal INTEGER NOT NULL CHECK (Antal > 0),
-    AvtalatStyckprisOre INTEGER NOT NULL CHECK (AvtalatStyckprisOre >= 0),
-    CONSTRAINT pk_orderrad PRIMARY KEY (OrderID, ProduktID),
-    CONSTRAINT fk_orderrad_bestallning
-        FOREIGN KEY (OrderID) REFERENCES Bestallning(OrderID)
+    ProductID INTEGER NOT NULL,
+    Quantity INTEGER NOT NULL CHECK (Quantity > 0),
+    AgreedUnitPriceOre INTEGER NOT NULL CHECK (AgreedUnitPriceOre >= 0),
+    CONSTRAINT pk_order_line PRIMARY KEY (OrderID, ProductID),
+    CONSTRAINT fk_order_line_sales_order
+        FOREIGN KEY (OrderID) REFERENCES SalesOrder(OrderID)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    CONSTRAINT fk_orderrad_produkt
-        FOREIGN KEY (ProduktID) REFERENCES Produkt(ProduktID)
+    CONSTRAINT fk_order_line_product
+        FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 ) STRICT;
 
-INSERT INTO Kund (KundID, Namn, Epost) VALUES
+INSERT INTO Customer (CustomerID, CustomerName, Email) VALUES
     (17, 'Mira Ek', 'mira@example.test'),
     (24, 'Samir Noor', 'samir@example.test'),
     (31, 'Lo Chen', 'lo@example.test');
 
-INSERT INTO Produkt (ProduktID, Produktnamn, ListprisOre, Aktiv) VALUES
-    (501, 'Bryggkaffe 500 g', 12900, 1),
-    (502, 'Espressoblandning 250 g', 8900, 1),
-    (503, 'Koffeinfritt 250 g', 9900, 1),
-    (504, 'Vinterblandning 500 g', 14900, 0);
+INSERT INTO Product (ProductID, ProductName, ListPriceOre, Active) VALUES
+    (501, 'Brew coffee 500 g', 12900, 1),
+    (502, 'Espresso blend 250 g', 8900, 1),
+    (503, 'Decaf coffee 250 g', 9900, 1),
+    (504, 'Winter blend 500 g', 14900, 0);
 
-INSERT INTO Bestallning (OrderID, Orderdatum, KundID, Status) VALUES
-    (1042, '2027-01-15', 17, 'BEKRAFTAD'),
-    (1043, '2027-01-15', 24, 'SKICKAD'),
-    (1044, '2027-01-17', 17, 'UTKAST');
+INSERT INTO SalesOrder (OrderID, OrderDate, CustomerID, Status) VALUES
+    (1042, '2027-01-15', 17, 'CONFIRMED'),
+    (1043, '2027-01-15', 24, 'SHIPPED'),
+    (1044, '2027-01-17', 17, 'DRAFT');
 
-INSERT INTO Orderrad (OrderID, ProduktID, Antal, AvtalatStyckprisOre) VALUES
+INSERT INTO OrderLine (OrderID, ProductID, Quantity, AgreedUnitPriceOre) VALUES
     (1042, 501, 2, 12900),
     (1042, 502, 1, 8900),
     (1043, 501, 1, 11900),
@@ -80,18 +81,17 @@ INSERT INTO Orderrad (OrderID, ProduktID, Antal, AvtalatStyckprisOre) VALUES
 
 COMMIT;
 
--- Verifiering: ska ge tre kunder, fyra produkter, tre beställningar och fyra orderrader.
-SELECT 'Kund' AS Relation, count(*) AS AntalRader FROM Kund
+-- Verification: 3 customers, 4 products, 3 orders, and 4 order lines.
+SELECT 'Customer' AS RelationName, count(*) AS RowCount FROM Customer
 UNION ALL
-SELECT 'Produkt', count(*) FROM Produkt
+SELECT 'Product', count(*) FROM Product
 UNION ALL
-SELECT 'Bestallning', count(*) FROM Bestallning
+SELECT 'SalesOrder', count(*) FROM SalesOrder
 UNION ALL
-SELECT 'Orderrad', count(*) FROM Orderrad;
+SELECT 'OrderLine', count(*) FROM OrderLine;
 
--- Exemplet från kapitel 2: kundnamn för order 1042.
-SELECT b.OrderID, k.Namn
-FROM Bestallning AS b
-JOIN Kund AS k ON k.KundID = b.KundID
-WHERE b.OrderID = 1042;
-
+-- Example: show the customer name for order 1042.
+SELECT so.OrderID, c.CustomerName
+FROM SalesOrder AS so
+JOIN Customer AS c ON c.CustomerID = so.CustomerID
+WHERE so.OrderID = 1042;

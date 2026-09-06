@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 460" role="img" aria-labelledby="title desc">
+  <title id="title">Databasen i ett informationssystem</title>
+  <desc id="desc">Människor och arbetsprocesser använder en applikation, som använder ett DBMS och en databas. Ett band med verksamhetsregler sträcker sig över samtliga delar.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.rule{fill:#173f5f}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <rect width="1040" height="460" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Databasen är en del – inte hela systemet</text>
+  <rect x="48" y="95" width="944" height="58" rx="14" class="rule"/><text x="520" y="131" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">Verksamhetsregler och ansvar</text>
+  <rect x="48" y="205" width="205" height="145" rx="16" class="box"/><text x="150" y="247" class="s" text-anchor="middle">MÄNNISKOR OCH ARBETE</text><text x="150" y="286" class="t" text-anchor="middle">kund · personal</text><text x="150" y="316" class="t" text-anchor="middle">arbetsprocesser</text>
+  <rect x="293" y="205" width="205" height="145" rx="16" class="box"/><text x="395" y="247" class="s" text-anchor="middle">APPLIKATION</text><text x="395" y="286" class="t" text-anchor="middle">webbshop</text><text x="395" y="316" class="t" text-anchor="middle">arbetsflöden</text>
+  <rect x="538" y="205" width="205" height="145" rx="16" class="accent"/><text x="640" y="247" class="s" text-anchor="middle">DBMS</text><text x="640" y="286" class="t" text-anchor="middle">frågor och</text><text x="640" y="316" class="t" text-anchor="middle">kontroller</text>
+  <rect x="783" y="205" width="205" height="145" rx="16" class="box"/><text x="885" y="247" class="s" text-anchor="middle">DATABAS</text><text x="885" y="286" class="t" text-anchor="middle">struktur och</text><text x="885" y="316" class="t" text-anchor="middle">lagrade data</text>
+  <path d="M253 278h40M498 278h40M743 278h40" class="line"/>
+  <path d="M150 153v52M395 153v52M640 153v52M885 153v52" class="line"/>
+  <text x="520" y="408" class="s" text-anchor="middle">Tekniken kan upprätthålla uttryckta regler men bestämmer inte ensam vad verksamheten bör mena.</text>
+</svg>

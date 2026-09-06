@@ -2,67 +2,60 @@
   "use strict";
 
   var storageKey = "databaser-theme";
+  var lightTheme = document.getElementById("databaser-light-theme");
   var darkTheme = document.getElementById("databaser-dark-theme");
-  var selector = document.getElementById("theme-preference");
+  var button = document.getElementById("theme-toggle");
   var systemPreference = window.matchMedia
     ? window.matchMedia("(prefers-color-scheme: dark)")
     : null;
 
-  if (!darkTheme || !selector) {
+  if (!lightTheme || !darkTheme || !button) {
     return;
   }
 
-  function readPreference() {
+  function storedPreference() {
     try {
-      var stored = window.localStorage.getItem(storageKey);
-      return stored === "light" || stored === "dark" ? stored : "system";
+      var value = window.localStorage.getItem(storageKey);
+      return value === "light" || value === "dark" ? value : null;
     } catch (error) {
-      return "system";
+      return null;
     }
   }
 
-  function resolvedTheme(preference) {
-    if (preference !== "system") {
-      return preference;
-    }
+  function systemTheme() {
     return systemPreference && systemPreference.matches ? "dark" : "light";
   }
 
-  function applyTheme(preference, persist) {
-    if (preference === "dark") {
-      darkTheme.media = "all";
-    } else if (preference === "light") {
-      darkTheme.media = "not all";
-    } else {
-      darkTheme.media = "(prefers-color-scheme: dark)";
-    }
+  function applyTheme(theme, persist) {
+    lightTheme.media = theme === "light" ? "all" : "not all";
+    darkTheme.media = theme === "dark" ? "all" : "not all";
+
+    document.documentElement.dataset.databaserTheme = theme;
+    document.documentElement.style.colorScheme = theme;
+
+    var nextTheme = theme === "dark" ? "ljust" : "mörkt";
+    button.setAttribute("aria-label", "Byt till " + nextTheme + " tema");
+    button.setAttribute("title", "Byt till " + nextTheme + " tema");
+    button.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
 
     if (persist) {
       try {
-        if (preference === "system") {
-          window.localStorage.removeItem(storageKey);
-        } else {
-          window.localStorage.setItem(storageKey, preference);
-        }
+        window.localStorage.setItem(storageKey, theme);
       } catch (error) {
-        // The selected theme still applies for the current page view.
+        // The chosen theme still applies for the current page view.
       }
     }
-
-    var resolved = resolvedTheme(preference);
-    document.documentElement.dataset.databaserTheme = resolved;
-    document.documentElement.style.colorScheme = resolved;
-    selector.value = preference;
   }
 
-  selector.addEventListener("change", function (event) {
-    applyTheme(event.target.value, true);
+  button.addEventListener("click", function () {
+    var current = document.documentElement.dataset.databaserTheme || systemTheme();
+    applyTheme(current === "dark" ? "light" : "dark", true);
   });
 
   function handleSystemChange() {
-      if (readPreference() === "system") {
-        applyTheme("system", false);
-      }
+    if (!storedPreference()) {
+      applyTheme(systemTheme(), false);
+    }
   }
 
   if (systemPreference && systemPreference.addEventListener) {
@@ -71,5 +64,5 @@
     systemPreference.addListener(handleSystemChange);
   }
 
-  applyTheme(readPreference(), false);
+  applyTheme(storedPreference() || systemTheme(), false);
 }());

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 520" role="img" aria-labelledby="title desc">
+  <title id="title">Främmande nyckel mellan Customer och SalesOrder</title>
+  <desc id="desc">CustomerID 17 är primärnyckel i Customer. Samma värde används som främmande nyckel i två rader i SalesOrder och kopplar order 1042 och 1043 till Mira Ek.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.head{fill:#173f5f}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.key{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:4;fill:none}</style>
+  <rect width="1040" height="520" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Matchande nyckelvärden skapar sambandet</text>
+  <rect x="55" y="100" width="390" height="58" rx="10" class="head"/><text x="80" y="137" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#fff">Customer</text>
+  <rect x="55" y="158" width="390" height="230" rx="8" class="box"/><text x="90" y="197" class="s">CustomerName</text><text x="285" y="197" class="s">PK · CustomerID</text><text x="90" y="253" class="t">Mira Ek</text><rect x="280" y="217" width="140" height="58" rx="8" class="key"/><text x="350" y="253" class="t" text-anchor="middle">17</text><text x="90" y="329" class="t">Samir Noor</text><text x="350" y="329" class="t" text-anchor="middle">24</text>
+  <rect x="595" y="100" width="390" height="58" rx="10" class="head"/><text x="620" y="137" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#fff">SalesOrder</text>
+  <rect x="595" y="158" width="390" height="230" rx="8" class="box"/><text x="620" y="197" class="s">FK · CustomerID</text><text x="830" y="197" class="s">PK · OrderID</text><rect x="620" y="217" width="140" height="58" rx="8" class="key"/><text x="690" y="253" class="t" text-anchor="middle">17</text><text x="850" y="253" class="t">1042</text><rect x="620" y="293" width="140" height="58" rx="8" class="key"/><text x="690" y="329" class="t" text-anchor="middle">17</text><text x="850" y="329" class="t">1043</text>
+  <path d="M420 246H620M420 246C520 246 520 322 620 322" class="line"/><text x="520" y="230" class="s" text-anchor="middle">samma CustomerID</text>
+  <text x="520" y="458" class="s" text-anchor="middle">En kundrad kan refereras av flera beställningar.</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 430" role="img" aria-labelledby="title desc">
+  <title id="title">Från verksamhetsfråga till prövad modell</title>
+  <desc id="desc">Fyra steg visar frågor, syfte och avgränsning, begrepp och regler samt en konceptuell modell. En återkopplingspil visar att modellen prövas mot exempel.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <rect width="1040" height="430" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Diagrammet kommer efter analysen</text>
+  <rect x="48" y="110" width="210" height="150" rx="16" class="box"/><text x="153" y="150" class="s" text-anchor="middle">1 · FRÅGOR</text><text x="153" y="190" class="t" text-anchor="middle">Vad behöver</text><text x="153" y="220" class="t" text-anchor="middle">verksamheten veta?</text>
+  <path d="M258 185h40" class="line"/><path d="m289 175 12 10-12 10" class="line"/>
+  <rect x="308" y="110" width="210" height="150" rx="16" class="box"/><text x="413" y="150" class="s" text-anchor="middle">2 · RAM</text><text x="413" y="190" class="t" text-anchor="middle">Syfte och</text><text x="413" y="220" class="t" text-anchor="middle">avgränsning</text>
+  <path d="M518 185h40" class="line"/><path d="m549 175 12 10-12 10" class="line"/>
+  <rect x="568" y="110" width="210" height="150" rx="16" class="box"/><text x="673" y="150" class="s" text-anchor="middle">3 · ANALYS</text><text x="673" y="190" class="t" text-anchor="middle">Begrepp och</text><text x="673" y="220" class="t" text-anchor="middle">verksamhetsregler</text>
+  <path d="M778 185h40" class="line"/><path d="m809 175 12 10-12 10" class="line"/>
+  <rect x="828" y="110" width="164" height="150" rx="16" class="accent"/><text x="910" y="150" class="s" text-anchor="middle">4 · MODELL</text><rect x="858" y="177" width="104" height="50" rx="8" fill="#fff" stroke="#116466" stroke-width="2"/><text x="910" y="208" class="t" text-anchor="middle">ENTITY</text>
+  <path d="M910 260v65H153v-65" class="line"/><text x="530" y="355" class="s" text-anchor="middle">Pröva modellen mot frågor, tomma fall och konkreta exempel</text>
+</svg>

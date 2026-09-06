@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html>
+
+<html lang="sv-SE">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link
+    id="databaser-light-theme"
+    rel="stylesheet"
+    href="/assets/css/just-the-docs-default.css"
+    media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+  <style id="jtd-nav-activation">
+    
+
+    .site-nav > ul.nav-list:first-child > li > a,
+    
+    .site-nav > ul.nav-list:first-child > li > ul > li:not(:nth-child(6)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(6) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg,
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(6) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list,
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(6) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/assets/js/vendor/lunr.min.js" defer></script>
+  
+  <script src="/assets/js/just-the-docs.js" defer></script>
+
+  
+
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>Multiplicitet och verksamhetsregler | Databaser</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Multiplicitet och verksamhetsregler" />
+<meta property="og:locale" content="sv_SE" />
+<meta name="description" content="Hur minsta och största deltagande uttrycker verksamhetsregler." />
+<meta name="twitter:description" property="og:description" content="Hur minsta och största deltagande uttrycker verksamhetsregler." />
+<link rel="canonical" href="http://localhost:4000/docs/del-1-grunder/multiplicitet/" />
+<meta property="og:url" content="http://localhost:4000/docs/del-1-grunder/multiplicitet/" />
+<meta property="og:site_name" content="Databaser" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Multiplicitet och verksamhetsregler" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Hur minsta och största deltagande uttrycker verksamhetsregler.","headline":"Multiplicitet och verksamhetsregler","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/docs/del-1-grunder/multiplicitet/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="color-scheme" content="light dark">
+
+<link
+  id="databaser-dark-theme"
+  rel="stylesheet"
+  href="/assets/css/just-the-docs-databaser-dark.css"
+  media="(prefers-color-scheme: dark)">
+
+<script>
+  (function () {
+    var preference = null;
+    try {
+      preference = window.localStorage.getItem("databaser-theme");
+    } catch (error) {
+      preference = null;
+    }
+
+    if (preference !== "light" && preference !== "dark") {
+      preference = null;
+    }
+
+    var systemDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var resolved = preference || (systemDark ? "dark" : "light");
+    var lightTheme = document.getElementById("databaser-light-theme");
+    var darkTheme = document.getElementById("databaser-dark-theme");
+
+    if (preference === "dark") {
+      lightTheme.media = "not all";
+      darkTheme.media = "all";
+    } else if (preference === "light") {
+      lightTheme.media = "all";
+      darkTheme.media = "not all";
+    }
+
+    document.documentElement.dataset.databaserTheme = resolved;
+    document.documentElement.style.colorScheme = resolved;
+  }());
+</script>
+
+<script src="/assets/js/theme-toggle.js" defer></script>
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <header class="side-bar">
+  <div class="site-header">
+    <a href="/" class="site-title lh-tight">
+  <div class="site-logo" role="img" aria-label="Databaser"></div>
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+  
+</nav>
+
+
+<div class="d-md-block d-none site-footer">
+  
+  
+    <p>
+  Copyright © 2026. Samtliga rättigheter förbehållna.<br>
+  <a href="/anvandningsvillkor/">Användningsvillkor</a>
+</p>
+  
+  </div>
+</header>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Sök begrepp, SQL eller kapitel" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Sök begrepp, SQL eller kapitel</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  <button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="Byt färgtema"
+  title="Byt färgtema">
+  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+  </svg>
+  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"></path>
+  </svg>
+</button>
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+    <li class="breadcrumb-nav-list-item"><a href="/docs/del-1-grunder/">Del I – Modeller och relationer</a></li>
+    <li class="breadcrumb-nav-list-item"><span>6. Multiplicitet och verksamhetsregler</span></li>
+  </ol>
+</nav>
+
+
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="6-multiplicitet-och-verksamhetsregler">
+  
+  
+    <a href="#6-multiplicitet-och-verksamhetsregler" class="anchor-heading" aria-labelledby="6-multiplicitet-och-verksamhetsregler"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. Multiplicitet och verksamhetsregler
+  
+  
+</h1>
+    
+
+<p>Att <code class="language-plaintext highlighter-rouge">CUSTOMER</code> hör samman med <code class="language-plaintext highlighter-rouge">SALES_ORDER</code> berättar inte hur sambandet får se
+ut. Kan en kund finnas utan beställning? Kan en beställning tillhöra två
+kunder? För att svara behöver vi uttrycka associationens <strong>multiplicitet</strong>.</p>
+
+<div class="learning-objectives">
+<h2 id="efter-kapitlet-kan-du">
+  
+  
+    <a href="#efter-kapitlet-kan-du" class="anchor-heading" aria-labelledby="efter-kapitlet-kan-du"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Efter kapitlet kan du
+  
+  
+</h2>
+    
+
+  <ul>
+    <li>läsa och skriva minsta och största deltagande som <code class="language-plaintext highlighter-rouge">min..max</code>;</li>
+    <li>skilja reglerna en-till-en, en-till-många och många-till-många;</li>
+    <li>upptäcka när ett samband behöver bli en egen entitetstyp.</li>
+  </ul>
+</div>
+<h2 id="61-två-frågor-vid-varje-associationsände">
+  
+  
+    <a href="#61-två-frågor-vid-varje-associationsände" class="anchor-heading" aria-labelledby="61-två-frågor-vid-varje-associationsände"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6.1 Två frågor vid varje associationsände
+  
+  
+</h2>
+    
+
+<p>För varje sida av en association frågar vi:</p>
+
+<ol>
+  <li>Vad är det minsta antalet förekomster som får delta?</li>
+  <li>Vad är det största antalet förekomster som får delta?</li>
+</ol>
+
+<p>Vi använder fyra vanliga uttryck:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Notation</th>
+      <th>Betydelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0..1</code></td>
+      <td>ingen eller en</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">1..1</code></td>
+      <td>exakt en</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0..*</code></td>
+      <td>ingen, en eller flera</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">1..*</code></td>
+      <td>minst en, möjligen flera</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Stjärnan betyder ”många” utan att ange en bestämd övre gräns.</p>
+<h2 id="62-läs-från-en-förekomst-i-taget">
+  
+  
+    <a href="#62-läs-från-en-förekomst-i-taget" class="anchor-heading" aria-labelledby="62-läs-från-en-förekomst-i-taget"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6.2 Läs från en förekomst i taget
+  
+  
+</h2>
+    
+
+<p>Betrakta regeln:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CUSTOMER places SALES_ORDER
+</code></pre></div></div>
+
+<p>Nordic Brew har bestämt:</p>
+
+<ul>
+  <li>varje beställning görs av exakt en kund;</li>
+  <li>en kund kan finnas utan beställningar och kan senare göra flera.</li>
+</ul>
+
+<figure class="figure">
+  <img src="/assets/images/11-lasa-multiplicitet.svg" alt="Associationen Customer places SalesOrder. Från en order läses exakt en customer och från en customer läses noll eller flera orders." width="1040" height="510" loading="eager" decoding="async" />
+  <figcaption><strong>Figur 6.1.</strong> Läs alltid en associationsände i taget och formulera resultatet som en mening.</figcaption>
+</figure>
+
+<p>Det säkraste arbetssättet är:</p>
+
+<ol>
+  <li>välj en beställning;</li>
+  <li>fråga hur många kunder den får höra till;</li>
+  <li>välj därefter en kund;</li>
+  <li>fråga hur många beställningar kunden får ha.</li>
+</ol>
+
+<p>Ordningen på symbolerna i ett visst ritverktyg är mindre viktig än att du kan
+skriva de två verksamhetsmeningarna.</p>
+
+<blockquote class="mistake">
+  <p>Multiplicitet ska inte härledas från dagens rader. Att alla befintliga kunder
+råkar ha en order bevisar inte att varje framtida kund måste ha en order.</p>
+</blockquote>
+<h2 id="63-minimum-uttrycker-om-deltagande-är-obligatoriskt">
+  
+  
+    <a href="#63-minimum-uttrycker-om-deltagande-är-obligatoriskt" class="anchor-heading" aria-labelledby="63-minimum-uttrycker-om-deltagande-är-obligatoriskt"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6.3 Minimum uttrycker om deltagande är obligatoriskt
+  
+  
+</h2>
+    
+
+<p>Minimum är ofta den svåraste delen. Fråga efter randfall:</p>
+
+<ul>
+  <li>Får en ny kund registreras före första beställningen?</li>
+  <li>Får en kurs finnas innan någon student har registrerats?</li>
+  <li>Får en order sparas utan en enda orderrad?</li>
+  <li>Får en anställd sakna tilldelad avdelning under sin första arbetsdag?</li>
+</ul>
+
+<p>Svaren är verksamhetsbeslut. De kan skilja sig mellan organisationer och över
+tid.</p>
+<h3 id="exempel-kurs-och-student">
+  
+  
+    <a href="#exempel-kurs-och-student" class="anchor-heading" aria-labelledby="exempel-kurs-och-student"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Exempel: kurs och student
+  
+  
+</h3>
+    
+
+<p>En kurs kan erbjudas även om ingen student ännu är registrerad. En student kan
+registreras på flera kurstillfällen.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>En COURSE_OFFERING har 0..* ENROLLMENT.
+En ENROLLMENT gäller 1..1 COURSE_OFFERING.
+</code></pre></div></div>
+
+<p>Om universitetet kräver att ett kurstillfälle bara skapas efter första
+registreringen skulle minimum ändras. Modellen måste dokumentera den valda
+regeln, inte en förmodad naturlag.</p>
+<h2 id="64-tre-vanliga-former">
+  
+  
+    <a href="#64-tre-vanliga-former" class="anchor-heading" aria-labelledby="64-tre-vanliga-former"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6.4 Tre vanliga former
+  
+  
+</h2>
+    
+<h3 id="en-till-en">
+  
+  
+    <a href="#en-till-en" class="anchor-heading" aria-labelledby="en-till-en"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> En-till-en
+  
+  
+</h3>
+    
+
+<p>En person kan ha högst ett aktuellt skåp och ett skåp kan vara tilldelat högst
+en person. Båda maximum är ett. Minimum kan fortfarande vara noll på en eller
+båda sidor.</p>
+<h3 id="en-till-många">
+  
+  
+    <a href="#en-till-många" class="anchor-heading" aria-labelledby="en-till-många"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> En-till-många
+  
+  
+</h3>
+    
+
+<p>En kund kan göra flera beställningar, medan varje beställning görs av en kund.
+Detta är den vanligaste formen i våra första exempel.</p>
+<h3 id="många-till-många">
+  
+  
+    <a href="#många-till-många" class="anchor-heading" aria-labelledby="många-till-många"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Många-till-många
+  
+  
+</h3>
+    
+
+<p>En student kan delta i flera kurstillfällen och ett kurstillfälle kan ha flera
+studenter. Båda maximum är många.</p>
+
+<p>I en konceptuell modell kan många-till-många vara korrekt. När sambandet har
+egna egenskaper behöver det ofta beskrivas som en egen entitetstyp. Registrering
+kan exempelvis ha <code class="language-plaintext highlighter-rouge">RegisteredAt</code> och <code class="language-plaintext highlighter-rouge">Grade</code>, vilka varken beskriver studenten
+ensam eller kurstillfället ensamt.</p>
+<h2 id="65-sambandet-som-egen-entitetstyp">
+  
+  
+    <a href="#65-sambandet-som-egen-entitetstyp" class="anchor-heading" aria-labelledby="65-sambandet-som-egen-entitetstyp"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6.5 Sambandet som egen entitetstyp
+  
+  
+</h2>
+    
+
+<p>Nordic Brew behöver registrera <code class="language-plaintext highlighter-rouge">Quantity</code> och <code class="language-plaintext highlighter-rouge">AgreedUnitPrice</code> för varje
+produkt i varje order. Därför modelleras <code class="language-plaintext highlighter-rouge">ORDER_LINE</code> mellan <code class="language-plaintext highlighter-rouge">SALES_ORDER</code> och
+<code class="language-plaintext highlighter-rouge">PRODUCT</code>.</p>
+
+<figure class="figure">
+  <img src="/assets/images/12-konceptuell-modell-nordicbrew.svg" alt="Konceptuell Nordic Brew-modell med Customer, SalesOrder, OrderLine och Product. Alla associationsändar visar min och max." width="1160" height="700" loading="lazy" decoding="async" />
+  <figcaption><strong>Figur 6.2.</strong> `ORDER_LINE` gör det möjligt att beskriva själva sambandet mellan en beställning och en produkt.</figcaption>
+</figure>
+
+<p>Modellen uttrycker bland annat:</p>
+
+<ul>
+  <li>varje <code class="language-plaintext highlighter-rouge">SALES_ORDER</code> görs av exakt en <code class="language-plaintext highlighter-rouge">CUSTOMER</code>;</li>
+  <li>en <code class="language-plaintext highlighter-rouge">CUSTOMER</code> kan göra noll eller flera <code class="language-plaintext highlighter-rouge">SALES_ORDER</code>;</li>
+  <li>varje <code class="language-plaintext highlighter-rouge">SALES_ORDER</code> innehåller minst en <code class="language-plaintext highlighter-rouge">ORDER_LINE</code>;</li>
+  <li>varje <code class="language-plaintext highlighter-rouge">ORDER_LINE</code> avser exakt en <code class="language-plaintext highlighter-rouge">PRODUCT</code>;</li>
+  <li>en <code class="language-plaintext highlighter-rouge">PRODUCT</code> kan finnas utan att ännu ha beställts.</li>
+</ul>
+
+<p>Notera att <code class="language-plaintext highlighter-rouge">CustomerID</code> inte ritas in i <code class="language-plaintext highlighter-rouge">SALES_ORDER</code>. Det skulle vara en
+främmande nyckel i en senare tabellmodell. Här uttrycks verksamhetssambandet med
+associationen <code class="language-plaintext highlighter-rouge">places</code>.</p>
+<h2 id="66-crows-foot-som-alternativ-syntax">
+  
+  
+    <a href="#66-crows-foot-som-alternativ-syntax" class="anchor-heading" aria-labelledby="66-crows-foot-som-alternativ-syntax"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6.6 Crow’s Foot som alternativ syntax
+  
+  
+</h2>
+    
+
+<p>Olika verktyg kan visa samma regler med Crow’s Foot-symboler i stället för
+<code class="language-plaintext highlighter-rouge">0..*</code> och <code class="language-plaintext highlighter-rouge">1..1</code>. Syntaxen förändrar inte verksamhetsregeln. Studenten ska
+kunna läsa båda formerna, men kompendiets huvudnotation skriver <code class="language-plaintext highlighter-rouge">min..max</code>
+explicit eftersom den gör minimum och maximum lätta att diskutera separat.</p>
+
+<p>När du möter en obekant notation:</p>
+
+<ol>
+  <li>hitta symbolen för minimum;</li>
+  <li>hitta symbolen för maximum;</li>
+  <li>skriv regeln som två meningar;</li>
+  <li>pröva meningarna med ett tomt fall och ett fall med flera förekomster.</li>
+</ol>
+<h2 id="67-modellkritik-två-rimliga-alternativ">
+  
+  
+    <a href="#67-modellkritik-två-rimliga-alternativ" class="anchor-heading" aria-labelledby="67-modellkritik-två-rimliga-alternativ"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6.7 Modellkritik: två rimliga alternativ
+  
+  
+</h2>
+    
+
+<p>Anta att en beställning får skapas som utkast innan produkter har lagts till.
+Då kan sambandet mellan <code class="language-plaintext highlighter-rouge">SALES_ORDER</code> och <code class="language-plaintext highlighter-rouge">ORDER_LINE</code> behöva minimum noll:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Utkast: en SALES_ORDER innehåller 0..* ORDER_LINE.
+Bekräftad order: en SALES_ORDER innehåller 1..* ORDER_LINE.
+</code></pre></div></div>
+
+<p>Ett enda statiskt diagram kan inte alltid uttrycka att regeln beror på orderns
+status. Två lösningar är möjliga:</p>
+
+<ul>
+  <li>tillåt <code class="language-plaintext highlighter-rouge">0..*</code> i modellen och dokumentera att bekräftelse kräver minst en rad;</li>
+  <li>modellera utkast och bekräftad order som tydligare skilda tillstånd eller
+begrepp senare i analysen.</li>
+</ul>
+
+<p>Detta är inte ett notationsfel utan en fråga om modellens ambitionsnivå.</p>
+<h2 id="68-överföringsövning-evenemangsbokning">
+  
+  
+    <a href="#68-överföringsövning-evenemangsbokning" class="anchor-heading" aria-labelledby="68-överföringsövning-evenemangsbokning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6.8 Överföringsövning: evenemangsbokning
+  
+  
+</h2>
+    
+
+<p>En kulturförening arrangerar evenemang. Ett evenemang kan publiceras innan
+någon bokat. En person kan göra flera bokningar. Varje bokning gäller ett
+evenemang och kan omfatta flera biljetter av olika biljettyper.</p>
+
+<ol>
+  <li>Föreslå entitetstyper och namngivna associationer.</li>
+  <li>Ange <code class="language-plaintext highlighter-rouge">min..max</code> i båda riktningarna för varje association.</li>
+  <li>Identifiera ett samband som kan behöva egna attribut.</li>
+  <li>Skriv minst fyra verksamhetsmeningar som modellen uttrycker.</li>
+  <li>Beskriv en alternativ regel som skulle förändra multipliciteten.</li>
+</ol>
+<h2 id="kontrollfrågor">
+  
+  
+    <a href="#kontrollfrågor" class="anchor-heading" aria-labelledby="kontrollfrågor"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Kontrollfrågor
+  
+  
+</h2>
+    
+
+<ol>
+  <li>Vad skiljer minimum från maximum?</li>
+  <li>Varför läses en association i två riktningar?</li>
+  <li>Varför kan <code class="language-plaintext highlighter-rouge">ORDER_LINE</code> inte ersättas av ett attribut hos <code class="language-plaintext highlighter-rouge">PRODUCT</code>?</li>
+  <li>Vad är risken med att härleda multiplicitet från dagens data?</li>
+</ol>
+
+<details class="answer">
+  <summary>Korta svar</summary>
+  <ol>
+    <li>Minimum anger om deltagande är obligatoriskt; maximum anger hur många som högst får delta.</li>
+    <li>Regeln kan vara olika i de två riktningarna.</li>
+    <li>Kvantitet och avtalat pris gäller produkten i en bestämd order.</li>
+    <li>Dagens exempel kanske inte innehåller alla tillåtna randfall.</li>
+  </ol>
+</details>
+<h2 id="sammanfattning">
+  
+  
+    <a href="#sammanfattning" class="anchor-heading" aria-labelledby="sammanfattning"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sammanfattning
+  
+  
+</h2>
+    
+
+<ul>
+  <li>Multiplicitet uttrycker minsta och största deltagande.</li>
+  <li>Varje association ska kunna läsas som två verksamhetsmeningar.</li>
+  <li>Minimum kräver frågor om tomma och valfria fall.</li>
+  <li>Samband med egna egenskaper kan behöva modelleras som entitetstyper.</li>
+  <li>Notationen är ett språk för reglerna; verksamhetsbetydelsen är det centrala.</li>
+</ul>
+
+          
+
+          
+            
+          
+        </main>
+        
+<hr>
+<footer>
+  
+    <p><a href="#top" id="back-to-top">Till sidans början</a></p>
+  
+
+  
+
+  <div class="d-md-none mt-4 fs-2">
+    
+    
+      <p>
+  Copyright © 2026. Samtliga rättigheter förbehållna.<br>
+  <a href="/anvandningsvillkor/">Användningsvillkor</a>
+</p>
+    
+  </div>
+</footer>
+
+      </div>
+    </div>
+    
+      
+<button id="search-button" class="search-button btn-reset" aria-label="Focus on search">
+  <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+</button>
+
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

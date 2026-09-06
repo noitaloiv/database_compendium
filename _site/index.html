@@ -6,13 +6,16 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
-
+  <link
+    id="databaser-light-theme"
+    rel="stylesheet"
+    href="/assets/css/just-the-docs-default.css"
+    media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
-
   <style id="jtd-nav-activation">
-  
+    
 
     
     .site-nav > ul.nav-list:first-child > li:not(:nth-child(1)) > a,
@@ -38,15 +41,11 @@
   
 
   
-    <script src="/assets/js/vendor/lunr.min.js"></script>
+    <script src="/assets/js/vendor/lunr.min.js" defer></script>
   
-
-  <script src="/assets/js/just-the-docs.js"></script>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/assets/js/just-the-docs.js" defer></script>
 
   
-
 
 
   <!-- Begin Jekyll SEO tag v2.9.0 -->
@@ -66,7 +65,6 @@
 {"@context":"https://schema.org","@type":"WebSite","description":"Ett praktiskt kurskompendium om relationsdatabaser, datamodellering, SQL och datakvalitet.","headline":"Start","name":"Databaser","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
-
   <meta name="color-scheme" content="light dark">
 
 <link
@@ -77,36 +75,38 @@
 
 <script>
   (function () {
-    var preference = "system";
+    var preference = null;
     try {
-      preference = window.localStorage.getItem("databaser-theme") || "system";
+      preference = window.localStorage.getItem("databaser-theme");
     } catch (error) {
-      preference = "system";
+      preference = null;
     }
 
     if (preference !== "light" && preference !== "dark") {
-      preference = "system";
+      preference = null;
     }
 
+    var systemDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var resolved = preference || (systemDark ? "dark" : "light");
+    var lightTheme = document.getElementById("databaser-light-theme");
     var darkTheme = document.getElementById("databaser-dark-theme");
+
     if (preference === "dark") {
+      lightTheme.media = "not all";
       darkTheme.media = "all";
     } else if (preference === "light") {
+      lightTheme.media = "all";
       darkTheme.media = "not all";
     }
 
-    var systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var resolved = preference === "system" ? (systemDark ? "dark" : "light") : preference;
     document.documentElement.dataset.databaserTheme = resolved;
     document.documentElement.style.colorScheme = resolved;
   }());
 </script>
 
 <script src="/assets/js/theme-toggle.js" defer></script>
-
-
 </head>
-
 <body>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -190,25 +190,18 @@
   
     <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
-      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/relationsmodellen/" class="nav-list-link">2. Relationsmodellen</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">3. Konceptuell modellering</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
-  <ul class="nav-list"><li class="nav-list-item external">
-          <a href="https://www.uu.se/utbildning/kursplan?query=d21c4f3c-a296-11f0-af30-479161e74134" class="nav-list-link external"
-            
-              target="_blank" rel="noopener noreferrer"
-            
-          >
-            Kursplan 2IS007
-            <svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>
-          </a>
-        </li></ul>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+  
 </nav>
 
 
 <div class="d-md-block d-none site-footer">
   
   
-    <p></p>
-
+    <p>
+  Copyright © 2026. Samtliga rättigheter förbehållna.<br>
+  <a href="/anvandningsvillkor/">Användningsvillkor</a>
+</p>
   
   </div>
 </header>
@@ -231,19 +224,20 @@
 </div>
 
   
-  <div class="theme-control">
-  <label for="theme-preference" class="theme-label">
-    <span aria-hidden="true">◐</span>
-    <span>Theme</span>
-  </label>
-  <select id="theme-preference" class="theme-select" aria-label="Choose color theme">
-    <option value="system">Automatic</option>
-    <option value="light">Light</option>
-    <option value="dark">Dark</option>
-  </select>
-</div>
-
-
+  <button
+  id="theme-toggle"
+  class="theme-toggle"
+  type="button"
+  aria-label="Byt färgtema"
+  title="Byt färgtema">
+  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+  </svg>
+  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"></path>
+  </svg>
+</button>
   
 </div>
 
@@ -422,8 +416,10 @@ inställning.</p>
   <div class="d-md-none mt-4 fs-2">
     
     
-      <p></p>
-
+      <p>
+  Copyright © 2026. Samtliga rättigheter förbehållna.<br>
+  <a href="/anvandningsvillkor/">Användningsvillkor</a>
+</p>
     
   </div>
 </footer>
