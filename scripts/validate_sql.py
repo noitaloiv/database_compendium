@@ -15,10 +15,10 @@ def main() -> None:
 
     assert connection.execute("PRAGMA foreign_keys").fetchone() == (1,)
     expected = {
-        "Kund": 3,
-        "Produkt": 4,
-        "Bestallning": 3,
-        "Orderrad": 4,
+        "Customer": 3,
+        "Product": 4,
+        "SalesOrder": 3,
+        "OrderLine": 4,
     }
     for table, count in expected.items():
         actual = connection.execute(f'SELECT count(*) FROM "{table}"').fetchone()[0]
@@ -26,7 +26,7 @@ def main() -> None:
 
     try:
         connection.execute(
-            "INSERT INTO Orderrad VALUES (1042, 999, 1, 5000)"
+            "INSERT INTO OrderLine VALUES (1042, 999, 1, 5000)"
         )
     except sqlite3.IntegrityError:
         pass
@@ -38,4 +38,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

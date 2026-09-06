@@ -37,8 +37,6 @@ def check_pages() -> None:
         text = path.read_text(encoding="utf-8")
         metadata = front_matter(text)
 
-        if "docs/planering" in relative.as_posix():
-            continue
         if metadata is None:
             ERRORS.append(f"{relative}: published Markdown lacks front matter")
             continue
@@ -61,6 +59,16 @@ def check_pages() -> None:
             ERRORS.append(f"{relative}: unbalanced details element")
         if text.count("<figure") != text.count("</figure>"):
             ERRORS.append(f"{relative}: unbalanced figure element")
+
+        for figure in re.findall(r"<figure\b.*?</figure>", text, re.DOTALL):
+            image = re.search(r"<img\b[^>]*>", figure, re.DOTALL)
+            if not image:
+                ERRORS.append(f"{relative}: figure lacks an image")
+                continue
+            markup = image.group(0)
+            for attribute in ("alt", "width", "height", "loading", "decoding"):
+                if not re.search(rf"\b{attribute}=", markup):
+                    ERRORS.append(f"{relative}: figure image lacks {attribute}")
 
         for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", text):
             if target.startswith(("http://", "https://", "#", "{{")):
@@ -95,6 +103,9 @@ def check_svg() -> None:
 
 def check_platform_contract() -> None:
     required = [
+        ".gitignore",
+        "LICENSE.md",
+        "_includes/head.html",
         "_includes/head_custom.html",
         "_includes/header_custom.html",
         "_includes/search_placeholder_custom.html",
@@ -102,8 +113,9 @@ def check_platform_contract() -> None:
         "_includes/lunr/custom-index.js",
         "_sass/color_schemes/databaser-dark.scss",
         "assets/css/just-the-docs-databaser-dark.scss",
-            "assets/js/theme-toggle.js",
-            "scripts/test_theme_toggle.js",
+        "assets/js/theme-toggle.js",
+        "scripts/test_theme_toggle.js",
+        "scripts/validate_built_site.py",
         ".github/workflows/pages.yml",
     ]
     for relative in required:
@@ -127,7 +139,28 @@ def check_platform_contract() -> None:
     if "site-footer" in nav_footer:
         ERRORS.append("nav_footer_custom.html must not wrap content in .site-footer")
 
+    if (ROOT / "docs" / "planering").exists() or (ROOT / "STYLEGUIDE.md").exists():
+        ERRORS.append("internal planning documents must not be stored in the public repo")
+
+    header = (ROOT / "_includes" / "header_custom.html").read_text(encoding="utf-8")
+    if "<select" in header or 'id="theme-toggle"' not in header:
+        ERRORS.append("header_custom.html: expected icon theme button, not a select")
+
+    head = (ROOT / "_includes" / "head.html").read_text(encoding="utf-8")
+    for script_name in ("lunr.min.js", "just-the-docs.js"):
+        if not re.search(rf'<script[^>]+{re.escape(script_name)}[^>]+defer', head):
+            ERRORS.append(f"head.html: {script_name} must use defer")
+
+    custom_search_data = (
+        ROOT / "_includes" / "lunr" / "custom-data.json"
+    ).read_text(encoding="utf-8").strip()
+    if not custom_search_data.endswith(","):
+        ERRORS.append("custom-data.json: custom property must end with a comma")
+
+    ignored_roots = {".git", ".jekyll-cache", "_site", "vendor"}
     for path in ROOT.rglob("*"):
+        if any(part in ignored_roots for part in path.relative_to(ROOT).parts):
+            continue
         if path.is_file() and path.suffix in {".md", ".html", ".yml"}:
             text = path.read_text(encoding="utf-8")
             if 'href="#"' in text:
