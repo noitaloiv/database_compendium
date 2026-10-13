@@ -226,4 +226,16 @@ kbd {
   }
 }
 
+#theme-toggle.theme-toggle {
+  -webkit-appearance: none;
+  appearance: none;
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0;
+  cursor: pointer;
+}
+
 @import "./custom/ui";
