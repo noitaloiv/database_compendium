@@ -7804,5 +7804,232 @@ kbd {
     color: #000000;
   }
 }
+:root {
+  --db-nav-feedback: rgb(92.0784313725%, 92.8705882353%, 96.0392156863%);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+#main-header {
+  align-items: center;
+}
+
+:root:not([data-databaser-theme]) .theme-control {
+  display: none;
+}
+
+.theme-control {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 3.75rem;
+}
+
+#theme-toggle.theme-toggle {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #5c5962;
+  cursor: pointer;
+  line-height: 1;
+  transform: none !important;
+}
+
+#theme-toggle.theme-toggle:hover {
+  color: #7253ed;
+}
+
+#theme-toggle.theme-toggle:focus-visible {
+  outline: 2px solid #7253ed;
+  outline-offset: 2px;
+}
+
+#theme-toggle.theme-toggle:disabled {
+  cursor: progress;
+}
+
+#theme-toggle.theme-toggle::before,
+#theme-toggle.theme-toggle::after {
+  content: none !important;
+}
+
+.theme-icon {
+  display: block;
+  grid-area: 1/1;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-icon--sun {
+  display: none;
+}
+
+[data-databaser-theme=dark] .theme-icon--sun {
+  display: block;
+}
+
+[data-databaser-theme=dark] .theme-icon--moon {
+  display: none;
+}
+
+@media (max-width: 49.99rem) {
+  #main-header {
+    position: relative;
+    z-index: auto;
+  }
+  #main-header .theme-control {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    height: 3rem;
+    width: 2.75rem;
+    z-index: 3;
+  }
+  #main-header .search-input {
+    padding-right: 3.5rem;
+  }
+  .search-active #main-header .theme-control {
+    position: fixed;
+  }
+}
+.site-title {
+  gap: 0.6rem;
+  color: #27262b;
+}
+
+.brand-mark {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  background-color: #7253ed;
+  -webkit-mask: var(--brand-mark) center/contain no-repeat;
+  mask: var(--brand-mark) center/contain no-repeat;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+html.figure-viewer-ready figure figcaption a[href$=".svg"] {
+  display: none;
+}
+
+.figure-zoom {
+  all: unset;
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+}
+
+.figure-zoom:focus-visible {
+  outline: 3px solid #7253ed;
+  outline-offset: -3px;
+}
+
+.figure-dialog {
+  box-sizing: border-box;
+  width: min(96vw, 75rem);
+  max-width: none;
+  max-height: 94vh;
+  max-height: 94dvh;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid #eeebee;
+  border-radius: 0.65rem;
+  background: #fff;
+  color: #5c5962;
+  overflow: auto;
+}
+
+.figure-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.figure-dialog-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.figure-dialog-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.figure-dialog button {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #eeebee;
+  border-radius: 0.35rem;
+  background: #f5f6fa;
+  color: #5c5962;
+  font: inherit;
+  cursor: pointer;
+}
+
+.figure-dialog button:focus-visible {
+  outline: 2px solid #7253ed;
+  outline-offset: 2px;
+}
+
+.figure-dialog-stage {
+  overflow: auto;
+  max-height: 72vh;
+  max-height: 72dvh;
+  background: #f5f8fb;
+  border-radius: 0.35rem;
+}
+
+.figure-dialog-stage img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 70vh;
+  max-height: 70dvh;
+  margin: auto;
+}
+
+.figure-dialog-stage.is-zoomed img {
+  width: var(--image-width);
+  max-width: none;
+  max-height: none;
+}
+
+.figure-dialog-caption {
+  margin: 0.8rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+@media print {
+  .theme-control, .figure-dialog {
+    display: none !important;
+  }
+}
 
 /*# sourceMappingURL=just-the-docs-light.css.map */

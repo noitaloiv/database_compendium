@@ -1,93 +1,73 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const vm = require("node:vm");
+const script = fs.readFileSync("assets/js/theme-toggle.js", "utf8");
+const head = fs.readFileSync("_includes/head.html", "utf8");
+const bootstrap = head.match(/<script id="databaser-theme-bootstrap">([\s\S]*?)<\/script>/)[1];
 
-const source = fs.readFileSync("assets/js/theme-toggle.js", "utf8");
-
-function loadThemeToggle(storedPreference, systemIsDark) {
-  const storage = new Map();
-  if (storedPreference !== null) {
-    storage.set("databaser-theme", storedPreference);
+function setup(saved, dark) {
+  const storage = new Map(saved ? [["databaser-theme", saved]] : []);
+  const links = [];
+  function element() {
+    return {dataset: {}, attributes: {}, listeners: {},
+      setAttribute(k, v) { this.attributes[k] = v; },
+      removeAttribute(k) { delete this.attributes[k]; },
+      addEventListener(k, f) { this.listeners[k] = f; },
+      remove() { this.removed = true; }};
   }
-
-  const lightTheme = { media: "(prefers-color-scheme: light)" };
-  const darkTheme = { media: "(prefers-color-scheme: dark)" };
-  const button = {
-    attributes: {},
-    listeners: {},
-    addEventListener(name, callback) {
-      this.listeners[name] = callback;
-    },
-    setAttribute(name, value) {
-      this.attributes[name] = value;
-    },
-  };
-  const systemPreference = {
-    matches: systemIsDark,
-    listeners: {},
-    addEventListener(name, callback) {
-      this.listeners[name] = callback;
-    },
-  };
-  const documentElement = { dataset: {}, style: {} };
-
-  const context = {
-    document: {
-      documentElement,
-      getElementById(id) {
-        if (id === "databaser-light-theme") return lightTheme;
-        if (id === "databaser-dark-theme") return darkTheme;
-        if (id === "theme-toggle") return button;
-        return null;
-      },
-    },
-    window: {
-      localStorage: {
-        getItem(key) {
-          return storage.has(key) ? storage.get(key) : null;
-        },
-        setItem(key, value) {
-          storage.set(key, value);
-        },
-      },
-      matchMedia() {
-        return systemPreference;
-      },
-    },
-  };
-
-  vm.runInNewContext(source, context);
-  return {
-    button,
-    darkTheme,
-    documentElement,
-    lightTheme,
-    storage,
-    systemPreference,
-  };
+  const active = element();
+  active.dataset = {lightUrl: "/light.css", darkUrl: "/dark.css"};
+  links.push(active);
+  const button = element(), status = element();
+  const root = {dataset: {}, style: {}, classList: {add() {}}};
+  const system = {matches: dark, listeners: {}, addEventListener(k, f) {this.listeners[k] = f;}};
+  const window = {matchMedia() {return system;}, listeners: {}, addEventListener(k, f) {this.listeners[k] = f;}};
+  const context = {window, localStorage: {getItem(k) {return storage.get(k) || null;}, setItem(k, v) {storage.set(k, v);}},
+    document: {documentElement: root, getElementById(id) {return {"databaser-theme-stylesheet":active,"theme-toggle":button,"theme-status":status}[id];},
+      createElement: element, head: {appendChild(link) {links.push(link);}}}};
+  vm.runInNewContext(bootstrap, context);
+  vm.runInNewContext(script, context);
+  return {root, active, button, status, system, window, storage, links, newest() {return links.at(-1);}};
 }
 
-const savedDark = loadThemeToggle("dark", false);
-assert.equal(savedDark.lightTheme.media, "not all");
-assert.equal(savedDark.darkTheme.media, "all");
-assert.equal(savedDark.documentElement.dataset.databaserTheme, "dark");
-assert.equal(savedDark.button.attributes["aria-pressed"], "true");
-assert.match(savedDark.button.attributes["aria-label"], /ljust/);
+for (const dark of [true, false]) for (const saved of [null, "dark", "light", "invalid"]) {
+  const state = setup(saved, dark);
+  const expected = ["light", "dark"].includes(saved) ? saved : dark ? "dark" : "light";
+  assert.equal(state.active.href, "/" + expected + ".css");
+  assert.equal(state.root.dataset.databaserTheme, expected);
+  assert.equal(state.links.length, 1, "Only the selected stylesheet should be requested at startup");
+}
 
-savedDark.button.listeners.click();
-assert.equal(savedDark.lightTheme.media, "all");
-assert.equal(savedDark.darkTheme.media, "not all");
-assert.equal(savedDark.storage.get("databaser-theme"), "light");
+const explicit = setup("light", true);
+explicit.button.listeners.click({stopPropagation() {}});
+assert.equal(explicit.root.dataset.databaserTheme, "light", "Retain the current theme during a slow request");
+assert.equal(explicit.active.removed, undefined);
+assert.equal(explicit.newest().media, "not all");
+assert.equal(explicit.storage.get("databaser-theme"), "light");
+explicit.newest().onload();
+assert.equal(explicit.root.dataset.databaserTheme, "dark");
+assert.equal(explicit.active.removed, true);
+assert.equal(explicit.newest().media, "all");
+assert.equal(explicit.storage.get("databaser-theme"), "dark");
+assert.match(explicit.button.attributes["aria-label"], /ljust/);
 
-const automatic = loadThemeToggle(null, false);
-assert.equal(automatic.documentElement.dataset.databaserTheme, "light");
-assert.equal(automatic.button.attributes["aria-pressed"], "false");
+const failed = setup("dark", true);
+failed.button.listeners.click({stopPropagation() {}});
+failed.newest().onerror();
+assert.equal(failed.root.dataset.databaserTheme, "dark");
+assert.equal(failed.active.removed, undefined);
+assert.equal(failed.storage.get("databaser-theme"), "dark");
+assert.equal(failed.button.disabled, false);
+assert.match(failed.status.textContent, /kunde inte laddas/);
 
-automatic.systemPreference.matches = true;
-automatic.systemPreference.listeners.change();
-assert.equal(automatic.documentElement.dataset.databaserTheme, "dark");
+const automatic = setup(null, false);
+automatic.system.matches = true;
+automatic.system.listeners.change();
+automatic.newest().onload();
+assert.equal(automatic.root.dataset.databaserTheme, "dark");
+assert.equal(automatic.storage.has("databaser-theme"), false);
 
-const invalidPreference = loadThemeToggle("sepia", true);
-assert.equal(invalidPreference.documentElement.dataset.databaserTheme, "dark");
-
-console.log("Theme toggle behavior: OK");
+const override = setup("light", false);
+override.system.matches = true;
+override.system.listeners.change();
+assert.equal(override.links.length, 1, "System changes must not override a saved choice");

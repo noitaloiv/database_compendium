@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 420" role="img" aria-labelledby="title desc">
   <title id="title">Från händelse till registrerade data</title>
   <desc id="desc">Fyra steg visar en verksamhetshändelse, urval av relevanta uppgifter, registrerade värden och tolkning. En återkopplingspil går från tolkningen tillbaka till urvalet.</desc>
-  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:16px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:20px Arial,sans-serif;fill:#243447}.s{font:17px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
   <rect width="1040" height="420" rx="24" fill="#f5f8fb"/>
   <text x="48" y="54" class="h">Registrering innebär ett urval</text>
   <rect x="48" y="108" width="205" height="140" rx="16" class="box"/><text x="150" y="151" class="s" text-anchor="middle">1 · HÄNDELSE</text><text x="150" y="190" class="t" text-anchor="middle">En kund gör</text><text x="150" y="218" class="t" text-anchor="middle">en beställning</text>

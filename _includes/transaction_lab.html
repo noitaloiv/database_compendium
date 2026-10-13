@@ -1,0 +1,31 @@
+<section class="transaction-lab" data-transaction-lab hidden aria-label="Stegvis visning av transaktionsscheman">
+  <label for="transaction-scenario">Välj förlopp</label>
+  <select id="transaction-scenario">
+    <option value="lost">Förlorad uppdatering</option>
+    <option value="dirty">Smutsig läsning</option>
+    <option value="repeat">Icke upprepbar läsning</option>
+    <option value="locked">Uttag med lås och väntan</option>
+  </select>
+  <p data-lab-purpose></p>
+  <div class="lab-controls">
+    <button type="button" data-lab-reset>Börja om</button>
+    <button type="button" data-lab-next>Nästa steg</button>
+  </div>
+  <div class="table-wrapper lab-schedule" tabindex="0" role="region" aria-label="Hela transaktionsschemat, rulla i sidled vid behov">
+    <table>
+      <caption>Nordic Brew: lagersaldot för produkt 501. Markeringen Nu visar det aktuella steget.</caption>
+      <thead><tr><th scope="col">Steg</th><th scope="col">Transaktion A</th><th scope="col">Transaktion B</th><th scope="col">Senast skrivet saldo</th></tr></thead>
+      <tbody data-lab-rows></tbody>
+    </table>
+  </div>
+  <p data-lab-step></p>
+  <div role="status" aria-live="polite" aria-atomic="true" data-lab-status></div>
+  <dl class="lab-state">
+    <dt>Databasens saldo</dt><dd data-lab-db></dd>
+    <dt>A:s senast lästa värde</dt><dd data-lab-a></dd>
+    <dt>B:s senast lästa värde</dt><dd data-lab-b></dd>
+    <dt>Lås</dt><dd data-lab-lock></dd>
+  </dl>
+  <p><strong>Modell, inte databas:</strong> visningen följer ett förklarat schema. Den utför ingen SQL och anger inte vilka förlopp SQLite tillåter.</p>
+</section>
+<noscript><p>JavaScript är avstängt. Följ samma förlopp i tabellerna ovan och låsexemplet i kapitel 20.</p></noscript>

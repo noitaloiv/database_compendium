@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 390" role="img" aria-labelledby="title desc">
+  <title id="title">Kontrollerad dataförändring</title>
+  <desc id="desc">Fyra steg visar att en förändring först avgränsas, därefter förhandsgranskas med SELECT, genomförs med INSERT, UPDATE eller DELETE och slutligen verifieras.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.n{font:700 15px Arial,sans-serif;fill:#116466}.t{font:17px Arial,sans-serif;fill:#243447}.sql{font:700 17px 'Courier New',monospace;fill:#173f5f}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#116466"/></marker></defs>
+  <rect width="1040" height="390" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Gör förändringens omfattning synlig</text>
+  <path d="M280 215h45M510 215h45M740 215h45" class="line" marker-end="url(#arrow)"/>
+  <rect x="75" y="140" width="205" height="150" rx="16" class="box"/><text x="98" y="177" class="n">1 · AVGRÄNSA</text><text x="177" y="218" class="t" text-anchor="middle">formulera identifierare</text><text x="177" y="247" class="t" text-anchor="middle">och villkor</text>
+  <rect x="325" y="140" width="185" height="150" rx="16" class="accent"/><text x="348" y="177" class="n">2 · FÖRHANDSGRANSKA</text><text x="418" y="229" class="sql" text-anchor="middle">SELECT</text>
+  <rect x="555" y="140" width="185" height="150" rx="16" class="box"/><text x="578" y="177" class="n">3 · FÖRÄNDRA</text><text x="648" y="215" class="sql" text-anchor="middle">INSERT</text><text x="648" y="242" class="sql" text-anchor="middle">UPDATE · DELETE</text>
+  <rect x="785" y="140" width="180" height="150" rx="16" class="accent"/><text x="808" y="177" class="n">4 · VERIFIERA</text><text x="875" y="218" class="t" text-anchor="middle">jämför med</text><text x="875" y="247" class="t" text-anchor="middle">förutsägelsen</text>
+  <text x="520" y="342" font-family="Arial,sans-serif" font-size="14" fill="#52606d" text-anchor="middle">Avgränsningen ska kunna motiveras innan data förändras.</text>
+</svg>

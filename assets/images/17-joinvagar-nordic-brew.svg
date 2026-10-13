@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 520" role="img" aria-labelledby="title desc">
+  <title id="title">Sammanfogningsvägar i Nordic Brew</title>
+  <desc id="desc">Customer kopplas till SalesOrder med CustomerID, SalesOrder kopplas till OrderLine med OrderID och Product kopplas till OrderLine med ProductID.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.name{font:700 19px Arial,sans-serif;fill:#173f5f}.key{font:20px 'Courier New',monospace;fill:#243447}.s{font:17px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:4;fill:none}</style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#116466"/></marker></defs>
+  <rect width="1040" height="520" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Följ nycklarna – inte liknande kolumnnamn</text>
+  <rect x="70" y="115" width="245" height="120" rx="16" class="box"/><text x="193" y="157" class="name" text-anchor="middle">Customer</text><text x="193" y="198" class="key" text-anchor="middle">CustomerID · PK</text>
+  <rect x="398" y="115" width="245" height="120" rx="16" class="accent"/><text x="521" y="157" class="name" text-anchor="middle">SalesOrder</text><text x="521" y="190" class="key" text-anchor="middle">OrderID · PK</text><text x="521" y="216" class="key" text-anchor="middle">CustomerID · FK</text>
+  <rect x="398" y="320" width="245" height="130" rx="16" class="accent"/><text x="521" y="360" class="name" text-anchor="middle">OrderLine</text><text x="521" y="394" class="key" text-anchor="middle">OrderID · FK</text><text x="521" y="420" class="key" text-anchor="middle">ProductID · FK</text>
+  <rect x="725" y="320" width="245" height="130" rx="16" class="box"/><text x="848" y="366" class="name" text-anchor="middle">Product</text><text x="848" y="407" class="key" text-anchor="middle">ProductID · PK</text>
+  <path d="M315 175h83" class="line" marker-end="url(#arrow)"/><text x="357" y="157" class="s" text-anchor="middle">CustomerID</text>
+  <path d="M521 235v85" class="line" marker-end="url(#arrow)"/><text x="537" y="284" class="s">OrderID</text>
+  <path d="M725 385h-82" class="line" marker-end="url(#arrow)"/><text x="684" y="367" class="s" text-anchor="middle">ProductID</text>
+  <text x="520" y="488" class="s" text-anchor="middle">Välj bara den sammanhängande väg som frågans informationsbehov kräver.</text>
+</svg>

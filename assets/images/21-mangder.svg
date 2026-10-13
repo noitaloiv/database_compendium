@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" width="680" height="300" role="img" aria-labelledby="title desc">
+<title id="title">Två mängder av produktnummer</title>
+<desc id="desc">A innehåller 501 och 504. B innehåller 501, 502 och 503. 501 ligger i överlappet, 504 bara i A och 502 samt 503 bara i B.</desc>
+<rect width="680" height="300" rx="12" fill="#f8fafc"/>
+<g fill="none" stroke-width="3">
+<circle cx="255" cy="160" r="110" fill="#dbeafe" stroke="#245580"/>
+<circle cx="425" cy="160" r="110" fill="#ccfbf1" fill-opacity="0.6" stroke="#17665d"/>
+</g>
+<g font-family="sans-serif" fill="#142e3b" text-anchor="middle">
+<text x="235" y="30" font-size="20" font-weight="bold">A · ≥ 12 000 öre</text>
+<text x="445" y="30" font-size="20" font-weight="bold">B · Beställda</text>
+<text x="240" y="169" font-size="27">504</text>
+<text x="340" y="169" font-size="27" font-weight="bold">501</text>
+<text x="450" y="145" font-size="27">502</text>
+<text x="450" y="192" font-size="27">503</text>
+</g>
+</svg>

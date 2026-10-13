@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 700" role="img" aria-labelledby="title desc">
+  <title id="title">Många-till-många blir en mellanliggande relation</title>
+  <desc id="desc">Student och CourseOffering har ett många-till-många-samband. Relationen Enrollment placeras mellan dem och innehåller främmande nycklar till båda samt attributet RegisteredAt.</desc>
+  <style>.h{font:700 25px Arial,sans-serif;fill:#173f5f}.name{font:700 19px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.key{font:16px 'Courier New',monospace;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:4;fill:none}</style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#116466"/></marker></defs>
+  <rect width="1160" height="700" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Sambandet får en egen radbetydelse</text>
+  <rect x="70" y="120" width="275" height="110" rx="15" class="box"/><text x="208" y="185" class="name" text-anchor="middle">STUDENT</text>
+  <rect x="815" y="120" width="275" height="110" rx="15" class="box"/><text x="953" y="185" class="name" text-anchor="middle">COURSE_OFFERING</text>
+  <path d="M345 175h470" class="line"/><text x="580" y="155" class="t" text-anchor="middle">enrolls in · många till många</text>
+  <path d="M580 250v85" class="line" marker-end="url(#arrow)"/>
+  <rect x="390" y="370" width="380" height="235" rx="16" class="accent"/><text x="580" y="414" class="name" text-anchor="middle">Enrollment</text><text x="430" y="465" class="key">StudentID</text><text x="720" y="465" class="s" text-anchor="end">PK, FK</text><text x="430" y="510" class="key">OfferingID</text><text x="720" y="510" class="s" text-anchor="end">PK, FK</text><text x="430" y="555" class="key">RegisteredAt</text>
+  <path d="M390 467H250V230" class="line" marker-end="url(#arrow)"/><path d="M770 510H910V230" class="line" marker-end="url(#arrow)"/>
+  <text x="580" y="655" class="s" text-anchor="middle">Varje rad betyder att en viss student är registrerad på ett visst kurstillfälle.</text>
+</svg>
+

@@ -60,10 +60,29 @@ def check_pages() -> None:
         if text.count("<figure") != text.count("</figure>"):
             ERRORS.append(f"{relative}: unbalanced figure element")
 
+        if "```mermaid" in text:
+            ERRORS.append(
+                f"{relative}: Mermaid block found; use a local accessible SVG"
+            )
+
+        if "## Kontrollfrågor" in text:
+            control_section = text.split("## Kontrollfrågor", 1)[1]
+            control_section = control_section.split("## Sammanfattning", 1)[0]
+            if not re.search(r'<details\b[^>]*class="answer"', control_section):
+                ERRORS.append(f"{relative}: control questions lack a local answer key")
+
         for figure in re.findall(r"<figure\b.*?</figure>", text, re.DOTALL):
+            if "<figcaption>" not in figure:
+                ERRORS.append(f"{relative}: figure lacks a caption")
+            caption = re.search(r"<figcaption>(.*?)</figcaption>", figure, re.DOTALL)
+            if caption and "`" in caption.group(1):
+                ERRORS.append(f"{relative}: use HTML code tags inside HTML captions")
             image = re.search(r"<img\b[^>]*>", figure, re.DOTALL)
             if not image:
-                ERRORS.append(f"{relative}: figure lacks an image")
+                if not re.search(r'<figure\b[^>]*class="diagram"', figure):
+                    ERRORS.append(f"{relative}: figure needs an image or semantic diagram")
+                if not any(tag in figure for tag in ("<table", "<section", "<ol", "<p")):
+                    ERRORS.append(f"{relative}: semantic diagram is empty")
                 continue
             markup = image.group(0)
             for attribute in ("alt", "width", "height", "loading", "decoding"):
@@ -82,6 +101,28 @@ def check_pages() -> None:
             resolved = ROOT / asset.lstrip("/")
             if not resolved.exists():
                 ERRORS.append(f"{relative}: missing asset {asset}")
+
+    permalinks.setdefault("/", ROOT / "index.md")
+    license_text = (ROOT / "LICENSE.md").read_text(encoding="utf-8")
+    license_permalink = scalar_value(front_matter(license_text) or "", "permalink")
+    if license_permalink:
+        permalinks[license_permalink] = ROOT / "LICENSE.md"
+    # Liquid links must also resolve under a nonempty GitHub Pages baseurl.
+    for path in published_pages:
+        text = path.read_text(encoding="utf-8")
+        for target in re.findall(r"\{\{\s*['\"](/[^'\"]*)['\"]\s*\|\s*relative_url", text):
+            base = target.split("#", 1)[0]
+            if base.startswith("/assets/"):
+                continue
+            if base not in permalinks:
+                ERRORS.append(f"{path.relative_to(ROOT)}: unknown page permalink {base}")
+        if "$$" in text or r"\(" in text:
+            ERRORS.append(f"{path.relative_to(ROOT)}: unrendered math notation")
+        if re.search(r"^title: \d+\.", text, re.M):
+            if '{% include chapter_guide.html %}' not in text:
+                ERRORS.append(f"{path.relative_to(ROOT)}: missing reading guide")
+            if not re.search(r"^track: (grundspar|fordjupning)$", text, re.M):
+                ERRORS.append(f"{path.relative_to(ROOT)}: missing reading track")
 
 
 def check_svg() -> None:
@@ -146,6 +187,18 @@ def check_platform_contract() -> None:
     if "<select" in header or 'id="theme-toggle"' not in header:
         ERRORS.append("header_custom.html: expected icon theme button, not a select")
 
+    custom_css = (ROOT / "_sass" / "custom" / "custom.scss").read_text(
+        encoding="utf-8"
+    )
+    if "#theme-toggle.theme-toggle" not in custom_css:
+        ERRORS.append("custom.scss: theme button lacks a high-specificity reset")
+    if re.search(
+        r"#theme-toggle\.theme-toggle\s*\{[^}]*border-radius:\s*999px",
+        custom_css,
+        re.DOTALL,
+    ):
+        ERRORS.append("custom.scss: theme button still has a circular border")
+
     head = (ROOT / "_includes" / "head.html").read_text(encoding="utf-8")
     for script_name in ("lunr.min.js", "just-the-docs.js"):
         if not re.search(rf'<script[^>]+{re.escape(script_name)}[^>]+defer', head):
@@ -175,8 +228,6 @@ def main() -> None:
     if ERRORS:
         print("\n".join(f"ERROR: {error}" for error in ERRORS), file=sys.stderr)
         raise SystemExit(1)
-    print("Site source structure, links, search metadata, and SVG metadata: OK")
-
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540" role="img" aria-labelledby="title desc">
+<title id="title">Konceptuell modell av museets bokningar</title>
+<desc id="desc">Guide leder noll eller flera Tour, varje Tour har en Guide. Visitor gör noll eller flera Booking, varje Booking har en Visitor. Tour har noll eller flera Booking, varje Booking gäller en Tour. Attribut visas i rutorna; ID avser konceptuell identifiering.</desc>
+<rect width="900" height="540" rx="12" fill="#f8fafc"/>
+<g fill="#fff" stroke="#245580" stroke-width="2">
+<rect x="30" y="40" width="270" height="160" rx="8"/><rect x="600" y="40" width="270" height="160" rx="8"/>
+<rect x="30" y="340" width="270" height="160" rx="8"/><rect x="600" y="340" width="270" height="160" rx="8"/>
+</g>
+<g fill="none" stroke="#245580" stroke-width="2">
+<path d="M300 120H600 M300 420H600 M735 200V340"/>
+</g>
+<g font-family="sans-serif" fill="#142e3b" font-size="20">
+<g font-weight="bold"><text x="50" y="72">Guide</text><text x="620" y="72">Tour</text><text x="50" y="372">Visitor</text><text x="620" y="372">Booking</text></g>
+<text x="50" y="112">ID: GuideID</text><text x="50" y="144">GuideName</text>
+<text x="620" y="109">ID: TourID</text><text x="620" y="138">Title, StartsAt</text><text x="620" y="167">Capacity</text>
+<text x="50" y="412">ID: VisitorID</text><text x="50" y="444">VisitorName</text>
+<text x="620" y="412">ID: Visitor + Tour</text><text x="620" y="447">Seats</text>
+<g text-anchor="middle"><text x="450" y="107">leads</text><text x="450" y="407">makes</text><text x="785" y="273">has</text>
+<text x="332" y="149">1..1</text><text x="567" y="149">0..*</text>
+<text x="332" y="449">1..1</text><text x="567" y="449">0..*</text>
+<text x="701" y="227">1..1</text><text x="701" y="326">0..*</text></g>
+</g></svg>

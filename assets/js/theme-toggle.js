@@ -1,68 +1,99 @@
 (function () {
   "use strict";
-
-  var storageKey = "databaser-theme";
-  var lightTheme = document.getElementById("databaser-light-theme");
-  var darkTheme = document.getElementById("databaser-dark-theme");
+  var root = document.documentElement;
+  var active = document.getElementById("databaser-theme-stylesheet");
   var button = document.getElementById("theme-toggle");
-  var systemPreference = window.matchMedia
-    ? window.matchMedia("(prefers-color-scheme: dark)")
-    : null;
+  var status = document.getElementById("theme-status");
+  if (!active || !button) return;
+  var urls = { light: active.dataset.lightUrl, dark: active.dataset.darkUrl };
+  var system = window.matchMedia("(prefers-color-scheme: dark)");
+  var pending = null;
+  var revision = 0;
 
-  if (!lightTheme || !darkTheme || !button) {
-    return;
-  }
-
-  function storedPreference() {
+  function preference() {
     try {
-      var value = window.localStorage.getItem(storageKey);
+      var value = localStorage.getItem("databaser-theme");
       return value === "light" || value === "dark" ? value : null;
-    } catch (error) {
-      return null;
-    }
+    } catch (error) { return null; }
   }
 
-  function systemTheme() {
-    return systemPreference && systemPreference.matches ? "dark" : "light";
+  function describe(theme) {
+    var label = "Byt till " + (theme === "dark" ? "ljust" : "mörkt") + " tema";
+    button.setAttribute("aria-label", label);
+    button.title = label;
   }
 
-  function applyTheme(theme, persist) {
-    lightTheme.media = theme === "light" ? "all" : "not all";
-    darkTheme.media = theme === "dark" ? "all" : "not all";
+  function change(theme, persist) {
+    var request = ++revision;
+    if (pending) { pending.remove(); pending = null; }
+    button.disabled = false;
+    button.removeAttribute("aria-busy");
+    if (theme === root.dataset.databaserTheme) return;
 
-    document.documentElement.dataset.databaserTheme = theme;
-    document.documentElement.style.colorScheme = theme;
+    var next = document.createElement("link");
+    next.rel = "stylesheet";
+    next.media = "not all";
+    next.href = urls[theme];
+    pending = next;
+    button.disabled = true;
+    button.setAttribute("aria-busy", "true");
+    if (status) status.textContent = "";
 
-    var nextTheme = theme === "dark" ? "ljust" : "mörkt";
-    button.setAttribute("aria-label", "Byt till " + nextTheme + " tema");
-    button.setAttribute("title", "Byt till " + nextTheme + " tema");
-    button.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
-
-    if (persist) {
-      try {
-        window.localStorage.setItem(storageKey, theme);
-      } catch (error) {
-        // The chosen theme still applies for the current page view.
+    next.onload = function () {
+      if (request !== revision) return;
+      // Activate the complete new sheet before removing the old one.
+      next.media = "all";
+      active.remove();
+      next.id = "databaser-theme-stylesheet";
+      next.dataset.theme = theme;
+      next.dataset.lightUrl = urls.light;
+      next.dataset.darkUrl = urls.dark;
+      active = next;
+      pending = null;
+      root.dataset.databaserTheme = theme;
+      root.style.colorScheme = theme;
+      describe(theme);
+      if (persist) {
+        try { localStorage.setItem("databaser-theme", theme); } catch (error) {}
       }
-    }
+      button.disabled = false;
+      button.removeAttribute("aria-busy");
+    };
+    next.onerror = function () {
+      if (request !== revision) return;
+      next.remove();
+      pending = null;
+      button.disabled = false;
+      button.removeAttribute("aria-busy");
+      if (status) status.textContent = "Temat kunde inte laddas. Försök igen.";
+    };
+    document.head.appendChild(next);
   }
 
-  button.addEventListener("click", function () {
-    var current = document.documentElement.dataset.databaserTheme || systemTheme();
-    applyTheme(current === "dark" ? "light" : "dark", true);
+  button.addEventListener("pointerdown", function (event) {
+    // Keep an open mobile search in place until this click has completed.
+    if (document.activeElement && document.activeElement.id === "search-input" &&
+        root.classList.contains("search-active")) event.preventDefault();
   });
-
-  function handleSystemChange() {
-    if (!storedPreference()) {
-      applyTheme(systemTheme(), false);
+  ["search-input", "search-results"].forEach(function (id) {
+    var element = document.getElementById(id);
+    if (!element) return;
+    element.addEventListener("focusout", function (event) {
+      // Just the Docs otherwise dismisses search when its theme control gains focus.
+      if (event.relatedTarget && button.contains(event.relatedTarget)) event.stopImmediatePropagation();
+    }, true);
+  });
+  button.addEventListener("click", function (event) {
+    event.stopPropagation();
+    change(root.dataset.databaserTheme === "dark" ? "light" : "dark", true);
+  });
+  system.addEventListener("change", function () {
+    if (!preference()) change(system.matches ? "dark" : "light", false);
+  });
+  window.addEventListener("storage", function (event) {
+    if (event.key === "databaser-theme" || event.key === null) {
+      change(preference() || (system.matches ? "dark" : "light"), false);
     }
-  }
-
-  if (systemPreference && systemPreference.addEventListener) {
-    systemPreference.addEventListener("change", handleSystemChange);
-  } else if (systemPreference && systemPreference.addListener) {
-    systemPreference.addListener(handleSystemChange);
-  }
-
-  applyTheme(storedPreference() || systemTheme(), false);
+  });
+  describe(root.dataset.databaserTheme);
 }());

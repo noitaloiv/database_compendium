@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 700" role="img" aria-labelledby="title desc">
+  <title id="title">Från en-till-många-association till främmande nyckel</title>
+  <desc id="desc">Överst visas den konceptuella associationen mellan Customer och SalesOrder. Nederst visas relationerna, där CustomerID är primärnyckel i Customer och främmande nyckel i SalesOrder.</desc>
+  <style>.h{font:700 25px Arial,sans-serif;fill:#173f5f}.name{font:700 19px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.key{font:16px 'Courier New',monospace;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:4;fill:none}</style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#116466"/></marker></defs>
+  <rect width="1160" height="700" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">En order behöver lagra vilken kund den hör till</text>
+  <text x="60" y="105" class="s">KONCEPTUELL MODELL</text>
+  <rect x="90" y="135" width="280" height="105" rx="15" class="box"/><text x="230" y="198" class="name" text-anchor="middle">CUSTOMER</text>
+  <rect x="790" y="135" width="280" height="105" rx="15" class="accent"/><text x="930" y="198" class="name" text-anchor="middle">SALES_ORDER</text>
+  <path d="M370 188h420" class="line"/><text x="580" y="169" class="t" text-anchor="middle">places</text><text x="402" y="218" class="s">1..1</text><text x="727" y="218" class="s">0..*</text>
+  <path d="M580 260v90" class="line" marker-end="url(#arrow)"/><text x="600" y="310" class="s">översätt</text>
+  <text x="60" y="388" class="s">LOGISKT RELATIONSSCHEMA</text>
+  <rect x="90" y="420" width="390" height="190" rx="15" class="box"/><text x="285" y="462" class="name" text-anchor="middle">Customer</text><text x="125" y="510" class="key">CustomerID</text><text x="405" y="510" class="s" text-anchor="end">PK</text><text x="125" y="551" class="key">CustomerName</text>
+  <rect x="680" y="420" width="390" height="190" rx="15" class="accent"/><text x="875" y="462" class="name" text-anchor="middle">SalesOrder</text><text x="715" y="510" class="key">OrderID</text><text x="995" y="510" class="s" text-anchor="end">PK</text><text x="715" y="551" class="key">CustomerID</text><text x="1025" y="551" class="s" text-anchor="end">FK → Customer</text>
+  <path d="M680 551H480" class="line" marker-end="url(#arrow)"/><text x="580" y="538" class="s" text-anchor="middle">samma slags värde</text>
+  <text x="580" y="655" class="s" text-anchor="middle">Främmande nyckeln placeras på många-sidan: varje orderrad behöver ett enda CustomerID.</text>
+</svg>
+

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 32 32" role="img" aria-labelledby="title desc">
+  <title id="title">Databaser</title>
+  <desc id="desc">En enkel databassymbol med tre sammanhängande nivåer.</desc>
+  <style>:root{color:#238b87}@media(prefers-color-scheme:dark){:root{color:#71d8ca}}</style>
+  <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="16" cy="7" rx="10" ry="4"/>
+    <path d="M6 7v18c0 2.2 4.5 4 10 4s10-1.8 10-4V7M6 16c0 2.2 4.5 4 10 4s10-1.8 10-4"/>
+  </g>
+</svg>

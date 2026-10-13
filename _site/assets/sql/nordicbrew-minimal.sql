@@ -1,6 +1,6 @@
--- Nordic Brew minimal – schema and data version 0.2
--- Used by the introductory chapters in the 2IS007 database compendium.
--- Requires SQLite 3.37 or later because the tables use STRICT mode.
+-- Nordic Brew – gemensamma övningsdata för kapitel 12–15 och 17.
+-- Kör i en separat övningsdatabas. Filen återställer de fyra tabellerna.
+-- Avsluta en eventuell tidigare transaktion innan filen körs.
 
 PRAGMA foreign_keys = ON;
 
@@ -13,49 +13,35 @@ DROP TABLE IF EXISTS Customer;
 
 CREATE TABLE Customer (
     CustomerID INTEGER PRIMARY KEY,
-    CustomerName TEXT NOT NULL CHECK (length(trim(CustomerName)) > 0),
-    Email TEXT NOT NULL UNIQUE CHECK (instr(Email, '@') > 1)
-) STRICT;
+    CustomerName TEXT NOT NULL,
+    Email TEXT NOT NULL UNIQUE
+);
 
 CREATE TABLE Product (
     ProductID INTEGER PRIMARY KEY,
-    ProductName TEXT NOT NULL UNIQUE CHECK (length(trim(ProductName)) > 0),
+    ProductName TEXT NOT NULL UNIQUE,
     ListPriceOre INTEGER NOT NULL CHECK (ListPriceOre >= 0),
     Active INTEGER NOT NULL DEFAULT 1 CHECK (Active IN (0, 1))
-) STRICT;
+);
 
 CREATE TABLE SalesOrder (
     OrderID INTEGER PRIMARY KEY,
-    OrderDate TEXT NOT NULL
-        CHECK (
-            length(OrderDate) = 10
-            AND OrderDate GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
-            AND date(OrderDate) = OrderDate
-        ),
+    OrderDate TEXT NOT NULL,
     CustomerID INTEGER NOT NULL,
     Status TEXT NOT NULL
         CHECK (Status IN ('DRAFT', 'CONFIRMED', 'SHIPPED', 'CANCELLED')),
-    CONSTRAINT fk_sales_order_customer
-        FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT
-) STRICT;
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
 
 CREATE TABLE OrderLine (
     OrderID INTEGER NOT NULL,
     ProductID INTEGER NOT NULL,
     Quantity INTEGER NOT NULL CHECK (Quantity > 0),
     AgreedUnitPriceOre INTEGER NOT NULL CHECK (AgreedUnitPriceOre >= 0),
-    CONSTRAINT pk_order_line PRIMARY KEY (OrderID, ProductID),
-    CONSTRAINT fk_order_line_sales_order
-        FOREIGN KEY (OrderID) REFERENCES SalesOrder(OrderID)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    CONSTRAINT fk_order_line_product
-        FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT
-) STRICT;
+    PRIMARY KEY (OrderID, ProductID),
+    FOREIGN KEY (OrderID) REFERENCES SalesOrder(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
 
 INSERT INTO Customer (CustomerID, CustomerName, Email) VALUES
     (17, 'Mira Ek', 'mira@example.test'),
@@ -81,17 +67,8 @@ INSERT INTO OrderLine (OrderID, ProductID, Quantity, AgreedUnitPriceOre) VALUES
 
 COMMIT;
 
--- Verification: 3 customers, 4 products, 3 orders, and 4 order lines.
-SELECT 'Customer' AS RelationName, count(*) AS RowCount FROM Customer
-UNION ALL
-SELECT 'Product', count(*) FROM Product
-UNION ALL
-SELECT 'SalesOrder', count(*) FROM SalesOrder
-UNION ALL
-SELECT 'OrderLine', count(*) FROM OrderLine;
-
--- Example: show the customer name for order 1042.
-SELECT so.OrderID, c.CustomerName
-FROM SalesOrder AS so
-JOIN Customer AS c ON c.CustomerID = so.CustomerID
-WHERE so.OrderID = 1042;
+-- Kontroll: 3 kunder, 4 produkter, 3 beställningar, 4 orderrader.
+SELECT COUNT(*) AS CustomerCount FROM Customer;
+SELECT COUNT(*) AS ProductCount FROM Product;
+SELECT COUNT(*) AS OrderCount FROM SalesOrder;
+SELECT COUNT(*) AS LineCount FROM OrderLine;

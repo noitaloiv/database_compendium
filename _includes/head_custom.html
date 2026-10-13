@@ -1,41 +1,7 @@
-<meta name="color-scheme" content="light dark">
-
-<link
-  id="databaser-dark-theme"
-  rel="stylesheet"
-  href="{{ '/assets/css/just-the-docs-databaser-dark.css' | relative_url }}"
-  media="(prefers-color-scheme: dark)">
-
-<script>
-  (function () {
-    var preference = null;
-    try {
-      preference = window.localStorage.getItem("databaser-theme");
-    } catch (error) {
-      preference = null;
-    }
-
-    if (preference !== "light" && preference !== "dark") {
-      preference = null;
-    }
-
-    var systemDark = window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var resolved = preference || (systemDark ? "dark" : "light");
-    var lightTheme = document.getElementById("databaser-light-theme");
-    var darkTheme = document.getElementById("databaser-dark-theme");
-
-    if (preference === "dark") {
-      lightTheme.media = "not all";
-      darkTheme.media = "all";
-    } else if (preference === "light") {
-      lightTheme.media = "all";
-      darkTheme.media = "not all";
-    }
-
-    document.documentElement.dataset.databaserTheme = resolved;
-    document.documentElement.style.colorScheme = resolved;
-  }());
-</script>
-
-<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}?v={{ asset_version }}" defer></script>
+{% if page.content contains '<figure' %}
+<script src="{{ '/assets/js/figure-viewer.js' | relative_url }}?v={{ asset_version }}" defer></script>
+{% endif %}
+{% if page.transaction_lab %}
+<script src="{{ '/assets/js/transaction-lab.js' | relative_url }}" defer></script>
+{% endif %}

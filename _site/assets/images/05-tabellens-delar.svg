@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" role="img" aria-labelledby="title desc">
   <title id="title">Tabellen Customer med rader och kolumner</title>
   <desc id="desc">En kundtabell visar tabellnamnet, tre kolumner och tre rader. Email-kolumnen och raden för CustomerID 24 är markerade.</desc>
-  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.head{fill:#173f5f}.cell{fill:#fff;stroke:#cbd5df}.col{fill:#e7f5f3;stroke:#9ccfc7}.row{fill:#fff7d6;stroke:#e2b93b}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:20px Arial,sans-serif;fill:#243447}.s{font:17px Arial,sans-serif;fill:#52606d}.head{fill:#173f5f}.cell{fill:#fff;stroke:#cbd5df}.col{fill:#e7f5f3;stroke:#9ccfc7}.row{fill:#fff7d6;stroke:#e2b93b}.line{stroke:#116466;stroke-width:3;fill:none}</style>
   <rect width="1040" height="500" rx="24" fill="#f5f8fb"/>
   <text x="48" y="54" class="h">Tabell: Customer</text>
   <rect x="160" y="112" width="720" height="58" rx="10" class="head"/>

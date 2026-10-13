@@ -13,7 +13,7 @@ keywords:
 ---
 
 <div class="course-hero" markdown="1">
-<p class="course-kicker">Informationssystem A · 2IS007</p>
+<p class="course-kicker">En introduktion till databaser</p>
 
 # Databaser
 
@@ -41,27 +41,28 @@ förutsäga, pröva samt revidera.
 
 ## Börja här
 
+[Läs och öva stegvis – grundspår och fördjupning]({{ '/docs/lasvag/' | relative_url }})
+
 <div class="part-grid">
   <section class="part-card">
-    <span class="status-badge">Tillgänglig</span>
     <h3>Del I – Modeller och relationer</h3>
     <p>Från grundläggande databasbegrepp till en prövbar konceptuell modell.</p>
     <a href="{{ '/docs/del-1-grunder/' | relative_url }}">Öppna del I →</a>
   </section>
   <section class="part-card">
-    <span class="status-badge">Planerad</span>
     <h3>Del II – Frågor och förändring</h3>
     <p>Relationsalgebra, SQL-frågor samt skapande och förändring av data.</p>
+    <a href="{{ '/docs/del-2-fragor/' | relative_url }}">Öppna del II →</a>
   </section>
   <section class="part-card">
-    <span class="status-badge">Planerad</span>
-    <h3>Del III – Korrekthet</h3>
-    <p>Transaktioner, samtidighet, fysisk åtkomst och säker databasanvändning.</p>
+    <h3>Del III – Transaktioner och samtidighet</h3>
+    <p>Sammanhållna förändringar, återställning och problem som kan uppstå när flera arbetar samtidigt.</p>
+    <a href="{{ '/docs/del-3-transaktioner/' | relative_url }}">Öppna del III →</a>
   </section>
   <section class="part-card">
-    <span class="status-badge">Planerad</span>
-    <h3>Del IV – Perspektiv</h3>
-    <p>Alternativa datamodeller och databasen i ett större informationssystem.</p>
+    <h3>Del IV – Åtkomst, ansvar och perspektiv</h3>
+    <p>Index, administration, identifiering och ett sammanhängande museifall.</p>
+    <a href="{{ '/docs/del-4-perspektiv/' | relative_url }}">Öppna del IV →</a>
   </section>
 </div>
 
@@ -69,7 +70,7 @@ förutsäga, pröva samt revidera.
 
 1. Läs kapitlets mål och försök formulera vad du redan vet.
 2. Stanna vid förutsägelsefrågorna innan du läser vidare.
-3. Kör exemplen mot den angivna databasversionen.
+3. Följ uppgiftens arbetssätt: resonera på papper eller kör SQL mot den angivna startfilen.
 4. Genomför överföringsövningen i en annan domän och jämför med
    lösningsprinciperna.
 
@@ -84,7 +85,9 @@ Sökningen indexerar rubriker, text och ämnesord. Tryck <kbd>Ctrl</kbd> +
 sökfältet. Sök både på svenska och etablerade engelska termer, exempelvis
 `främmande nyckel`, `foreign key`, `DBMS` eller `kardinalitet`.
 
-Färgtema kan väljas i sidhuvudet. Läget *Automatiskt* följer operativsystemets
-inställning.
+Färgtemat följer först enhetens inställning. Ikonen i sidhuvudet växlar därefter
+mellan ljust och mörkt läge.
+
+[Så kör du SQL-exemplen och övningarna]({{ '/docs/arbeta-praktiskt/' | relative_url }})
 
 [Om kompendiet och dess principer]({{ '/docs/om/om-kompendiet/' | relative_url }})

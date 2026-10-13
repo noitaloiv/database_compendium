@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" role="img" aria-labelledby="title desc">
   <title id="title">Schema och innehåll vid två tidpunkter</title>
   <desc id="desc">Samma Customer-schema gäller vid två tidpunkter. En fjärde kund läggs till, så innehållet förändras medan schemat förblir detsamma.</desc>
-  <style>.h{font:700 23px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.schema{fill:#e7f5f3;stroke:#116466;stroke-width:2}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.new{fill:#fff7d6;stroke:#e2b93b;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <style>.h{font:700 23px Arial,sans-serif;fill:#173f5f}.t{font:20px Arial,sans-serif;fill:#243447}.s{font:17px Arial,sans-serif;fill:#52606d}.schema{fill:#e7f5f3;stroke:#116466;stroke-width:2}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.new{fill:#fff7d6;stroke:#e2b93b;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
   <rect width="1040" height="470" rx="24" fill="#f5f8fb"/>
   <text x="48" y="54" class="h">Samma struktur – förändrat innehåll</text>
   <rect x="60" y="96" width="920" height="86" rx="14" class="schema"/><text x="100" y="129" class="s">SCHEMA</text><text x="100" y="161" class="t">Customer(CustomerID, CustomerName, Email)</text>

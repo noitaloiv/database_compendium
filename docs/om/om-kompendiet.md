@@ -13,19 +13,21 @@ keywords:
 
 # Om kompendiet
 
-Kompendiet är kursens sammanhållna kunskapskälla för grundläggande
-databasteknik. Det ersätter **inte** praktiskt arbete eller återkoppling, utan gör det istället möjligt att förbereda, genomföra och repetera kursens moment i din egen takt.
+Kompendiet är en sammanhållen introduktion till grundläggande databasteknik. Det
+ersätter **inte** praktiskt arbete eller återkoppling, utan är utformat för att
+kunna läsas, prövas och repeteras i egen takt.
 
 ## Pedagogisk princip
 
-Nordic Brew används som ett återkommande fall genom kompendiet vilket gör det möjligt att följa samma informationsbehov från konceptuell modell till relationsschema, SQL, transaktioner och fysisk åtkomst.
+Nordic Brew återkommer för att du ska kunna följa samma uppgifter från betydelse och modell till SQL. Andra exempel från bland annat bibliotek, vårdbokningar, föreningar och museer ger tillfällen att pröva resonemanget med nya regler. När transaktioner introduceras följer vi en avgränsad lagerregistrering hos Nordic Brew, där ett saldo och en leveranspost måste ändras tillsammans. En kontoöverföring ger därefter ett annat sammanhang att pröva samma princip i.
 
-Varje kärnkapitel innehåller dock samtidigt minst en uppgift inom en annan domän såsom exempelvis vård, kultur, föreningsliv, offentlig förvaltning, logistik och utbildning vilka alla kan ha andra regler, risker och identifieringsproblem. Tanken med det återkommande fallet är att det ska  stödja progression medan variationsfallen istället ska pröva om kunskapen går att överföra mellan domäner.
+[Läsvägen]({{ '/docs/lasvag/' | relative_url }}) visar grundspåret och de valbara fördjupningarna. Genomgångna exempel följs av mindre kompletteringsuppgifter och mer självständiga försök. Du kan stanna i ett avsnitt tills du kan förklara mellanresultatet, innan du lägger till nästa operation.
 
 ## Konceptuell modellering före diagramsyntax
 
-ER-diagram används som notation, men kursens mål är inte att memorera en viss
-uppsättning symboler. Du som student förväntas istället kunna:
+ER-diagram används som notation, men modellering handlar inte främst om att
+memorera en viss uppsättning symboler. Diagrammet blir användbart först när det
+gör det möjligt att:
 
 - avgränsa ett informationsbehov
 - definiera begrepp och identifierare
@@ -34,17 +36,26 @@ uppsättning symboler. Du som student förväntas istället kunna:
 - jämföra modeller och diskutera deras konsekvenser
 
 Kompendiets huvudnotation visar entitetstyper som rutor med ett begränsat urval
-attribut och konceptuella identifierare medan associationer ges verbnamn och
-multiplicitet uttrycks som `0..1`, `1..1`, `0..*` eller `1..*`. Crow's
-foot notation introduceras även som en alternativ syntax.
+attribut och konceptuella identifierare, medan associationer ges verbnamn och
+multiplicitet uttrycks som `0..1`, `1..1`, `0..*` eller `1..*`. Crow's foot-
+notation introduceras även som en alternativ syntax.
 
 Primärnycklar, främmande nycklar, SQL-datatyper och index hör dock inte hemma i den konceptuella modellen och introduceras därför först i samband med att modellen översätts och implementeras.
 
+## Praktiska övningar och facit
+
+När en övning ska köras anger den vilket installationsskript och vilket
+utgångsläge som behövs. Den gemensamma
+[körguiden]({{ '/docs/arbeta-praktiskt/' | relative_url }}) visar hur en lokal
+SQLite-databas skapas och återställs. Uppgifter som enbart ska lösas genom
+resonemang märks i stället ut som sådana.
+
+Kontrollfrågornas svar är hopfällda, så att du kan formulera ett eget resonemang innan du jämför med förklaringen. Svaren knyter slutsatsen till ett exempel och visar vilken skillnad som är avgörande. Om ditt svar avviker kan du därför undersöka vilket steg i resonemanget som behöver ändras. Öppna
+modelleringsuppgifter har lösningsprinciper eller en möjlig lösning, eftersom
+notationen sällan avgör ett enda korrekt verksamhetsbeslut.
+
 ## Användning och hänvisning
 
-Kompendiet är kostnadsfritt att läsa och använda för personliga studier. Det är
-däremot inte fritt licensierat: återpublicering, distribution, översättning och
-bearbetning kräver skriftligt tillstånd. Begränsade citat får användas i den
-omfattning lagen medger, med tydlig källhänvisning.
+Kompendiet är kostnadsfritt att läsa och använda för personliga studier. Det är däremot inte fritt licensierat: återpublicering, distribution, översättning och bearbetning kräver skriftligt tillstånd. Begränsade citat får användas i den omfattning lagen medger, med tydlig källhänvisning.
 
 [Läs de fullständiga användningsvillkoren]({{ '/anvandningsvillkor/' | relative_url }}).

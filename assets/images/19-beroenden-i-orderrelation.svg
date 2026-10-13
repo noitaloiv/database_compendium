@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 680" role="img" aria-labelledby="title desc">
+  <title id="title">Funktionella beroenden i en platt orderrelation</title>
+  <desc id="desc">OrderID och ProductID bildar tillsammans nyckeln. Quantity och AgreedUnitPriceOre beror på hela nyckeln, ProductName beror endast på ProductID och CustomerName beror transitivt via CustomerID.</desc>
+  <style>.h{font:700 25px Arial,sans-serif;fill:#173f5f}.name{font:700 17px 'Courier New',monospace;fill:#173f5f}.t{font:16px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.warn{fill:#fff4d6;stroke:#b7791f;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}.partial{stroke:#b7791f;stroke-width:3;fill:none}</style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#116466"/></marker><marker id="arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#b7791f"/></marker></defs>
+  <rect width="1160" height="680" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Fråga vilket faktum som bestämmer vilket attribut</text>
+  <rect x="55" y="130" width="330" height="115" rx="16" class="accent"/><text x="220" y="170" class="s" text-anchor="middle">SAMMANSATT NYCKEL</text><text x="220" y="209" class="name" text-anchor="middle">OrderID + ProductID</text>
+  <rect x="475" y="95" width="300" height="90" rx="14" class="box"/><text x="625" y="150" class="name" text-anchor="middle">Quantity · AgreedPrice</text>
+  <rect x="475" y="235" width="300" height="90" rx="14" class="warn"/><text x="625" y="290" class="name" text-anchor="middle">ProductName</text>
+  <rect x="475" y="405" width="300" height="90" rx="14" class="box"/><text x="625" y="460" class="name" text-anchor="middle">CustomerID</text>
+  <rect x="835" y="405" width="270" height="90" rx="14" class="warn"/><text x="970" y="460" class="name" text-anchor="middle">CustomerName</text>
+  <path d="M385 170h90" class="line" marker-end="url(#arrow)"/><text x="430" y="153" class="s" text-anchor="middle">hela nyckeln</text>
+  <path d="M300 245c60 40 90 35 175 35" class="partial" marker-end="url(#arrow-warn)"/><text x="350" y="307" class="s">bara ProductID</text>
+  <path d="M220 245v205h255" class="line" marker-end="url(#arrow)"/><text x="250" y="438" class="s">OrderID bestämmer kund</text>
+  <path d="M775 450h60" class="partial" marker-end="url(#arrow-warn)"/><text x="805" y="432" class="s" text-anchor="middle">transitivt</text>
+  <text x="625" y="600" class="t" text-anchor="middle">Partiella och transitiva beroenden visar vilka självständiga fakta som blandats.</text>
+  <text x="625" y="632" class="s" text-anchor="middle">Pilarna uttrycker verksamhetsregler och ska inte härledas enbart från dagens rader.</text>
+</svg>
+

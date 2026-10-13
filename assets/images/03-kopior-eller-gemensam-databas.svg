@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" role="img" aria-labelledby="title desc">
   <title id="title">Separata filkopior jämfört med gemensam databas</title>
   <desc id="desc">Vänster sida visar tre filer med motstridiga adresser för kund 17. Höger sida visar tre arbetsuppgifter kopplade till en gemensam databas.</desc>
-  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:17px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.bad{fill:#fff3f3;stroke:#c53030;stroke-width:2}.good{fill:#e7f5f3;stroke:#116466;stroke-width:2}.neutral{fill:#fff;stroke:#9fb3c8;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.t{font:20px Arial,sans-serif;fill:#243447}.s{font:17px Arial,sans-serif;fill:#52606d}.bad{fill:#fff3f3;stroke:#c53030;stroke-width:2}.good{fill:#e7f5f3;stroke:#116466;stroke-width:2}.neutral{fill:#fff;stroke:#9fb3c8;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
   <rect width="1040" height="500" rx="24" fill="#f5f8fb"/>
   <text x="48" y="54" class="h">Tre kopior</text><text x="590" y="54" class="h">En gemensam källa</text>
   <rect x="48" y="90" width="410" height="92" rx="14" class="bad"/><text x="72" y="124" class="s">KUNDFIL</text><text x="72" y="157" class="t">17 · mira@example.test</text>
-  <rect x="48" y="204" width="410" height="92" rx="14" class="bad"/><text x="72" y="238" class="s">ORDERFIL</text><text x="72" y="271" class="t">17 · mira.ek@example.test</text>
+  <rect x="48" y="204" width="410" height="92" rx="14" class="bad"/><text x="72" y="238" class="s">ORDERFIL</text><text x="72" y="271" class="t">17 · mira.new@example.test</text>
   <rect x="48" y="318" width="410" height="92" rx="14" class="bad"/><text x="72" y="352" class="s">ADRESSLISTA</text><text x="72" y="385" class="t">17 · mira@example.test</text>
   <text x="253" y="450" class="s" text-anchor="middle">Vilken adress gäller?</text>
   <rect x="760" y="184" width="230" height="142" rx="22" class="good"/><text x="875" y="221" class="s" text-anchor="middle">DATABAS</text><text x="875" y="254" class="s" text-anchor="middle">CustomerID</text><text x="875" y="282" class="t" text-anchor="middle">17</text><text x="875" y="310" class="s" text-anchor="middle">en aktuell adress</text>

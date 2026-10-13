@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 390" role="img" aria-labelledby="title desc">
+  <title id="title">Från informationsbehov till resultat</title>
+  <desc id="desc">Fem sammanlänkade steg: precisera informationsbehovet, välj relationer, begränsa rader, välj attribut och tolka resultatrelationen.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.n{font:700 17px Arial,sans-serif;fill:#116466}.t{font:20px Arial,sans-serif;fill:#243447}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}</style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#116466"/></marker></defs>
+  <rect width="1040" height="390" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Planera frågan innan du skriver SQL</text>
+  <path d="M211 215h28M399 215h28M587 215h28M775 215h28" class="line" marker-end="url(#arrow)"/>
+  <rect x="51" y="145" width="160" height="140" rx="15" class="accent"/><text x="73" y="178" class="n">1 · PRECISERA</text><text x="131" y="217" class="t" text-anchor="middle">Vad ska</text><text x="131" y="244" class="t" text-anchor="middle">svaret betyda?</text>
+  <rect x="239" y="145" width="160" height="140" rx="15" class="box"/><text x="261" y="178" class="n">2 · VÄLJ</text><text x="319" y="217" class="t" text-anchor="middle">Vilka relationer</text><text x="319" y="244" class="t" text-anchor="middle">behövs?</text>
+  <rect x="427" y="145" width="160" height="140" rx="15" class="box"/><text x="449" y="178" class="n">3 · BEGRÄNSA</text><text x="507" y="217" class="t" text-anchor="middle">Vilka rader</text><text x="507" y="244" class="t" text-anchor="middle">ska behållas?</text>
+  <rect x="615" y="145" width="160" height="140" rx="15" class="box"/><text x="637" y="178" class="n">4 · FORMA</text><text x="695" y="217" class="t" text-anchor="middle">Vilka attribut</text><text x="695" y="244" class="t" text-anchor="middle">ska visas?</text>
+  <rect x="803" y="145" width="186" height="140" rx="15" class="accent"/><text x="825" y="178" class="n">5 · TOLKA</text><text x="896" y="217" class="t" text-anchor="middle">Vad representerar</text><text x="896" y="244" class="t" text-anchor="middle">en resultatrad?</text>
+  <text x="520" y="340" font-family="Arial,sans-serif" font-size="14" fill="#52606d" text-anchor="middle">Varje steg kan granskas mot det ursprungliga informationsbehovet.</text>
+</svg>

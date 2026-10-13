@@ -6,14 +6,33 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link
-    id="databaser-light-theme"
-    rel="stylesheet"
-    href="/assets/css/just-the-docs-default.css"
-    media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
+  <link id="databaser-theme-stylesheet" rel="stylesheet" blocking="render"
+    data-light-url="/assets/css/just-the-docs-default.css?v=1791833970"
+    data-dark-url="/assets/css/just-the-docs-databaser-dark.css?v=1791833970">
+  <script id="databaser-theme-bootstrap">
+    (function () {
+      var root = document.documentElement;
+      var preference = null;
+      try { preference = localStorage.getItem("databaser-theme"); } catch (error) {}
+      if (preference !== "light" && preference !== "dark") preference = null;
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = preference || (dark ? "dark" : "light");
+      root.dataset.databaserTheme = theme;
+      if (window.HTMLDialogElement) root.classList.add("figure-viewer-ready");
+      root.style.colorScheme = theme;
+      var sheet = document.getElementById("databaser-theme-stylesheet");
+      sheet.dataset.theme = theme;
+      sheet.href = sheet.dataset[theme + "Url"];
+    }());
+  </script>
+  <noscript>
+    <link rel="stylesheet" href="/assets/css/just-the-docs-default.css?v=1791833970" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/assets/css/just-the-docs-databaser-dark.css?v=1791833970" media="(prefers-color-scheme: dark)">
+  </noscript>
+  <style id="jtd-head-nav-stylesheet">
+    .site-nav ul li a { background-image: linear-gradient(90deg, transparent, var(--db-nav-feedback)); }
+  </style>
   <style id="jtd-nav-activation">
     
 
@@ -29,14 +48,14 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(3) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > ul > li:nth-child(3) > a {
       font-weight: 600;
       text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg,
-    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(3) > button svg {
+    }.site-nav > ul.nav-list:first-child > li:nth-child(4) > button svg,
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > ul > li:nth-child(3) > button svg {
       transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list,
-    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(3) > ul.nav-list {
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list,
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list > li.nav-list-item:nth-child(3) > ul.nav-list {
       display: block;
     }
   </style>
@@ -48,8 +67,8 @@
   
   <script src="/assets/js/just-the-docs.js" defer></script>
 
-  
-
+  <link rel="icon" href="/favicon.ico?v=1791833970" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/images/databaser-mark.svg?v=1791833970" type="image/svg+xml" sizes="any">
 
   <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>Tabeller, rader och kolumner | Databaser</title>
@@ -68,47 +87,11 @@
 {"@context":"https://schema.org","@type":"WebPage","description":"Hur en relationell databas organiserar data i tabeller.","headline":"Tabeller, rader och kolumner","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/docs/del-1-grunder/tabeller-rader-kolumner/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  <meta name="color-scheme" content="light dark">
+  <script src="/assets/js/theme-toggle.js?v=1791833970" defer></script>
 
-<link
-  id="databaser-dark-theme"
-  rel="stylesheet"
-  href="/assets/css/just-the-docs-databaser-dark.css"
-  media="(prefers-color-scheme: dark)">
+<script src="/assets/js/figure-viewer.js?v=1791833970" defer></script>
 
-<script>
-  (function () {
-    var preference = null;
-    try {
-      preference = window.localStorage.getItem("databaser-theme");
-    } catch (error) {
-      preference = null;
-    }
 
-    if (preference !== "light" && preference !== "dark") {
-      preference = null;
-    }
-
-    var systemDark = window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var resolved = preference || (systemDark ? "dark" : "light");
-    var lightTheme = document.getElementById("databaser-light-theme");
-    var darkTheme = document.getElementById("databaser-dark-theme");
-
-    if (preference === "dark") {
-      lightTheme.media = "not all";
-      darkTheme.media = "all";
-    } else if (preference === "light") {
-      lightTheme.media = "all";
-      darkTheme.media = "not all";
-    }
-
-    document.documentElement.dataset.databaserTheme = resolved;
-    document.documentElement.style.colorScheme = resolved;
-  }());
-</script>
-
-<script src="/assets/js/theme-toggle.js" defer></script>
 </head>
 <body>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
@@ -179,9 +162,8 @@
   
     <header class="side-bar">
   <div class="site-header">
-    <a href="/" class="site-title lh-tight">
-  <div class="site-logo" role="img" aria-label="Databaser"></div>
-
+    <a href="/" class="site-title lh-tight"><span class="brand-mark" aria-hidden="true" style="--brand-mark: url('/assets/images/databaser-mark.svg')"></span>
+<span class="brand-name">Databaser</span>
 </a>
     <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
@@ -191,9 +173,17 @@
   <nav aria-label="Main" id="site-nav" class="site-nav">
   
   
-    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><a href="/docs/lasvag/" class="nav-list-link">Läs och öva stegvis</a></li><li class="nav-list-item"><a href="/docs/ai-som-studiestod/" class="nav-list-link">Använd AI för att undersöka din lösning</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
-      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/fran-modell-till-relationsschema/" class="nav-list-link">7. Från modell till relationsschema</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/funktionella-beroenden/" class="nav-list-link">8. Funktionella beroenden och redundans</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/normalisering/" class="nav-list-link">9. Normalisering steg för steg</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del II – Frågor och förändring submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-2-fragor/" class="nav-list-link">Del II – Frågor och förändring</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-2-fragor/mangder-och-relationer/" class="nav-list-link">10. Mängder och relationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/fran-informationsbehov-till-databasfraga/" class="nav-list-link">11. Operationer på relationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/hamta-data-med-sql/" class="nav-list-link">12. Hämta data med SQL</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/sammanfoga-tabeller-med-join/" class="nav-list-link">13. Sammanfoga tabeller med JOIN</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/sammanfatta-och-gruppera-data/" class="nav-list-link">14. Sammanfatta och gruppera data</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/underfragor-och-mangdoperationer/" class="nav-list-link">15. Underfrågor och mängdoperationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/skapa-tabeller-och-integritetsvillkor/" class="nav-list-link">16. Skapa tabeller och integritetsvillkor</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/forandra-data-med-sql/" class="nav-list-link">17. Förändra data med SQL</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del III – Transaktioner och samtidighet submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-3-transaktioner/" class="nav-list-link">Del III – Transaktioner och samtidighet</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-3-transaktioner/transaktioner-som-sammanhallna-enheter/" class="nav-list-link">18. Transaktioner som sammanhållna enheter</a></li><li class="nav-list-item"><a href="/docs/del-3-transaktioner/samtidighet-och-transaktionsproblem/" class="nav-list-link">19. Samtidighet och transaktionsproblem</a></li><li class="nav-list-item"><a href="/docs/del-3-transaktioner/samtidighetskontroll-med-las/" class="nav-list-link">20. Samtidighetskontroll med lås</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del IV – Åtkomst, ansvar och perspektiv submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-4-perspektiv/" class="nav-list-link">Del IV – Åtkomst, ansvar och perspektiv</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-4-perspektiv/index-och-fysisk-atkomst/" class="nav-list-link">21. Index och fysisk åtkomst</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/databasadministration/" class="nav-list-link">22. Databasadministration och säker användning</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/informationskvalitet/" class="nav-list-link">23. Informationskvalitet – när går uppgifterna att använda?</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/begrepp-identitet-och-informationssystem/" class="nav-list-link">24. Begrepp, identitet och informationssystem</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/andra-satt-att-organisera-data/" class="nav-list-link">25. Andra sätt att organisera data</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/fran-behov-till-databas/" class="nav-list-link">26. Från behov till fungerande databas</a></li></ul></li><li class="nav-list-item"><a href="/docs/arbeta-praktiskt/" class="nav-list-link">Kör SQL-exemplen</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Verktygsfördjupning submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/fordjupning/" class="nav-list-link">Verktygsfördjupning</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/fordjupning/sqlite-tva-anslutningar/" class="nav-list-link">Två anslutningar i SQLite</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
   
 </nav>
 
@@ -227,20 +217,18 @@
 </div>
 
   
-  <button
-  id="theme-toggle"
-  class="theme-toggle"
-  type="button"
-  aria-label="Byt färgtema"
-  title="Byt färgtema">
-  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="12" cy="12" r="4"></circle>
-    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
-  </svg>
-  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"></path>
-  </svg>
-</button>
+  <div class="theme-control">
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Byt färgtema" title="Byt färgtema">
+    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
+      <circle cx="12" cy="12" r="4"/>
+    </svg>
+    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/>
+    </svg>
+  </button>
+  <span id="theme-status" class="sr-only" role="status"></span>
+</div>
   
 </div>
 
@@ -265,30 +253,15 @@
 </h1>
     
 
-<p>En relationsdatabas organiserar data i <strong>tabeller</strong>. Det kan först likna ett
-kalkylblad, men en databastabell har en uttalad struktur: varje rad beskriver
-en förekomst av samma slags sak och varje kolumn har en bestämd betydelse.</p>
+<aside class="chapter-guide" aria-label="Läsanvisning">
+  <p class="chapter-guide-label">Grundspår · <a href="/docs/lasvag/">Om läsvägen</a></p>
+  <p><strong>Utgångspunkt:</strong> Kapitel 2: en databas är en organiserad datasamling.</p>
+  <p><strong>Fokus:</strong> Läs vad en rad, kolumn och cell betyder.</p>
+</aside>
 
-<p>Vi börjar med den praktiska tabellbilden. De mer formella orden <em>relation</em>,
-<em>tupel</em> och <em>domän</em> kan introduceras senare, när de hjälper oss att resonera mer
-precist.</p>
+<p>När många uppgifter ska registreras behöver de få en form som går att använda även efter att fler rader har tillkommit. I en <strong>relationsdatabas</strong> organiseras uppgifterna i tabeller, där varje kolumn har en bestämd betydelse och varje rad följer samma struktur. Likheten med ett kalkylblad ger en första ingång, men det centrala är vilka företeelser raderna beskriver och vilka regler som ska gälla för dem.</p>
 
-<div class="learning-objectives">
-<h2 id="efter-kapitlet-kan-du">
-  
-  
-    <a href="#efter-kapitlet-kan-du" class="anchor-heading" aria-labelledby="efter-kapitlet-kan-du"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Efter kapitlet kan du
-  
-  
-</h2>
-    
-
-  <ul>
-    <li>förklara vad tabell, rad, kolumn och schema betyder;</li>
-    <li>granska om en tabell har en tydlig betydelse;</li>
-    <li>skilja tabellens struktur från dess aktuella innehåll.</li>
-  </ul>
-</div>
+<p>Hos Nordic Brew behöver kundernas namn och kontaktuppgifter få en sådan gemensam form. Genom att följa några kundrader ska vi se hur tabellens struktur hjälper oss att förstå ett enskilt värde och varför samma struktur behöver gälla när fler kunder tillkommer.</p>
 <h2 id="31-en-tabell-beskriver-ett-slags-företeelse">
   
   
@@ -298,14 +271,15 @@ precist.</p>
 </h2>
     
 
-<p>Nordic Brew behöver hålla reda på kunder. En första tabell kan se ut så här:</p>
+<p>För att Nordic Brew ska kunna hålla reda på sina kunder kan varje kund
+representeras av en rad i en tabell som inledningsvis ser ut så här:</p>
 
 <div class="table-wrapper"><table>
   <thead>
     <tr>
-      <th style="text-align: right">CustomerID</th>
-      <th>CustomerName</th>
-      <th>Email</th>
+      <th style="text-align: right"><code>CustomerID</code></th>
+      <th><code>CustomerName</code></th>
+      <th><code>Email</code></th>
     </tr>
   </thead>
   <tbody>
@@ -327,28 +301,28 @@ precist.</p>
   </tbody>
 </table></div>
 
-<p>Tabellen heter <code class="language-plaintext highlighter-rouge">Customer</code>.</p>
+<p>Tabellen heter <code class="language-plaintext highlighter-rouge">Customer</code>, och namnet anger vilket slags företeelse raderna
+beskriver. Varje <strong>rad</strong> motsvarar i detta fall en kund, medan varje <strong>kolumn</strong>
+beskriver samma egenskap för samtliga kunder. En cell får därmed sin betydelse
+genom mötet mellan raden och kolumnen: värdet <code class="language-plaintext highlighter-rouge">Mira Ek</code> hör både till kunden med
+<code class="language-plaintext highlighter-rouge">CustomerID</code> 17 och till egenskapen <code class="language-plaintext highlighter-rouge">CustomerName</code>.</p>
 
-<ul>
-  <li>Varje <strong>rad</strong> beskriver en kund.</li>
-  <li>Varje <strong>kolumn</strong> beskriver samma egenskap för alla kunder.</li>
-  <li>Varje cell innehåller ett värde som hör till radens kund och kolumnens
-betydelse.</li>
-</ul>
-
-<figure class="figure">
-  <img src="/assets/images/05-tabellens-delar.svg" alt="Tabellen Customer med tabellnamn, tre kolumner och tre rader. En rad och en kolumn är markerade." width="1040" height="500" loading="eager" decoding="async" />
-  <figcaption><strong>Figur 3.1.</strong> Tabellnamnet anger vad raderna representerar; kolumnnamnen anger vilka egenskaper som registreras.</figcaption>
+<figure class="figure" id="figur-3-1">
+  <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur 3.1, rulla vid behov i sidled" style="--figure-width: 900px">
+    <img src="/assets/images/05-tabellens-delar.svg" alt="Kundtabellen visar tre kunder. En rad markerar Samir Noor, medan en kolumn samlar kundernas e-postadresser." width="1040" height="500" loading="lazy" decoding="async" />
+  </div>
+  <figcaption><strong>Figur 3.1.</strong> En rad samlar uppgifter om en kund, medan en kolumn beskriver samma egenskap för alla kunder. <a href="/assets/images/05-tabellens-delar.svg">Visa figuren separat</a>.</figcaption>
 </figure>
 
-<p>Det räcker inte att värden råkar ligga i ett rutnät. Följande tabell blandar
-olika slags rader:</p>
+<p>Att värden råkar ligga i ett rutnät är däremot inte tillräckligt för att de ska
+bilda en väl utformad tabell. Problemet syns om olika slags rader blandas i
+samma struktur:</p>
 
 <div class="table-wrapper"><table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Value</th>
+      <th><code>Name</code></th>
+      <th><code>Value</code></th>
     </tr>
   </thead>
   <tbody>
@@ -367,8 +341,11 @@ olika slags rader:</p>
   </tbody>
 </table></div>
 
-<p>Den är svår att använda eftersom en rad inte har en stabil betydelse. En bättre
-utgångspunkt är separata tabeller för kunder, produkter och beställningar.</p>
+<p>Som kundregister är tabellen svår att använda eftersom en rad saknar en stabil betydelse. Den
+första raden tycks beskriva en kund, den andra en produkt och den tredje ett
+datum, vilket innebär att samma kolumn byter betydelse mellan raderna. Separata
+tabeller för kunder, produkter och beställningar ger därför en tydligare
+utgångspunkt.</p>
 <h2 id="32-kolumnens-namn-är-ett-löfte">
   
   
@@ -378,21 +355,16 @@ utgångspunkt är separata tabeller för kunder, produkter och beställningar.</
 </h2>
     
 
-<p>Kolumnen <code class="language-plaintext highlighter-rouge">Email</code> lovar att varje registrerat värde ska tolkas som en
-e-postadress till den kund som raden beskriver. Kolumnnamnet <code class="language-plaintext highlighter-rouge">Information</code>
-skulle inte ge samma vägledning.</p>
+<p>Om vi läser en kunds värde i kolumnen <code class="language-plaintext highlighter-rouge">Email</code> förväntar vi oss en e-postadress som hör till den kunden. Kolumnnamnet hjälper oss därmed att tolka värdet även om vi inte var med när det registrerades. Om samma kolumn i stället hette <code class="language-plaintext highlighter-rouge">Information</code> skulle vi behöva ytterligare förklaringar för att veta vad som hör hemma där.</p>
 
-<p>Bra kolumnnamn är:</p>
+<p>Ett bra kolumnnamn behöver vara tillräckligt specifikt för att vägleda läsaren.
+<code class="language-plaintext highlighter-rouge">OrderDate</code> är exempelvis tydligare än <code class="language-plaintext highlighter-rouge">Date</code>, eftersom namnet anger vilken
+händelse datumet hör till. Namngivningen bör dessutom vara konsekvent mellan
+tabeller, följa projektets valda språk och undvika tillfälliga
+presentationsnamn som <code class="language-plaintext highlighter-rouge">BlueColumn</code>.</p>
 
-<ul>
-  <li>specifika nog att förstå, exempelvis <code class="language-plaintext highlighter-rouge">OrderDate</code> i stället för <code class="language-plaintext highlighter-rouge">Date</code>;</li>
-  <li>konsekventa mellan tabeller;</li>
-  <li>fria från tillfälliga presentationer som <code class="language-plaintext highlighter-rouge">BlueColumn</code>;</li>
-  <li>skrivna på det språk och i den stil som projektet har valt.</li>
-</ul>
-
-<p>I kompendiets modeller och kod använder vi engelska identifierare. Därför
-skriver vi <code class="language-plaintext highlighter-rouge">Customer</code>, <code class="language-plaintext highlighter-rouge">OrderDate</code> och <code class="language-plaintext highlighter-rouge">ProductName</code>. Förklaringarna förblir
+<p>Modellerna och kodexemplen nedan använder därför engelska identifierare som
+<code class="language-plaintext highlighter-rouge">Customer</code>, <code class="language-plaintext highlighter-rouge">OrderDate</code> och <code class="language-plaintext highlighter-rouge">ProductName</code>, medan förklaringarna är skrivna på
 svenska.</p>
 <h2 id="33-en-cell-bör-innehålla-ett-värde">
   
@@ -408,8 +380,8 @@ svenska.</p>
 <div class="table-wrapper"><table>
   <thead>
     <tr>
-      <th style="text-align: right">CustomerID</th>
-      <th>PhoneNumbers</th>
+      <th style="text-align: right"><code>CustomerID</code></th>
+      <th><code>PhoneNumbers</code></th>
     </tr>
   </thead>
   <tbody>
@@ -420,10 +392,10 @@ svenska.</p>
   </tbody>
 </table></div>
 
-<p>Två telefonnummer har lagrats som en text. Det blir svårt att söka efter ett
-visst nummer, kontrollera format eller ange vilket som är primärt. Om
-telefonnummer behöver hanteras var för sig bör de registreras var för sig,
-exempelvis i en separat tabell.</p>
+<p>Här har två telefonnummer lagrats som ett enda textvärde. Det gör det svårt att
+söka efter ett visst nummer, kontrollera varje nummers format eller ange vilket
+som är det primära. Om telefonnumren behöver hanteras var för sig bör
+registreringen därför också skilja dem åt, exempelvis genom en separat tabell.</p>
 
 <p>Detta betyder inte att all text måste delas upp. Om Nordic Brew aldrig behöver
 behandla gatunamn och husnummer separat kan en leveransadress ibland hanteras
@@ -438,17 +410,15 @@ verksamheten faktiskt har.</p>
 </h2>
     
 
-<p>Tabellens <strong>schema</strong> beskriver den relativt stabila strukturen: tabellnamn,
-kolumnnamn och regler för tillåtna värden. Raderna är tabellens aktuella
-innehåll.</p>
+<p>Vi behöver också skilja tabellens form från de uppgifter som råkar finnas i den just nu. Tabellens <strong>schema</strong> beskriver formen, bland annat dess namn, kolumner och regler för tillåtna värden. De registrerade raderna utgör däremot det aktuella innehållet. Den skillnaden gör det möjligt att lägga till en kund utan att varje gång behöva konstruera en ny sorts tabell.</p>
 
-<p>I dag kan <code class="language-plaintext highlighter-rouge">Customer</code> innehålla tre rader och i morgon fyra. Innehållet har då
-ändrats, men strukturen är densamma. Om kolumnen <code class="language-plaintext highlighter-rouge">InvoiceReference</code> läggs till
-har strukturen ändrats.</p>
+<p>Anta att <code class="language-plaintext highlighter-rouge">Customer</code> innehåller de tre kunderna från avsnitt 3.1. När Ada Lind registreras som kund 42 får tabellen en fjärde rad, men den har fortfarande samma kolumner och regler. Det är alltså innehållet som har förändrats. Om företaget i stället lägger till kolumnen <code class="language-plaintext highlighter-rouge">InvoiceReference</code>, så att en ny egenskap kan registreras för kunderna, ändras även schemat.</p>
 
-<figure class="figure">
-  <img src="/assets/images/06-schema-och-innehall.svg" alt="Ett stabilt schema för Customer jämförs med tabellinnehåll vid två tidpunkter där en ny kund har lagts till." width="1040" height="470" loading="lazy" decoding="async" />
-  <figcaption><strong>Figur 3.2.</strong> Schemat anger formen; innehållet kan förändras utan att formen gör det.</figcaption>
+<figure class="figure" id="figur-3-2">
+  <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur 3.2, rulla vid behov i sidled" style="--figure-width: 900px">
+    <img src="/assets/images/06-schema-och-innehall.svg" alt="Customer har samma tre kolumner på måndag och tisdag. På tisdagen har en fjärde kund, Ada Lind, tillkommit." width="1040" height="470" loading="lazy" decoding="async" />
+  </div>
+  <figcaption><strong>Figur 3.2.</strong> En ny kund tillför en rad utan att tabellens schema behöver ändras. <a href="/assets/images/06-schema-och-innehall.svg">Visa figuren separat</a>.</figcaption>
 </figure>
 
 <p>Ett förenklat schema kan skrivas:</p>
@@ -456,8 +426,8 @@ har strukturen ändrats.</p>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Customer(CustomerID, CustomerName, Email)
 </code></pre></div></div>
 
-<p>Notationen säger ännu inget om exakt SQL-syntax. Den ger oss bara ett kompakt
-sätt att beskriva tabellens namn och kolumner.</p>
+<p>Notationen är inte färdig SQL, utan fungerar som ett kompakt sätt att beskriva
+tabellens namn och kolumner innan implementationens detaljer läggs till.</p>
 <h2 id="35-vilka-värden-får-förekomma">
   
   
@@ -467,13 +437,9 @@ sätt att beskriva tabellens namn och kolumner.</p>
 </h2>
     
 
-<p>En kolumn behöver regler för vilka värden som är rimliga. <code class="language-plaintext highlighter-rouge">Quantity</code> kan
-exempelvis vara ett heltal större än noll. <code class="language-plaintext highlighter-rouge">OrderDate</code> ska innehålla datum och
-<code class="language-plaintext highlighter-rouge">Email</code> text som verksamheten behandlar som en e-postadress.</p>
+<p>För att innehållet i en kolumn ska kunna tolkas konsekvent behöver det finnas regler för vilka värden som får lagras där. Om <code class="language-plaintext highlighter-rouge">Quantity</code> beskriver antalet beställda förpackningar är ett heltal större än noll en rimlig regel, medan <code class="language-plaintext highlighter-rouge">OrderDate</code> behöver representera ett datum. För <code class="language-plaintext highlighter-rouge">Email</code> behövs i stället text som verksamheten behandlar som en e-postadress. Reglerna skiljer sig alltså åt därför att kolumnerna beskriver olika slags uppgifter.</p>
 
-<p>En <strong>datatyp</strong> anger en teknisk kategori, exempelvis heltal eller text. Men
-datatypen uttrycker inte hela betydelsen. Både <code class="language-plaintext highlighter-rouge">CustomerID</code> och <code class="language-plaintext highlighter-rouge">Quantity</code> kan
-vara heltal, trots att det inte är meningsfullt att addera dem.</p>
+<p>De tekniska kategorierna för värden kallas <strong>datatyper</strong>. Exempelvis kan både kundnummer och antal förpackningar lagras som heltal, men den gemensamma datatypen gör dem inte till samma slags uppgift. Vi kan meningsfullt summera antalet förpackningar i flera beställningar; att summera kundnumren skulle däremot inte ge motsvarande verksamhetsinformation. Datatypen behöver därför läsas tillsammans med kolumnens betydelse och övriga regler.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -502,8 +468,43 @@ vara heltal, trots att det inte är meningsfullt att addera dem.</p>
   </tbody>
 </table></div>
 
-<p>Detaljerna om hur sådana regler skrivs i SQL kommer senare. Här är poängen att
-en tabell behöver både struktur och betydelse.</p>
+<p>Hur reglerna skrivs i SQL behandlas först när tabellerna ska implementeras. I
+detta skede är poängen att datatypen bara utgör en del av strukturen och måste
+kompletteras med den betydelse som verksamheten har gett kolumnen.</p>
+<h3 id="när-ett-värde-saknas">
+  
+  
+    <a href="#när-ett-värde-saknas" class="anchor-heading" aria-labelledby="när-ett-värde-saknas"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> När ett värde saknas
+  
+  
+</h3>
+    
+
+<p>Tänk dig att Nordic Brew också vill registrera ett frivilligt telefonnummer. En kund kan då vara känd även om numret saknas. I SQL kan frånvaron markeras med <code class="language-plaintext highlighter-rouge">NULL</code>, som varken är siffran noll eller texten ”<code>NULL</code>”. Tabellen nedan visar hur ett sådant tillägg skulle kunna se ut; telefonkolumnen ingår inte i våra senare startfiler.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: right"><code>CustomerID</code></th>
+      <th><code>Phone</code></th>
+      <th>Tolkning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">17</td>
+      <td>070-1111111</td>
+      <td>Ett nummer finns registrerat</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">24</td>
+      <td><code>NULL</code></td>
+      <td>Något nummer har inte registrerats</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Att Samirs telefonnummer saknas berättar ännu inte varför det saknas. Han kanske inte har något nummer, kanske inte vill lämna ut det eller kanske ännu inte har blivit tillfrågad. Vilka av dessa orsaker systemet behöver skilja åt beror på vad registret ska användas till, men ingen av dem motiverar att vi hittar på ett nummer för att fylla cellen. När SQL introduceras återkommer vi till hur sådana saknade uppgifter kan sökas fram.</p>
 <h2 id="36-radordningen-är-inte-betydelse">
   
   
@@ -513,12 +514,9 @@ en tabell behöver både struktur och betydelse.</p>
 </h2>
     
 
-<p>I ett kalkylblad kan ”raden ovanför” kännas som en stabil referens. I en
-databastabell ska rader i stället kunna kännas igen genom sina värden.</p>
+<p>När rader visas i ett kalkylblad är det lätt att använda deras positioner som referenser, exempelvis ”raden ovanför”. I en databas behöver vi kunna känna igen samma kund även om visningen sorteras om. Vi måste därför utgå från uppgifterna i raden och inte från dess nuvarande placering på skärmen.</p>
 
-<p>DBMS:et kan visa samma rader i en annan ordning nästa gång. Om ett resultat ska
-sorteras efter namn eller datum måste frågan uttryckligen begära det. Vi får
-alltså inte låta radens skärmposition betyda vilken kund eller order den är.</p>
+<p>Den ordning som visas på skärmen är inte en egenskap hos kunden eller beställningen. DBHS:et kan nämligen visa samma rader i en annan ordning nästa gång, om frågan inte uttryckligen begär sortering efter exempelvis namn eller datum. Därför behöver en rad kunna kännas igen oberoende av sin skärmposition.</p>
 
 <p>Nästa kapitel visar hur <strong>identifierare</strong> gör det möjligt att skilja rader åt
 och koppla samman tabeller.</p>
@@ -536,9 +534,9 @@ och koppla samman tabeller.</p>
 <div class="table-wrapper"><table>
   <thead>
     <tr>
-      <th>Book</th>
-      <th>Details</th>
-      <th>Borrower</th>
+      <th><code>Book</code></th>
+      <th><code>Details</code></th>
+      <th><code>Borrower</code></th>
     </tr>
   </thead>
   <tbody>
@@ -561,6 +559,24 @@ och koppla samman tabeller.</p>
   <li>Föreslå tydligare kolumner.</li>
   <li>Vilka data bör kanske ligga i andra tabeller?</li>
 </ol>
+
+<details class="answer">
+  <summary>Lösningsförslag till överföringsövningen</summary>
+
+  <p>Det första problemet är att ordet ”bok” inte har en bestämd betydelse i tabellen: det kan avse en titel, en utgåva eller ett fysiskt exemplar. Innan fler kolumner skapas behöver biblioteket därför bestämma vad en rad ska representera.</p>
+
+  <p>Därefter kan de blandade uppgifterna skiljas åt. Eftersom <code class="language-plaintext highlighter-rouge">Details</code> innehåller både utgivningsår och sidantal kan dessa få var sin kolumn, exempelvis <code class="language-plaintext highlighter-rouge">PublicationYear</code> och <code class="language-plaintext highlighter-rouge">PageCount</code>. På motsvarande sätt behöver listan i <code class="language-plaintext highlighter-rouge">Borrower</code> undersökas: om olika utlåningar ska kunna följas över tid behöver lånet och låntagaren beskrivas så att varje händelse och person går att identifiera. Ett bra första svar förklarar dessa skillnader; en fullständig tabellkonstruktion kan vänta tills betydelsen är klar.</p>
+</details>
+<h2 id="innan-du-går-vidare">
+  
+  
+    <a href="#innan-du-går-vidare" class="anchor-heading" aria-labelledby="innan-du-går-vidare"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Innan du går vidare
+  
+  
+</h2>
+    
+
+<p>Peka ut en rad och en kolumn i <code>Customer</code>. Formulera därefter skillnaden mellan att lägga till en kundrad och att lägga till en ny kolumn för telefonnummer.</p>
 <h2 id="kontrollfrågor">
   
   
@@ -578,13 +594,23 @@ och koppla samman tabeller.</p>
 </ol>
 
 <details class="answer">
-  <summary>Korta svar</summary>
+  <summary>Svar med förklaringar</summary>
+
   <ol>
-    <li>En enskild kund.</li>
-    <li>Schemat anger strukturen; innehållet är de rader som finns just nu.</li>
-    <li>Namnet säger inte vilken egenskap eller betydelse värdena har.</li>
-    <li>Visningsordningen är inte en stabil identifiering av raden.</li>
+    <li>
+      <p>En rad ska representera en kund enligt den definition som används i just modellen. Kolumnerna beskriver då olika egenskaper hos samma kund, exempelvis kundnummer, namn och e-postadress. Om en rad i stället ibland beskriver en beställning och ibland en kund blir den svår att tolka, eftersom kolumnvärdena inte längre bildar samma slags påstående.</p>
+    </li>
+    <li>
+      <p>Schemat beskriver vilka kolumner tabellen har och hur raderna ska vara uppbyggda. Det aktuella innehållet är de rader som finns lagrade vid ett visst tillfälle. När Mira registreras tillkommer en kundrad utan att schemat behöver ändras; om alla kunder i stället ska kunna få en ny sorts uppgift kan själva strukturen behöva utvidgas.</p>
+    </li>
+    <li>
+      <p>Namnet <code class="language-plaintext highlighter-rouge">Information</code> säger inte vilket slags uppgift kolumnen ska innehålla. En användare kan skriva en adress och en annan en kommentar, vilket gör både tolkning och kontroll svårare. Ett namn som <code class="language-plaintext highlighter-rouge">Email</code> ger en tydligare förväntan, men behöver fortfarande kompletteras med en definition av vad adressen ska användas till.</p>
+    </li>
+    <li>
+      <p>Raderna har ingen beständig betydelse genom sin plats i en visad tabell. En annan sortering eller hämtning kan flytta det som nyss visades ovanför. För att hänvisa till samma kund behöver vi därför en identifierare som hör till kunden, inte en position som råkar gälla i ett visst gränssnitt.</p>
+    </li>
   </ol>
+
 </details>
 <h2 id="sammanfattning">
   
@@ -595,12 +621,7 @@ och koppla samman tabeller.</p>
 </h2>
     
 
-<ul>
-  <li>En tabell beskriver ett slags företeelse.</li>
-  <li>Varje rad beskriver en förekomst och varje kolumn en bestämd egenskap.</li>
-  <li>Schemat är strukturen; raderna är det föränderliga innehållet.</li>
-  <li>Datatyper hjälper, men verksamhetsregler behövs för att uttrycka betydelsen.</li>
-</ul>
+<p>En tabells struktur gör det möjligt att tolka varje värde som en egenskap hos det som raden beskriver. Schemat anger formen, medan raderna kan förändras inom den. Tydliga kolumner och datatyper hjälper oss att hålla ordning på innehållet, men vi behöver också ange vad värdena betyder och hur saknade uppgifter ska förstås.</p>
 
           
 

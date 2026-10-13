@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
   <title id="title">Konceptuell biblioteksmodell</title>
   <desc id="desc">BOOK_EDITION beskriver COPY. MEMBER makes LOAN och LOAN concerns COPY. Entitetstyperna visar konceptuella identifierare och några attribut men ingen multiplicitet.</desc>
-  <style>.h{font:700 23px Arial,sans-serif;fill:#173f5f}.t{font:16px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.head{fill:#173f5f}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}.verb{font:italic 15px Arial,sans-serif;fill:#116466}</style>
+  <style>.h{font:700 23px Arial,sans-serif;fill:#173f5f}.t{font:20px Arial,sans-serif;fill:#243447}.s{font:17px Arial,sans-serif;fill:#52606d}.head{fill:#173f5f}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}.verb{font:italic 17px Arial,sans-serif;fill:#116466}</style>
   <rect width="1120" height="620" rx="24" fill="#f5f8fb"/>
   <text x="48" y="52" class="h">Bibliotek: begrepp före tabeller</text>
   <g transform="translate(55 105)"><rect width="235" height="190" rx="14" class="box"/><rect width="235" height="52" rx="14" class="head"/><rect y="38" width="235" height="14" class="head"/><text x="18" y="33" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#fff">BOOK_EDITION</text><text x="18" y="86" class="s">ID · ISBN</text><text x="18" y="120" class="t">Title</text><text x="18" y="151" class="t">PublicationYear</text></g>

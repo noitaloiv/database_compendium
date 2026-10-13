@@ -6,14 +6,33 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link
-    id="databaser-light-theme"
-    rel="stylesheet"
-    href="/assets/css/just-the-docs-default.css"
-    media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
+  <link id="databaser-theme-stylesheet" rel="stylesheet" blocking="render"
+    data-light-url="/assets/css/just-the-docs-default.css?v=1791833970"
+    data-dark-url="/assets/css/just-the-docs-databaser-dark.css?v=1791833970">
+  <script id="databaser-theme-bootstrap">
+    (function () {
+      var root = document.documentElement;
+      var preference = null;
+      try { preference = localStorage.getItem("databaser-theme"); } catch (error) {}
+      if (preference !== "light" && preference !== "dark") preference = null;
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = preference || (dark ? "dark" : "light");
+      root.dataset.databaserTheme = theme;
+      if (window.HTMLDialogElement) root.classList.add("figure-viewer-ready");
+      root.style.colorScheme = theme;
+      var sheet = document.getElementById("databaser-theme-stylesheet");
+      sheet.dataset.theme = theme;
+      sheet.href = sheet.dataset[theme + "Url"];
+    }());
+  </script>
+  <noscript>
+    <link rel="stylesheet" href="/assets/css/just-the-docs-default.css?v=1791833970" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/assets/css/just-the-docs-databaser-dark.css?v=1791833970" media="(prefers-color-scheme: dark)">
+  </noscript>
+  <style id="jtd-head-nav-stylesheet">
+    .site-nav ul li a { background-image: linear-gradient(90deg, transparent, var(--db-nav-feedback)); }
+  </style>
   <style id="jtd-nav-activation">
     
 
@@ -29,14 +48,14 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(5) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > ul > li:nth-child(5) > a {
       font-weight: 600;
       text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg,
-    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(5) > button svg {
+    }.site-nav > ul.nav-list:first-child > li:nth-child(4) > button svg,
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > ul > li:nth-child(5) > button svg {
       transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list,
-    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(5) > ul.nav-list {
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list,
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list > li.nav-list-item:nth-child(5) > ul.nav-list {
       display: block;
     }
   </style>
@@ -48,8 +67,8 @@
   
   <script src="/assets/js/just-the-docs.js" defer></script>
 
-  
-
+  <link rel="icon" href="/favicon.ico?v=1791833970" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/images/databaser-mark.svg?v=1791833970" type="image/svg+xml" sizes="any">
 
   <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>Konceptuell modellering | Databaser</title>
@@ -68,47 +87,11 @@
 {"@context":"https://schema.org","@type":"WebPage","description":"Från verksamhetens frågor till en avgränsad konceptuell modell.","headline":"Konceptuell modellering","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/docs/del-1-grunder/konceptuell-modellering/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  <meta name="color-scheme" content="light dark">
+  <script src="/assets/js/theme-toggle.js?v=1791833970" defer></script>
 
-<link
-  id="databaser-dark-theme"
-  rel="stylesheet"
-  href="/assets/css/just-the-docs-databaser-dark.css"
-  media="(prefers-color-scheme: dark)">
+<script src="/assets/js/figure-viewer.js?v=1791833970" defer></script>
 
-<script>
-  (function () {
-    var preference = null;
-    try {
-      preference = window.localStorage.getItem("databaser-theme");
-    } catch (error) {
-      preference = null;
-    }
 
-    if (preference !== "light" && preference !== "dark") {
-      preference = null;
-    }
-
-    var systemDark = window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var resolved = preference || (systemDark ? "dark" : "light");
-    var lightTheme = document.getElementById("databaser-light-theme");
-    var darkTheme = document.getElementById("databaser-dark-theme");
-
-    if (preference === "dark") {
-      lightTheme.media = "not all";
-      darkTheme.media = "all";
-    } else if (preference === "light") {
-      lightTheme.media = "all";
-      darkTheme.media = "not all";
-    }
-
-    document.documentElement.dataset.databaserTheme = resolved;
-    document.documentElement.style.colorScheme = resolved;
-  }());
-</script>
-
-<script src="/assets/js/theme-toggle.js" defer></script>
 </head>
 <body>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
@@ -179,9 +162,8 @@
   
     <header class="side-bar">
   <div class="site-header">
-    <a href="/" class="site-title lh-tight">
-  <div class="site-logo" role="img" aria-label="Databaser"></div>
-
+    <a href="/" class="site-title lh-tight"><span class="brand-mark" aria-hidden="true" style="--brand-mark: url('/assets/images/databaser-mark.svg')"></span>
+<span class="brand-name">Databaser</span>
 </a>
     <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
@@ -191,9 +173,17 @@
   <nav aria-label="Main" id="site-nav" class="site-nav">
   
   
-    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><a href="/docs/lasvag/" class="nav-list-link">Läs och öva stegvis</a></li><li class="nav-list-item"><a href="/docs/ai-som-studiestod/" class="nav-list-link">Använd AI för att undersöka din lösning</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
-      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/fran-modell-till-relationsschema/" class="nav-list-link">7. Från modell till relationsschema</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/funktionella-beroenden/" class="nav-list-link">8. Funktionella beroenden och redundans</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/normalisering/" class="nav-list-link">9. Normalisering steg för steg</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del II – Frågor och förändring submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-2-fragor/" class="nav-list-link">Del II – Frågor och förändring</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-2-fragor/mangder-och-relationer/" class="nav-list-link">10. Mängder och relationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/fran-informationsbehov-till-databasfraga/" class="nav-list-link">11. Operationer på relationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/hamta-data-med-sql/" class="nav-list-link">12. Hämta data med SQL</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/sammanfoga-tabeller-med-join/" class="nav-list-link">13. Sammanfoga tabeller med JOIN</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/sammanfatta-och-gruppera-data/" class="nav-list-link">14. Sammanfatta och gruppera data</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/underfragor-och-mangdoperationer/" class="nav-list-link">15. Underfrågor och mängdoperationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/skapa-tabeller-och-integritetsvillkor/" class="nav-list-link">16. Skapa tabeller och integritetsvillkor</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/forandra-data-med-sql/" class="nav-list-link">17. Förändra data med SQL</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del III – Transaktioner och samtidighet submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-3-transaktioner/" class="nav-list-link">Del III – Transaktioner och samtidighet</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-3-transaktioner/transaktioner-som-sammanhallna-enheter/" class="nav-list-link">18. Transaktioner som sammanhållna enheter</a></li><li class="nav-list-item"><a href="/docs/del-3-transaktioner/samtidighet-och-transaktionsproblem/" class="nav-list-link">19. Samtidighet och transaktionsproblem</a></li><li class="nav-list-item"><a href="/docs/del-3-transaktioner/samtidighetskontroll-med-las/" class="nav-list-link">20. Samtidighetskontroll med lås</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del IV – Åtkomst, ansvar och perspektiv submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-4-perspektiv/" class="nav-list-link">Del IV – Åtkomst, ansvar och perspektiv</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-4-perspektiv/index-och-fysisk-atkomst/" class="nav-list-link">21. Index och fysisk åtkomst</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/databasadministration/" class="nav-list-link">22. Databasadministration och säker användning</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/informationskvalitet/" class="nav-list-link">23. Informationskvalitet – när går uppgifterna att använda?</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/begrepp-identitet-och-informationssystem/" class="nav-list-link">24. Begrepp, identitet och informationssystem</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/andra-satt-att-organisera-data/" class="nav-list-link">25. Andra sätt att organisera data</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/fran-behov-till-databas/" class="nav-list-link">26. Från behov till fungerande databas</a></li></ul></li><li class="nav-list-item"><a href="/docs/arbeta-praktiskt/" class="nav-list-link">Kör SQL-exemplen</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Verktygsfördjupning submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/fordjupning/" class="nav-list-link">Verktygsfördjupning</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/fordjupning/sqlite-tva-anslutningar/" class="nav-list-link">Två anslutningar i SQLite</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
   
 </nav>
 
@@ -227,20 +217,18 @@
 </div>
 
   
-  <button
-  id="theme-toggle"
-  class="theme-toggle"
-  type="button"
-  aria-label="Byt färgtema"
-  title="Byt färgtema">
-  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="12" cy="12" r="4"></circle>
-    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
-  </svg>
-  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"></path>
-  </svg>
-</button>
+  <div class="theme-control">
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Byt färgtema" title="Byt färgtema">
+    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
+      <circle cx="12" cy="12" r="4"/>
+    </svg>
+    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/>
+    </svg>
+  </button>
+  <span id="theme-status" class="sr-only" role="status"></span>
+</div>
   
 </div>
 
@@ -265,30 +253,20 @@
 </h1>
     
 
-<p>I föregående kapitel använde vi färdiga tabeller. Men vem bestämmer vilka
-tabeller som behövs? Var hör en leveransadress hemma? Är en kund alltid en
-person, eller kan en organisation vara kund? Sådana frågor kan inte lösas genom
-att välja en SQL-datatyp.</p>
+<aside class="chapter-guide" aria-label="Läsanvisning">
+  <p class="chapter-guide-label">Grundspår · <a href="/docs/lasvag/">Om läsvägen</a></p>
+  <p><strong>Utgångspunkt:</strong> Kapitel 1–4: skilj betydelse, företeelse och identifierare.</p>
+  <p><strong>Fokus:</strong> Gå från en kort verksamhetsbeskrivning till definierade begrepp.</p>
+</aside>
 
-<p><strong>Konceptuell modellering</strong> används för att beskriva ett avgränsat
-informationsbehov innan vi bestämmer tabeller och teknisk implementation.</p>
+<p>I föregående kapitel utgick vi från färdiga tabeller, men innan sådana tabeller
+kan skapas måste någon avgöra vad de ska representera. Var hör exempelvis en
+leveransadress hemma, och ska ordet kund bara omfatta personer eller även
+organisationer? Den typen av frågor kan inte besvaras genom att välja en
+SQL-datatyp, eftersom de handlar om verksamhetens begrepp snarare än om teknisk
+lagring.</p>
 
-<div class="learning-objectives">
-<h2 id="efter-kapitlet-kan-du">
-  
-  
-    <a href="#efter-kapitlet-kan-du" class="anchor-heading" aria-labelledby="efter-kapitlet-kan-du"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Efter kapitlet kan du
-  
-  
-</h2>
-    
-
-  <ul>
-    <li>formulera syfte och avgränsning för en modell;</li>
-    <li>skilja entitetstyp, entitet, attribut, identifierare och association;</li>
-    <li>pröva en modell mot konkreta frågor och exempel.</li>
-  </ul>
-</div>
+<p>Med <strong>konceptuell modellering</strong> försöker vi reda ut sådana betydelser och beskriva hur de hör ihop. Arbetet börjar i ett avgränsat informationsbehov och hjälper oss att avgöra vad systemet behöver kunna representera. Först därefter väljer vi hur representationen ska genomföras i tabeller och programvara.</p>
 <h2 id="51-en-modell-är-en-avsiktlig-förenkling">
   
   
@@ -298,22 +276,15 @@ informationsbehov innan vi bestämmer tabeller och teknisk implementation.</p>
 </h2>
     
 
-<p>En modell tar med det som behövs för ett visst syfte och lämnar annat utanför.
-En karta över busslinjer visar hållplatser och byten men inte varje träd längs
-vägen. En ritning över ett hus och en utrymningsplan beskriver samma byggnad på
-olika sätt eftersom de stödjer olika uppgifter.</p>
+<p>En modell hjälper oss att undersöka något genom att välja ut vissa aspekter och lämna andra utanför. En karta över busslinjer visar exempelvis hållplatser och bytesmöjligheter, eftersom de behövs för att planera en resa, men behöver inte visa varje träd längs vägen. På motsvarande sätt kan en ritning och en utrymningsplan beskriva samma byggnad med olika innehåll: de är avsedda att stödja olika uppgifter.</p>
 
-<p>På samma sätt kan Nordic Brew beskriva kaffe som:</p>
+<p>På samma sätt kan Nordic Brew beskriva kaffe som en produkt som kunder kan
+beställa, ett lagersaldo, ett produktionsparti som kan återkallas eller en
+råvara med ett visst ursprung och inköpsavtal. Beskrivningarna motsäger inte
+varandra, men framhäver olika delar av verksamheten.</p>
 
-<ul>
-  <li>en produkt som kunder kan beställa;</li>
-  <li>ett lagersaldo;</li>
-  <li>ett produktionsparti som kan återkallas;</li>
-  <li>en råvara med ursprung och inköpsavtal.</li>
-</ul>
-
-<p>Ingen av beskrivningarna är fullständig. Den relevanta modellen beror på vilket
-arbete som ska stödjas.</p>
+<p>Eftersom ingen enskild beskrivning är fullständig måste modellens innehåll
+avgöras utifrån det arbete och de frågor som den är avsedd att stödja.</p>
 
 <blockquote class="important">
   <p>Ett korrekt ritat diagram kan fortfarande vara en dålig modell. Symbolerna
@@ -342,12 +313,16 @@ produkter, kvantiteter och avtalade priser som ingår i varje beställning.</p>
 den första modellen.</p>
 </blockquote>
 
-<p>Avgränsningen är inte ett påstående om att dessa företeelser är oviktiga. Den
-gör uppgiften hanterbar och visar vad modellen inte kan besvara.</p>
+<p>Avgränsningen innebär inte att lager, leveranser och betalningar är oviktiga.
+Den gör i stället analysen hanterbar och tydliggör vilka frågor den första
+modellen inte är avsedd att besvara. Om syftet senare förändras kan även
+avgränsningen behöva omprövas.</p>
 
-<figure class="figure">
-  <img src="/assets/images/09-fran-fraga-till-modell.svg" alt="En modelleringsprocess med verksamhetsfrågor, syfte och avgränsning, begrepp och regler samt en konceptuell modell som prövas mot exempel." width="1040" height="430" loading="eager" decoding="async" />
-  <figcaption><strong>Figur 5.1.</strong> Diagrammet är ett resultat av analysen, inte dess utgångspunkt.</figcaption>
+<figure class="figure" id="figur-5-1">
+  <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur 5.1, rulla vid behov i sidled" style="--figure-width: 900px">
+    <img src="/assets/images/09-fran-fraga-till-modell.svg" alt="Arbetet går från informationsbehov via syfte, avgränsning och begreppsanalys till en modell som prövas mot exempel. En återkoppling visar att analysen kan behöva revideras." width="1040" height="430" loading="lazy" decoding="async" />
+  </div>
+  <figcaption><strong>Figur 5.1.</strong> Diagrammet växer fram ur analysen och prövas sedan mot verksamhetens frågor. <a href="/assets/images/09-fran-fraga-till-modell.svg">Visa figuren separat</a>.</figcaption>
 </figure>
 <h2 id="53-entitetstyp-och-entitet">
   
@@ -359,14 +334,12 @@ gör uppgiften hanterbar och visar vad modellen inte kan besvara.</p>
     
 
 <p>En <strong>entitet</strong> är en individuell förekomst som verksamheten behöver kunna
-skilja från andra. Beställningen med ordernummer 1042 är en entitet.</p>
+skilja från andra, såsom beställningen med ordernummer 1042. En
+<strong>entitetstyp</strong> samlar i sin tur förekomster som har gemensam betydelse och
+gemensamma regler. <code class="language-plaintext highlighter-rouge">SALES_ORDER</code> är alltså entitetstypen, medan order 1042 är
+en enskild entitet av den typen.</p>
 
-<p>En <strong>entitetstyp</strong> samlar förekomster som har gemensam betydelse och regler.
-<code class="language-plaintext highlighter-rouge">SALES_ORDER</code> är en entitetstyp; order 1042 är en entitet av denna typ.</p>
-
-<p>Entitetstyper behöver inte vara fysiska saker. En bokning, betalning eller
-kursregistrering kan vara en entitet om individuella förekomster behöver
-identifieras och beskrivas.</p>
+<p>Det är informationsbehovet som avgör vad som behöver en egen identitet. Därför kan även händelser som bokningar, betalningar och kursregistreringar vara entiteter. Om två bokningar gäller samma person och rum men olika tidpunkter behöver vi kunna skilja dem åt, trots att ingen ny fysisk sak har uppstått.</p>
 
 <p>Vi namnger entitetstyper i singular och använder engelska identifierare:</p>
 
@@ -384,31 +357,26 @@ PRODUCT
     
 
 <p>Ett <strong>attribut</strong> beskriver en egenskap hos en entitetstyp. För <code class="language-plaintext highlighter-rouge">PRODUCT</code> kan
-<code class="language-plaintext highlighter-rouge">ProductName</code> och <code class="language-plaintext highlighter-rouge">CurrentListPrice</code> vara attribut.</p>
+exempelvis <code class="language-plaintext highlighter-rouge">ProductName</code> och <code class="language-plaintext highlighter-rouge">ListPriceOre</code> fungera som attribut, eftersom båda
+värdena beskriver en bestämd produkt.</p>
 
-<p>En <strong>konceptuell identifierare</strong> visar hur verksamheten skiljer en förekomst
-från en annan, exempelvis <code class="language-plaintext highlighter-rouge">ProductNumber</code>. I den konceptuella modellen märker
-vi identifieraren <code class="language-plaintext highlighter-rouge">ID</code>, inte <code class="language-plaintext highlighter-rouge">PK</code>. Primärnyckel hör till den senare
-tabellutformningen.</p>
+<p>För att kunna tala om en viss produkt behöver vi dessutom ett sätt att skilja den från andra. En <strong>konceptuell identifierare</strong>, exempelvis <code class="language-plaintext highlighter-rouge">ProductID</code>, uttrycker hur det görs i modellen. Vi märker den med <code class="language-plaintext highlighter-rouge">ID</code> för att visa att vi fortfarande beskriver verksamhetens förekomster. Begreppet primärnyckel används senare, när vi bestämmer hur dessa förekomster ska representeras som tabellrader.</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PRODUCT
-ID ProductNumber
+ID ProductID
    ProductName
-   CurrentListPrice
+   ListPriceOre
 </code></pre></div></div>
 
-<p>Fråga om ett föreslaget attribut:</p>
+<p>Det är inte alltid självklart om något bör vara ett attribut eller en egen
+entitetstyp. Ett förslag kan prövas genom att fråga om värdet beskriver en
+förekomst, om flera värden kan förekomma samtidigt, om det behöver en egen
+identitet eller egna samband och om historiska värden ska bevaras.</p>
 
-<ul>
-  <li>beskriver det en förekomst av entitetstypen?</li>
-  <li>kan det ha flera värden samtidigt?</li>
-  <li>behöver det egen identitet eller egna samband?</li>
-  <li>gäller värdet nu, eller ska historik bevaras?</li>
-</ul>
-
-<p>En leveransadress kan vara ett attribut i en enkel modell. Om adresser behöver
-återanvändas, historiseras eller valideras med egna regler kan <code class="language-plaintext highlighter-rouge">ADDRESS</code> i
-stället behöva vara en entitetstyp. Modellvalet beror på kraven.</p>
+<p>En leveransadress kan mot den bakgrunden fungera som ett attribut i en enkel
+modell. Om adresser däremot behöver återanvändas, historiseras eller valideras
+med egna regler kan <code class="language-plaintext highlighter-rouge">ADDRESS</code> behöva bli en egen entitetstyp. Det finns således
+inte ett generellt svar som är rätt oberoende av syftet.</p>
 <h2 id="55-associationer">
   
   
@@ -418,18 +386,17 @@ stället behöva vara en entitetstyp. Modellvalet beror på kraven.</p>
 </h2>
     
 
-<p>En <strong>association</strong> beskriver hur entiteter hör samman. Vi namnger associationen
-med ett verb så att den kan läsas som ett påstående:</p>
+<p>En <strong>association</strong> beskriver hur entiteter hör samman och namnges lämpligen med
+ett verb, så att linjen kan läsas som ett meningsfullt påstående:</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CUSTOMER places SALES_ORDER
 </code></pre></div></div>
 
-<p>Pilar eller linjer utan ett uttalat verb gör betydelsen lätt att misstolka.
-Samma två entitetstyper kan dessutom ha flera associationer. En anställd kan
-<em>leda</em> en avdelning och samtidigt <em>arbeta vid</em> en avdelning.</p>
+<p>Anta exempelvis att två rutor betecknar anställda och avdelningar. En linje mellan dem säger inte om en anställd <em>arbetar vid</em> eller <em>leder</em> avdelningen, och de två sambanden kan ha olika regler. Genom att namnge associationen med ett verb får läsaren hjälp att förstå påståendet och att skilja flera samband mellan samma entitetstyper åt.</p>
 
-<p>I nästa kapitel lägger vi till hur många förekomster som får delta. Här räcker
-det att identifiera att sambandet finns och kunna formulera vad det betyder.</p>
+<p>Till en början räcker det att identifiera sambandet och formulera dess
+betydelse. Därefter kan modellen preciseras genom att ange hur många
+förekomster som får delta i vardera riktningen.</p>
 <h2 id="56-ett-mindre-exempel-bibliotek">
   
   
@@ -439,8 +406,8 @@ det att identifiera att sambandet finns och kunna formulera vad det betyder.</p>
 </h2>
     
 
-<p>Ett bibliotek vill veta vilka fysiska exemplar som finns och vilka lån som har
-gjorts. Följande frågor ska kunna besvaras:</p>
+<p>Anta att ett bibliotek vill hålla reda på både sina fysiska exemplar och de lån
+som har gjorts. Informationsbehovet kan då preciseras genom följande frågor:</p>
 
 <ul>
   <li>Vilken bokutgåva beskriver ett exemplar?</li>
@@ -449,14 +416,13 @@ gjorts. Följande frågor ska kunna besvaras:</p>
 </ul>
 
 <figure class="figure">
-  <img src="/assets/images/10-konceptuell-modell-bibliotek.svg" alt="Konceptuell biblioteksmodell med entity types BookEdition, Copy, Member och Loan samt namngivna associationer." width="1120" height="620" loading="lazy" decoding="async" />
-  <figcaption><strong>Figur 5.2.</strong> Biblioteket skiljer bokutgåvan från det fysiska exemplaret. Multiplicitet läggs till i nästa kapitel.</figcaption>
+  <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur som kan rullas i sidled på smal skärm" style="--figure-width: 900px">
+  <img src="/assets/images/10-konceptuell-modell-bibliotek.svg" alt="Konceptuell biblioteksmodell med entitetstyperna BOOK_EDITION, COPY, MEMBER och LOAN samt namngivna associationer." width="1120" height="620" loading="lazy" decoding="async" />
+  </div>
+  <figcaption><strong>Figur 5.2.</strong> Biblioteket skiljer bokutgåvan från det fysiska exemplaret. Multiplicitet läggs till i nästa kapitel. <a href="/assets/images/10-konceptuell-modell-bibliotek.svg">Visa figuren separat</a>.</figcaption>
 </figure>
 
-<p>Varför behövs både <code class="language-plaintext highlighter-rouge">BOOK_EDITION</code> och <code class="language-plaintext highlighter-rouge">COPY</code>? Tre exemplar kan ha samma ISBN,
-titel och författare men olika streckkoder och olika lånehistorik. Om modellen
-bara innehöll boken skulle biblioteket inte kunna ange vilket fysiskt exemplar
-som lånats.</p>
+<p>Biblioteket kan äga tre exemplar av samma utgåva. De delar då uppgifter som <code>ISBN</code> och titel, men har olika streckkoder och kan vara utlånade till olika personer. Därför skiljer modellen <code class="language-plaintext highlighter-rouge">BOOK_EDITION</code> från <code class="language-plaintext highlighter-rouge">COPY</code>: utgåvan beskriver vad som har publicerats, medan exemplaret är det enskilda föremål som biblioteket kan lämna ut. När ett lån registreras måste det gå att följa just detta exemplar och dess lånehistorik.</p>
 <h2 id="57-från-text-till-modell-nordic-brew">
   
   
@@ -482,9 +448,7 @@ registreras kvantitet och det pris som avtalades vid köpet.</p>
 </h3>
     
 
-<p><code class="language-plaintext highlighter-rouge">CUSTOMER</code>, <code class="language-plaintext highlighter-rouge">SALES_ORDER</code> och <code class="language-plaintext highlighter-rouge">PRODUCT</code> framträder direkt. Men kvantitet och
-avtalat pris beskriver inte produkten generellt. De gäller produkten <strong>i en
-bestämd beställning</strong>. Därför behövs även begreppet <code class="language-plaintext highlighter-rouge">ORDER_LINE</code>.</p>
+<p>Orden kund, beställning och produkt ger oss först kandidaterna <code class="language-plaintext highlighter-rouge">CUSTOMER</code>, <code class="language-plaintext highlighter-rouge">SALES_ORDER</code> och <code class="language-plaintext highlighter-rouge">PRODUCT</code>. Därefter behöver vi undersöka vad kvantitet och avtalat pris beskriver. Produkten kan ju köpas i olika antal och till olika priser vid olika tillfällen. Uppgifterna gäller därför produkten <strong>i en bestämd beställning</strong>, vilket motiverar ett ytterligare begrepp: <code class="language-plaintext highlighter-rouge">ORDER_LINE</code>.</p>
 <h3 id="steg-2-formulera-associationerna">
   
   
@@ -508,9 +472,43 @@ bestämd beställning</strong>. Därför behövs även begreppet <code class="la
 </h3>
     
 
-<p><code class="language-plaintext highlighter-rouge">OrderDate</code> beskriver beställningen. <code class="language-plaintext highlighter-rouge">Quantity</code> och <code class="language-plaintext highlighter-rouge">AgreedUnitPrice</code>
-beskriver orderraden. <code class="language-plaintext highlighter-rouge">CurrentListPrice</code> kan beskriva produkten, men får inte
-ersätta det pris som faktiskt avtalades i en äldre order.</p>
+<p><code class="language-plaintext highlighter-rouge">OrderDate</code> beskriver beställningen som helhet, medan <code class="language-plaintext highlighter-rouge">Quantity</code> och
+<code class="language-plaintext highlighter-rouge">AgreedUnitPriceOre</code> beskriver en viss orderrad. Produkten kan samtidigt ha ett
+<code class="language-plaintext highlighter-rouge">ListPriceOre</code>, men det aktuella listpriset får inte ersätta det pris som
+faktiskt avtalades när en äldre order lades.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Uppgift</th>
+      <th style="text-align: right">Order 1042, produkt 501</th>
+      <th style="text-align: right">Order 1043, produkt 501</th>
+      <th>Vad beskriver den?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ProductName</code></td>
+      <td style="text-align: right">Brew coffee 500 g</td>
+      <td style="text-align: right">Brew coffee 500 g</td>
+      <td>Samma produkt</td>
+    </tr>
+    <tr>
+      <td><code>Quantity</code></td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">1</td>
+      <td>Produkten i en viss beställning</td>
+    </tr>
+    <tr>
+      <td><code>AgreedUnitPriceOre</code></td>
+      <td style="text-align: right">12900</td>
+      <td style="text-align: right">11900</td>
+      <td>Priset som avtalades på respektive orderrad</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>Tabellen hjälper oss att pröva placeringen av attributen. Produktnamnet beskriver samma produkt i båda beställningarna, medan antal och avtalat pris kan skilja sig åt. Därför behöver de senare uppgifterna höra till orderraden. Vi har kommit fram till en skillnad i betydelse innan vi har valt några SQL-kolumner eller främmande nycklar.</p>
 <h3 id="steg-4-pröva-med-ett-scenario">
   
   
@@ -520,9 +518,10 @@ ersätta det pris som faktiskt avtalades i en äldre order.</p>
 </h3>
     
 
-<p>Nordic Brew höjer listpriset på en produkt. Ska totalen för en redan gjord
-beställning ändras? Nej. Scenariot visar varför <code class="language-plaintext highlighter-rouge">AgreedUnitPrice</code> hör till
-orderraden.</p>
+<p>Anta att Nordic Brew höjer listpriset på en produkt efter att en kund redan har
+gjort sin beställning. Orderns totalbelopp ska då inte förändras i efterhand,
+vilket visar varför <code class="language-plaintext highlighter-rouge">AgreedUnitPriceOre</code> behöver beskriva orderraden och inte bara
+hämtas från produktens nuvarande listpris.</p>
 <h2 id="58-vanliga-tidiga-misstag">
   
   
@@ -541,7 +540,8 @@ orderraden.</p>
     
 
 <p>Om analysen börjar med främmande nycklar riskerar tekniska vanor att bestämma
-vilka verksamhetsbegrepp som syns. Börja med syfte, frågor och regler.</p>
+vilka verksamhetsbegrepp som blir synliga. Syfte, frågor och regler behöver
+därför etableras innan den tekniska representationen väljs.</p>
 <h3 id="att-göra-varje-substantiv-till-en-entitetstyp">
   
   
@@ -563,8 +563,10 @@ entiteter i ett annat syfte.</p>
 </h3>
     
 
-<p><code class="language-plaintext highlighter-rouge">PRODUCT</code> är en entitetstyp. Produkten <code class="language-plaintext highlighter-rouge">COF-250</code> är en individuell entitet.
-Rutan i modellen beskriver typen, inte en enskild produkt.</p>
+<p><code class="language-plaintext highlighter-rouge">PRODUCT</code> betecknar entitetstypen och beskriver därför de egenskaper och regler
+som är gemensamma för produkterna. Produkten med nummer <code class="language-plaintext highlighter-rouge">501</code> är däremot en individuell entitet
+av denna typ; rutan i modellen beskriver alltså typen och inte just den
+enskilda produkten.</p>
 <h2 id="59-överföringsövning-vårdbokning">
   
   
@@ -587,6 +589,94 @@ ingår inte i den första modellen.</p>
   <li>Namnge associationerna med verb.</li>
   <li>Skriv två frågor som modellen ska kunna besvara.</li>
 </ol>
+
+<details class="answer">
+  <summary>Lösningsförslag steg för steg</summary>
+<h3 id="brja-med-vad-mottagningen-behver-veta">
+  
+  
+    <a href="#brja-med-vad-mottagningen-behver-veta" class="anchor-heading" aria-labelledby="brja-med-vad-mottagningen-behver-veta"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Börja med vad mottagningen behöver veta
+  
+  
+</h3>
+    
+
+  <p>Ett möjligt syfte är att planera besök och kunna se <strong>vilken patient som är bokad hos vilken behandlare, och när</strong>. Modellen behöver därför beskriva patienten, behandlaren och själva besökstillfället. Diagnoser och journalanteckningar lämnas utanför, eftersom uppgiften uttryckligen avgränsar bort dem.</p>
+<h3 id="skilj-personen-frn-beskstillfllet">
+  
+  
+    <a href="#skilj-personen-frn-beskstillfllet" class="anchor-heading" aria-labelledby="skilj-personen-frn-beskstillfllet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Skilj personen från besökstillfället
+  
+  
+</h3>
+    
+
+  <p>Anta att patient 31 bokar ett besök på måndag och ett återbesök på torsdag. Vi behöver då kunna skilja de två besöken åt, samtidigt som båda gäller samma patient. Därför får patienten en egen identifierare, medan varje besök får en annan identifierare som pekar ut just det tillfället. På motsvarande sätt behöver en behandlare kunna kopplas till flera besök utan att registreras som en ny person varje gång. Tabellen visar hur dessa skillnader kan uttryckas i modellen.</p>
+
+  <div class="table-wrapper"><table>
+    <thead>
+      <tr>
+        <th>Entitetstyp</th>
+        <th>Vad en förekomst beskriver</th>
+        <th>Konceptuell identifierare</th>
+        <th>Exempel på övriga attribut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">PATIENT</code></td>
+        <td>En registrerad patient</td>
+        <td><code class="language-plaintext highlighter-rouge">PatientID</code></td>
+        <td><code class="language-plaintext highlighter-rouge">PatientName</code></td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">PRACTITIONER</code></td>
+        <td>En behandlare</td>
+        <td><code class="language-plaintext highlighter-rouge">PractitionerID</code></td>
+        <td><code class="language-plaintext highlighter-rouge">PractitionerName</code></td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">APPOINTMENT</code></td>
+        <td>Ett bokat besökstillfälle</td>
+        <td><code class="language-plaintext highlighter-rouge">AppointmentID</code></td>
+        <td><code class="language-plaintext highlighter-rouge">StartsAt</code>, <code class="language-plaintext highlighter-rouge">Status</code></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <p>Markeringen <code class="language-plaintext highlighter-rouge">ID</code> visar vilken egenskap vi använder för att skilja förekomsterna åt. <code class="language-plaintext highlighter-rouge">PatientID</code> identifierar alltså patienten, medan <code class="language-plaintext highlighter-rouge">AppointmentID</code> identifierar ett av patientens besök. Vi beskriver fortfarande vad mottagningen behöver hålla reda på och behöver därför ännu inte bestämma tabeller eller främmande nycklar.</p>
+<h3 id="frbind-begreppen-och-prva-dem">
+  
+  
+    <a href="#frbind-begreppen-och-prva-dem" class="anchor-heading" aria-labelledby="frbind-begreppen-och-prva-dem"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Förbind begreppen och pröva dem
+  
+  
+</h3>
+    
+
+  <p>För att kunna följa patienten till de bokade tillfällena använder vi associationen <code class="language-plaintext highlighter-rouge">PATIENT has APPOINTMENT</code>. Därefter behöver varje besök kunna kopplas till den behandlare som är inbokad, vilket uttrycks med <code class="language-plaintext highlighter-rouge">PRACTITIONER is assigned to APPOINTMENT</code>. Tillsammans låter sambanden oss gå från ett visst besök till både patienten och behandlaren.</p>
+
+  <p>Besökets starttid hör hemma i <code class="language-plaintext highlighter-rouge">StartsAt</code>, medan <code class="language-plaintext highlighter-rouge">Status</code> exempelvis kan ange om besöket fortfarande är planerat eller har avbokats. Om patient 31 avbokar måndagens besök ska torsdagens återbesök kunna finnas kvar. Det är därför avbokningen beskriver ett visst besök och inte patienten som helhet.</p>
+
+  <p>Med dessa samband kan mottagningen exempelvis fråga:</p>
+
+  <ol>
+    <li>Vilka planerade besök har patient 31, och när börjar de?</li>
+    <li>Vilka besök är behandlare 8 inbokad på under en viss dag?</li>
+  </ol>
+
+  <p>I förslaget antar vi att ett besök gäller en patient och en behandlare. Det är ett rimligt första antagande, men texten avgör inte om gruppbesök eller flera behandlare kan förekomma. Den frågan behöver därför kontrolleras innan modellen används. Ett välmotiverat modellförslag visar både vad det kan beskriva och vilka antaganden som fortfarande är öppna.</p>
+</details>
+<h2 id="innan-du-går-vidare">
+  
+  
+    <a href="#innan-du-går-vidare" class="anchor-heading" aria-labelledby="innan-du-går-vidare"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Innan du går vidare
+  
+  
+</h2>
+    
+
+<p>Välj en entitetstyp i biblioteksmodellen och ge två enskilda exempel på den. Kontrollera att du kan skilja en bokutgåva från ett fysiskt exemplar utan att börja diskutera SQL.</p>
 <h2 id="kontrollfrågor">
   
   
@@ -600,8 +690,28 @@ ingår inte i den första modellen.</p>
   <li>Varför måste modellens syfte anges?</li>
   <li>Vad skiljer entitetstyp från entitet?</li>
   <li>Varför märks en identifierare <code class="language-plaintext highlighter-rouge">ID</code> och inte <code class="language-plaintext highlighter-rouge">PK</code> i denna modell?</li>
-  <li>Varför är <code class="language-plaintext highlighter-rouge">AgreedUnitPrice</code> ett attribut hos <code class="language-plaintext highlighter-rouge">ORDER_LINE</code>?</li>
+  <li>Varför är <code class="language-plaintext highlighter-rouge">AgreedUnitPriceOre</code> ett attribut hos <code class="language-plaintext highlighter-rouge">ORDER_LINE</code>?</li>
 </ol>
+
+<details class="answer">
+  <summary>Svar med förklaringar</summary>
+
+  <ol>
+    <li>
+      <p>Syftet avgör vilka företeelser och skillnader modellen behöver beskriva. Ett bibliotek som lånar ut fysiska böcker måste exempelvis kunna skilja två exemplar av samma utgåva åt. Om syftet lämnas oklart går det inte att avgöra om modellen är tillräcklig, eftersom en förenkling kan vara rimlig för en fråga men otillräcklig för en annan.</p>
+    </li>
+    <li>
+      <p>Entitetstypen beskriver ett slags företeelser och vilka egenskaper som är relevanta för dem. <code class="language-plaintext highlighter-rouge">CUSTOMER</code> är exempelvis en entitetstyp, medan Mira som en viss registrerad kund är en entitet av den typen. Skillnaden motsvarar att skilja beskrivningen av vad en kund är från en särskild kund som beskrivningen gäller.</p>
+    </li>
+    <li>
+      <p><code class="language-plaintext highlighter-rouge">ID</code> markerar här hur en företeelse kan identifieras på begreppsnivå. <code class="language-plaintext highlighter-rouge">PK</code> betyder primärnyckel och hör till beslutet om hur en rad identifieras i ett relationsschema. Genom att hålla isär markeringarna kan vi diskutera vad som ska identifieras innan vi bestämmer hur identiteten ska representeras i tabeller.</p>
+    </li>
+    <li>
+      <p>Det avtalade styckpriset beskriver produkten på en viss beställning, inte produkten oberoende av köp. Produkt 501 kan exempelvis ha olika avtalade priser på order 1042 och 1043. Därför behöver priset höra till <code class="language-plaintext highlighter-rouge">ORDER_LINE</code>, där både beställningen och produkten är kända. Produktens aktuella listpris beskriver ett annat faktum.</p>
+    </li>
+  </ol>
+
+</details>
 <h2 id="sammanfattning">
   
   
@@ -611,13 +721,7 @@ ingår inte i den första modellen.</p>
 </h2>
     
 
-<ul>
-  <li>Konceptuell modellering beskriver informationsbehov före teknisk design.</li>
-  <li>Syfte och avgränsning avgör vad modellen ska innehålla.</li>
-  <li>Entitetstyper beskriver slags företeelser; entiteter är individuella förekomster.</li>
-  <li>Attribut beskriver egenskaper och associationer beskriver samband.</li>
-  <li>Modellen ska prövas mot konkreta frågor och scenarier.</li>
-</ul>
+<p>Konceptuell modellering börjar med vad verksamheten behöver förstå och hålla reda på. Genom att definiera entitetstyper, attribut och associationer kan vi pröva en gemensam beskrivning innan den blir tabeller. Diagrammets notation hjälper oss att uttrycka besluten, men ersätter inte förklaringen av deras betydelse.</p>
 
           
 

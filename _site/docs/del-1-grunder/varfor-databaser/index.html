@@ -6,14 +6,33 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link
-    id="databaser-light-theme"
-    rel="stylesheet"
-    href="/assets/css/just-the-docs-default.css"
-    media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
+  <link id="databaser-theme-stylesheet" rel="stylesheet" blocking="render"
+    data-light-url="/assets/css/just-the-docs-default.css?v=1791833970"
+    data-dark-url="/assets/css/just-the-docs-databaser-dark.css?v=1791833970">
+  <script id="databaser-theme-bootstrap">
+    (function () {
+      var root = document.documentElement;
+      var preference = null;
+      try { preference = localStorage.getItem("databaser-theme"); } catch (error) {}
+      if (preference !== "light" && preference !== "dark") preference = null;
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = preference || (dark ? "dark" : "light");
+      root.dataset.databaserTheme = theme;
+      if (window.HTMLDialogElement) root.classList.add("figure-viewer-ready");
+      root.style.colorScheme = theme;
+      var sheet = document.getElementById("databaser-theme-stylesheet");
+      sheet.dataset.theme = theme;
+      sheet.href = sheet.dataset[theme + "Url"];
+    }());
+  </script>
+  <noscript>
+    <link rel="stylesheet" href="/assets/css/just-the-docs-default.css?v=1791833970" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/assets/css/just-the-docs-databaser-dark.css?v=1791833970" media="(prefers-color-scheme: dark)">
+  </noscript>
+  <style id="jtd-head-nav-stylesheet">
+    .site-nav ul li a { background-image: linear-gradient(90deg, transparent, var(--db-nav-feedback)); }
+  </style>
   <style id="jtd-nav-activation">
     
 
@@ -29,14 +48,14 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(2) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > ul > li:nth-child(2) > a {
       font-weight: 600;
       text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg,
-    .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(2) > button svg {
+    }.site-nav > ul.nav-list:first-child > li:nth-child(4) > button svg,
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > ul > li:nth-child(2) > button svg {
       transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list,
-    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(2) > ul.nav-list {
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list,
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list > li.nav-list-item:nth-child(2) > ul.nav-list {
       display: block;
     }
   </style>
@@ -48,8 +67,8 @@
   
   <script src="/assets/js/just-the-docs.js" defer></script>
 
-  
-
+  <link rel="icon" href="/favicon.ico?v=1791833970" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/images/databaser-mark.svg?v=1791833970" type="image/svg+xml" sizes="any">
 
   <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>Varför databaser? | Databaser</title>
@@ -68,47 +87,11 @@
 {"@context":"https://schema.org","@type":"WebPage","description":"Varför gemensamma och föränderliga data ofta behöver en databas.","headline":"Varför databaser?","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/docs/del-1-grunder/varfor-databaser/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  <meta name="color-scheme" content="light dark">
+  <script src="/assets/js/theme-toggle.js?v=1791833970" defer></script>
 
-<link
-  id="databaser-dark-theme"
-  rel="stylesheet"
-  href="/assets/css/just-the-docs-databaser-dark.css"
-  media="(prefers-color-scheme: dark)">
+<script src="/assets/js/figure-viewer.js?v=1791833970" defer></script>
 
-<script>
-  (function () {
-    var preference = null;
-    try {
-      preference = window.localStorage.getItem("databaser-theme");
-    } catch (error) {
-      preference = null;
-    }
 
-    if (preference !== "light" && preference !== "dark") {
-      preference = null;
-    }
-
-    var systemDark = window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var resolved = preference || (systemDark ? "dark" : "light");
-    var lightTheme = document.getElementById("databaser-light-theme");
-    var darkTheme = document.getElementById("databaser-dark-theme");
-
-    if (preference === "dark") {
-      lightTheme.media = "not all";
-      darkTheme.media = "all";
-    } else if (preference === "light") {
-      lightTheme.media = "all";
-      darkTheme.media = "not all";
-    }
-
-    document.documentElement.dataset.databaserTheme = resolved;
-    document.documentElement.style.colorScheme = resolved;
-  }());
-</script>
-
-<script src="/assets/js/theme-toggle.js" defer></script>
 </head>
 <body>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
@@ -179,9 +162,8 @@
   
     <header class="side-bar">
   <div class="site-header">
-    <a href="/" class="site-title lh-tight">
-  <div class="site-logo" role="img" aria-label="Databaser"></div>
-
+    <a href="/" class="site-title lh-tight"><span class="brand-mark" aria-hidden="true" style="--brand-mark: url('/assets/images/databaser-mark.svg')"></span>
+<span class="brand-name">Databaser</span>
 </a>
     <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
@@ -191,9 +173,17 @@
   <nav aria-label="Main" id="site-nav" class="site-nav">
   
   
-    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><a href="/docs/lasvag/" class="nav-list-link">Läs och öva stegvis</a></li><li class="nav-list-item"><a href="/docs/ai-som-studiestod/" class="nav-list-link">Använd AI för att undersöka din lösning</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
-      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/fran-modell-till-relationsschema/" class="nav-list-link">7. Från modell till relationsschema</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/funktionella-beroenden/" class="nav-list-link">8. Funktionella beroenden och redundans</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/normalisering/" class="nav-list-link">9. Normalisering steg för steg</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del II – Frågor och förändring submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-2-fragor/" class="nav-list-link">Del II – Frågor och förändring</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-2-fragor/mangder-och-relationer/" class="nav-list-link">10. Mängder och relationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/fran-informationsbehov-till-databasfraga/" class="nav-list-link">11. Operationer på relationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/hamta-data-med-sql/" class="nav-list-link">12. Hämta data med SQL</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/sammanfoga-tabeller-med-join/" class="nav-list-link">13. Sammanfoga tabeller med JOIN</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/sammanfatta-och-gruppera-data/" class="nav-list-link">14. Sammanfatta och gruppera data</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/underfragor-och-mangdoperationer/" class="nav-list-link">15. Underfrågor och mängdoperationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/skapa-tabeller-och-integritetsvillkor/" class="nav-list-link">16. Skapa tabeller och integritetsvillkor</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/forandra-data-med-sql/" class="nav-list-link">17. Förändra data med SQL</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del III – Transaktioner och samtidighet submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-3-transaktioner/" class="nav-list-link">Del III – Transaktioner och samtidighet</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-3-transaktioner/transaktioner-som-sammanhallna-enheter/" class="nav-list-link">18. Transaktioner som sammanhållna enheter</a></li><li class="nav-list-item"><a href="/docs/del-3-transaktioner/samtidighet-och-transaktionsproblem/" class="nav-list-link">19. Samtidighet och transaktionsproblem</a></li><li class="nav-list-item"><a href="/docs/del-3-transaktioner/samtidighetskontroll-med-las/" class="nav-list-link">20. Samtidighetskontroll med lås</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del IV – Åtkomst, ansvar och perspektiv submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-4-perspektiv/" class="nav-list-link">Del IV – Åtkomst, ansvar och perspektiv</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-4-perspektiv/index-och-fysisk-atkomst/" class="nav-list-link">21. Index och fysisk åtkomst</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/databasadministration/" class="nav-list-link">22. Databasadministration och säker användning</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/informationskvalitet/" class="nav-list-link">23. Informationskvalitet – när går uppgifterna att använda?</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/begrepp-identitet-och-informationssystem/" class="nav-list-link">24. Begrepp, identitet och informationssystem</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/andra-satt-att-organisera-data/" class="nav-list-link">25. Andra sätt att organisera data</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/fran-behov-till-databas/" class="nav-list-link">26. Från behov till fungerande databas</a></li></ul></li><li class="nav-list-item"><a href="/docs/arbeta-praktiskt/" class="nav-list-link">Kör SQL-exemplen</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Verktygsfördjupning submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/fordjupning/" class="nav-list-link">Verktygsfördjupning</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/fordjupning/sqlite-tva-anslutningar/" class="nav-list-link">Två anslutningar i SQLite</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
   
 </nav>
 
@@ -227,20 +217,18 @@
 </div>
 
   
-  <button
-  id="theme-toggle"
-  class="theme-toggle"
-  type="button"
-  aria-label="Byt färgtema"
-  title="Byt färgtema">
-  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="12" cy="12" r="4"></circle>
-    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
-  </svg>
-  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"></path>
-  </svg>
-</button>
+  <div class="theme-control">
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Byt färgtema" title="Byt färgtema">
+    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
+      <circle cx="12" cy="12" r="4"/>
+    </svg>
+    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/>
+    </svg>
+  </button>
+  <span id="theme-status" class="sr-only" role="status"></span>
+</div>
   
 </div>
 
@@ -265,9 +253,16 @@
 </h1>
     
 
+<aside class="chapter-guide" aria-label="Läsanvisning">
+  <p class="chapter-guide-label">Grundspår · <a href="/docs/lasvag/">Om läsvägen</a></p>
+  <p><strong>Utgångspunkt:</strong> Kapitel 1: värden behöver ett tolkningssammanhang.</p>
+  <p><strong>Fokus:</strong> Skilj databasen från programmet som hanterar den.</p>
+</aside>
+
 <p>Nordic Brew började med tre kalkylblad: ett för kunder, ett för produkter och
-ett för beställningar. Det fungerade när en person skötte allt. När företaget
-växte uppstod frågor:</p>
+ett för beställningar. Så länge en person skötte allt fungerade upplägget
+rimligt väl, men när företaget växte blev sådant som tidigare hade kunnat lösas
+informellt till gemensamma problem:</p>
 
 <ul>
   <li>Vilken av filkopiorna är den senaste?</li>
@@ -276,25 +271,9 @@ växte uppstod frågor:</p>
   <li>Hur hittar man alla beställningar från en viss kund?</li>
 </ul>
 
-<p>En databas är relevant när sammanhörande data behöver delas, förändras och
-kontrolleras över tid.</p>
-
-<div class="learning-objectives">
-<h2 id="efter-kapitlet-kan-du">
-  
-  
-    <a href="#efter-kapitlet-kan-du" class="anchor-heading" aria-labelledby="efter-kapitlet-kan-du"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Efter kapitlet kan du
-  
-  
-</h2>
-    
-
-  <ul>
-    <li>förklara vilket problem en databas är avsedd att lösa;</li>
-    <li>skilja mellan databas, databashanteringssystem och applikation;</li>
-    <li>motivera när ett kalkylblad räcker och när en databas är rimligare.</li>
-  </ul>
-</div>
+<p>Frågorna har olika karaktär, men pekar mot samma behov: sammanhörande data
+behöver kunna delas, förändras och kontrolleras över tid. Det är i sådana
+situationer som en databas blir relevant.</p>
 <h2 id="21-när-flera-filer-beskriver-samma-sak">
   
   
@@ -304,18 +283,23 @@ kontrolleras över tid.</p>
 </h2>
     
 
-<p>Anta att kundens e-postadress förekommer i kundfilen, i varje orderfil och i en
-separat adresslista. När adressen ändras måste alla kopior hittas. Om en kopia
-missas får verksamheten motstridiga uppgifter.</p>
+<p>Anta att kundens e-postadress förekommer både i kundfilen, i varje orderfil och
+i en separat adresslista. När adressen ändras måste samtliga kopior hittas och
+uppdateras; om bara en av dem missas får verksamheten flera motstridiga svar på
+frågan vilken adress som är den aktuella.</p>
 
-<figure class="figure">
-  <img src="/assets/images/03-kopior-eller-gemensam-databas.svg" alt="Tre separata filer innehåller olika e-postadresser för samma kund och jämförs med en gemensam databas som används av tre arbetsuppgifter." width="1040" height="500" loading="eager" decoding="async" />
-  <figcaption><strong>Figur 2.1.</strong> Dubbletter är särskilt problematiska när kopiorna kan ändras oberoende av varandra.</figcaption>
+<figure class="figure" id="figur-2-1">
+  <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur 2.1, rulla vid behov i sidled" style="--figure-width: 900px">
+    <img src="/assets/images/03-kopior-eller-gemensam-databas.svg" alt="Tre separata filer ger motstridiga e-postadresser. En gemensam kunduppgift kan användas av kundservice, webbshop och leverans." width="1040" height="500" loading="lazy" decoding="async" />
+  </div>
+  <figcaption><strong>Figur 2.1.</strong> Självständigt redigerbara kopior kan ge olika besked om samma aktuella adress. <a href="/assets/images/03-kopior-eller-gemensam-databas.svg">Visa figuren separat</a>.</figcaption>
 </figure>
 
-<p>En gemensam databas innebär inte att alla problem försvinner. Någon måste
-fortfarande bestämma vad ”kund” betyder och vilka regler som gäller. Databasen
-ger däremot en gemensam plats där strukturen och reglerna kan upprätthållas.</p>
+<p>En gemensam databas gör inte att problemen försvinner av sig själva. Någon
+måste fortfarande bestämma vad ”kund” betyder, vilka uppgifter som ska lagras
+och vilka regler som gäller. När dessa beslut väl har fattats ger databasen
+däremot en gemensam plats där både innehåll och regler kan hanteras
+konsekvent.</p>
 <h2 id="22-en-första-definition">
   
   
@@ -326,14 +310,12 @@ ger däremot en gemensam plats där strukturen och reglerna kan upprätthållas.
     
 
 <p>En <strong>databas</strong> är en organiserad och varaktig samling relaterade data, utformad
-för ett bestämt användningsområde.</p>
-
-<ul>
-  <li><strong>Organiserad</strong> betyder att data följer en uttalad struktur.</li>
-  <li><strong>Varaktig</strong> betyder att innehållet finns kvar när programmet stängs.</li>
-  <li><strong>Relaterad</strong> betyder att olika uppgifter hör samman, som kund och order.</li>
-  <li><strong>Användningsområde</strong> betyder att strukturen har ett syfte.</li>
-</ul>
+för ett bestämt användningsområde. Att samlingen är <em>organiserad</em> innebär att
+dess data följer en uttalad struktur, medan <em>varaktig</em> innebär att innehållet
+finns kvar när ett program stängs. Ordet <em>relaterade</em> markerar samtidigt att
+olika uppgifter hör samman, exempelvis en kund och kundens beställningar. Till
+sist påminner det bestämda användningsområdet om att strukturen alltid bör ha
+ett tydligt syfte.</p>
 
 <p>En mapp med slumpmässiga dokument är därför inte automatiskt en väl utformad
 databas. En liten databas med tre tabeller kan däremot vara värdefull om den
@@ -347,15 +329,11 @@ stödjer rätt frågor och regler.</p>
 </h2>
     
 
-<p>Databasen ska inte blandas ihop med programvaran som arbetar med den.</p>
+<p>För att förstå hur vi arbetar med en databas behöver vi skilja det lagrade innehållet från programvaran som hanterar det. Jämför gärna med ett textdokument och programmet du öppnar det i: dokumentet och programmet hör ihop i arbetet, men har olika uppgifter.</p>
 
-<p>Ett <strong>databashanteringssystem</strong> kallas ofta <strong>DBMS</strong> efter engelskans <em>database
-management system</em>. Ett DBMS kan skapa strukturer, lagra värden, söka,
-kontrollera regler och spara ändringar.</p>
+<p>Den programvara som skapar och hanterar databasens strukturer, lagrar värden och besvarar frågor kallas ett <strong>databashanteringssystem</strong>, förkortat <strong>DBHS</strong>. På engelska används <em>database management system</em>, <strong>DBMS</strong>. När innehållet förändras kan programvaran också kontrollera de regler som har angetts för databasen, exempelvis att en beställning hänvisar till en befintlig kund.</p>
 
-<p>I kursen använder vi SQLite som DBMS. En fil som <code class="language-plaintext highlighter-rouge">nordicbrew.sqlite</code> är en
-databasfil. DB Browser for SQLite är en grafisk <strong>klient</strong> som låter dig skicka
-kommandon till SQLite och se resultatet.</p>
+<p>I exemplen använder vi SQLite för att hantera databasen. Själva strukturen och innehållet lagras då i en fil, exempelvis <code class="language-plaintext highlighter-rouge">nordicbrew.sqlite</code>. När vi vill öppna filen, skriva en fråga och se svaret kan vi använda ett grafiskt program som DB Browser for SQLite. Ett sådant gränssnitt kallas en <strong>klient</strong>. Klienten skickar vårt kommando till SQLite, som arbetar med databasfilen och lämnar tillbaka resultatet; alla tre kan därför finnas på samma dator utan att vara samma sak.</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -372,7 +350,7 @@ kommandon till SQLite och se resultatet.</p>
       <td>Innehåller struktur och data</td>
     </tr>
     <tr>
-      <td>DBMS</td>
+      <td>DBHS</td>
       <td>SQLite</td>
       <td>Hanterar databasen</td>
     </tr>
@@ -384,15 +362,19 @@ kommandon till SQLite och se resultatet.</p>
   </tbody>
 </table></div>
 
-<figure class="figure">
-  <img src="/assets/images/04-databasens-delar.svg" alt="En användare arbetar i en klient som skickar frågor till SQLite, som i sin tur hanterar databasfilen." width="1040" height="430" loading="lazy" decoding="async" />
-  <figcaption><strong>Figur 2.2.</strong> Klienten, DBMS:et och databasen är olika delar även när de finns på samma dator.</figcaption>
+<figure class="figure" id="figur-2-2">
+  <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur 2.2, rulla vid behov i sidled" style="--figure-width: 900px">
+    <img src="/assets/images/04-databasens-delar.svg" alt="Användaren arbetar i en klient. Klienten skickar frågor till SQLite, som hanterar strukturen och innehållet i databasfilen." width="1040" height="430" loading="lazy" decoding="async" />
+  </div>
+  <figcaption><strong>Figur 2.2.</strong> Klient, DBHS och databas har olika uppgifter även när de finns på samma dator. <a href="/assets/images/04-databasens-delar.svg">Visa figuren separat</a>.</figcaption>
 </figure>
 
-<p>Skillnaden hjälper vid felsökning. Om knapparna har flyttats efter en
-uppdatering är klienten förändrad. Om en fråga innehåller ett fel är det
-kommandot eller DBMS-reglerna som behöver granskas. Om du öppnar fel fil kan
-tabeller saknas trots att programmet fungerar.</p>
+<p>Skillnaden blir särskilt användbar vid felsökning. Om knapparna har flyttats
+efter en uppdatering är det klienten som har förändrats, medan ett felaktigt
+kommando i stället behöver förstås utifrån den fråga som skickades och de
+regler som DBHS:et tillämpar. Det är också möjligt att både klient och DBHS
+fungerar korrekt trots att tabeller saknas, helt enkelt därför att fel
+databasfil har öppnats.</p>
 <h2 id="24-databasen-är-en-del-av-ett-informationssystem">
   
   
@@ -402,19 +384,16 @@ tabeller saknas trots att programmet fungerar.</p>
 </h2>
     
 
-<p>Nordic Brews webbshop består inte bara av en databas. Kunder använder ett
-gränssnitt, personalen följer arbetsrutiner och företaget har regler för bland
-annat priser och leveranser. Tillsammans bildar människor, arbete, regler och
-teknik ett <strong>informationssystem</strong>.</p>
+<p>Nordic Brews webbshop omfattar mer än själva databasen. För att en beställning ska kunna tas emot behöver kunden ett gränssnitt att använda, personalen behöver arbetsrutiner och företaget behöver regler för exempelvis priser och leveranser. Det är denna helhet av människor, arbete, regler och teknik som vi kallar ett <strong>informationssystem</strong>.</p>
 
-<figure class="figure">
-  <img src="/assets/images/14-databas-i-informationssystem.svg" alt="Människor och arbetsprocesser använder en applikation som kommunicerar med ett DBMS och en databas. Verksamhetsregler påverkar alla delarna." width="1040" height="460" loading="lazy" decoding="async" />
-  <figcaption><strong>Figur 2.3.</strong> Databasen är en teknisk del i ett större informationssystem där människor, arbete och regler också ingår.</figcaption>
+<figure class="figure" id="figur-2-3">
+  <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur 2.3, rulla vid behov i sidled" style="--figure-width: 900px">
+    <img src="/assets/images/14-databas-i-informationssystem.svg" alt="Människor och arbetsprocesser, applikation, DBHS och databas ingår tillsammans i ett informationssystem med regler och ansvar." width="1040" height="460" loading="lazy" decoding="async" />
+  </div>
+  <figcaption><strong>Figur 2.3.</strong> Databasen ingår i ett informationssystem som också omfattar människors arbete och verksamhetens regler. <a href="/assets/images/14-databas-i-informationssystem.svg">Visa figuren separat</a>.</figcaption>
 </figure>
 
-<p>Databasen är alltså inte hela systemet. En korrekt lagrad e-postadress hjälper
-inte om personalen använder fel adressfält, och en teknisk regel kan inte på
-egen hand avgöra vad verksamheten borde mena med en aktiv kund.</p>
+<p>Skillnaden får praktiska följder. Om personalen använder fel e-postadressfält hjälper det inte att värdena är korrekt lagrade, och om två avdelningar menar olika saker med ”aktiv kund” kan en gemensam databas inte själv avgöra vilken definition som ska gälla. För att den lagrade informationen ska bli användbar behöver människorna därför komma överens om både betydelser och arbetsrutiner.</p>
 <h2 id="25-när-räcker-ett-kalkylblad">
   
   
@@ -424,9 +403,11 @@ egen hand avgöra vad verksamheten borde mena med en aktiv kund.</p>
 </h2>
     
 
-<p>Kalkylblad och textfiler är inte dåliga verktyg. Ett kalkylblad kan vara bäst
-för en begränsad analys som en person utför. En enkel fil kan vara bäst för
-inställningar eller datautbyte.</p>
+<p>Kalkylblad och textfiler är inte dåliga verktyg bara för att de saknar ett
+databashanteringssystem. Ett kalkylblad kan vara det enklaste valet för en
+begränsad analys som en person utför, medan en vanlig fil kan passa väl för
+inställningar eller datautbyte. Bedömningen behöver därför utgå från uppgiften,
+inte från en generell rangordning av teknikerna.</p>
 
 <p>En databas blir särskilt rimlig när flera av följande påståenden stämmer:</p>
 
@@ -460,8 +441,9 @@ informationsbehovet, inte av hur tekniskt avancerat det verkar.</p>
 </h3>
     
 
-<p>En person, tjugo namn och få ändringar. Ett kalkylblad är sannolikt
-tillräckligt.</p>
+<p>Om en person hanterar tjugo namn och listan bara ändras vid några få tillfällen
+är ett kalkylblad sannolikt tillräckligt. En databas skulle kunna användas, men
+den extra strukturen skulle knappast lösa något viktigt problem.</p>
 <h3 id="bokningar-till-en-vårdcentral">
   
   
@@ -471,9 +453,11 @@ tillräckligt.</p>
 </h3>
     
 
-<p>Många patienter, tider, yrkesroller och känsliga uppgifter. Flera personer kan
-arbeta samtidigt och regler måste gälla konsekvent. En databas är rimlig, men
-behöver ingå i ett betydligt större säkert informationssystem.</p>
+<p>På en vårdcentral behöver däremot många patienter, tider, yrkesroller och
+känsliga uppgifter hanteras samtidigt. Eftersom flera personer kan arbeta med
+samma information och regler måste gälla konsekvent är en databas rimlig. Den
+måste samtidigt ingå i ett betydligt större informationssystem med lämpliga
+säkerhetsåtgärder och arbetsrutiner.</p>
 <h3 id="sensorvärden-från-ett-växthus">
   
   
@@ -483,8 +467,11 @@ behöver ingå i ett betydligt större säkert informationssystem.</p>
 </h3>
     
 
-<p>Temperatur registreras varje minut under flera år. Datamängden och frågorna kan
-motivera en databas, men lämplig databastyp beror på hur värdena ska användas.</p>
+<p>När temperaturen i ett växthus registreras varje minut under flera år kan både
+datamängden och de frågor som ska ställas mot den motivera en databas. Vilken
+typ av databas som passar bäst går däremot inte att avgöra enbart utifrån
+mängden data, utan beror också på hur värdena ska sökas, sammanställas och
+bevaras.</p>
 <h2 id="27-överföringsövning-studentföreningen">
   
   
@@ -503,6 +490,24 @@ fil och evenemangsanmälningar i formulärtjänsten.</p>
   <li>Ge två skäl för en gemensam databas.</li>
   <li>Ge ett skäl att ändå inte bygga en databas just nu.</li>
 </ol>
+
+<details class="answer">
+  <summary>Lösningsförslag till överföringsövningen</summary>
+
+  <p>När föreningen använder flera separata filer kan samma medlemsnamn stavas olika, en betalning kopplas till fel person och en adressändring bli kvar i bara några av kopiorna. Problemen hänger ihop med att det saknas ett tillförlitligt sätt att följa samma medlem mellan filerna. Genom att identifiera medlemmen konsekvent och koppla betalningar och evenemangsanmälningar till den identifieraren kan föreningen skapa ett gemensamt underlag där uppgifterna går att kontrollera tillsammans.</p>
+
+  <p>Det kan ändå vara rimligt att avvakta om verksamheten är liten, bara en person uppdaterar filerna och det saknas möjlighet att förvalta ett nytt system. Då kan gemensamma identifierare och tydliga rutiner i det befintliga upplägget vara ett första steg. Databasen avgör inte själv vem som räknas som medlem eller om en betalning är korrekt: definitioner, behörigheter och arbetsrutiner behövs fortfarande.</p>
+</details>
+<h2 id="innan-du-går-vidare">
+  
+  
+    <a href="#innan-du-går-vidare" class="anchor-heading" aria-labelledby="innan-du-går-vidare"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Innan du går vidare
+  
+  
+</h2>
+    
+
+<p>Anta att ett bokningsprogram stängs. Försvinner bokningarna då? Förklara hur svaret beror på att programmet och den lagrade databasen är olika delar.</p>
 <h2 id="kontrollfrågor">
   
   
@@ -513,18 +518,26 @@ fil och evenemangsanmälningar i formulärtjänsten.</p>
     
 
 <ol>
-  <li>Vad skiljer databasen från ett DBMS?</li>
+  <li>Vad skiljer databasen från ett DBHS?</li>
   <li>Varför är databasen inte hela informationssystemet?</li>
   <li>När kan ett kalkylblad vara ett bättre val?</li>
 </ol>
 
 <details class="answer">
-  <summary>Korta svar</summary>
+  <summary>Svar med förklaringar</summary>
+
   <ol>
-    <li>Databasen är den organiserade datasamlingen; DBMS:et är programvaran som hanterar den.</li>
-    <li>Människor, arbetsprocesser, regler och andra program behövs också.</li>
-    <li>När uppgiften är liten, avgränsad, sköts av få personer och inte kräver starka samband eller kontroller.</li>
+    <li>
+      <p>Databasen är det organiserade innehållet och dess struktur, medan databashanteringssystemet, DBHS:et, är programvaran som hanterar detta. I övningarna ligger databasen i en fil och SQLite läser eller förändrar den. Ett grafiskt klientprogram ger oss i sin tur ett gränssnitt till arbetet. Det är olika uppgifter även när alla delarna finns på samma dator.</p>
+    </li>
+    <li>
+      <p>Informationssystemet omfattar också människor, arbetsrutiner, regler och annan teknik. Databasen kan lagra att en leverans registrerats, men personalen behöver veta när och hur registreringen ska göras och vilket underlag som ska kontrolleras. En fungerande databas är därför en del av lösningen, samtidigt som verksamhetens arbete måste organiseras runt den.</p>
+    </li>
+    <li>
+      <p>Ett kalkylblad kan vara ett rimligt val för ett litet, avgränsat underlag som en person bearbetar och där sambanden och kontrollbehoven är enkla. Om arbetet däremot kräver många gemensamma registreringar, samtidiga ändringar och kontroller mellan olika uppgifter kan ett DBHS ge bättre stöd. Valet bör följa behovet, inte föreställningen att en databas alltid är bättre.</p>
+    </li>
   </ol>
+
 </details>
 <h2 id="sammanfattning">
   
@@ -535,12 +548,7 @@ fil och evenemangsanmälningar i formulärtjänsten.</p>
 </h2>
     
 
-<ul>
-  <li>Databaser hjälper oss att hantera gemensamma, relaterade och föränderliga data.</li>
-  <li>Databas, DBMS och klient är olika delar.</li>
-  <li>Databasen ingår i ett större informationssystem.</li>
-  <li>Valet mellan fil, kalkylblad och databas måste motiveras av behovet.</li>
-</ul>
+<p>En databas samlar relaterade uppgifter som behöver kunna användas och förändras över tid. För att arbeta med samlingen används ett DBHS, som hanterar innehållet, och ofta en klient, som låter användaren skicka kommandon och se resultat. Dessa tekniska delar ingår i sin tur i ett informationssystem tillsammans med människor, regler och rutiner. Ett gemensamt register behöver därför också ett gemensamt ansvar för vad som registreras och hur det används.</p>
 
           
 

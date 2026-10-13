@@ -6,19 +6,38 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link
-    id="databaser-light-theme"
-    rel="stylesheet"
-    href="/assets/css/just-the-docs-default.css"
-    media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" href="/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark">
+  <link id="databaser-theme-stylesheet" rel="stylesheet" blocking="render"
+    data-light-url="/assets/css/just-the-docs-default.css?v=1791833970"
+    data-dark-url="/assets/css/just-the-docs-databaser-dark.css?v=1791833970">
+  <script id="databaser-theme-bootstrap">
+    (function () {
+      var root = document.documentElement;
+      var preference = null;
+      try { preference = localStorage.getItem("databaser-theme"); } catch (error) {}
+      if (preference !== "light" && preference !== "dark") preference = null;
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = preference || (dark ? "dark" : "light");
+      root.dataset.databaserTheme = theme;
+      if (window.HTMLDialogElement) root.classList.add("figure-viewer-ready");
+      root.style.colorScheme = theme;
+      var sheet = document.getElementById("databaser-theme-stylesheet");
+      sheet.dataset.theme = theme;
+      sheet.href = sheet.dataset[theme + "Url"];
+    }());
+  </script>
+  <noscript>
+    <link rel="stylesheet" href="/assets/css/just-the-docs-default.css?v=1791833970" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/assets/css/just-the-docs-databaser-dark.css?v=1791833970" media="(prefers-color-scheme: dark)">
+  </noscript>
+  <style id="jtd-head-nav-stylesheet">
+    .site-nav ul li a { background-image: linear-gradient(90deg, transparent, var(--db-nav-feedback)); }
+  </style>
   <style id="jtd-nav-activation">
     
 
     
-    .site-nav > ul.nav-list:first-child > li:not(:nth-child(2)) > a,
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(4)) > a,
     .site-nav > ul.nav-list:first-child > li > ul > li a {
       background-image: none;
     }
@@ -28,12 +47,12 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(2) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(4) > a {
       font-weight: 600;
       text-decoration: none;
-    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg {
+    }.site-nav > ul.nav-list:first-child > li:nth-child(4) > button svg {
       transform: rotate(-90deg);
-    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list {
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(4) > ul.nav-list {
       display: block;
     }
   </style>
@@ -45,8 +64,8 @@
   
   <script src="/assets/js/just-the-docs.js" defer></script>
 
-  
-
+  <link rel="icon" href="/favicon.ico?v=1791833970" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/images/databaser-mark.svg?v=1791833970" type="image/svg+xml" sizes="any">
 
   <!-- Begin Jekyll SEO tag v2.9.0 -->
 <title>Del I – Modeller och relationer | Databaser</title>
@@ -65,47 +84,9 @@
 {"@context":"https://schema.org","@type":"WebPage","description":"Ett kurskompendium för Informationssystem A: Databaser (2IS007)","headline":"Del I – Modeller och relationer","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/databaser-logo.svg"}},"url":"http://localhost:4000/docs/del-1-grunder/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  <meta name="color-scheme" content="light dark">
+  <script src="/assets/js/theme-toggle.js?v=1791833970" defer></script>
 
-<link
-  id="databaser-dark-theme"
-  rel="stylesheet"
-  href="/assets/css/just-the-docs-databaser-dark.css"
-  media="(prefers-color-scheme: dark)">
 
-<script>
-  (function () {
-    var preference = null;
-    try {
-      preference = window.localStorage.getItem("databaser-theme");
-    } catch (error) {
-      preference = null;
-    }
-
-    if (preference !== "light" && preference !== "dark") {
-      preference = null;
-    }
-
-    var systemDark = window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var resolved = preference || (systemDark ? "dark" : "light");
-    var lightTheme = document.getElementById("databaser-light-theme");
-    var darkTheme = document.getElementById("databaser-dark-theme");
-
-    if (preference === "dark") {
-      lightTheme.media = "not all";
-      darkTheme.media = "all";
-    } else if (preference === "light") {
-      lightTheme.media = "all";
-      darkTheme.media = "not all";
-    }
-
-    document.documentElement.dataset.databaserTheme = resolved;
-    document.documentElement.style.colorScheme = resolved;
-  }());
-</script>
-
-<script src="/assets/js/theme-toggle.js" defer></script>
 </head>
 <body>
   <a class="skip-to-main" href="#main-content">Skip to main content</a>
@@ -176,9 +157,8 @@
   
     <header class="side-bar">
   <div class="site-header">
-    <a href="/" class="site-title lh-tight">
-  <div class="site-logo" role="img" aria-label="Databaser"></div>
-
+    <a href="/" class="site-title lh-tight"><span class="brand-mark" aria-hidden="true" style="--brand-mark: url('/assets/images/databaser-mark.svg')"></span>
+<span class="brand-name">Databaser</span>
 </a>
     <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
@@ -188,9 +168,17 @@
   <nav aria-label="Main" id="site-nav" class="site-nav">
   
   
-    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
+    <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">Start</a></li><li class="nav-list-item"><a href="/docs/lasvag/" class="nav-list-link">Läs och öva stegvis</a></li><li class="nav-list-item"><a href="/docs/ai-som-studiestod/" class="nav-list-link">Använd AI för att undersöka din lösning</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del I – Modeller och relationer submenu" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
-      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
+      </button><a href="/docs/del-1-grunder/" class="nav-list-link">Del I – Modeller och relationer</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-1-grunder/data-och-information/" class="nav-list-link">1. Data och information</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/varfor-databaser/" class="nav-list-link">2. Varför databaser?</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/tabeller-rader-kolumner/" class="nav-list-link">3. Tabeller, rader och kolumner</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/identifierare-och-samband/" class="nav-list-link">4. Identifierare och samband</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/konceptuell-modellering/" class="nav-list-link">5. Konceptuell modellering</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/multiplicitet/" class="nav-list-link">6. Multiplicitet och verksamhetsregler</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/fran-modell-till-relationsschema/" class="nav-list-link">7. Från modell till relationsschema</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/funktionella-beroenden/" class="nav-list-link">8. Funktionella beroenden och redundans</a></li><li class="nav-list-item"><a href="/docs/del-1-grunder/normalisering/" class="nav-list-link">9. Normalisering steg för steg</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del II – Frågor och förändring submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-2-fragor/" class="nav-list-link">Del II – Frågor och förändring</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-2-fragor/mangder-och-relationer/" class="nav-list-link">10. Mängder och relationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/fran-informationsbehov-till-databasfraga/" class="nav-list-link">11. Operationer på relationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/hamta-data-med-sql/" class="nav-list-link">12. Hämta data med SQL</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/sammanfoga-tabeller-med-join/" class="nav-list-link">13. Sammanfoga tabeller med JOIN</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/sammanfatta-och-gruppera-data/" class="nav-list-link">14. Sammanfatta och gruppera data</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/underfragor-och-mangdoperationer/" class="nav-list-link">15. Underfrågor och mängdoperationer</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/skapa-tabeller-och-integritetsvillkor/" class="nav-list-link">16. Skapa tabeller och integritetsvillkor</a></li><li class="nav-list-item"><a href="/docs/del-2-fragor/forandra-data-med-sql/" class="nav-list-link">17. Förändra data med SQL</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del III – Transaktioner och samtidighet submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-3-transaktioner/" class="nav-list-link">Del III – Transaktioner och samtidighet</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-3-transaktioner/transaktioner-som-sammanhallna-enheter/" class="nav-list-link">18. Transaktioner som sammanhållna enheter</a></li><li class="nav-list-item"><a href="/docs/del-3-transaktioner/samtidighet-och-transaktionsproblem/" class="nav-list-link">19. Samtidighet och transaktionsproblem</a></li><li class="nav-list-item"><a href="/docs/del-3-transaktioner/samtidighetskontroll-med-las/" class="nav-list-link">20. Samtidighetskontroll med lås</a></li></ul></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Del IV – Åtkomst, ansvar och perspektiv submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/del-4-perspektiv/" class="nav-list-link">Del IV – Åtkomst, ansvar och perspektiv</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/del-4-perspektiv/index-och-fysisk-atkomst/" class="nav-list-link">21. Index och fysisk åtkomst</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/databasadministration/" class="nav-list-link">22. Databasadministration och säker användning</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/informationskvalitet/" class="nav-list-link">23. Informationskvalitet – när går uppgifterna att använda?</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/begrepp-identitet-och-informationssystem/" class="nav-list-link">24. Begrepp, identitet och informationssystem</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/andra-satt-att-organisera-data/" class="nav-list-link">25. Andra sätt att organisera data</a></li><li class="nav-list-item"><a href="/docs/del-4-perspektiv/fran-behov-till-databas/" class="nav-list-link">26. Från behov till fungerande databas</a></li></ul></li><li class="nav-list-item"><a href="/docs/arbeta-praktiskt/" class="nav-list-link">Kör SQL-exemplen</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="Verktygsfördjupning submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/docs/fordjupning/" class="nav-list-link">Verktygsfördjupning</a><ul class="nav-list"><li class="nav-list-item"><a href="/docs/fordjupning/sqlite-tva-anslutningar/" class="nav-list-link">Två anslutningar i SQLite</a></li></ul></li><li class="nav-list-item"><a href="/docs/om/om-kompendiet/" class="nav-list-link">Om kompendiet</a></li></ul>
   
 </nav>
 
@@ -224,20 +212,18 @@
 </div>
 
   
-  <button
-  id="theme-toggle"
-  class="theme-toggle"
-  type="button"
-  aria-label="Byt färgtema"
-  title="Byt färgtema">
-  <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="12" cy="12" r="4"></circle>
-    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
-  </svg>
-  <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"></path>
-  </svg>
-</button>
+  <div class="theme-control">
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Byt färgtema" title="Byt färgtema">
+    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
+      <circle cx="12" cy="12" r="4"/>
+    </svg>
+    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/>
+    </svg>
+  </button>
+  <span id="theme-status" class="sr-only" role="status"></span>
+</div>
   
 </div>
 
@@ -257,81 +243,59 @@
 
 <p>Den första delen förutsätter inga tidigare kunskaper om databaser. Den börjar
 med frågan hur lagrade värden får betydelse och går stegvis vidare till tabeller,
-identifierare och konceptuella modeller.</p>
+konceptuella modeller, relationsscheman och normalisering.</p>
 
 <div class="table-wrapper"><table>
   <thead>
     <tr>
       <th>Kapitel</th>
-      <th>Huvudfråga</th>
+      <th>Fokus</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><a href="/docs/del-1-grunder/data-och-information/">1. Data och information</a></td>
-      <td>Vad krävs för att ett värde ska kunna tolkas?</td>
+      <td>Skilj ett registrerat värde från dess betydelse.</td>
     </tr>
     <tr>
       <td><a href="/docs/del-1-grunder/varfor-databaser/">2. Varför databaser?</a></td>
-      <td>När behöver sammanhörande data hanteras gemensamt?</td>
+      <td>Skilj databasen från programmet som hanterar den.</td>
     </tr>
     <tr>
       <td><a href="/docs/del-1-grunder/tabeller-rader-kolumner/">3. Tabeller, rader och kolumner</a></td>
-      <td>Hur organiseras data i en relationsdatabas?</td>
+      <td>Läs vad en rad, kolumn och cell betyder.</td>
     </tr>
     <tr>
       <td><a href="/docs/del-1-grunder/identifierare-och-samband/">4. Identifierare och samband</a></td>
-      <td>Hur skiljer vi rader åt och kopplar ihop tabeller?</td>
+      <td>Följ primärnycklar och främmande nycklar mellan två tabeller.</td>
     </tr>
     <tr>
       <td><a href="/docs/del-1-grunder/konceptuell-modellering/">5. Konceptuell modellering</a></td>
-      <td>Hur beskriver vi verksamhetens informationsbehov före SQL?</td>
+      <td>Gå från en kort verksamhetsbeskrivning till definierade begrepp.</td>
     </tr>
     <tr>
       <td><a href="/docs/del-1-grunder/multiplicitet/">6. Multiplicitet och verksamhetsregler</a></td>
-      <td>Hur uttrycker vi hur många förekomster som får höra samman?</td>
+      <td>Bestäm minimum och maximum i två riktningar.</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/del-1-grunder/fran-modell-till-relationsschema/">7. Från modell till relationsschema</a></td>
+      <td>Översätt ett samband till tabeller utan listor i cellerna.</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/del-1-grunder/funktionella-beroenden/">8. Funktionella beroenden och redundans</a></td>
+      <td>Avgör vilket attributvärde som bestämmer vilket annat.</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/del-1-grunder/normalisering/">9. Normalisering steg för steg</a></td>
+      <td>Dela upp relationer och motivera varje flytt av ett attribut.</td>
     </tr>
   </tbody>
 </table></div>
 
-<p>När delen är avslutad ska du kunna förklara varför databaser används, läsa en
-enkel tabellstruktur och skapa samt kritiskt granska en avgränsad konceptuell
-modell.</p>
+<p>När delen är avslutad ska du kunna förklara varför databaser används, läsa en enkel tabellstruktur, skapa och kritiskt granska en avgränsad konceptuell modell samt översätta den till ett normaliserat relationsschema.</p>
 
           
 
-          
-            <hr>
-I denna del
-
-
-<ul>
-  
-  <li>
-    <a href="/docs/del-1-grunder/data-och-information/">1. Data och information</a>
-  </li>
-  
-  <li>
-    <a href="/docs/del-1-grunder/varfor-databaser/">2. Varför databaser?</a>
-  </li>
-  
-  <li>
-    <a href="/docs/del-1-grunder/tabeller-rader-kolumner/">3. Tabeller, rader och kolumner</a>
-  </li>
-  
-  <li>
-    <a href="/docs/del-1-grunder/identifierare-och-samband/">4. Identifierare och samband</a>
-  </li>
-  
-  <li>
-    <a href="/docs/del-1-grunder/konceptuell-modellering/">5. Konceptuell modellering</a>
-  </li>
-  
-  <li>
-    <a href="/docs/del-1-grunder/multiplicitet/">6. Multiplicitet och verksamhetsregler</a>
-  </li>
-  
-</ul>
           
         </main>
         

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720" role="img" aria-labelledby="title desc">
+  <title id="title">Crow's Foot-symboler för multiplicitet</title>
+  <desc id="desc">En legend visar symbolerna för noll eller en, exakt en, noll eller många och en eller många. Ett exempel visar att en kund kan ha noll eller många order medan varje order har exakt en kund.</desc>
+  <style>.h{font:700 25px Arial,sans-serif;fill:#173f5f}.label{font:700 20px Arial,sans-serif;fill:#173f5f}.t{font:20px Arial,sans-serif;fill:#243447}.s{font:17px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.line{stroke:#116466;stroke-width:4;fill:none}</style>
+  <rect width="1120" height="720" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">Crow's Foot kombinerar minimum och maximum</text>
+  <text x="65" y="106" class="s">INTERVALL</text><text x="285" y="106" class="s">LÄS SOM</text><text x="695" y="106" class="s">ÄNDMARKÖR NÄRA ENTITETSTYPEN</text>
+  <g transform="translate(0 0)"><text x="70" y="165" class="label">0..1</text><text x="285" y="165" class="t">noll eller en</text><path d="M665 158h330" class="line"/><circle cx="890" cy="158" r="13" fill="#f5f8fb" stroke="#116466" stroke-width="4"/><path d="M960 135v46" class="line"/></g>
+  <g transform="translate(0 90)"><text x="70" y="165" class="label">1..1</text><text x="285" y="165" class="t">exakt en</text><path d="M665 158h330" class="line"/><path d="M890 135v46M960 135v46" class="line"/></g>
+  <g transform="translate(0 180)"><text x="70" y="165" class="label">0..*</text><text x="285" y="165" class="t">noll eller många</text><path d="M665 158h330" class="line"/><circle cx="890" cy="158" r="13" fill="#f5f8fb" stroke="#116466" stroke-width="4"/><path d="M960 158l35-24M960 158h35M960 158l35 24" class="line"/></g>
+  <g transform="translate(0 270)"><text x="70" y="165" class="label">1..*</text><text x="285" y="165" class="t">en eller många</text><path d="M665 158h330" class="line"/><path d="M890 135v46M960 158l35-24M960 158h35M960 158l35 24" class="line"/></g>
+  <line x1="48" y1="492" x2="1072" y2="492" stroke="#d4dde7" stroke-width="2"/>
+  <text x="48" y="540" class="h">Exempel: kund och beställning</text>
+  <rect x="70" y="575" width="245" height="88" rx="14" class="box"/><text x="192" y="628" class="label" text-anchor="middle">CUSTOMER</text>
+  <rect x="805" y="575" width="245" height="88" rx="14" class="accent"/><text x="927" y="628" class="label" text-anchor="middle">SALES_ORDER</text>
+  <path d="M315 619h490" class="line"/><path d="M352 596v46M382 596v46" class="line"/><circle cx="738" cy="619" r="13" fill="#f5f8fb" stroke="#116466" stroke-width="4"/><path d="M770 619l35-24M770 619h35M770 619l35 24" class="line"/>
+  <text x="560" y="688" class="s" text-anchor="middle">Varje order hör till exakt en kund · en kund kan ha noll eller många order</text>
+</svg>
+

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" role="img" aria-labelledby="title desc">
+  <title id="title">Transaktionens två avslutningar</title>
+  <desc id="desc">Efter BEGIN genomförs flera SQL-satser. Om alla kontroller lyckas leder COMMIT till ett nytt bekräftat tillstånd; vid ett fel leder ROLLBACK tillbaka till starttillståndet.</desc>
+  <style>.h{font:700 24px Arial,sans-serif;fill:#173f5f}.sql{font:700 19px 'Courier New',monospace;fill:#173f5f}.t{font:16px Arial,sans-serif;fill:#243447}.s{font:14px Arial,sans-serif;fill:#52606d}.box{fill:#fff;stroke:#9fb3c8;stroke-width:2}.accent{fill:#e7f5f3;stroke:#116466;stroke-width:2}.warn{fill:#fff4d6;stroke:#b7791f;stroke-width:2}.line{stroke:#116466;stroke-width:3;fill:none}.back{stroke:#b7791f;stroke-width:3;fill:none}</style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#116466"/></marker><marker id="arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#b7791f"/></marker></defs>
+  <rect width="1040" height="470" rx="24" fill="#f5f8fb"/>
+  <text x="48" y="54" class="h">En verksamhetshändelse får en gemensam gräns</text>
+  <rect x="55" y="165" width="190" height="120" rx="16" class="box"/><text x="150" y="207" class="t" text-anchor="middle">bekräftat</text><text x="150" y="238" class="t" text-anchor="middle">starttillstånd</text>
+  <rect x="315" y="135" width="310" height="180" rx="16" class="accent"/><text x="470" y="178" class="sql" text-anchor="middle">BEGIN</text><text x="470" y="218" class="t" text-anchor="middle">INSERT · INSERT · UPDATE</text><text x="470" y="251" class="t" text-anchor="middle">kontrollera resultat</text><text x="470" y="285" class="s" text-anchor="middle">ännu inte bekräftat</text>
+  <rect x="740" y="84" width="245" height="120" rx="16" class="accent"/><text x="862" y="128" class="sql" text-anchor="middle">COMMIT</text><text x="862" y="163" class="t" text-anchor="middle">nytt bekräftat tillstånd</text>
+  <rect x="740" y="276" width="245" height="120" rx="16" class="warn"/><text x="862" y="320" class="sql" text-anchor="middle">ROLLBACK</text><text x="862" y="355" class="t" text-anchor="middle">åter till starttillståndet</text>
+  <path d="M245 225h70" class="line" marker-end="url(#arrow)"/>
+  <path d="M625 190c55 0 60-46 115-46" class="line" marker-end="url(#arrow)"/><text x="682" y="137" class="s" text-anchor="middle">allt lyckas</text>
+  <path d="M625 260c55 0 60 76 115 76" class="back" marker-end="url(#arrow-warn)"/><text x="683" y="330" class="s" text-anchor="middle">fel eller avbrott</text>
+  <path d="M740 377c-245 70-507 33-590-92" class="back" marker-end="url(#arrow-warn)"/>
+</svg>
+

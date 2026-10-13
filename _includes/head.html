@@ -1,19 +1,40 @@
 {%- comment -%}
-  Local copy of the Just the Docs 0.12 head include. The two theme stylesheets
-  use mutually exclusive media queries, and theme scripts use `defer` so they
-  do not pause HTML parsing. Review this file when the pinned theme is upgraded.
+  Local copy of the Just the Docs 0.12 head include. One selected theme stylesheet is requested before body rendering.
+  Other scripts are deferred. Review this file when the pinned theme is upgraded.
 {%- endcomment -%}
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link
-    id="databaser-light-theme"
-    rel="stylesheet"
-    href="{{ '/assets/css/just-the-docs-default.css' | relative_url }}"
-    media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-head-nav.css' | relative_url }}" id="jtd-head-nav-stylesheet">
+  {%- assign asset_version = site.time | date: '%s' -%}
+  <meta name="color-scheme" content="light dark">
+  <link id="databaser-theme-stylesheet" rel="stylesheet" blocking="render"
+    data-light-url="{{ '/assets/css/just-the-docs-default.css' | relative_url }}?v={{ asset_version }}"
+    data-dark-url="{{ '/assets/css/just-the-docs-databaser-dark.css' | relative_url }}?v={{ asset_version }}">
+  <script id="databaser-theme-bootstrap">
+    (function () {
+      var root = document.documentElement;
+      var preference = null;
+      try { preference = localStorage.getItem("databaser-theme"); } catch (error) {}
+      if (preference !== "light" && preference !== "dark") preference = null;
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = preference || (dark ? "dark" : "light");
+      root.dataset.databaserTheme = theme;
+      if (window.HTMLDialogElement) root.classList.add("figure-viewer-ready");
+      root.style.colorScheme = theme;
+      var sheet = document.getElementById("databaser-theme-stylesheet");
+      sheet.dataset.theme = theme;
+      sheet.href = sheet.dataset[theme + "Url"];
+    }());
+  </script>
+  <noscript>
+    <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-default.css' | relative_url }}?v={{ asset_version }}" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-databaser-dark.css' | relative_url }}?v={{ asset_version }}" media="(prefers-color-scheme: dark)">
+  </noscript>
+  <style id="jtd-head-nav-stylesheet">
+    .site-nav ul li a { background-image: linear-gradient(90deg, transparent, var(--db-nav-feedback)); }
+  </style>
   <style id="jtd-nav-activation">
     {% include css/activation.scss.liquid %}
   </style>
