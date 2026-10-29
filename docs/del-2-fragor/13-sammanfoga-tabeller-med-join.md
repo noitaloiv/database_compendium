@@ -184,19 +184,17 @@ Här visas Mira med 1042 samt Samir och Lo med `NULL`. Att flytta ett villkor ka
   <figcaption><strong>Figur 13.3.</strong> Vägen mellan tabellerna visar vilka nyckelvärden som ska jämföras. Varje sammanfogning behöver ett eget motiverat villkor. <a href="{{ '/assets/images/17-joinvagar-nordic-brew.svg' | relative_url }}">Visa figuren separat</a>.</figcaption>
 </figure>
 
+### När en kund får sin första beställning
 
-## Kontrollera radparen innan du går vidare
+I exemplet ovan har Lo Chen ännu ingen beställning och visas därför med `NULL` i `OrderID` vid `LEFT JOIN`. Anta nu att Lo gör sin första beställning, nummer `1045`. Förutsäg vad som förändras när vi kör de tidigare frågorna med `INNER JOIN` respektive `LEFT JOIN`. Blir det fler eller färre resultatrader? Finns någon rad med `NULL` kvar?
 
-En kund har två order och en annan kund saknar order. Rita de matchande paren: den första kundraden paras med vardera orderraden. En vanlig `JOIN` ger då två rader. En `LEFT JOIN` från kunder ger dessutom en rad för kunden utan order, med `NULL` för orderuppgifterna.
+<details class="answer" markdown="1">
+<summary>Jämför med resultatet</summary>
 
-**Ditt nästa steg:** skriv vad varje rad representerar i de två resultaten. Vad skulle hända om ännu en order tillkom för den första kunden?
-
-<details class="answer" markdown="1"><summary>Kontroll</summary>
-
-Den matchande raden beskriver kombinationen kund och order. Den omatchade raden visar att kunden saknar en matchande order; den är inte en order med nummer noll. En ytterligare order ger en ytterligare matchning: tre rader med `JOIN`, fyra med `LEFT JOIN`. Kundnamnets upprepning är väntad och ska inte automatiskt tas bort med `DISTINCT`.
+`INNER JOIN` får fyra matchande kund–order-par i stället för tre. `LEFT JOIN` visar fortfarande fyra rader totalt: Los tidigare omatchade rad med `NULL` ersätts nu av en matchande rad med ordernummer `1045`. Ingen kund saknar längre beställning i just dessa exempeldata. Att Lo nu finns på en order ändrar alltså vilka rader som representeras, men inte antalet rader i just det här `LEFT JOIN`-resultatet.
 </details>
 
-Använd samma radparstänkande i konferensövningen. Börja med två tabeller och lägg till nästa först när du kan förklara resultatets radantal.
+I nästa övning får du följa samma radparstänkande när fler tabeller kopplas ihop.
 
 ## 13.7 Öva med ett konferensprogram
 

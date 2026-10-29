@@ -156,6 +156,18 @@ ORDER BY OrderID;
 
 För order 1042 behöver varje avtalat styckepris först multipliceras med antalet förpackningar på orderraden. Beräkningen blir då 2 × 12900 + 1 × 8900 = 34700 öre, vilket är samma belopp som vi tolkade i kapitel 1. På motsvarande sätt ger order 1043 beloppet 1 × 11900 + 3 × 9900 = 41600 öre. Om vi i stället bara summerade `AgreedUnitPriceOre` skulle antalet förpackningar försvinna ur beräkningen, så kontrollera gärna beloppen för hand innan du kör frågan.
 
+### Pröva vad som händer när en kvantitet ändras
+
+För order `1042` har vi redan räknat två orderrader, tre förpackningar och ett sammanlagt belopp på `34 700` öre. Anta att `Quantity` för produkt `501` ändras från `2` till `4`, medan de avtalade styckpriserna är oförändrade. Vilka av de tre resultaten ändras? Förutsäg först antalet orderrader, antalet förpackningar och totalsumman innan du öppnar svaret.
+
+<details class="answer" markdown="1">
+<summary>Kontrollera beräkningen</summary>
+
+Antalet orderrader är fortfarande två, men antalet förpackningar ökar från tre till fem. Det nya beloppet blir `4 × 12 900 + 1 × 8 900 = 60 500` öre. `COUNT(*)` räknar rader, `SUM(Quantity)` räknar förpackningar och `SUM(Quantity * AgreedUnitPriceOre)` summerar beloppen på orderraderna. Samma fråga kan alltså behöva olika aggregat beroende på vad verksamheten vill veta.
+</details>
+
+I nästa avsnitt behöver du återigen kontrollera vad som räknas, men nu för kunder som kan sakna beställningar.
+
 ## 14.6 Att räkna noll efter <code>LEFT JOIN</code>
 
 För att räkna varje kunds beställningar, även när antalet är noll, behöver vi utgå från alla kunder:
@@ -175,20 +187,6 @@ Resultatet blir Mira: 2, Samir: 1 och Lo: 0. För att förstå nollan följer vi
 
 <code>SUM</code> och <code>AVG</code> bortser också från <code>NULL</code>, men de returnerar <code>NULL</code> om det inte finns något icke-<code>NULL</code>-värde att beräkna med. <code>COUNT</code> returnerar då 0. När en frånvarande summa verkligen ska betyda noll kan `COALESCE(SUM(...), 0)` användas för att ersätta <code>NULL</code>. Bestäm först vad frånvaron betyder; ett okänt belopp är inte automatiskt ett belopp på noll.
 </details>
-
-
-## Från rader till grupper: ett delvis löst exempel
-
-Två bokningar gäller samma tillfälle. De har `Seats` = 2 respektive 1 och avtalat pris 10000 öre per plats. Första steget är att låta varje bokning bidra med sitt belopp: 20000 respektive 10000 öre. När raderna samlas till en grupp för tillfället ska vi bevara skillnaden mellan bokningar, platser och belopp.
-
-Slutför beräkningen: ange antal bokningar, antal platser och sammanlagt belopp. Välj sedan vilken storhet `COUNT(*)`, `SUM(Seats)` respektive `SUM(Seats * AgreedPriceOre)` beskriver i just dessa matchande bokningsrader.
-
-<details class="answer" markdown="1"><summary>Kontroll och motexempel</summary>
-
-Resultatet är två bokningar, tre platser och 30000 öre. `COUNT(*)` räknar de två raderna, medan de två `SUM`-uttrycken räknar platser respektive belopp. `SUM(AgreedPriceOre)` skulle ge 20000 och missa att den första bokningen avser två platser. Om alla bokningar avsåg en plats skulle felet döljas av just den testdatan.
-</details>
-
-**Eget nytt försök:** byt den andra bokningens antal till fyra. Beskriv vilka av de tre resultaten som ändras innan du räknar. Kontroll: antalet bokningar är fortfarande två, men antalet platser blir sex och beloppet 60000 öre. Fortsätt sedan med en av vårdbokningsfrågorna och ange samma tre saker: radbetydelse, grupperingsenhet och beräkning.
 
 ## 14.7 Öva med vårdbokningar
 

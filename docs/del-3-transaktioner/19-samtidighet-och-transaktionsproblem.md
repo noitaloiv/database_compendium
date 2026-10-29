@@ -116,14 +116,17 @@ Välj ett förlopp i rutan. Tabellen visar hela schemat med samma kolumner som t
 
 I det sista alternativet får A ensamrätt till saldot innan någon av transaktionerna läser. När B försöker komma åt samma uppgift måste B därför vänta, och hämtar sitt läsvärde först efter att A har godkänt uttaget. Då är underlaget 90 och B:s beräkning ger 90 − 20 = 70. Skillnaden mot det felaktiga förloppet är alltså inte själva subtraktionen, utan när B tillåts skaffa det värde som subtraktionen bygger på. Nästa kapitel förklarar låsreglerna som gör denna väntan möjlig.
 
+### Om du tappar bort ett värde
 
-## Stöd när tabellen blir svår att följa
+Gå tillbaka till schemat i 19.2 och följ tre saker var för sig: databasens saldo, A:s senast lästa värde och B:s senast lästa värde. A och B har först läst `100`, men A skriver sedan `90` och gör `COMMIT`. Vad står nu i databasen, och vilket värde använder B fortfarande när den räknar sitt uttag?
 
-Rita tre separata kolumner: databasens värde, A:s lokala värde och B:s lokala värde. Börja med databasvärdet 10. A läser 10; B minskar därefter databasvärdet med 3 till 7 och godkänner ändringen. A har fortfarande sin lokala kopia 10. Om A nu räknar 10 − 2 och skriver resultatet blir databasvärdet 8, trots att de två uttagen tillsammans borde ge 5.
+<details class="answer" markdown="1">
+<summary>Kontrollera värdena</summary>
 
-Fyll själv i de tre kolumnerna för varje steg. En beräkning hos A ändrar bara A:s kolumn, medan en skrivning ändrar databasens kolumn. Förklara sedan felet genom att peka på den gamla läsningen och den senare överskrivningen. Problemets namn är användbart först när du kan visa detta förlopp.
+Efter A:s `COMMIT` är databasens saldo `90`, medan B fortfarande använder sin tidigare lästa kopia `100`. B beräknar därför `100 − 20 = 80` och skriver över effekten av A:s uttag. Om uttagen genomförts på aktuella värden skulle slutvärdet i stället vara `70`. Skillnaden ligger i vilket värde B läste och fortsatte använda.
+</details>
 
-Om du blandar ihop värdena, börja om med två transaktioner och ett objekt innan du följer större scheman. De följande uppgifterna använder samma skillnad, även när fler uppgifter ingår.
+Använd samma sätt att skilja lokala värden från databasens tillstånd när du går vidare till förrådsexemplet i 19.7.
 
 ## 19.7 Öva och motivera diagnosen
 

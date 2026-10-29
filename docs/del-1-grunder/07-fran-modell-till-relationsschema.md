@@ -208,16 +208,19 @@ avdelning. Var bör främmande nyckeln placeras?
   <code>Department</code> skulle blanda flera värden i samma attribut.</p>
 </details>
 
-## Kontrollera ett steg innan du skriver hela schemat
+### När verksamhetsregeln ändras
 
-En lokal kan användas av flera besök, men varje besök använder en lokal. Vi har lokal 3 och besöken 41 och 42, båda i lokal 3. Skriv de två besöksraderna med deras hänvisning till lokalen. Behöver lokalen två rader för att representera detta?
+Anta att avdelning 3 har två anställda, 41 och 42. Med regeln att varje anställd hör till exakt en avdelning kan deras rader beskrivas som `(41, 3)` och `(42, 3)`, där det första värdet är `EmployeeID` och det andra `DepartmentID`. Båda hänvisar till samma avdelning, som bara behöver registreras en gång.
 
-<details class="answer" markdown="1"><summary>Ledtråd och kontroll</summary>
+Vad händer om en anställd i stället får tillhöra flera avdelningar? Anta att anställd 41 nu ska höra till både avdelning 3 och 4, medan anställd 42 fortfarande bara hör till avdelning 3. Vilka kombinationer behöver då kunna lagras, och kan ett enda `DepartmentID` i `Employee` fortfarande beskriva verksamheten?
 
-Låt varje besöksrad bära lokalnumret: (41, 3) och (42, 3). Lokalen beskrivs en gång. `RoomID` får återkomma på besökssidan; det är besökets identifierare som ska skilja besöksraderna åt. En främmande nyckel gör inte automatiskt kolumnen unik.
+<details class="answer" markdown="1">
+<summary>Jämför med ett möjligt resonemang</summary>
+
+De tre kopplingarna är `(41, 3)`, `(41, 4)` och `(42, 3)`. Ett enda avdelningsnummer på den anställdes rad räcker inte för den nya regeln. Vi behöver låta sambandet få en egen relation, exempelvis `EmployeeDepartment(EmployeeID, DepartmentID)`, där kombinationen är primärnyckel och båda kolumnerna är främmande nycklar till var sin grundrelation. Anställda och avdelningar registreras fortfarande en gång var.
 </details>
 
-Pröva nu ett nytt villkor: ett besök får använda två lokaler. Skriv de nödvändiga paren av besöksnummer och lokalnummer. Nu behövs en relation som kan rymma flera sådana par. Motivera ändringen i associationen innan du jämför med många-till-många-avsnittet. Detta är samma metod som i uthyrningsövningen nedan, med färre beslut på en gång.
+I uthyrningsfallet nedan får du på motsvarande sätt avgöra vilka kopplingar som kan beskrivas med en främmande nyckel och vilka som behöver en egen relation.
 
 ## 7.8 Överföringsövning: uthyrning av utrustning
 

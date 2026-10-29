@@ -15,15 +15,9 @@ keywords: [tillämpning, modellering, normalisering, SQL, transaktion, museum]
 
 {% include chapter_guide.html %}
 
-Ett museum erbjuder guidade visningar och vill ersätta sin gemensamma bokningslista med en databas. Genom att följa fallet från verksamhetsbeskrivning till körbara frågor kan vi nu se hur modellering, normalisering och SQL påverkar varandra. Vi använder därför de arbetssätt som redan har introducerats, med fokus på att koppla ihop besluten och kontrollera att de leder till en användbar lösning.
+Ett museum erbjuder guidade visningar och vill ersätta sin gemensamma bokningslista med en databas. Vi följer hur verksamhetens regler påverkar begreppsmodellen, relationsschemat, SQL-frågorna och vår bedömning av resultatet. På så sätt knyter kapitlet ihop tidigare arbetssätt utan att bli ett nytt, fullständigt projekt.
 
-Arbeta med ett avsnitt i taget. Försök först formulera en egen lösning och öppna sedan resonemanget. När du når SQL-delen finns en färdig startfil; du behöver alltså inte få varje tidigare modellval rätt för att kunna fortsätta öva.
-
-## Använd kapitlet för att knyta ihop, inte börja om
-
-Det här kapitlet återanvänder de tidigare arbetssätten i ett sammanhängande fall. Välj först en regel och följ den genom begreppsmodell, schema, SQL och kontroll. När du kan förklara kedjan kan du granska ytterligare delar. Du behöver inte genomföra ett andra fullständigt projekt för att använda kapitlet som repetition.
-
-Pröva särskilt om en korrekt struktur också räcker för den slutsats verksamheten vill dra. En giltig hänvisning visar att ett registrerat nummer finns, men inte att rätt föremål observerats. Det gör modellering, frågekonstruktion och informationskvalitet till delar av samma undersökning.
+Arbeta med ett steg i taget. Formulera gärna ett eget svar innan du öppnar lösningsförslaget och jämför sedan framför allt motiveringen. När du kommer till SQL-delen finns en färdig startfil, så att du kan fortsätta även om du har gjort andra modellval i ett tidigare steg. Längre fram ska du också pröva vad bokningsuppgifterna faktiskt kan säga om exempelvis bokade platser och närvaro.
 
 ## 26.1 Avgränsa verksamheten
 

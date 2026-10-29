@@ -274,8 +274,11 @@ nyckeln?
   resultat på just det kurstillfället och behöver hela kombinationen.</p>
 </details>
 
+## 9.9 Överföringsövning: bokning av utrustning
 
-## Gör ett beroende synligt innan du delar upp allt
+### Börja med ett mindre bokningsradsexempel
+
+I kursregistreringen ovan prövade vi vilka uppgifter som bestämdes av en del av en sammansatt nyckel. Vi använder nu samma tanke på en bokningsrad och går sedan vidare till ett mer omfattande uthyrningsfall.
 
 Anta att `BookingLine(BookingID, ItemID, ItemName, Quantity)` beskriver en artikels rad i en bokning. En artikel får förekomma högst en gång per bokning. `ItemID` bestämmer artikelns aktuella namn; kombinationen `BookingID, ItemID` bestämmer antalet. Inga andra unikhetsregler gäller.
 
@@ -291,9 +294,9 @@ Ta bort det upprepade namnet från bokningsraden, men behåll artikelnumret där
 `Item(ItemID PK, ItemName)` och `BookingLine(BookingID, ItemID, Quantity)` med sammansatt PK `(BookingID, ItemID)` och FK `ItemID` till `Item`. Kombinationen behövs fortfarande för antalet. Varje bokningsrad kopplas tillbaka till exakt en artikel eftersom `ItemID` är nyckel i `Item`. Ett nytt löpnummer i den gamla relationen hade inte i sig tagit bort det upprepade artikelnamnet.
 </details>
 
-Pröva därefter övning 9.9 utan facit. Om du fastnar, återgå till en enda uppgift: vad beskriver den, vad bestämmer den och vilken koppling måste finnas kvar? Du behöver inte gissa det färdiga antalet tabeller.
+När du går vidare till uthyrningsfallet nedan kan du använda samma tre frågor: vilket faktum beskriver varje attribut, vad bestämmer det och vilken hänvisning behöver finnas kvar efter uppdelningen?
 
-## 9.9 Överföringsövning: bokning av utrustning
+### Fortsätt med uthyrningsfallet
 
 En verksamhet använder följande relation:
 
@@ -306,8 +309,9 @@ RentalLine(
 )
 ```
 
-Anta att en uthyrning kan omfatta flera föremål, att varje föremål tillhör en
-kategori och att priset avtalas för ett visst föremål i en viss uthyrning.
+Anta att en uthyrning kan omfatta flera föremål, att varje föremål tillhör en kategori och att priset avtalas för ett visst föremål i en viss uthyrning.
+
+Ange också vilka antaganden om en uthyrningsrad som din föreslagna kandidatnyckel förutsätter. Om du behöver anta att samma föremål bara får finnas på en rad inom en uthyrning ska du skriva det och förklara varför det spelar roll.
 
 1. Föreslå relationens kandidatnyckel.
 2. Formulera de funktionella beroenden som behövs för analysen.

@@ -173,19 +173,13 @@ Ord i en text är kandidater, inte facit. ”Pris” är här ett attribut, meda
 
 `PRODUCT` betecknar entitetstypen och beskriver därför de egenskaper och regler som är gemensamma för produkterna. Produkten med nummer `501` är däremot en individuell entitet av denna typ; rutan i modellen beskriver alltså typen och inte just den enskilda produkten.
 
-
-## Från genomgång till eget modellförslag
-
-I ett första försök räcker det att välja en händelse och följa den. Anta att samma person bokar samma typ av besök två gånger. Personen och besökstypen kan vara oförändrade, men vi behöver ändå kunna skilja händelserna åt. Det är skälet till att en modell inte kan byggas enbart genom att plocka substantiv ur texten.
-
-Innan du gör hela vårdbokningsfallet: skriv en mening om vad ett besök betyder och en mening om vad som gör ett andra besök till en ny händelse. Jämför sedan med avsnittets resonemang. Lägg till attribut och associationer först när denna skillnad är klar. Om två förslag skiljer sig, pröva båda mot samma tillåtna händelse; det avgör mer än antalet rutor.
-
-
 ## 5.9 Överföringsövning: vårdbokning
 
 > En mottagning bokar patienter till besök hos vårdpersonal. Varje besök har
 > en starttid. Ett besök kan senare avbokas. Diagnoser och journalanteckningar
 > ingår inte i den första modellen.
+
+Innan du föreslår entitetstyper behöver du avgöra vad mottagningen ska kunna skilja åt. Anta till exempel att samma patient bokar ett besök på måndag och ett återbesök på torsdag hos samma behandlare. Personerna är desamma, men det är inte samma besök. Hur skulle du beskriva patienten, behandlaren och vart och ett av besökstillfällena i modellen? Använd ditt resonemang när du väljer entitetstyper och identifierare nedan.
 
 1. Formulera modellens syfte och avgränsning.
 2. Föreslå entitetstyper och konceptuella identifierare.

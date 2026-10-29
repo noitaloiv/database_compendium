@@ -21,13 +21,9 @@ keywords:
 
 {% include chapter_guide.html %}
 
-I det här kapitlet använder vi relationsalgebra för att förstå hur en databasfråga "byggs upp". Det viktigaste är att du kan förklara vilka rader som väljs, vilka attribut som behålls och hur information från olika relationer kopplas samman. Operationerna illustreras också med formella symboler, men du behöver inte själv kunna skriva algebrauttrycken för att följa kapitlets grundspår.
+När databasens struktur väl finns behöver vi kunna hämta den information som verksamheten efterfrågar. Nordic Brew kanske vill hitta alla aktiva produkter under en viss prisgräns eller se vilka beställningar en kund har gjort. För att formulera sådana frågor behöver vi först avgöra vilka relationer som innehåller uppgifterna, vilka rader som ska följa med och vilka attribut resultatet ska visa.
 
-När en databas väl har fått en genomtänkt struktur återstår en ny utmaning: hur hämtar vi den information som behövs? En användare kanske vill veta vilka produkter som är aktiva och kostar mindre än 120 kronor, vilka beställningar som har gjorts av en viss kund eller vilka kunder som ännu inte har beställt något.
-
-Sådana frågor uttrycks vanligen med SQL, men för att skriva en bra fråga behöver vi först förstå vilket resultat den ska ge. Vilka relationer behövs?  Vilka rader ska behållas? Vilka attribut ska visas? När vi kan besvara dessa frågor blir det betydligt enklare att formulera SQL-satsen.
-
-I föregående kapitel kombinerade vi mängder av produktnummer, men för att få fram sådana mängder behöver vi kunna arbeta med relationer som innehåller fler attribut. **Relationsalgebra** ger oss operationer för just detta: att välja rader, välja attribut och koppla samman fakta. När resultatet av en operation fortfarande är en relation kan det användas i nästa steg. Vi börjar därför med att följa konkreta exempelrader genom stegen, innan vi sätter ihop dem till hela uttryck.
+I förra kapitlet arbetade vi med mängder av produktnummer. Här går vi vidare till relationer där varje rad innehåller flera attribut och följer resultatet genom urval, projektion och sammanfogning. Det är grundidén i *relationsalgebra*. Vi börjar med ord, tabeller och konkreta mellanresultat; de formella symbolerna visas som ett kompletterande sätt att beskriva samma steg, men du behöver inte själv skriva symboluttryck i grundspåret.
 
 ## 11.1 Börja med frågan, inte med kommandot
 
@@ -241,15 +237,60 @@ Beskriv följande frågor med urval, projektion och sammanfogning. Du behöver �
 5. Förklara vad en rad representerar i resultatet från fråga 3.
 
 <details class="answer" markdown="1">
-<summary>Visa lösningsförslag med resonemang</summary>
+<summary>Visa lösningsförslag och resultat</summary>
 
-1. Börja med `Book` och gör ett urval där `PublicationYear > 2020`. Projicera sedan på `Title` och `PublicationYear`. Varken medlemmen eller lånet behövs för att besvara en fråga om bokens utgivning.
-2. Sammanfoga `Member` och `Loan` där deras `MemberID` är lika. Välj därefter rader där `MemberName = 'Amina Said'` och projicera på `LoanDate`. Här antar vi att namnet pekar ut rätt medlem; om flera medlemmar heter Amina Said behöver frågan precisera vem som avses, exempelvis med ett medlemsnummer.
-3. Utgå från `Loan`. Sammanfoga med `Book` genom `BookID` och med `Member` genom `MemberID`. Projicera därefter på `LoanID`, `Title` och `MemberName`. Något urval behövs inte eftersom frågan gäller alla registrerade lån.
-4. Endast `Member` behövs. En projektion på `MemberName` ger de förekommande namnen. I relationsalgebra tas identiska tupler bort, så två medlemmar med samma namn ger ett gemensamt namnvärde i resultatet. Vill vi skilja medlemmarna åt behöver även `MemberID` följa med.
-5. Med giltiga nyckelhänvisningar representerar varje rad ett bestämt lån: lånenumret identifierar händelsen, medan titel och namn beskriver vad som lånades och av vem. Om samma medlem lånar samma bok igen får det nya lånet ett annat `LoanID`. Utan lånenumret skulle projektionen slå ihop de två identiska kombinationerna av titel och medlemsnamn.
+**1. Bekräftade beställningar.** Urvalet med `Status = 'CONFIRMED'` ger en relation med hela orderraden:
 
-Du kan alltså inte alltid ta bort identifierare utan att förändra vad en resultatrad representerar. Börja med informationsbehovet och välj sedan vilka attribut som behöver följa med.
+| <code>OrderID</code> | <code>CustomerID</code> | <code>Status</code> |
+| ---: | ---: | --- |
+| 1042 | 17 | <code>CONFIRMED</code> |
+
+När vi därefter väljer enbart attributet `CustomerID` återstår en rad och en kolumn:
+
+| <code>CustomerID</code> |
+| ---: |
+| 17 |
+
+Den första operationen väljer alltså orderraden, medan den andra visar kundnumret för denna order.
+
+**2. Kundnummer i alla beställningar.** Vi tar nu inte bort någon order med ett urval, utan väljer `CustomerID` ur samtliga tre beställningsrader:
+
+| <code>CustomerID</code> |
+| ---: |
+| 17 |
+| 24 |
+
+Kund 17 har två beställningar, men efter projektionen är deras återstående tupler identiska. I relationsalgebra visas därför värdet 17 bara en gång. Hela beställningarna har inte slagits ihop eller försvunnit ur databasen.
+
+**3. Samir Noors beställningar.** Vi gör tre steg och kontrollerar resultatet efter varje steg.
+
+Först sammanfogar vi `Customer` och `SalesOrder` där deras `CustomerID` är lika. Tabellen visar de attribut vi behöver följa:
+
+| <code>CustomerName</code> | <code>OrderID</code> | <code>Status</code> |
+| --- | ---: | --- |
+| Mira Ek | 1042 | <code>CONFIRMED</code> |
+| Samir Noor | 1043 | <code>SHIPPED</code> |
+| Mira Ek | 1044 | <code>DRAFT</code> |
+
+Sedan väljer vi endast rader där `CustomerName = 'Samir Noor'`. Mellanresultatet blir:
+
+| <code>CustomerName</code> | <code>OrderID</code> | <code>Status</code> |
+| --- | ---: | --- |
+| Samir Noor | 1043 | <code>SHIPPED</code> |
+
+Till sist behåller vi bara de två begärda attributen:
+
+| <code>OrderID</code> | <code>Status</code> |
+| ---: | --- |
+| 1043 | <code>SHIPPED</code> |
+
+**4. När sammanfogningsnyckeln saknas.** Om `CustomerID` först tas bort från båda indatarelationerna går det inte längre att använda det avsedda villkoret som jämför deras kundnummer. En projektion måste därför behålla attribut som efterföljande operationer behöver.
+
+**Valbar symbolnotation.** Samma steg kan beskrivas formellt med relationsalgebra. Detta är kompletterande notationsträning, inte ett krav för grundspåret.
+
+<div class="algebra"><code>ConfirmedOrders</code> = σ<sub><code>Status</code> = '<code>CONFIRMED</code>'</sub>(<code>SalesOrder</code>)<br><code>Result</code> = π<sub><code>CustomerID</code></sub>(<code>ConfirmedOrders</code>)</div>
+
+<div class="algebra"><code>JoinedOrders</code> = <code>Customer</code> ⋈<sub><code>Customer</code>.<code>CustomerID</code> = <code>SalesOrder</code>.<code>CustomerID</code></sub> <code>SalesOrder</code><br><code>SamirsOrders</code> = σ<sub><code>CustomerName</code> = 'Samir Noor'</sub>(<code>JoinedOrders</code>)<br><code>Result</code> = π<sub><code>OrderID</code>, <code>Status</code></sub>(<code>SamirsOrders</code>)</div>
 </details>
 
 ## 11.10 Följ frågan med ord och mellanresultat
@@ -281,7 +322,9 @@ Den första frågan kan delas upp så här:
 
 <div class="algebra"><code>ConfirmedOrders</code> = σ<sub><code>Status</code> = '<code>CONFIRMED</code>'</sub>(<code>SalesOrder</code>)<br><code>Result</code> = π<sub><code>CustomerID</code></sub>(<code>ConfirmedOrders</code>)</div>
 
-Urvalet innehåller hela raden (1042, 17, <code>CONFIRMED</code>). Slutresultatet har endast kolumnen <code>CustomerID</code> och värdet 17. I fråga 2 ger projektionen i stället 17 och 24: två order för kund 17 blir samma tupel när både ordernummer och status väljs bort.
+Urvalet innehåller hela raden (1042, 17, <code>CONFIRMED</code>). Slutresultatet har endast kolumnen <code>CustomerID</code> och värdet 17. 
+
+I fråga 2 ger projektionen i stället 17 och 24: två order för kund 17 blir samma tupel när både ordernummer och status väljs bort.
 
 Fråga 3:
 

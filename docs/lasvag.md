@@ -61,12 +61,12 @@ Efter en genomgång eller ett eget försök återvänder du till just det avsnit
 
 | Om du fastnar på … | Börja om med … | Pröva därefter … |
 | --- | --- | --- |
-| Vilka begrepp modellen behöver | En konkret händelse och två saker som måste kunna skiljas åt i 5.7 | En association åt båda håll i 6.8 |
-| Var en främmande nyckel ska ligga | Två exempelrader på många-sidan i 7.3 | Kontrollfrågan före 7.8 |
-| Varför en uppgift flyttas vid normalisering | Ett beroende och dess verksamhetsregel i 8; ett upprepat faktum i 9 | Den stegvisa kontrollen före 9.9 |
-| Varför en join ger fler rader | Matchande radpar i 13.1–13.4 | Kontrollera ett omatchat fall före 13.7 |
-| Vad en gruppering räknar | Skillnaden mellan rader och enheter i 14.1 | Grupperingskontrollen före 14.7 |
-| Vad som händer när en transaktion väntar | Databasvärde och lokalt värde i 19.1 | Låskontrollen före 20.8 |
+| Vilka begrepp modellen behöver | Frågan om två besök i vårdbokningsfallet i 5.9 | En association åt båda håll i 6.8 |
+| Var en främmande nyckel ska ligga | Två exempelrader på många-sidan i 7.3 | Regeländringen om anställda och avdelningar i 7.7 |
+| Varför en uppgift flyttas vid normalisering | Ett beroende och dess verksamhetsregel i 8; ett upprepat faktum i 9 | Det delvis lösta bokningsradsexemplet i början av 9.9 |
+| Varför en join ger fler rader | Matchande radpar i 13.1–13.4 | Frågan om Los första beställning före 13.7 |
+| Vad en gruppering räknar | Skillnaden mellan rader och enheter i 14.1 | Ändringen av kvantitet på order 1042 i 14.5 |
+| Vad som händer när en transaktion väntar | Databasvärde och lokalt värde i 19.1 | 20.3:s skyddade förlopp och det egna schemat i 20.8 |
 
 Kapitel 10–11 ger en begreppslig brygga till SQL. Följ rader, attribut och mellanresultat; de formella symboluttrycken är ett valbart sätt att skriva samma resonemang. Du kan gå vidare till SQL med beskrivningar i ord och tabeller.
 
