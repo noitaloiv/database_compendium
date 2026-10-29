@@ -237,6 +237,40 @@ Beskriv följande frågor med urval, projektion och sammanfogning. Du behöver �
 5. Förklara vad en rad representerar i resultatet från fråga 3.
 
 <details class="answer" markdown="1">
+<summary>Visa lösningsförslag med resonemang</summary>
+
+1. Börja med `Book` och gör ett urval där `PublicationYear > 2020`. Projicera sedan på `Title` och `PublicationYear`. Varken medlemmen eller lånet behövs för att besvara en fråga om bokens utgivning.
+2. Sammanfoga `Member` och `Loan` där deras `MemberID` är lika. Välj därefter rader där `MemberName = 'Amina Said'` och projicera på `LoanDate`. Här antar vi att namnet pekar ut rätt medlem; om flera medlemmar heter Amina Said behöver frågan precisera vem som avses, exempelvis med ett medlemsnummer.
+3. Utgå från `Loan`. Sammanfoga med `Book` genom `BookID` och med `Member` genom `MemberID`. Projicera därefter på `LoanID`, `Title` och `MemberName`. Något urval behövs inte eftersom frågan gäller alla registrerade lån.
+4. Endast `Member` behövs. En projektion på `MemberName` ger de förekommande namnen. I relationsalgebra tas identiska tupler bort, så två medlemmar med samma namn ger ett gemensamt namnvärde i resultatet. Vill vi skilja medlemmarna åt behöver även `MemberID` följa med.
+5. Med giltiga nyckelhänvisningar representerar varje rad ett bestämt lån: lånenumret identifierar händelsen, medan titel och namn beskriver vad som lånades och av vem. Om samma medlem lånar samma bok igen får det nya lånet ett annat `LoanID`. Utan lånenumret skulle projektionen slå ihop de två identiska kombinationerna av titel och medlemsnamn.
+
+Du kan alltså inte alltid ta bort identifierare utan att förändra vad en resultatrad representerar. Börja med informationsbehovet och välj sedan vilka attribut som behöver följa med.
+</details>
+
+## 11.10 Följ frågan med ord och mellanresultat
+
+De här små relationerna räcker som underlag. Börja med att beskriva vad varje operation gör och vilket resultat den ger, gärna med ord och små tabeller. Du behöver inte skriva SQL eller formella algebrauttryck. Om du vill träna symbolnotation kan du också uttrycka stegen med σ, π och ⋈.
+
+| <code>CustomerID</code> | <code>CustomerName</code> |
+| ---: | --- |
+| 17 | Mira Ek |
+| 24 | Samir Noor |
+| 31 | Lo Chen |
+
+| <code>OrderID</code> | <code>CustomerID</code> | <code>Status</code> |
+| ---: | ---: | --- |
+| 1042 | 17 | <code>CONFIRMED</code> |
+| 1043 | 24 | <code>SHIPPED</code> |
+| 1044 | 17 | <code>DRAFT</code> |
+
+
+1. Välj de beställningar i `SalesOrder` som har status `CONFIRMED` och visa sedan endast `CustomerID`. Visa resultatet efter båda stegen och förklara vad en rad representerar.
+2. Utgå från samtliga beställningar och visa varje förekommande kundnummer en gång. Varför innehåller resultatet färre rader än `SalesOrder`?
+3. Koppla samman `Customer` och `SalesOrder` genom deras kundnummer. Välj därefter Samir Noors beställningar och visa `OrderID` och `Status`. Beskriv de tre stegen med ord och visa mellanresultatet. Den som vill träna formell notation kan dessutom skriva stegen med σ, π och ⋈.
+4. En läsare tar först bort <code>CustomerID</code> från båda relationerna. Varför kan läsaren då inte fortsätta med samma sammanfogningsvillkor?
+
+<details class="answer" markdown="1">
 <summary>Visa lösningsförslag och resultat</summary>
 
 **1. Bekräftade beställningar.** Urvalet med `Status = 'CONFIRMED'` ger en relation med hela orderraden:
@@ -291,58 +325,6 @@ Till sist behåller vi bara de två begärda attributen:
 <div class="algebra"><code>ConfirmedOrders</code> = σ<sub><code>Status</code> = '<code>CONFIRMED</code>'</sub>(<code>SalesOrder</code>)<br><code>Result</code> = π<sub><code>CustomerID</code></sub>(<code>ConfirmedOrders</code>)</div>
 
 <div class="algebra"><code>JoinedOrders</code> = <code>Customer</code> ⋈<sub><code>Customer</code>.<code>CustomerID</code> = <code>SalesOrder</code>.<code>CustomerID</code></sub> <code>SalesOrder</code><br><code>SamirsOrders</code> = σ<sub><code>CustomerName</code> = 'Samir Noor'</sub>(<code>JoinedOrders</code>)<br><code>Result</code> = π<sub><code>OrderID</code>, <code>Status</code></sub>(<code>SamirsOrders</code>)</div>
-</details>
-
-## 11.10 Följ frågan med ord och mellanresultat
-
-De här små relationerna räcker som underlag. Börja med att beskriva vad varje operation gör och vilket resultat den ger, gärna med ord och små tabeller. Du behöver inte skriva SQL eller formella algebrauttryck. Om du vill träna symbolnotation kan du också uttrycka stegen med σ, π och ⋈.
-
-| <code>CustomerID</code> | <code>CustomerName</code> |
-| ---: | --- |
-| 17 | Mira Ek |
-| 24 | Samir Noor |
-| 31 | Lo Chen |
-
-| <code>OrderID</code> | <code>CustomerID</code> | <code>Status</code> |
-| ---: | ---: | --- |
-| 1042 | 17 | <code>CONFIRMED</code> |
-| 1043 | 24 | <code>SHIPPED</code> |
-| 1044 | 17 | <code>DRAFT</code> |
-
-
-1. Välj de beställningar i `SalesOrder` som har status `CONFIRMED` och visa sedan endast `CustomerID`. Visa resultatet efter båda stegen och förklara vad en rad representerar.
-2. Utgå från samtliga beställningar och visa varje förekommande kundnummer en gång. Varför innehåller resultatet färre rader än `SalesOrder`?
-3. Koppla samman `Customer` och `SalesOrder` genom deras kundnummer. Välj därefter Samir Noors beställningar och visa `OrderID` och `Status`. Beskriv de tre stegen med ord och visa mellanresultatet. Den som vill träna formell notation kan dessutom skriva stegen med σ, π och ⋈.
-4. En läsare tar först bort <code>CustomerID</code> från båda relationerna. Varför kan läsaren då inte fortsätta med samma sammanfogningsvillkor?
-
-<details class="answer" markdown="1">
-<summary>Visa lösningsförslag och resultat</summary>
-
-Den första frågan kan delas upp så här:
-
-<div class="algebra"><code>ConfirmedOrders</code> = σ<sub><code>Status</code> = '<code>CONFIRMED</code>'</sub>(<code>SalesOrder</code>)<br><code>Result</code> = π<sub><code>CustomerID</code></sub>(<code>ConfirmedOrders</code>)</div>
-
-Urvalet innehåller hela raden (1042, 17, <code>CONFIRMED</code>). Slutresultatet har endast kolumnen <code>CustomerID</code> och värdet 17. 
-
-I fråga 2 ger projektionen i stället 17 och 24: två order för kund 17 blir samma tupel när både ordernummer och status väljs bort.
-
-Fråga 3:
-
-<div class="algebra"><code>JoinedOrders</code> = <code>Customer</code> ⋈<sub><code>Customer</code>.<code>CustomerID</code> = <code>SalesOrder</code>.<code>CustomerID</code></sub> <code>SalesOrder</code><br><code>SamirsOrders</code> = σ<sub><code>CustomerName</code> = 'Samir Noor'</sub>(<code>JoinedOrders</code>)<br><code>Result</code> = π<sub><code>OrderID</code>, <code>Status</code></sub>(<code>SamirsOrders</code>)</div>
-
-| Kund i sammanfogningen | <code>OrderID</code> | <code>Status</code> |
-| --- | ---: | --- |
-| Mira Ek, 17 | 1042 | <code>CONFIRMED</code> |
-| Samir Noor, 24 | 1043 | <code>SHIPPED</code> |
-| Mira Ek, 17 | 1044 | <code>DRAFT</code> |
-
-Tabellen visar ett utsnitt av sammanfogningens attribut. Urvalet behåller Samirs rad; projektionen ger den fullständiga resultatrelationen:
-
-| <code>OrderID</code> | <code>Status</code> |
-| ---: | --- |
-| 1043 | <code>SHIPPED</code> |
-
-I fråga 4 har de attribut som villkoret använder redan tagits bort. Ett senare steg kan inte hänvisa till en kolumn som inte längre finns i dess indata. Därför behöver en projektion bevara uppgifter som återstående operationer behöver.
 </details>
 
 Återvänd gärna till fråga 2 efter SQL-introduktionen. Jämför då `SELECT CustomerID FROM SalesOrder;` med samma fråga med <code>DISTINCT</code>. Vilken motsvarar projektionens frånvaro av identiska tupler?
