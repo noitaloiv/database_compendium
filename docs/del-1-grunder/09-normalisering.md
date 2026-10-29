@@ -274,6 +274,25 @@ nyckeln?
   resultat på just det kurstillfället och behöver hela kombinationen.</p>
 </details>
 
+
+## Gör ett beroende synligt innan du delar upp allt
+
+Anta att `BookingLine(BookingID, ItemID, ItemName, Quantity)` beskriver en artikels rad i en bokning. En artikel får förekomma högst en gång per bokning. `ItemID` bestämmer artikelns aktuella namn; kombinationen `BookingID, ItemID` bestämmer antalet. Inga andra unikhetsregler gäller.
+
+Det första beslutet är redan motiverat: `ItemName` beskriver artikeln, så samma namn behöver inte lagras på varje bokningsrad. Slutför beslutet genom att skriva de två relationerna, deras nycklar och den hänvisning som låter oss få tillbaka namnet.
+
+<details class="answer" markdown="1"><summary>Ledtråd</summary>
+
+Ta bort det upprepade namnet från bokningsraden, men behåll artikelnumret där. Fråga vilken uppgift som identifierar en artikel respektive en viss artikels förekomst i en bokning.
+</details>
+
+<details class="answer" markdown="1"><summary>Kontrollera uppdelningen</summary>
+
+`Item(ItemID PK, ItemName)` och `BookingLine(BookingID, ItemID, Quantity)` med sammansatt PK `(BookingID, ItemID)` och FK `ItemID` till `Item`. Kombinationen behövs fortfarande för antalet. Varje bokningsrad kopplas tillbaka till exakt en artikel eftersom `ItemID` är nyckel i `Item`. Ett nytt löpnummer i den gamla relationen hade inte i sig tagit bort det upprepade artikelnamnet.
+</details>
+
+Pröva därefter övning 9.9 utan facit. Om du fastnar, återgå till en enda uppgift: vad beskriver den, vad bestämmer den och vilken koppling måste finnas kvar? Du behöver inte gissa det färdiga antalet tabeller.
+
 ## 9.9 Överföringsövning: bokning av utrustning
 
 En verksamhet använder följande relation:

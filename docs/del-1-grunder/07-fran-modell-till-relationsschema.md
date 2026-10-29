@@ -208,6 +208,17 @@ avdelning. Var bör främmande nyckeln placeras?
   <code>Department</code> skulle blanda flera värden i samma attribut.</p>
 </details>
 
+## Kontrollera ett steg innan du skriver hela schemat
+
+En lokal kan användas av flera besök, men varje besök använder en lokal. Vi har lokal 3 och besöken 41 och 42, båda i lokal 3. Skriv de två besöksraderna med deras hänvisning till lokalen. Behöver lokalen två rader för att representera detta?
+
+<details class="answer" markdown="1"><summary>Ledtråd och kontroll</summary>
+
+Låt varje besöksrad bära lokalnumret: (41, 3) och (42, 3). Lokalen beskrivs en gång. `RoomID` får återkomma på besökssidan; det är besökets identifierare som ska skilja besöksraderna åt. En främmande nyckel gör inte automatiskt kolumnen unik.
+</details>
+
+Pröva nu ett nytt villkor: ett besök får använda två lokaler. Skriv de nödvändiga paren av besöksnummer och lokalnummer. Nu behövs en relation som kan rymma flera sådana par. Motivera ändringen i associationen innan du jämför med många-till-många-avsnittet. Detta är samma metod som i uthyrningsövningen nedan, med färre beslut på en gång.
+
 ## 7.8 Överföringsövning: uthyrning av utrustning
 
 En friluftsverksamhet hyr ut individuellt märkta utrustningsföremål. En kund

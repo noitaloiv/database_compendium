@@ -2,7 +2,7 @@
 layout: default
 track: grundspar
 prerequisites: "Kapitel 10: mängder och relationer."
-focus: "Beskriv urval och projektion med både tabeller och algebra."
+focus: "Följ urval, projektion och sammanfogning med ord, tabeller och mellanresultat; formell symbolnotation är valbar."
 title: 11. Operationer på relationer
 parent: Del II – Frågor och förändring
 nav_order: 11
@@ -20,6 +20,8 @@ keywords:
 # 11. Operationer på relationer
 
 {% include chapter_guide.html %}
+
+I det här kapitlet använder vi relationsalgebra för att förstå hur en databasfråga "byggs upp". Det viktigaste är att du kan förklara vilka rader som väljs, vilka attribut som behålls och hur information från olika relationer kopplas samman. Operationerna illustreras också med formella symboler, men du behöver inte själv kunna skriva algebrauttrycken för att följa kapitlets grundspår.
 
 När en databas väl har fått en genomtänkt struktur återstår en ny utmaning: hur hämtar vi den information som behövs? En användare kanske vill veta vilka produkter som är aktiva och kostar mindre än 120 kronor, vilka beställningar som har gjorts av en viss kund eller vilka kunder som ännu inte har beställt något.
 
@@ -88,7 +90,7 @@ Mellanresultatet behöver inte sparas som en permanent tabell. Det är ett sätt
 
 ## 11.3 Urval begränsar antalet rader
 
-Operationen **urval**, på engelska *selection*, behåller de rader som uppfyller ett angivet villkor. Den skrivs med den grekiska bokstaven sigma, σ:
+Operationen **urval** (*selection*) behåller de rader som uppfyller ett angivet villkor. Den skrivs med den grekiska bokstaven sigma, σ:
 
 <div class="algebra" role="group" aria-label="Relationsalgebraiskt uttryck">σ<sub><code>Active</code> = 1 ∧ <code>ListPriceOre</code> &lt; 12000</sub>(<code>Product</code>)</div>
 
@@ -102,7 +104,7 @@ Flera villkor kan kombineras. Operatorn ∧ betyder att båda villkoren måste v
 
 ## 11.4 Projektion begränsar antalet attribut
 
-Operationen **projektion**, på engelska *projection*, väljer vilka attribut som ska finnas i resultatet. Den skrivs med den grekiska bokstaven pi, π:
+Operationen **projektion** (*projection*) väljer vilka attribut som ska finnas i resultatet. Den skrivs med den grekiska bokstaven pi, π:
 
 <div class="algebra" role="group" aria-label="Relationsalgebraiskt uttryck">π<sub><code>ProductName</code>, <code>ListPriceOre</code></sub>(<code>Product</code>)</div>
 
@@ -250,9 +252,9 @@ Beskriv följande frågor med urval, projektion och sammanfogning. Du behöver �
 Du kan alltså inte alltid ta bort identifierare utan att förändra vad en resultatrad representerar. Börja med informationsbehovet och välj sedan vilka attribut som behöver följa med.
 </details>
 
-## 11.10 Skriv uttrycken och följ mellanresultaten
+## 11.10 Följ frågan med ord och mellanresultat
 
-Nu ska du använda notationerna själv. Följande små relationer räcker som underlag; ett databasprogram behövs inte.
+De här små relationerna räcker som underlag. Börja med att beskriva vad varje operation gör och vilket resultat den ger, gärna med ord och små tabeller. Du behöver inte skriva SQL eller formella algebrauttryck. Om du vill träna symbolnotation kan du också uttrycka stegen med σ, π och ⋈.
 
 | <code>CustomerID</code> | <code>CustomerName</code> |
 | ---: | --- |
@@ -266,13 +268,14 @@ Nu ska du använda notationerna själv. Följande små relationer räcker som un
 | 1043 | 24 | <code>SHIPPED</code> |
 | 1044 | 17 | <code>DRAFT</code> |
 
-1. Skriv ett urval av bekräftade beställningar och projicera sedan på <code>CustomerID</code>. Visa båda resultaten.
-2. Projicera hela <code>SalesOrder</code> på <code>CustomerID</code>. Varför innehåller resultatet färre rader än <code>SalesOrder</code>?
-3. Sammanfoga <code>Customer</code> och <code>SalesOrder</code> på motsvarande kundnummer. Välj därefter Samir Noors rader och visa <code>OrderID</code> och <code>Status</code>. Skriv de tre stegen med σ, π och ⋈.
+
+1. Välj de beställningar i `SalesOrder` som har status `CONFIRMED` och visa sedan endast `CustomerID`. Visa resultatet efter båda stegen och förklara vad en rad representerar.
+2. Utgå från samtliga beställningar och visa varje förekommande kundnummer en gång. Varför innehåller resultatet färre rader än `SalesOrder`?
+3. Koppla samman `Customer` och `SalesOrder` genom deras kundnummer. Välj därefter Samir Noors beställningar och visa `OrderID` och `Status`. Beskriv de tre stegen med ord och visa mellanresultatet. Den som vill träna formell notation kan dessutom skriva stegen med σ, π och ⋈.
 4. En läsare tar först bort <code>CustomerID</code> från båda relationerna. Varför kan läsaren då inte fortsätta med samma sammanfogningsvillkor?
 
 <details class="answer" markdown="1">
-<summary>Visa uttryck och resultat</summary>
+<summary>Visa lösningsförslag och resultat</summary>
 
 Den första frågan kan delas upp så här:
 

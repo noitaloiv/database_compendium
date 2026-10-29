@@ -19,6 +19,12 @@ Ett museum erbjuder guidade visningar och vill ersätta sin gemensamma bokningsl
 
 Arbeta med ett avsnitt i taget. Försök först formulera en egen lösning och öppna sedan resonemanget. När du når SQL-delen finns en färdig startfil; du behöver alltså inte få varje tidigare modellval rätt för att kunna fortsätta öva.
 
+## Använd kapitlet för att knyta ihop, inte börja om
+
+Det här kapitlet återanvänder de tidigare arbetssätten i ett sammanhängande fall. Välj först en regel och följ den genom begreppsmodell, schema, SQL och kontroll. När du kan förklara kedjan kan du granska ytterligare delar. Du behöver inte genomföra ett andra fullständigt projekt för att använda kapitlet som repetition.
+
+Pröva särskilt om en korrekt struktur också räcker för den slutsats verksamheten vill dra. En giltig hänvisning visar att ett registrerat nummer finns, men inte att rätt föremål observerats. Det gör modellering, frågekonstruktion och informationskvalitet till delar av samma undersökning.
+
 ## 26.1 Avgränsa verksamheten
 
 Museet beskriver sitt behov så här:

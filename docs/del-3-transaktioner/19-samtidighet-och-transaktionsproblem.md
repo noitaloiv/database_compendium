@@ -116,6 +116,15 @@ Välj ett förlopp i rutan. Tabellen visar hela schemat med samma kolumner som t
 
 I det sista alternativet får A ensamrätt till saldot innan någon av transaktionerna läser. När B försöker komma åt samma uppgift måste B därför vänta, och hämtar sitt läsvärde först efter att A har godkänt uttaget. Då är underlaget 90 och B:s beräkning ger 90 − 20 = 70. Skillnaden mot det felaktiga förloppet är alltså inte själva subtraktionen, utan när B tillåts skaffa det värde som subtraktionen bygger på. Nästa kapitel förklarar låsreglerna som gör denna väntan möjlig.
 
+
+## Stöd när tabellen blir svår att följa
+
+Rita tre separata kolumner: databasens värde, A:s lokala värde och B:s lokala värde. Börja med databasvärdet 10. A läser 10; B minskar därefter databasvärdet med 3 till 7 och godkänner ändringen. A har fortfarande sin lokala kopia 10. Om A nu räknar 10 − 2 och skriver resultatet blir databasvärdet 8, trots att de två uttagen tillsammans borde ge 5.
+
+Fyll själv i de tre kolumnerna för varje steg. En beräkning hos A ändrar bara A:s kolumn, medan en skrivning ändrar databasens kolumn. Förklara sedan felet genom att peka på den gamla läsningen och den senare överskrivningen. Problemets namn är användbart först när du kan visa detta förlopp.
+
+Om du blandar ihop värdena, börja om med två transaktioner och ett objekt innan du följer större scheman. De följande uppgifterna använder samma skillnad, även när fler uppgifter ingår.
+
 ## 19.7 Öva och motivera diagnosen
 
 **Arbetssätt:** resonera med tabellen; ingen installation behövs. En förening räknar föremål i sitt förråd. Det registrerade antalet börjar på 50, A ska lägga till 5 och B ska lägga till 7. Vi byter därmed verksamhet men behåller samma problem med lokala läsvärden.

@@ -53,6 +53,23 @@ Nordic Brew är ett fiktivt kafferosteri som återkommer genom boken. Först fö
 
 Bibliotek, föreningar, vårdbokningar och museer ger andra situationer att pröva resonemangen på. De delar inte automatiskt schema eller data med Nordic Brew. Varje praktisk uppgift anger därför sitt underlag, och det avslutande museifallet knyter ihop arbetssätten i en ny verksamhet.
 
+## Läs för att kunna delta, sedan för att kunna arbeta själv
+
+Vid första läsningen försöker du förstå vilket problem kapitlet löser och följa ett genomarbetat exempel. Skriv var du tappar resonemanget. Du behöver inte redan kunna lösa den största överföringsuppgiften. En sådan uppgift blir mer meningsfull efter att du har fått pröva ett mindre steg och diskutera varför det fungerar.
+
+Efter en genomgång eller ett eget försök återvänder du till just det avsnitt som förklarar svårigheten. Gör sedan en vald uppgift utan att ha lösningen öppen. Skillnaden mellan det första och det andra försöket visar vad du nu kan använda, snarare än bara känna igen.
+
+| Om du fastnar på … | Börja om med … | Pröva därefter … |
+| --- | --- | --- |
+| Vilka begrepp modellen behöver | En konkret händelse och två saker som måste kunna skiljas åt i 5.7 | En association åt båda håll i 6.8 |
+| Var en främmande nyckel ska ligga | Två exempelrader på många-sidan i 7.3 | Kontrollfrågan före 7.8 |
+| Varför en uppgift flyttas vid normalisering | Ett beroende och dess verksamhetsregel i 8; ett upprepat faktum i 9 | Den stegvisa kontrollen före 9.9 |
+| Varför en join ger fler rader | Matchande radpar i 13.1–13.4 | Kontrollera ett omatchat fall före 13.7 |
+| Vad en gruppering räknar | Skillnaden mellan rader och enheter i 14.1 | Grupperingskontrollen före 14.7 |
+| Vad som händer när en transaktion väntar | Databasvärde och lokalt värde i 19.1 | Låskontrollen före 20.8 |
+
+Kapitel 10–11 ger en begreppslig brygga till SQL. Följ rader, attribut och mellanresultat; de formella symboluttrycken är ett valbart sätt att skriva samma resonemang. Du kan gå vidare till SQL med beskrivningar i ord och tabeller.
+
 ## Tre sätt att arbeta med en uppgift
 
 **Resonera** betyder att underlaget i texten räcker. Skriv, rita eller räkna för

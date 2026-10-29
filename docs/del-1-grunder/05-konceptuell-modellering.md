@@ -24,11 +24,7 @@ keywords:
 
 {% include chapter_guide.html %}
 
-I föregående kapitel utgick vi från färdiga tabeller, men innan sådana tabeller
-kan skapas måste någon avgöra vad de ska representera. Var hör exempelvis en
-leveransadress hemma, och ska ordet kund bara omfatta personer eller även
-organisationer? Den typen av frågor kan inte besvaras genom att välja en
-SQL-datatyp, eftersom de handlar om verksamhetens begrepp snarare än om teknisk
+I föregående kapitel utgick vi från färdiga tabeller, men innan sådana tabeller kan skapas måste någon avgöra vad de ska representera. Var hör exempelvis en leveransadress hemma, och ska ordet kund bara omfatta personer eller även organisationer? Den typen av frågor kan inte besvaras genom att välja en SQL-datatyp, eftersom de handlar om verksamhetens begrepp snarare än om teknisk
 lagring.
 
 Med **konceptuell modellering** försöker vi reda ut sådana betydelser och beskriva hur de hör ihop. Arbetet börjar i ett avgränsat informationsbehov och hjälper oss att avgöra vad systemet behöver kunna representera. Först därefter väljer vi hur representationen ska genomföras i tabeller och programvara.
@@ -37,13 +33,9 @@ Med **konceptuell modellering** försöker vi reda ut sådana betydelser och bes
 
 En modell hjälper oss att undersöka något genom att välja ut vissa aspekter och lämna andra utanför. En karta över busslinjer visar exempelvis hållplatser och bytesmöjligheter, eftersom de behövs för att planera en resa, men behöver inte visa varje träd längs vägen. På motsvarande sätt kan en ritning och en utrymningsplan beskriva samma byggnad med olika innehåll: de är avsedda att stödja olika uppgifter.
 
-På samma sätt kan Nordic Brew beskriva kaffe som en produkt som kunder kan
-beställa, ett lagersaldo, ett produktionsparti som kan återkallas eller en
-råvara med ett visst ursprung och inköpsavtal. Beskrivningarna motsäger inte
-varandra, men framhäver olika delar av verksamheten.
+På samma sätt kan Nordic Brew beskriva kaffe som en produkt som kunder kan beställa, ett lagersaldo, ett produktionsparti som kan återkallas eller en råvara med ett visst ursprung och inköpsavtal. Beskrivningarna motsäger inte varandra, men framhäver olika delar av verksamheten.
 
-Eftersom ingen enskild beskrivning är fullständig måste modellens innehåll
-avgöras utifrån det arbete och de frågor som den är avsedd att stödja.
+Eftersom ingen enskild beskrivning är fullständig måste modellens innehåll avgöras utifrån det arbete och de frågor som den är avsedd att stödja.
 
 {: .important }
 > Ett korrekt ritat diagram kan fortfarande vara en dålig modell. Symbolerna
@@ -61,10 +53,7 @@ Sedan avgränsar vi:
 > Lager, leveranser, betalningar, kampanjer och produktionspartier ingår inte i
 > den första modellen.
 
-Avgränsningen innebär inte att lager, leveranser och betalningar är oviktiga.
-Den gör i stället analysen hanterbar och tydliggör vilka frågor den första
-modellen inte är avsedd att besvara. Om syftet senare förändras kan även
-avgränsningen behöva omprövas.
+Avgränsningen innebär inte att lager, leveranser och betalningar är oviktiga. Den gör i stället analysen hanterbar och tydliggör vilka frågor den första modellen inte är avsedd att besvara. Om syftet senare förändras kan även avgränsningen behöva omprövas.
 
 <figure class="figure" id="figur-5-1">
   <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur 5.1, rulla vid behov i sidled" style="--figure-width: 900px">
@@ -75,10 +64,7 @@ avgränsningen behöva omprövas.
 
 ## 5.3 Entitetstyp och entitet
 
-En **entitet** är en individuell förekomst som verksamheten behöver kunna
-skilja från andra, såsom beställningen med ordernummer 1042. En
-**entitetstyp** samlar i sin tur förekomster som har gemensam betydelse och
-gemensamma regler. `SALES_ORDER` är alltså entitetstypen, medan order 1042 är
+En **entitet** är en individuell förekomst som verksamheten behöver kunna skilja från andra, såsom beställningen med ordernummer 1042. En **entitetstyp** samlar i sin tur förekomster som har gemensam betydelse och gemensamma regler. `SALES_ORDER` är alltså entitetstypen, medan order 1042 är
 en enskild entitet av den typen.
 
 Det är informationsbehovet som avgör vad som behöver en egen identitet. Därför kan även händelser som bokningar, betalningar och kursregistreringar vara entiteter. Om två bokningar gäller samma person och rum men olika tidpunkter behöver vi kunna skilja dem åt, trots att ingen ny fysisk sak har uppstått.
@@ -93,9 +79,7 @@ PRODUCT
 
 ## 5.4 Attribut och identifierare
 
-Ett **attribut** beskriver en egenskap hos en entitetstyp. För `PRODUCT` kan
-exempelvis `ProductName` och `ListPriceOre` fungera som attribut, eftersom båda
-värdena beskriver en bestämd produkt.
+Ett **attribut** beskriver en egenskap hos en entitetstyp. För `PRODUCT` kan exempelvis `ProductName` och `ListPriceOre` fungera som attribut, eftersom båda värdena beskriver en bestämd produkt.
 
 För att kunna tala om en viss produkt behöver vi dessutom ett sätt att skilja den från andra. En **konceptuell identifierare**, exempelvis `ProductID`, uttrycker hur det görs i modellen. Vi märker den med `ID` för att visa att vi fortfarande beskriver verksamhetens förekomster. Begreppet primärnyckel används senare, när vi bestämmer hur dessa förekomster ska representeras som tabellrader.
 
@@ -106,20 +90,13 @@ ID ProductID
    ListPriceOre
 ```
 
-Det är inte alltid självklart om något bör vara ett attribut eller en egen
-entitetstyp. Ett förslag kan prövas genom att fråga om värdet beskriver en
-förekomst, om flera värden kan förekomma samtidigt, om det behöver en egen
-identitet eller egna samband och om historiska värden ska bevaras.
+Det är inte alltid självklart om något bör vara ett attribut eller en egen entitetstyp. Ett förslag kan prövas genom att fråga om värdet beskriver en förekomst, om flera värden kan förekomma samtidigt, om det behöver en egen identitet eller egna samband och om historiska värden ska bevaras.
 
-En leveransadress kan mot den bakgrunden fungera som ett attribut i en enkel
-modell. Om adresser däremot behöver återanvändas, historiseras eller valideras
-med egna regler kan `ADDRESS` behöva bli en egen entitetstyp. Det finns således
-inte ett generellt svar som är rätt oberoende av syftet.
+En leveransadress kan mot den bakgrunden fungera som ett attribut i en enkel modell. Om adresser däremot behöver återanvändas, historiseras eller valideras med egna regler kan `ADDRESS` behöva bli en egen entitetstyp. Det finns således inte ett generellt svar som är rätt oberoende av syftet.
 
 ## 5.5 Associationer
 
-En **association** beskriver hur entiteter hör samman och namnges lämpligen med
-ett verb, så att linjen kan läsas som ett meningsfullt påstående:
+En **association** beskriver hur entiteter hör samman och namnges lämpligen med ett verb, så att linjen kan läsas som ett meningsfullt påstående:
 
 ```text
 CUSTOMER places SALES_ORDER
@@ -127,14 +104,11 @@ CUSTOMER places SALES_ORDER
 
 Anta exempelvis att två rutor betecknar anställda och avdelningar. En linje mellan dem säger inte om en anställd *arbetar vid* eller *leder* avdelningen, och de två sambanden kan ha olika regler. Genom att namnge associationen med ett verb får läsaren hjälp att förstå påståendet och att skilja flera samband mellan samma entitetstyper åt.
 
-Till en början räcker det att identifiera sambandet och formulera dess
-betydelse. Därefter kan modellen preciseras genom att ange hur många
-förekomster som får delta i vardera riktningen.
+Till en början räcker det att identifiera sambandet och formulera dess betydelse. Därefter kan modellen preciseras genom att ange hur många förekomster som får delta i vardera riktningen.
 
 ## 5.6 Ett mindre exempel: bibliotek
 
-Anta att ett bibliotek vill hålla reda på både sina fysiska exemplar och de lån
-som har gjorts. Informationsbehovet kan då preciseras genom följande frågor:
+Anta att ett bibliotek vill hålla reda på både sina fysiska exemplar och de lån som har gjorts. Informationsbehovet kan då preciseras genom följande frågor:
 
 - Vilken bokutgåva beskriver ett exemplar?
 - Vem har lånat ett visst exemplar?
@@ -171,10 +145,7 @@ Orden kund, beställning och produkt ger oss först kandidaterna `CUSTOMER`, `SA
 
 ### Steg 3: placera attributen
 
-`OrderDate` beskriver beställningen som helhet, medan `Quantity` och
-`AgreedUnitPriceOre` beskriver en viss orderrad. Produkten kan samtidigt ha ett
-`ListPriceOre`, men det aktuella listpriset får inte ersätta det pris som
-faktiskt avtalades när en äldre order lades.
+`OrderDate` beskriver beställningen som helhet, medan `Quantity` och `AgreedUnitPriceOre` beskriver en viss orderrad. Produkten kan samtidigt ha ett `ListPriceOre`, men det aktuella listpriset får inte ersätta det pris som faktiskt avtalades när en äldre order lades.
 
 | Uppgift | Order 1042, produkt 501 | Order 1043, produkt 501 | Vad beskriver den? |
 | --- | ---: | ---: | --- |
@@ -186,31 +157,29 @@ Tabellen hjälper oss att pröva placeringen av attributen. Produktnamnet beskri
 
 ### Steg 4: pröva med ett scenario
 
-Anta att Nordic Brew höjer listpriset på en produkt efter att en kund redan har
-gjort sin beställning. Orderns totalbelopp ska då inte förändras i efterhand,
-vilket visar varför `AgreedUnitPriceOre` behöver beskriva orderraden och inte bara
-hämtas från produktens nuvarande listpris.
+Anta att Nordic Brew höjer listpriset på en produkt efter att en kund redan har gjort sin beställning. Orderns totalbelopp ska då inte förändras i efterhand, vilket visar varför `AgreedUnitPriceOre` behöver beskriva orderraden och inte bara hämtas från produktens nuvarande listpris.
 
 ## 5.8 Vanliga tidiga misstag
 
 ### Att börja med tabeller
 
-Om analysen börjar med främmande nycklar riskerar tekniska vanor att bestämma
-vilka verksamhetsbegrepp som blir synliga. Syfte, frågor och regler behöver
-därför etableras innan den tekniska representationen väljs.
+Om analysen börjar med främmande nycklar riskerar tekniska vanor att bestämma vilka verksamhetsbegrepp som blir synliga. Syfte, frågor och regler behöver därför etableras innan den tekniska representationen väljs.
 
 ### Att göra varje substantiv till en entitetstyp
 
-Ord i en text är kandidater, inte facit. ”Pris” är här ett attribut, medan en
-separat prislista med giltighetsperioder kan behöva modelleras som egna
-entiteter i ett annat syfte.
+Ord i en text är kandidater, inte facit. ”Pris” är här ett attribut, medan en separat prislista med giltighetsperioder kan behöva modelleras som egna entiteter i ett annat syfte.
 
 ### Att blanda individ och typ
 
-`PRODUCT` betecknar entitetstypen och beskriver därför de egenskaper och regler
-som är gemensamma för produkterna. Produkten med nummer `501` är däremot en individuell entitet
-av denna typ; rutan i modellen beskriver alltså typen och inte just den
-enskilda produkten.
+`PRODUCT` betecknar entitetstypen och beskriver därför de egenskaper och regler som är gemensamma för produkterna. Produkten med nummer `501` är däremot en individuell entitet av denna typ; rutan i modellen beskriver alltså typen och inte just den enskilda produkten.
+
+
+## Från genomgång till eget modellförslag
+
+I ett första försök räcker det att välja en händelse och följa den. Anta att samma person bokar samma typ av besök två gånger. Personen och besökstypen kan vara oförändrade, men vi behöver ändå kunna skilja händelserna åt. Det är skälet till att en modell inte kan byggas enbart genom att plocka substantiv ur texten.
+
+Innan du gör hela vårdbokningsfallet: skriv en mening om vad ett besök betyder och en mening om vad som gör ett andra besök till en ny händelse. Jämför sedan med avsnittets resonemang. Lägg till attribut och associationer först när denna skillnad är klar. Om två förslag skiljer sig, pröva båda mot samma tillåtna händelse; det avgör mer än antalet rutor.
+
 
 ## 5.9 Överföringsövning: vårdbokning
 

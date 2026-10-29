@@ -184,6 +184,20 @@ Här visas Mira med 1042 samt Samir och Lo med `NULL`. Att flytta ett villkor ka
   <figcaption><strong>Figur 13.3.</strong> Vägen mellan tabellerna visar vilka nyckelvärden som ska jämföras. Varje sammanfogning behöver ett eget motiverat villkor. <a href="{{ '/assets/images/17-joinvagar-nordic-brew.svg' | relative_url }}">Visa figuren separat</a>.</figcaption>
 </figure>
 
+
+## Kontrollera radparen innan du går vidare
+
+En kund har två order och en annan kund saknar order. Rita de matchande paren: den första kundraden paras med vardera orderraden. En vanlig `JOIN` ger då två rader. En `LEFT JOIN` från kunder ger dessutom en rad för kunden utan order, med `NULL` för orderuppgifterna.
+
+**Ditt nästa steg:** skriv vad varje rad representerar i de två resultaten. Vad skulle hända om ännu en order tillkom för den första kunden?
+
+<details class="answer" markdown="1"><summary>Kontroll</summary>
+
+Den matchande raden beskriver kombinationen kund och order. Den omatchade raden visar att kunden saknar en matchande order; den är inte en order med nummer noll. En ytterligare order ger en ytterligare matchning: tre rader med `JOIN`, fyra med `LEFT JOIN`. Kundnamnets upprepning är väntad och ska inte automatiskt tas bort med `DISTINCT`.
+</details>
+
+Använd samma radparstänkande i konferensövningen. Börja med två tabeller och lägg till nästa först när du kan förklara resultatets radantal.
+
 ## 13.7 Öva med ett konferensprogram
 
 **Start:** skapa en separat övningsdatabas och kör [transfer-exercises.sql]({{ '/assets/sql/transfer-exercises.sql' | relative_url }}). `ConferenceSession` beskriver programpunkter, `Speaker` talare och `SessionSpeaker` vem som talar på vilken programpunkt.

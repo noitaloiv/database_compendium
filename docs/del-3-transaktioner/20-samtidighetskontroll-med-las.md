@@ -130,6 +130,20 @@ Börja med att skriva vad varje transaktion avser att åstadkomma och vilket res
 Förloppet följer inte 2PL, eftersom transaktionen begär låset på Y efter att ha släppt sitt första lås. Tvåfasregeln gäller även transaktioner som bara läser; avsaknaden av skrivningar gör därför inte denna ordning tillåten. En möjlig lösning är att ta båda läslåsen innan något släpps. Med SS2PL skulle transaktionen dessutom behålla dem tills hela arbetet avslutas.
 </details>
 
+
+## Ett gemensamt startsteg, sedan ditt eget
+
+Anta att A ska ändra ett saldo och därför får X-lås före sin första läsning. B vill också ändra saldot. Med kapitlets SS2PL-regel måste B vänta redan vid sin låsbegäran. B får alltså ännu inte läsa ett värde att använda senare.
+
+Slutför förloppet: vad måste hända innan B kan läsa, och vilket värde ska B då få?
+
+<details class="answer" markdown="1"><summary>Kontroll</summary>
+
+A skriver, avslutar och släpper låset. B kan därefter få låset och läsa det då gällande databasvärdet. B ska inte fortsätta med en lokal kopia som lästes före väntan. Om A avbryter måste dess ändringar återtas innan B får fortsätta.
+</details>
+
+Följ därefter 20.8 med en rad i taget. Skriv väntan som en faktisk spärr för den transaktionens senare steg. När du kan förklara en sådan spärr kan du gå vidare till 20.10–20.11; om inte, återvänd till 19.1 och skilj lokalt värde från databasvärde. Låsvarianten är given i uppgiften och ska inte gissas från produktbeteendet i SQLite.
+
 ## 20.8 Öva stegvis: tre transaktioner och två objekt
 
 Ett större schema behöver inte kräva en ny metod. Vi följer fortfarande ett läsvärde och en låsbegäran i taget, men håller nu isär två objekt. Anta att `X = 100` och `Y = 60`. A ska minska X med 10, B ska minska X med 20 och C ska minska Y med 5. X och Y kan exempelvis vara lagersaldon för två olika produkter.
