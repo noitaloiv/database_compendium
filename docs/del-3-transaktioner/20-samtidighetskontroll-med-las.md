@@ -81,7 +81,7 @@ När alla åtkomster skyddas med rätt slags lås och alla transaktioner följer
 | **Strikt 2PL, S2PL** | Tvåfasregeln gäller och alla X-lås behålls till <code>COMMIT</code> eller avbrott. |
 | **Starkt strikt 2PL, SS2PL** | Alla S- och X-lås behålls till <code>COMMIT</code> eller avbrott. Kallas också rigorös tvåfaslåsning. |
 
-I vissa texter används namnen något annorlunda; tabellen anger de definitioner som används här. SS2PL är enklast att följa i våra första scheman eftersom upplåsningen alltid sker sist. S2PL skyddar ofärdiga skrivningar genom att X-låsen hålls kvar, medan läslås kan släppas tidigare om tvåfasregeln fortfarande följs.
+I vissa texter används namnen något annorlunda; tabellen anger de definitioner som används här. I de följande egna schemauppgifterna använder vi SS2PL när inte uppgiften uttryckligen anger något annat. Då behåller varje transaktion sina `S`- och `X`-lås fram till `COMMIT` eller avbrott, vilket gör väntan och upplåsning lättare att följa. S2PL skyddar ofärdiga skrivningar genom att `X`-låsen hålls kvar, medan läslås kan släppas tidigare om tvåfasregeln fortfarande följs.
 
 <figure class="figure" id="figur-20-1">
   <div class="figure-viewport" tabindex="0" role="region" aria-label="Figur 20.1, rulla vid behov i sidled" style="--figure-width: 900px">

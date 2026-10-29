@@ -110,7 +110,7 @@ ORDER BY Customer.CustomerID, SalesOrder.OrderID;
 | Samir Noor | 1043 |
 | Lo Chen | `NULL` |
 
-Vänster sida är tabellen före `LEFT JOIN`, i det här fallet `Customer`. För en vänsterrad som inte matchar någon högerrad skapas en resultatrad där högerns kolumner är `NULL`. Lo får därför vara med utan att vi hittar på ett ordernummer åt henne. `NULL` betyder här att någon motsvarande beställning saknas; det är varken noll eller texten `'NULL'`.
+Vänster sida är tabellen före `LEFT JOIN`, i det här fallet `Customer`. För en vänsterrad utan matchning fyller LEFT JOIN högerns resultatkolumner med NULL. När Lo visas med `NULL` i `OrderID` betyder det därför att frågan inte hittade någon matchande beställning. Det är ingen beställning med nummer noll och ingen ny lagrad orderrad. Däremot visar inte `NULL` i vilken högerkolumn som helst att en matchning saknas: en matchad rad kan redan innehålla `NULL` i en kolumn där det är tillåtet. Ett normalt obligatoriskt ordernummer är därför ett tydligare tecken på utebliven matchning.
 
 <figure class="diagram">
 <div class="diagram-grid">

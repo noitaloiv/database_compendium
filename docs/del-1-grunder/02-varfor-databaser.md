@@ -109,7 +109,7 @@ Nordic Brews webbshop omfattar mer än själva databasen. För att en beställni
   <figcaption><strong>Figur 2.3.</strong> Databasen ingår i ett informationssystem som också omfattar människors arbete och verksamhetens regler. <a href="{{ '/assets/images/14-databas-i-informationssystem.svg' | relative_url }}">Visa figuren separat</a>.</figcaption>
 </figure>
 
-Skillnaden får praktiska följder. Om personalen använder fel e-postadressfält hjälper det inte att värdena är korrekt lagrade, och om två avdelningar menar olika saker med ”aktiv kund” kan en gemensam databas inte själv avgöra vilken definition som ska gälla. För att den lagrade informationen ska bli användbar behöver människorna därför komma överens om både betydelser och arbetsrutiner.
+Skillnaden får praktiska följder. Om personalen använder fel e-postadressfält hjälper det inte att värdena är korrekt lagrade, och om två avdelningar menar olika saker med "aktiv kund" kan en gemensam databas inte själv avgöra vilken definition som ska gälla. För att den lagrade informationen ska bli användbar behöver människorna därför komma överens om både betydelser och arbetsrutiner.
 
 ## 2.5 När räcker ett kalkylblad?
 

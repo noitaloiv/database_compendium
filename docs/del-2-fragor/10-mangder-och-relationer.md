@@ -124,7 +124,7 @@ En databasfråga behöver ofta göra mer än att kombinera två färdiga mängde
 
 SQL låter oss senare uttrycka dessa frågor i ett databashanteringssystem, men följer inte relationsmodellen i alla avseenden. Om en kund har gjort två beställningar kan till exempel kundnumret komma med två gånger när en SQL-fråga hämtar kundnummer ur beställningarna. Den klassiska relationsalgebrans projektion ger i stället en mängd där samma kundnummer bara förekommer en gång.
 
-SQL erbjuder dessutom sådant som ligger utanför den klassiska relationsalgebran i nästa kapitel: `NULL` för saknade uppgifter och `ORDER BY` för att sortera presentationen. Vi återkommer till båda när de behövs i konkreta frågor. Tills vidare är det framför allt skillnaden mellan en mängd och ett resultat som kan innehålla upprepningar vi behöver bära med oss.
+SQL skiljer sig också från den klassiska relationsalgebran genom att tillåta `NULL` för saknade uppgifter och `ORDER BY` för sortering. Vi återkommer till båda när de behövs i konkreta frågor. Tills vidare är det framför allt skillnaden mellan en mängd och ett resultat som kan innehålla upprepningar vi behöver bära med oss.
 
 ## 10.7 Överföringsövning: två läsecirklar
 

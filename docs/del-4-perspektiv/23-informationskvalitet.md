@@ -53,7 +53,7 @@ När en kvalitetsbrist upptäcks behöver åtgärden träffa orsaken till proble
 
 ## 23.3 Vad kan databasen kontrollera?
 
-Vi har redan använt flera verktyg som stärker kvaliteten. En främmande nyckel kan exempelvis hindra en order från att hänvisa till en kund som inte finns, ett `CHECK`-villkor kan kräva att det registrerade antalet är positivt och normalisering kan minska risken för motstridiga kopior av samma aktuella faktum. Skydden hjälper oss på olika sätt att hålla registreringarna förenliga med de regler vi har uttryckt.
+Vi har redan använt flera verktyg som stärker kvaliteten: en främmande nyckel kan exempelvis hindra en order från att hänvisa till en kund som inte finns, ett `CHECK`-villkor kan kräva att det registrerade antalet är positivt och normalisering kan minska risken för motstridiga kopior av samma aktuella faktum. Tillsammans hjälper de oss att hålla registreringarna förenliga med de regler vi har uttryckt.
 
 De kan däremot inte ensamma avgöra om Mira verkligen beställde varan eller om det registrerade antalet kaffeförpackningar motsvarar hennes beställning. För det behöver databasen ett tillförlitligt underlag att jämföra med: den kan kontrollera givna regler och värden, men har ingen egen direkt tillgång till vad som hände när kunden beställde.
 

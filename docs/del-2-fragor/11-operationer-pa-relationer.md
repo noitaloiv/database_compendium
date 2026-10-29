@@ -23,7 +23,7 @@ keywords:
 
 När en databas väl har fått en genomtänkt struktur återstår en ny utmaning: hur hämtar vi den information som behövs? En användare kanske vill veta vilka produkter som är aktiva och kostar mindre än 120 kronor, vilka beställningar som har gjorts av en viss kund eller vilka kunder som ännu inte har beställt något.
 
-Sådana frågor uttrycks vanligen med SQL. Innan vi introducerar själva språket är det emellertid värdefullt att skilja mellan frågans innebörd och den syntax som används för att skriva den. Om vi först kan beskriva vilka relationer som behövs, vilka rader som ska behållas och vilka attribut som ska visas blir det betydligt enklare att formulera en korrekt SQL-fråga.
+Sådana frågor uttrycks vanligen med SQL, men för att skriva en bra fråga behöver vi först förstå vilket resultat den ska ge. Vilka relationer behövs?  Vilka rader ska behållas? Vilka attribut ska visas? När vi kan besvara dessa frågor blir det betydligt enklare att formulera SQL-satsen.
 
 I föregående kapitel kombinerade vi mängder av produktnummer, men för att få fram sådana mängder behöver vi kunna arbeta med relationer som innehåller fler attribut. **Relationsalgebra** ger oss operationer för just detta: att välja rader, välja attribut och koppla samman fakta. När resultatet av en operation fortfarande är en relation kan det användas i nästa steg. Vi börjar därför med att följa konkreta exempelrader genom stegen, innan vi sätter ihop dem till hela uttryck.
 

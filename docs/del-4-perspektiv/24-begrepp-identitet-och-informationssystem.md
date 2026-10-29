@@ -25,7 +25,7 @@ Ett bibliotek behöver skilja bokutgåvan från de fysiska exemplaren för att v
 
 En modell kan ändå kritiseras. Om bibliotekets modell inte kan skilja två samtidigt utlånade exemplar åt uppfyller den inte sitt syfte. ”Alla modeller är förenklingar” är därför ingen ursäkt för oklara begrepp. Vi behöver kunna säga både vad modellen tar med och vad som avsiktligt lämnas utanför.
 
-När vi undersöker vilka slags företeelser en modell förutsätter och hur de hör ihop rör vi oss mot **ontologiska frågor**. Här används ordet ontologi för sådana grundantaganden om vad som finns och räknas som något i den beskrivna verksamheten. Det kräver inte att vi bygger en särskild teknisk ontologiprodukt.
+När vi undersöker vilka slags företeelser en modell förutsätter och hur de hör ihop rör vi oss mot *ontologiska frågor*. Här syftar ontologi på våra grundantaganden om vad som finns och räknas som något i verksamheten, inte på ett särskilt tekniskt verktyg.
 
 ## 24.2 Fysiska föremål och institutionella roller
 
